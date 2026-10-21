@@ -43,7 +43,7 @@ def _transcript(events, cap=70):
     return "\n".join(out)
 
 
-def _key_frames(work, events, n=10):
+def _key_frames(work, events, n=16):
     segs = events["segment_detail"]
     picks = {s["frame_idx"]: s for s in segs if any(
         e for e in events["events"] if e.get("seg") == s["seg"] and e["type"] == "element_rendered")}
@@ -72,58 +72,73 @@ def run(work_dir: str) -> dict:
     review = json.loads((work / "review.json").read_text())
 
     qual = [r for r in rules if "video" in r["stages"] and not r["machine_checkable"]]
-    # keep the prompt focused: drop ones already covered deterministically
     done_ids = {f["rule_id"] for f in review["findings"]}
-    qual = [r for r in qual if r["id"] not in done_ids][:45]
-    rule_list = "\n".join(
-        f'- {r["id"]} [{(r["letter_ids"] or [""])[0]}] ({r["severity"]}): {r["name"]} — {r["check"][:160]}'
-        for r in qual)
-    allowed = {r["id"] for r in qual}
+    qual = [r for r in qual if r["id"] not in done_ids]   # judge the FULL qualitative set
+    by_id = {r["id"]: r for r in rules}
 
     transcript = _transcript(events)
     frames = _key_frames(work, events)
+    img_content = []
+    for ts, b64 in frames:
+        img_content.append({"type": "text", "text": f"frame @ {ts}:"})
+        img_content.append({"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b64}})
 
     system = (
         "You are a Messaging Advisory reviewer grading an Apple Messages for Business "
-        "experience recording before it goes to Apple. Judge ONLY the rules provided. "
-        "Each finding MUST cite one of the provided rule ids and a timestamp (mm:ss) grounded "
-        "in the transcript or a frame. Do not invent rules or requirements. Do not measure "
-        "latency or counts (those are handled elsewhere). Be conservative: only flag what the "
-        "evidence shows. Buckets: Fail (clear violation of an Apple rule), Caveat (quality risk), "
-        "NotShownMandatory/NotShownRecommended (required thing not demonstrated), AppleWillAsk "
-        "(question Apple will raise). Return STRICT JSON: "
+        "experience recording before it goes to Apple — the same bar as MA's Ramp review. "
+        "Judge ONLY the rules provided in this batch. Each finding MUST cite one of the provided "
+        "rule ids and a timestamp (mm:ss) grounded in the transcript or a frame. Never invent "
+        "rules or requirements. Do not measure latency or counts (handled elsewhere). "
+        "Buckets: Fail (clear violation of an Apple non-negotiable/standard), Caveat (a real "
+        "quality risk Apple would note — be THOROUGH here: casing, clarity, missing confirmations, "
+        "framing bubbles, menu dead-ends, redundant steps, tone), NotShownMandatory/"
+        "NotShownRecommended (required thing not demonstrated), AppleWillAsk (a question Apple "
+        "will raise). Flag every issue you have on-screen or transcript evidence for; a strong "
+        "review lists many Caveats. Return STRICT JSON: "
         '{"findings":[{"rule_id","bucket","t_start","issue","fix"}]} and nothing else.')
-    task = (
-        f"RULES YOU MAY CITE (id [letter] (severity): name — check):\n{rule_list}\n\n"
-        f"TIMESTAMPED TRANSCRIPT (OCR; business=agent, cust=customer):\n{transcript}\n\n"
-        f"Key frames follow (each labeled with its timestamp). Judge the rules and return JSON.")
-
-    content = [{"type": "text", "text": task}]
-    for ts, b64 in frames:
-        content.append({"type": "text", "text": f"frame @ {ts}:"})
-        content.append({"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": b64}})
 
     client = anthropic.Anthropic()
-    resp = client.messages.create(model=MODEL, max_tokens=4000, system=system,
-                                  messages=[{"role": "user", "content": content}])
-    text = resp.content[0].text
-    m = re.search(r"\{.*\}", text, re.S)
-    parsed = json.loads(m.group(0)) if m else {"findings": []}
+    BATCH = 22
+    batches = [qual[i:i + BATCH] for i in range(0, len(qual), BATCH)]
+    allowed_all = {r["id"] for r in qual}
+    raw_findings, returned_total = [], 0
+    for batch in batches:
+        rule_list = "\n".join(
+            f'- {r["id"]} [{(r["letter_ids"] or [""])[0]}] ({r["severity"]}): {r["name"]} — {r["check"][:150]}'
+            for r in batch)
+        task = (f"RULES YOU MAY CITE THIS BATCH (id [letter] (severity): name — check):\n{rule_list}\n\n"
+                f"TIMESTAMPED TRANSCRIPT (OCR; business=agent, cust=customer):\n{transcript}\n\n"
+                f"Key frames follow (each labeled with its timestamp). Judge these rules; return JSON.")
+        content = [{"type": "text", "text": task}] + img_content
+        resp = client.messages.create(model=MODEL, max_tokens=4000, temperature=0, system=system,
+                                      messages=[{"role": "user", "content": content}])
+        m = re.search(r"\{.*\}", resp.content[0].text, re.S)
+        parsed = json.loads(m.group(0)) if m else {"findings": []}
+        returned_total += len(parsed.get("findings", []))
+        raw_findings.extend(parsed.get("findings", []))
 
-    by_id = {r["id"]: r for r in rules}
     kept, dropped = [], 0
-    for f in parsed.get("findings", []):
+    seen_batch = set()
+    for f in raw_findings:
         rid = str(f.get("rule_id", "")).strip()
-        if rid not in allowed or not f.get("t_start") or f.get("bucket") not in VALID_BUCKETS:
+        key = (rid, f.get("bucket"))
+        if rid not in allowed_all or not f.get("t_start") or f.get("bucket") not in VALID_BUCKETS or key in seen_batch:
             dropped += 1
             continue
+        seen_batch.add(key)
         r = by_id[rid]
+        bucket = f["bucket"]
+        # Severity anchor: a Fail must come from a rule the rule set treats as an Apple
+        # requirement. A "Field" (MA-observation) rule can't be a Fail — it's a Caveat.
+        if bucket == "Fail" and r["severity"] == "Field":
+            bucket = "Caveat"
         kept.append({
             "rule_id": rid, "letter_ids": r.get("letter_ids", []), "name": r["name"],
             "severity": r["severity"], "source": r["source"], "origin": "llm",
-            "bucket": f["bucket"], "issue": f["issue"][:200], "fix": f["fix"][:200],
+            "bucket": bucket, "issue": f["issue"][:200], "fix": f["fix"][:200],
             "t_start": f["t_start"], "t_end": None,
         })
+    parsed = {"findings": raw_findings}  # for the returned count below
 
     # merge (dedupe by rule_id+bucket already-present)
     seen = {(f["rule_id"], f["bucket"]) for f in review["findings"]}
