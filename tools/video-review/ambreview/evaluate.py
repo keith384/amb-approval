@@ -94,16 +94,23 @@ def evaluate(work_dir: str) -> dict:
             "unverified for this take.", "Run typing detection, then re-evaluate.")
     else:
         intervals = typing.get("intervals", [])
+        # A typing indicator "covers" a reply if it ends shortly before the reply appears.
         def indicator_before(ms):
-            return any(iv["start_ms"] <= ms and ms - iv["end_ms"] <= 1500 for iv in intervals) or \
-                   any(abs(iv["end_ms"] - ms) <= 1500 for iv in intervals)
-        biz_msgs = [m for m in msgs if m["side"] == "business"]
-        missing = [m for m in biz_msgs if not indicator_before(m["t_ms"])]
-        if biz_msgs and len(missing) > 0:
+            return any(-500 <= (ms - iv["end_ms"]) <= 4000 for iv in intervals)
+        # Collapse OCR-noisy business message events into reply BURSTS: a new burst
+        # starts when >3s passes with no business text. One indicator is expected per burst.
+        biz_ts = sorted(m["t_ms"] for m in msgs if m["side"] == "business")
+        bursts = []
+        for t in biz_ts:
+            if not bursts or t - bursts[-1] > 3000:
+                bursts.append(t)
+        missing = [t for t in bursts if not indicator_before(t)]
+        if bursts and missing:
             add(r, "Fail",
-                f"{len(missing)} of {len(biz_msgs)} business messages had no typing indicator before them.",
+                f"{len(missing)} of {len(bursts)} business reply bursts had no typing indicator "
+                f"before them ({len(intervals)} indicators detected).",
                 "Show a typing indicator before every outbound message, including rich features.",
-                missing[0]["t_ms"], missing[-1]["t_ms"])
+                missing[0], missing[-1])
 
     # ── bare URL (4.x rich links) ──
     url_hits = [(ms, tx) for ms, tx in all_text if BARE_URL.search(tx) and "http" not in tx.lower()]
