@@ -17,6 +17,8 @@ REPO = HERE.parent.parent.parent
 RULES_PATH = REPO / "packages/rules/rules.json"
 
 FORBIDDEN = re.compile(r"\b(imessage|apple chat|amb)\b", re.I)  # 0.3 / B3 naming
+# iOS's own setup/system UI mentions "iMessage" — not the brand's copy, so not a violation.
+IOS_SYSTEM = re.compile(r"set up imessage|continue to imessage|imessage & facetime|imessage activation|turn on imessage", re.I)
 BARE_URL = re.compile(r"\b[a-z0-9-]+\.(com|io|co|ai|net|org)(/\S*)?\b", re.I)
 
 
@@ -68,7 +70,7 @@ def evaluate(work_dir: str) -> dict:
         if f["tokens"]:
             for t in f["tokens"]:
                 all_text.append((f["t_ms"], t["text"]))
-    naming_hits = [(ms, tx) for ms, tx in all_text if FORBIDDEN.search(tx)]
+    naming_hits = [(ms, tx) for ms, tx in all_text if FORBIDDEN.search(tx) and not IOS_SYSTEM.search(tx)]
     if naming_hits:
         r = by_id.get("0.3")
         first = naming_hits[0]

@@ -35,6 +35,7 @@ def _review_index(findings):
             "rule_id": f.get("rule_id"),
             "bucket": f.get("bucket"),
             "t": _to_s(f.get("t_start")),
+            "t_end": _to_s(f.get("t_end")),
             "issue": f.get("issue", ""),
         })
     return rows
@@ -68,10 +69,15 @@ def _matches(gt, rows, used):
         id_ok = (glset and (glset & r["letters"])) or (not glset and r["bucket"] == _bucket(gt["bucket"]))
         if not id_ok:
             continue
-        # timestamp: within tolerance, or GT has none
-        if gt_t is None or (r["t"] is not None and abs(r["t"] - gt_t) <= TOL_S):
-            used.add(i)
-            return i
+        # timestamp: GT has none → id match suffices; else within 2s of our t_start,
+        # OR inside our [t_start, t_end] span (fair for findings that span a range).
+        if gt_t is None:
+            used.add(i); return i
+        if r["t"] is not None:
+            if abs(r["t"] - gt_t) <= TOL_S:
+                used.add(i); return i
+            if r["t_end"] is not None and r["t"] - TOL_S <= gt_t <= r["t_end"] + TOL_S:
+                used.add(i); return i
     return None
 
 
