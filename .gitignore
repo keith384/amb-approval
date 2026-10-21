@@ -29,3 +29,7 @@ brands/*/output/
 # Tool 3 work dirs (frames, ocr cache) + venvs
 tools/video-review/work/
 tools/*/.venv/
+
+# brand-doc venv + work
+tools/brand-doc/.venv/
+tools/brand-doc/work/

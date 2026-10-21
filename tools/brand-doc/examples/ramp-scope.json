@@ -1,0 +1,47 @@
+{
+  "_note": "Example Tool 1 scope for Ramp — normally produced from the kick-off transcript + intake. Includes a deliberate terminology violation in usecase.1.description to exercise the lint.",
+  "brand": {
+    "name": "Ramp",
+    "requested_date": "2026-11-15",
+    "define_success": "Deflect card-support and expense questions to Messages; resolve 60% without a live agent."
+  },
+  "entry_point": {
+    "web_messages_button": true,
+    "app_messages_button": true,
+    "qr_code": true,
+    "message_suggest": false,
+    "ivr_deflect": false,
+    "apple_maps": false,
+    "social_media": false
+  },
+  "global": {
+    "automated_welcome": true,
+    "csat_survey": true,
+    "authentication": true
+  },
+  "usecase": {
+    "1": {
+      "description": "Report a lost card and get a replacement via an iMessage app in the chat.",
+      "quick_reply": true, "list_picker": true, "apple_pay": false,
+      "authentication": true, "attachments": false, "form": false, "rich_link": true
+    },
+    "2": {
+      "description": "Ask an expense question and get a policy answer.",
+      "quick_reply": true, "rich_link": true
+    },
+    "3": {
+      "description": "Verify business information (KYC) to stay compliant.",
+      "authentication": true, "form": true
+    },
+    "4": {
+      "description": "Talk to a live Ramp support agent.",
+      "quick_reply": true
+    }
+  },
+  "readiness": {
+    "brand_name": "Ramp",
+    "industry_vertical": "Fintech / corporate cards & spend management",
+    "country_hq": "United States",
+    "country_coverage": "United States"
+  }
+}
