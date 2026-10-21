@@ -29,6 +29,7 @@ def main():
     ap.add_argument("--brand", default=None)
     ap.add_argument("--skip-extract", action="store_true", help="reuse existing frames")
     ap.add_argument("--skip-ocr", action="store_true", help="reuse existing ocr.json")
+    ap.add_argument("--no-llm", action="store_true", help="deterministic rules only")
     a = ap.parse_args()
     work = Path(a.work_dir)
 
@@ -46,6 +47,17 @@ def main():
     e = events.detect(a.work_dir)
     print(f"· events: {e['segments']} segments, {len(e['events'])} events")
     rv = evaluate.evaluate(a.work_dir)
+    print(f"· evaluate (deterministic): {rv['counts']}")
+    if not a.no_llm and __import__("os").environ.get("ANTHROPIC_API_KEY"):
+        try:
+            from ambreview import llm
+            s = llm.run(a.work_dir)
+            print(f"· llm ({s['model']}): +{s['kept']} qualitative findings, dropped {s['dropped']}")
+            rv = __import__("json").loads((work / "review.json").read_text())
+        except Exception as ex:
+            print(f"· llm: skipped ({ex})")
+    else:
+        print("· llm: skipped (no ANTHROPIC_API_KEY or --no-llm)")
     report.write_report(a.work_dir)
     print(f"· report: {rv['counts']} — verdict: {rv['verdict']}")
     print(f"\nWrote review-*.md, timestamp-index-*.txt, review.json to {a.work_dir}")
