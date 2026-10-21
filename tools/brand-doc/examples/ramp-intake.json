@@ -1,0 +1,25 @@
+{
+  "_note": "Example Tool 1 intake for Ramp — brand facts + the 4 use cases in the customer's words. Normally pre-filled from the kick-off transcript.",
+  "brand": {
+    "name": "Ramp",
+    "requested_date": "2026-11-15",
+    "website": "ramp.com",
+    "app": "Ramp (iOS)",
+    "support_hours": "Mon-Fri 9am-8pm ET",
+    "existing_agent": "In-house support bot + live agents",
+    "define_success": "Deflect card-support and expense questions to Messages; resolve the majority without a live agent."
+  },
+  "use_cases": [
+    "I lost my Ramp card and need a replacement.",
+    "Can I expense meals while traveling?",
+    "I need to verify my business information to stay compliant.",
+    "I want to talk to a Ramp support person."
+  ],
+  "entry_points": ["app_messages_button", "web_messages_button", "qr_code"],
+  "company_background": {
+    "founded": "2019",
+    "hq": "New York, NY",
+    "headcount": "~1,000",
+    "financials": "Valued ~$13B (2024); not disclosed quarterly"
+  }
+}
