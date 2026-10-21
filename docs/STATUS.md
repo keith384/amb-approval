@@ -28,18 +28,19 @@ _Last updated: 2026-10-21_
 - `examples/` — Ramp review report (MA, 9 Oct, the Tool 3 reference output),
   Ramp brand-approval doc, a filled Use Cases example.
 
-## Sources NEEDED from Keith (blocking later phases)
-1. **Ramp recording** — `~/Downloads/iMessage demo sep 10.mp4` (7:34, 592×1280, 30fps).
-   Present on disk but **git-ignored** (large media). Tool 3's test input + the MA report's
-   ground-truth take. _Confirm this file is the 18 Sep take the MA report was written against._
-2. **The two Claude skills** — `amb-experience-review` and `amb-technical-qa` (+ their 7
-   reference files). Not in the cerebro zip; they live in the Claude workspace / `/mnt/skills`.
-   Needed for: distilled severity buckets (Blocker/Fix/Polish), the 14-question fast triage,
-   element capability limits & common-wrong-claim corrections, and the human-readable layer.
-   → Export both skill folders into `sources/skills/`.
-3. **Apple onboarding email (9 Sep 2026)** — naming/embargo/PR rules the terminology lint
-   enforces. → Paste into `sources/apple-onboarding-2026-09-09.md`.
-4. **Walmart brand nomination doc** — the Tool 1 narrative template ("the format Apple
-   receives"). We have Ramp's as a fallback. → Drop into `sources/examples/`.
-5. **First real Apple feedback reply** (whenever one exists) — decides how much of the
+## Sources — received 2026-10-21
+- [x] **Ramp recording** confirmed as the **18 Sep take** (MA report's ground truth) —
+  `~/Downloads/iMessage demo sep 10.mp4` (git-ignored; reference by path).
+- [x] **The two Claude skills** → `sources/skills/amb-experience-review/` (SKILL + 2 refs)
+  and `sources/skills/amb-technical-qa/` (SKILL + 5 refs: approval, experience-review,
+  platform, payments-auth, elements).
+
+## Still NEEDED from Keith
+1. **Apple onboarding email (9 Sep 2026)** — naming/embargo/PR rules the terminology lint
+   enforces. The 21 Oct drive-download zip contained only the two Apple forms, not the email.
+   → Paste into `sources/apple-onboarding-2026-09-09.md`.
+2. **Walmart brand nomination doc** — the Tool 1 narrative template. Shared as a Google Doc
+   link (needs export; I can't fetch an authed Google Doc). → Export to PDF/markdown into
+   `sources/examples/walmart-brand-nomination.*`. Ramp's doc is in `sources/examples/` as fallback.
+3. **First real Apple feedback reply** (whenever one exists) — decides how much of the
    `/amb feedback` ingest can be parsed automatically (open question in the plan).
