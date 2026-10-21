@@ -1,0 +1,7 @@
+"authorization": "Bearer %s" % get_jwt_token(),
+        "source-id": BIZ_ID,
+        "url": mmcs_url,
+        "signature": base64_encoded_signature,
+        "owner": mmcs_owner
+    }
+{empty body}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/imageitem-dictionary.json",
+  "title": "ImageItem",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "string",
+      "contentEncoding": "base64",
+      "x-amb-source-type": "byte",
+      "description": "REQUIRED. A Base64-encoded string representing the image file data. Always provide @3x images at 72 dpi. The system downscales the @3x images to generate @2x and @1x versions for use on lower-resolution devices."
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the image that the systems reads aloud to users who have VoiceOver enabled on their device. If the value is null, VoiceOver ignores the image. This key is optional."
+    },
+    "identifier": {
+      "type": "string",
+      "description": "REQUIRED.A string containing the image identifier, which must be unique within the list of images. The list picker items and other dictionaries, such as receiveMessage and replyMessage, refer to identifier as imageIdentifier."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "imageitem-dictionary",
+    "qualified_name": "msp-rest-api › ImageItem",
+    "canonical_lines": [
+      1631,
+      1672
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944685+00:00"
+  },
+  "required": [
+    "data",
+    "identifier"
+  ]
+}

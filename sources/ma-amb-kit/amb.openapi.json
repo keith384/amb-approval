@@ -1,0 +1,494 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Apple Messages for Business — MSP API (skeleton)",
+    "version": "derived-from-canonical-v7.0-verbatim-consolidated",
+    "summary": "Deterministically derived endpoint skeleton. Not an Apple-published spec.",
+    "description": "Auto-assembled from the endpoints catalog of amb_index.json. Paths, methods, servers and provenance are exact; bodies are wired only where unambiguous and otherwise carry the canonical line to read. Integrator-implemented callbacks (MSP/merchant-hosted) are modelled as `webhooks`.",
+    "x-amb-generator": {
+      "tool": "build_openapi.py",
+      "canonical": "AMB_Layer2_Canonical_v7_0.md",
+      "generated_utc": "2026-07-09T04:36:44.411494+00:00"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://apple-pay-gateway.apple.com",
+      "description": "Apple Pay gateway (merchant/PSP calls these)."
+    },
+    {
+      "url": "https://mspgw.push.apple.com/v1",
+      "description": "Apple Messages for Business REST gateway (MSP calls these)."
+    }
+  ],
+  "paths": {
+    "/message": {
+      "post": {
+        "operationId": "postMessage",
+        "summary": "msp-rest-api",
+        "description": "Derived from the AMB canonical at line 224 (section: msp-rest-api, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 224,
+          "section_title": "msp-rest-api",
+          "section_anchor": "msp-rest-api",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "amb_schemas_bundle.json#/$defs/http-body"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "interactiveData": {
+                        "$ref": "amb_schemas_bundle.json#/$defs/baseinteractivemessage-dictionary"
+                      }
+                    },
+                    "description": "Present when type=interactive. Interactive messages inherit from HTTP Body (canonical L419); verify exact interactiveData nesting there."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/preDownload": {
+      "get": {
+        "operationId": "getPredownload",
+        "summary": "Example CloseSession Message",
+        "description": "Derived from the AMB canonical at line 901 (section: Example CloseSession Message, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 901,
+          "section_title": "Example CloseSession Message",
+          "section_anchor": "example-closesession-message",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        }
+      }
+    },
+    "/preUpload": {
+      "get": {
+        "operationId": "getPreupload",
+        "summary": "Example of a Text Message",
+        "description": "Derived from the AMB canonical at line 1091 (section: Example of a Text Message, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 1091,
+          "section_title": "Example of a Text Message",
+          "section_anchor": "example-of-a-text-message",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        }
+      }
+    },
+    "/decodePayload": {
+      "post": {
+        "operationId": "postDecodepayload",
+        "summary": "ReplyMessage Dictionary",
+        "description": "Derived from the AMB canonical at line 1870 (section: ReplyMessage Dictionary, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 1870,
+          "section_title": "ReplyMessage Dictionary",
+          "section_anchor": "replymessage-dictionary",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 1870 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/authenticate": {
+      "post": {
+        "operationId": "postAuthenticate",
+        "summary": "Authentication Message",
+        "description": "Derived from the AMB canonical at line 2882 (section: Authentication Message, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 2882,
+          "section_title": "Authentication Message",
+          "section_anchor": "authentication-message-1",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 2882 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/constructPayload": {
+      "post": {
+        "operationId": "postConstructpayload",
+        "summary": "Form Message",
+        "description": "Derived from the AMB canonical at line 3970 (section: Form Message, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 3970,
+          "section_title": "Form Message",
+          "section_anchor": "form-message-1",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 3970 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/paymentServices/v1/merchantId/{merchantId}/merchantToken/": {
+      "post": {
+        "operationId": "postPaymentservicesV1MerchantidMerchantidMerchanttoken",
+        "summary": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+        "description": "Derived from the AMB canonical at line 10479 (section: Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into, source: apple-pay-platform). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 10479,
+          "section_title": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+          "section_anchor": "merchant-tokens-are-also-designed-to-help-prevent-or-resolve-billing-issues-by-giving-visibility-into",
+          "source": "apple-pay-platform"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "parameters": [
+          {
+            "name": "merchantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Path parameter 'merchantId' (see canonical L10479)."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 10479 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/paymentservices/paymentSession": {
+      "post": {
+        "operationId": "postPaymentservicesPaymentsession",
+        "summary": "Present the Payment Sheet",
+        "description": "Derived from the AMB canonical at line 11739 (section: Present the Payment Sheet, source: apple-pay-merchant). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 11739,
+          "section_title": "Present the Payment Sheet",
+          "section_anchor": "present-the-payment-sheet",
+          "source": "apple-pay-merchant"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 11739 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "/paymentServices/v1/merchantId/": {
+      "post": {
+        "operationId": "postPaymentservicesV1Merchantid",
+        "summary": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+        "description": "Derived from the AMB canonical at line 12034 (section: Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into, source: apple-pay-merchant). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 12034,
+          "section_title": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+          "section_anchor": "merchant-tokens-are-also-designed-to-help-prevent-or-resolve-billing-issues-by-giving-visibility-into-1",
+          "source": "apple-pay-merchant"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 12034 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "webhooks": {
+    "postMessage": {
+      "post": {
+        "operationId": "postMessage",
+        "summary": "msp-rest-api",
+        "description": "Derived from the AMB canonical at line 570 (section: msp-rest-api, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 570,
+          "section_title": "msp-rest-api",
+          "section_anchor": "msp-rest-api",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "amb_schemas_bundle.json#/$defs/http-body"
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "interactiveData": {
+                        "$ref": "amb_schemas_bundle.json#/$defs/baseinteractivemessage-dictionary"
+                      }
+                    },
+                    "description": "Present when type=interactive. Interactive messages inherit from HTTP Body (canonical L419); verify exact interactiveData nesting there."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "postPaymentgateway": {
+      "post": {
+        "operationId": "postPaymentgateway",
+        "summary": "PaymentRequest.shippingMethodItem Dictionary",
+        "description": "Derived from the AMB canonical at line 2293 (section: PaymentRequest.shippingMethodItem Dictionary, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 2293,
+          "section_title": "PaymentRequest.shippingMethodItem Dictionary",
+          "section_anchor": "paymentrequestshippingmethoditem-dictionary",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 2293 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "postShippingcontactupdate": {
+      "post": {
+        "operationId": "postShippingcontactupdate",
+        "summary": "Sending an Apple Pay Payment Request",
+        "description": "Derived from the AMB canonical at line 2587 (section: Sending an Apple Pay Payment Request, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 2587,
+          "section_title": "Sending an Apple Pay Payment Request",
+          "section_anchor": "sending-an-apple-pay-payment-request",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 2587 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "postPaymentmethodupdate": {
+      "post": {
+        "operationId": "postPaymentmethodupdate",
+        "summary": "Payment Dictionary",
+        "description": "Derived from the AMB canonical at line 2623 (section: Payment Dictionary, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 2623,
+          "section_title": "Payment Dictionary",
+          "section_anchor": "payment-dictionary-1",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 2623 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "postShippingmethodupdate": {
+      "post": {
+        "operationId": "postShippingmethodupdate",
+        "summary": "Payment Method Dictionary",
+        "description": "Derived from the AMB canonical at line 2731 (section: Payment Method Dictionary, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 2731,
+          "section_title": "Payment Method Dictionary",
+          "section_anchor": "payment-method-dictionary",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 2731 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "postOrdertracking": {
+      "post": {
+        "operationId": "postOrdertracking",
+        "summary": "Payment Dictionary",
+        "description": "Derived from the AMB canonical at line 2824 (section: Payment Dictionary, source: msp-rest-api). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 2824,
+          "section_title": "Payment Dictionary",
+          "section_anchor": "payment-dictionary-3",
+          "source": "msp-rest-api"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "description": "Body shape not auto-mapped; read the canonical at line 2824 and wire the correct schema from amb_schemas_bundle.json."
+              }
+            }
+          }
+        }
+      }
+    },
+    "getTokenapiNotificationMerchanttokenEventid": {
+      "get": {
+        "operationId": "getTokenapiNotificationMerchanttokenEventid",
+        "summary": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+        "description": "Derived from the AMB canonical at line 10472 (section: Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into, source: apple-pay-platform). Verify request/response bodies against that location before relying.",
+        "x-amb-source": {
+          "canonical_line": 10472,
+          "section_title": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+          "section_anchor": "merchant-tokens-are-also-designed-to-help-prevent-or-resolve-billing-issues-by-giving-visibility-into",
+          "source": "apple-pay-platform"
+        },
+        "responses": {
+          "200": {
+            "description": "See canonical at the x-amb-source line for the exact response shape."
+          }
+        },
+        "parameters": [
+          {
+            "name": "eventId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Path parameter 'eventId' (see canonical L10472)."
+          }
+        ]
+      }
+    }
+  }
+}

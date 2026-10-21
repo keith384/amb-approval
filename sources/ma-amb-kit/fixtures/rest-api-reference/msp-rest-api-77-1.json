@@ -1,0 +1,4 @@
+{
+  "aud": "<CSP-ID>",
+  "iat": "<issued at unix-timestamp (in seconds)>"
+}

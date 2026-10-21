@@ -1,0 +1,33 @@
+,Appendix B. Readiness Review,,
+,"Apple, Messages for Business Readiness Review",,
+,"This mirrors Apple's own Readiness Review form, which Apple asks brands to complete before scope alignment. It qualifies the channel commercially and operationally. Nothing here is tested against a build.",,
+,"Fill the shaded cells. The containment figure and the cost per inquiry bands are the two answers Apple returns to most often, so give real numbers.",,
+,Company information,,
+,Brand name,,
+,Industry vertical,,
+,Country of headquarters,,
+,Country coverage,,
+,Digital priorities,,
+,Digital deflection from the contact centre to self serve tools,,"High, Medium or Low"
+,Driving consumer iOS app adoption,,"High, Medium or Low"
+,Increasing customer experience metrics,,"High, Medium or Low"
+,Reducing operational cost to sell and serve customers,,"High, Medium or Low"
+,General call deflection from voice to digital channels,,"High, Medium or Low"
+,Digital shift from web or live chat to asynchronous messaging,,"High, Medium or Low"
+,Creating a digital sales engagement channel,,"High, Medium or Low"
+,Improving collaboration between the contact centre and physical store or branch locations,,"High, Medium or Low"
+,Securing conversation history for regulatory and internal audit purposes,,"High, Medium or Low"
+,Strategy and operations,,
+,A digital messaging platform is already in place,No,"If yes, name the vendor in the notes column"
+,The digital messaging strategy is defined and executive sponsored,No,
+,The business already engages customers in live or asynchronous messaging,No,
+,The strategy includes AI or automation led conversations,No,"If yes, state the anticipated containment percentage"
+,Volume and economics,,
+,Anticipated containment from conversational AI,,Percentage
+,Expected daily conversation capacity at launch,,
+,"Growth goal, daily conversations at 12 months",,
+,"Growth goal, daily conversations at 24 months",,
+,"Cost per inquiry, voice",,"Band: 1 to 3, 4 to 8, 9 to 12, 12 plus"
+,"Cost per inquiry, digital",,"Band: 1 to 3, 4 to 8, 9 to 12, 12 plus"
+,Share of the digital customer base on Apple devices,,"Under 50%, 50 to 75%, over 75%"
+,Live agents dedicated exclusively to this channel,,Yes or No

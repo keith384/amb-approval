@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# Large media — reference recordings by path, never commit them
+*.mp4
+*.mov
+*.MOV
+*.MP4
+
+# Build artifacts
+.next/
+dist/
+build/
+frames/            # Tool 3 extracted frames
+*.tmp
+
+# Generated per-brand outputs (artifacts live in brand folders / blob storage)
+brands/*/output/

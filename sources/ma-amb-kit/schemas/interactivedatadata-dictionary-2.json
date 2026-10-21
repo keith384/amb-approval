@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivedatadata-dictionary-2.json",
+  "title": "InteractiveData.data",
+  "type": "object",
+  "properties": {
+    "listPicker": {
+      "type": "object",
+      "x-amb-note": "source prose says 'an array of ...' but Type cell = object",
+      "$ref": "./datalistpickersection-dictionary.json",
+      "description": "REQUIRED. An array of objects. See ListPickerSection."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivedatadata-dictionary-2",
+    "qualified_name": "msp-rest-api › InteractiveData.data",
+    "canonical_lines": [
+      2019,
+      2027
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945485+00:00"
+  },
+  "required": [
+    "listPicker"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactiveresponse-dictionary.json",
+  "title": "InteractiveResponse",
+  "type": "object",
+  "properties": {
+    "imageSubtitle": {
+      "type": "string",
+      "description": "The attached image's subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "imageTitle": {
+      "type": "string",
+      "description": "The attached image's title. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "secondarySubtitle": {
+      "type": "string",
+      "description": "A right-aligned title. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "style": {
+      "type": "string",
+      "description": "A style that controls the size of the view rendered by Live Layout. The default is icon. Depending if the message is a reply or response, see Reply Message Style Values or Received Message Style Values for the list of possible values. This key is optional. Default: icon Possible values: icon,small,large"
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "The subtitle that appears under the main title in the reply message bubble. When the user taps the reply message bubble, Messages displays the subtitle in the header. Limited to 512 characters."
+    },
+    "tertiarySubtitle": {
+      "type": "string",
+      "description": "A right-aligned subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "title": {
+      "type": "string",
+      "description": "REQUIRED. The main title that Messages shows in the header of the reply message bubble. When the user taps the reply message bubble, Messages replaces the title with the user’s selection. Limited to 512 characters."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactiveresponse-dictionary",
+    "qualified_name": "msp-rest-api › InteractiveResponse",
+    "canonical_lines": [
+      1597,
+      1615
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944429+00:00",
+    "enum_in_prose_detected": "possible values. This key is optional. Default: icon Possible values:"
+  },
+  "required": [
+    "title"
+  ]
+}

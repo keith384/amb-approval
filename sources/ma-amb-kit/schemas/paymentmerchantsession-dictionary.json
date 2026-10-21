@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/paymentmerchantsession-dictionary.json",
+  "title": "Payment.MerchantSession",
+  "type": "object",
+  "properties": {
+    "displayName": {
+      "type": "string",
+      "description": "REQUIRED. The canonical name for your store, suitable for display and consisting of 64 or fewer UTF-8 characters. Do not localize the name."
+    },
+    "epochTimestamp": {
+      "type": "string",
+      "description": "REQUIRED. The time representation in number of seconds that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970."
+    },
+    "expiresAt": {
+      "type": "string",
+      "description": "REQUIRED. The exipiration time representation in number of seconds that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970."
+    },
+    "initiative": {
+      "type": "string",
+      "description": "REQUIRED. A predefined value that identifies the e-commerce application making the request."
+    },
+    "initiativeContext": {
+      "type": "string",
+      "description": "REQUIRED. A value you provide based on the initiative. The values for initiative and initiativeContext depend on the kind of application you're building. For Apple Messages for Business, use \"messaging\"for the initiative parameter. For the initiativeContextparameter, pass your payment gateway URL. See Processing Payment Requests for more information."
+    },
+    "merchantIdentifier": {
+      "type": "string",
+      "description": "REQUIRED. A unique identifier that represents a merchant for Apple Pay."
+    },
+    "merchantSessionIdentifier": {
+      "type": "string",
+      "description": "REQUIRED. A unique identifier that represents a merchant's session for Apple Pay."
+    },
+    "nonce": {
+      "type": "string",
+      "x-amb-source-type": "binary",
+      "description": "A single-use string that checks the integrity of the interaction."
+    },
+    "signature": {
+      "type": "string",
+      "x-amb-source-type": "binary",
+      "description": "A hash of the public key used to sign the interactions."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "paymentmerchantsession-dictionary",
+    "qualified_name": "msp-rest-api › Payment.MerchantSession",
+    "canonical_lines": [
+      2242,
+      2260
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.947069+00:00"
+  },
+  "required": [
+    "displayName",
+    "epochTimestamp",
+    "expiresAt",
+    "initiative",
+    "initiativeContext",
+    "merchantIdentifier",
+    "merchantSessionIdentifier"
+  ]
+}

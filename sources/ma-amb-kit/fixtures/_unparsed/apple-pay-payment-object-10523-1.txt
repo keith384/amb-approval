@@ -1,0 +1,15 @@
+"administrativeArea": "London",
+  "country": "United Kingdom",
+  "countryCode": "GB",
+  "familyName": "Appleseed",
+  "givenName": "John",
+  "locality": "London",
+  "phoneticFamilyName": "",
+  "phoneticGivenName": "",
+  "postalCode": "AB12 3CD",
+  "subAdministrativeArea": "",
+  "subLocality": ""
+},
+"shippingContact": {
+  "addressLines": [
+    "1 First Street"

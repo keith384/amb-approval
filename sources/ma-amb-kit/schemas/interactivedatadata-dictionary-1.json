@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivedatadata-dictionary-1.json",
+  "title": "InteractiveData.Data",
+  "type": "object",
+  "properties": {
+    "quick-reply": {
+      "type": "object",
+      "description": "REQUIRED. An array of objects."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivedatadata-dictionary-1",
+    "qualified_name": "msp-rest-api › InteractiveData.Data @L1959",
+    "canonical_lines": [
+      1959,
+      1965
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945189+00:00"
+  },
+  "required": [
+    "quick-reply"
+  ]
+}

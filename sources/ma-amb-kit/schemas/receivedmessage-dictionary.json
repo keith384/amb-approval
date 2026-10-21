@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/receivedmessage-dictionary.json",
+  "title": "ReceivedMessage",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "REQUIRED. The main title that the Messages app shows in the header of the received message bubble."
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "REQUIRED. The subtitle that appears under the main title in the received message bubble."
+    },
+    "imageIdentifier": {
+      "type": "integer",
+      "description": "REQUIRED. The identifier for one of the images specified in interactiveData.data.images."
+    },
+    "style": {
+      "type": "string",
+      "description": "A style that controls the size of the view rendered by Live Layout. The default is icon."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "receivedmessage-dictionary",
+    "qualified_name": "msp-rest-api › ReceivedMessage",
+    "canonical_lines": [
+      1687,
+      1724
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944893+00:00",
+    "enum_in_prose_detected": "possible string values for the receivedMessage style are:"
+  },
+  "required": [
+    "imageIdentifier",
+    "subtitle",
+    "title"
+  ]
+}

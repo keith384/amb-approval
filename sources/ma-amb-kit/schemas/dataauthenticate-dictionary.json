@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/dataauthenticate-dictionary.json",
+  "title": "Data.authenticate",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "description": "success, failure, cancel, unknown is returned as a value, which indicates that the authentication flow was closed."
+    },
+    "error_code": {
+      "type": "string",
+      "description": "A numeric number of the error_code sent from"
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "dataauthenticate-dictionary",
+    "qualified_name": "msp-rest-api › Data.authenticate",
+    "canonical_lines": [
+      3051,
+      3174
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.948554+00:00",
+    "enum_in_prose_detected": "Possible values for the autocomplete attribute are"
+  }
+}

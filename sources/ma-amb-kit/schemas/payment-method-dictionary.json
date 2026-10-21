@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/payment-method-dictionary.json",
+  "title": "Payment Method",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Indicates the payment method type. For more information, see ApplePayPaymentMethodType.",
+      "x-amb-enriched-from-fixture": {
+        "type": "string",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "payment-method-dictionary",
+    "qualified_name": "msp-rest-api › Payment Method",
+    "canonical_lines": [
+      2645,
+      2743
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "2col",
+    "extracted_utc": "2026-07-09T04:36:43.947815+00:00"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "body": "https://store.storevideos.cdn-apple.com/v1/store.apple.com/st/1619042871000/mx532-vid3/mx532-vid3_960x540.mov",
+  "sourceId": "<business_id>",
+  "destinationId": "<destination_id>",
+  "v": 1,
+  "type": "richLink",
+  "id": "<message_id>",
+  "richLinkData": {
+    "url": "https://store.storevideos.cdn-apple.com/v1/store.apple.com/st/1619042871000/mx532-vid3/mx532-vid3_960x540.mov",
+    "title": "AirTag",
+    "assets": {
+      "video": {
+        "url": "https://store.storevideos.cdn-apple.com/v1/store.apple.com/st/1619042871000/mx532-vid3/mx532-vid3_960x540.mov",
+        "mimeType": "video/mp4"
+      },
+      "image": {
+        "data": "/9j/4AAQSkZJRgABAQA…………<snipped>…………AAQAB/Z",
+        "mimeType": "image/png"
+      }
+    }
+  }
+}

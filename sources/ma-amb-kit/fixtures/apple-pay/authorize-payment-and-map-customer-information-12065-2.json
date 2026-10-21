@@ -1,0 +1,18 @@
+{
+  "paymentData": {
+    "data": "K+kSR...BbAj",
+    "signature": "MIAG...AAA=",
+    "header": {
+      "publicKeyHash": "2xR1...PGQ=",
+      "ephemeralPublicKey": "MFkw...1w==",
+      "transactionId": "ba9c...7298"
+    },
+    "version": "EC_v1"
+  },
+  "paymentMethod": {
+    "displayName": "NetworkName 1234",
+    "network": "NetworkName",
+    "type": "credit"
+  },
+  "transactionIdentifier": "ba9c...7298"
+}

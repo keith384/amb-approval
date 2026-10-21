@@ -1,0 +1,24 @@
+{
+  "v": 1,
+  "id": "fbc2ccee-f67e-4bd5-96e4-934967db0159",
+  "sourceId": "fbc2ccee-f67e-4bd5-96e4-934967db0159",
+  "destinationId": "tel:+11234567890",
+  "interactiveData": {
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension",
+    "data": {
+      "version": "1.0",
+      "requestIdentifier": "fcb5e9ca-0ddc-4a07-bf9b-7fcbd044aeeb",
+      "notification": {
+        "templateId": "binaryChoice.engage.withImage",
+        "locale": "en-us",
+        "referenceId": "{ caseNumber : 1009273616 }",
+        "parameters": {
+          "brandName": "testBrand",
+          "brandLogo": "<decoded-image>"
+        }
+      }
+    },
+    "useLiveLayout": true
+  },
+  "type": "interactive"
+}

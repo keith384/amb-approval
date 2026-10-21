@@ -1,0 +1,22 @@
+{
+  "type": "interactive",
+  "interactiveData": {
+    "appId": "<app - store - id>",
+    "appName": "Name of the App",
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:{team-id}:{ext-bundle-id}",
+    "URL": "?data=passed-to-app&data2=more-data-passed-to-app",
+    "sessionIdentifier": "uuid-for-this-interaction",
+    "receivedMessage": {
+      "title": "Title of Bubble",
+      "subtitle": "Subtitle to be displayed under title",
+      "imageTitle": "Title of image attachment",
+      "imageSubtitle": "Subtitle of the image attachment.",
+      "secondarySubtitle": "Title that is aligned right",
+      "tertiarySubtitle": "Subtitle that is aligned right"
+    }
+  },
+  "sourceId": "",
+  "destinationId": "",
+  "v": 1,
+  "id": "d2f99c0e-f64c-4c3b-abbf-4a8567891ef5"
+}

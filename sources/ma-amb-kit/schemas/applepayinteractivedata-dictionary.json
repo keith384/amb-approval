@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/applepayinteractivedata-dictionary.json",
+  "title": "ApplePay.InteractiveData",
+  "type": "object",
+  "properties": {
+    "receivedMessage": {
+      "type": "object",
+      "description": "REQUIRED. Contains fields giving the specifics of an Apple Pay request"
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "applepayinteractivedata-dictionary",
+    "qualified_name": "msp-rest-api › ApplePay.InteractiveData",
+    "canonical_lines": [
+      2154,
+      2169
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.946198+00:00"
+  },
+  "required": [
+    "receivedMessage"
+  ]
+}

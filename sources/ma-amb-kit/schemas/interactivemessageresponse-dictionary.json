@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivemessageresponse-dictionary.json",
+  "title": "InteractiveMessageResponse",
+  "type": "object",
+  "properties": {
+    "bid": {
+      "type": "string",
+      "description": "REQUIRED. A string identifying the iMessage extension that the user interacts with while using the Messages app."
+    },
+    "data": {
+      "$ref": "./interactivemessagedata-dictionary.json",
+      "description": "A dictionary containing additional information for Apple Messages for Business interactive messages"
+    },
+    "receivedMessage": {
+      "$ref": "./receivedmessage-dictionary.json",
+      "description": "A dictionary with information telling the Messages app what content and how to display it in the received message bubble."
+    },
+    "replyMessage": {
+      "$ref": "./replymessage-dictionary.json",
+      "description": "A dictionary with information telling the Messages app what and how to display it in the reply message bubble."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivemessageresponse-dictionary",
+    "qualified_name": "msp-rest-api › InteractiveMessageResponse",
+    "canonical_lines": [
+      1673,
+      1686
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944789+00:00"
+  },
+  "required": [
+    "bid"
+  ]
+}

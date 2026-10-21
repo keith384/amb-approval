@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/timepickermessage-dictionary.json",
+  "title": "TimePickerMessage",
+  "type": "object",
+  "properties": {
+    "event": {
+      "type": "object",
+      "$ref": "./dataevent-dictionary.json",
+      "description": "REQUIRED. A dictionary containing specific information for the user. See Event"
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "timepickermessage-dictionary",
+    "qualified_name": "msp-rest-api › TimePickerMessage",
+    "canonical_lines": [
+      2073,
+      2085
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945770+00:00"
+  },
+  "required": [
+    "event"
+  ]
+}

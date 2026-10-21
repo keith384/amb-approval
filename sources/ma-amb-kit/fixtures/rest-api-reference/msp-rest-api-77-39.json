@@ -1,0 +1,130 @@
+{
+  "type": "interactive",
+  "interactiveData": {
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension",
+    "sessionIdentifier": "ad461c33-7534 <truncated>",
+    "data": {
+      "version": "1.0",
+      "dynamic": {
+        "template": "messageForms",
+        "version": "1.2",
+        "selections": [
+          {
+            "pageIdentifier": "001",
+            "items": [
+              {
+                "identifier": "001_03",
+                "value": "option03",
+                "type": "select",
+                "title": "Single 3"
+              }
+            ],
+            "subtitle": "Single Select Page",
+            "title": "Please Choose One Selection To Move On To The Next Page"
+          },
+          {
+            "pageIdentifier": "002",
+            "items": [
+              {
+                "identifier": "002_01",
+                "value": "multi1",
+                "type": "select",
+                "title": "Multi 1"
+              },
+              {
+                "identifier": "002_03",
+                "value": "multi3",
+                "type": "select",
+                "title": "Multi 3"
+              },
+              {
+                "identifier": "002_05",
+                "value": "multi5",
+                "type": "select",
+                "title": "Multi 5"
+              }
+            ],
+            "subtitle": "Multiple Selection",
+            "title": "Select All That Apply"
+          },
+          {
+            "pageIdentifier": "003",
+            "items": [
+              {
+                "identifier": "003",
+                "value": "2021-03-30T07:00:00Z",
+                "type": "datePicker",
+                "title": "03/30/2021"
+              }
+            ],
+            "subtitle": "Date Picker",
+            "title": "Date Picker With Min/Max Date and Label Text"
+          },
+          {
+            "pageIdentifier": "004",
+            "items": [
+              {
+                "identifier": "004",
+                "value": "50.00",
+                "type": "input",
+                "title": "$50.00"
+              }
+            ],
+            "subtitle": "Numeric Input - Currency",
+            "title": "With Custom Label, Prefix, Regex and Placeholder Text"
+          },
+          {
+            "pageIdentifier": "005",
+            "items": [
+              {
+                "identifier": "005",
+                "value": "J. Appleseed",
+                "type": "input",
+                "title": "J. Appleseed"
+              }
+            ],
+            "subtitle": "Text Input - Single Line",
+            "title": "With Placeholder, Label and Expecting a Name"
+          },
+          {
+            "pageIdentifier": "006",
+            "items": [
+              {
+                "identifier": "006",
+                "value": "Multi\\nLine\\nText\\nInput",
+                "type": "input",
+                "title": "Multi\\nLine\\nText\\nInput"
+              }
+            ],
+            "subtitle": "Text Input - Multiple Lines",
+            "title": "Optional Additional Comment Field"
+          }
+        ]
+      },
+      "receivedMessage": {
+        "subtitle": "Tap to view the available pages",
+        "imageIdentifier": "1",
+        "style": "small",
+        "title": "Apple Messages for Business Form"
+      },
+      "replyMessage": {
+        "subtitle": "Tap to review your selections",
+        "alternateTitle": "Apple Messages for Business Form",
+        "imageIdentifier": "1",
+        "style": "small",
+        "title": "Apple Messages for Business Form"
+      },
+      "requestIdentifier": "42bcfae9-3da6 <truncated>",
+      "images": [
+        {
+          "identifier": "1",
+          "data": "base64encoded-image-file"
+        },
+        {
+          "identifier": "2",
+          "data": "base64encoded-image-file"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "newLineItems": [
+    {
+      "amount": "59.00",
+      "label": "Halibut",
+      "type": "final"
+    },
+    {
+      "amount": "29.99",
+      "label": "FedEx Priority Mail",
+      "type": "final"
+    }
+  ],
+  "newTotal": {
+    "amount": "88.99",
+    "label": "Total",
+    "type": "final"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/datapayment-dictionary.json",
+  "title": "Data.Payment",
+  "type": "object",
+  "properties": {
+    "endpoints": {
+      "type": "object",
+      "x-amb-source-type": "dictionary",
+      "description": "REQUIRED. A dictionary containing the endpoints for payment processing, contact updates, and order tracking. For the list of dictionary keys, see ApplePayEndpoints dictionary."
+    },
+    "merchantSession": {
+      "type": "object",
+      "x-amb-source-type": "dictionary",
+      "description": "REQUIRED. A dictionary containing the payment session provided by Apple Pay after requesting a new payment session. For more information, see Requesting an Apple Pay Payment Session."
+    },
+    "paymentRequest": {
+      "type": "object",
+      "x-amb-source-type": "dictionary",
+      "description": "REQUIRED. A dictionary with information about the payment request. For the list of dictionary keys, see ApplePayPaymentRequest dictionary."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "datapayment-dictionary",
+    "qualified_name": "msp-rest-api › Data.Payment",
+    "canonical_lines": [
+      2170,
+      2178
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.946321+00:00"
+  },
+  "required": [
+    "endpoints",
+    "merchantSession",
+    "paymentRequest"
+  ]
+}

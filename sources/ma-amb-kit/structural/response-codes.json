@@ -1,0 +1,58 @@
+{
+  "id": "response-codes",
+  "title": "Response Codes",
+  "x-amb": {
+    "id": "response-codes",
+    "structural": true,
+    "kind": "code_table",
+    "canonical_lines": [
+      345,
+      398
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "note": "HTTP response codes returned by /message. Only 5xx are retried (4x, exp backoff).",
+    "extracted_utc": "2026-07-09T04:36:43.949528+00:00"
+  },
+  "codes": [
+    {
+      "code": "200",
+      "reason": "OK",
+      "description": "The request was successful."
+    },
+    {
+      "code": "400",
+      "reason": "Bad Request",
+      "description": "The request lacks the required header fields, the request body isn't JSON or the JSON lacks the required fields, or the destination-id header field does not match the destinationId JSON field."
+    },
+    {
+      "code": "401",
+      "reason": "Unauthorized",
+      "description": "The request lacks the Authorization header field. Requests from Messaging service always contain the Authorization header field. If the MSP platform returns a 401 response code, the problem is either a configuration issue with Apple Messages for Business or a signal of spoofed incoming activity."
+    },
+    {
+      "code": "403",
+      "reason": "Forbidden",
+      "description": "The request failed to validate the Authorization header field. If the MSP platform sends a request to Messaging service and it responds with 403 - Forbidden, it’s likely in response to an invalid MSP ID in the Authorization header field."
+    },
+    {
+      "code": "404",
+      "reason": "Not Found",
+      "description": "The request failed to recognize the destination-id or was sent to a user no longer available. These errors occur when a business messages a user during their iPhone or device upgrade cycle. The carrier has an inactivated status on the SIM card for a particular device. Our messaging systems have the user account marked as messageable and active but the error comes back from the carrier network. Once the upgrade cycle is complete, users will again receive messages without any further work for the MSP or the user. They will not, however, receive messages that were returned as 404. We recommend those be sent again or marked in your system as undelivered."
+    },
+    {
+      "code": "410",
+      "reason": "Gone",
+      "description": "The request failed because the user closed the conversation. For more information, see Receiving a close conversation."
+    },
+    {
+      "code": "500",
+      "reason": "Internal Server Error",
+      "description": "A server error occurred. An additional response could be 50x - various. This means that the request encountered various server-side failures. The bot and/or agent needs to be notified that message delivery failed and provide an opportunity to resend the message."
+    }
+  ]
+}

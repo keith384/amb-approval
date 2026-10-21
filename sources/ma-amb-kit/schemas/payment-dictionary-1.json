@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/payment-dictionary-1.json",
+  "title": "Payment",
+  "type": "object",
+  "properties": {
+    "shippingContact": {
+      "$comment": "type not specified in source (2-column Name|Description table); prose ref 'shippingContact.' unresolved: 'shippingContact.'",
+      "description": "A dictionary with the customer's updated shipping address information. For more information, see shippingContact."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "payment-dictionary-1",
+    "qualified_name": "msp-rest-api › Payment @L2600",
+    "canonical_lines": [
+      2600,
+      2635
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "2col",
+    "extracted_utc": "2026-07-09T04:36:43.947608+00:00"
+  }
+}

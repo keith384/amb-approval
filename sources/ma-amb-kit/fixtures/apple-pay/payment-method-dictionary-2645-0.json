@@ -1,0 +1,9 @@
+{
+  "requestIdentifier": "8EF748B5-<truncated>9",
+  "version": "1.0",
+  "payment": {
+    "paymentMethod": {
+      "type": "credit"
+    }
+  }
+}

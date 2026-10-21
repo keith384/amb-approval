@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/quick-replyitems-dictionary.json",
+  "title": "Quick-Reply.Items",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "REQUIRED. An identifier to identify the item."
+    },
+    "title": {
+      "type": "string",
+      "description": "REQUIRED. Title of the quick reply item. Max 1 line of text."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "quick-replyitems-dictionary",
+    "qualified_name": "msp-rest-api › Quick-Reply.Items",
+    "canonical_lines": [
+      1974,
+      1987
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945322+00:00"
+  },
+  "required": [
+    "identifier",
+    "title"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivedata-dictionary-1.json",
+  "title": "InteractiveData",
+  "type": "object",
+  "properties": {
+    "bid": {
+      "type": "string",
+      "description": "REQUIRED. com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:"
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivedata-dictionary-1",
+    "qualified_name": "msp-rest-api › InteractiveData @L2939",
+    "canonical_lines": [
+      2939,
+      2953
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.948078+00:00"
+  },
+  "required": [
+    "bid"
+  ]
+}

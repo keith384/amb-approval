@@ -1,0 +1,1541 @@
+{
+  "generated_utc": "2026-07-09T04:36:43.892294+00:00",
+  "canonical": "AMB_Layer2_Canonical_v7_0.md",
+  "valid": 74,
+  "unparsed": 34,
+  "by_group": {
+    "rest-api-reference": 37,
+    "close-session": 4,
+    "text": 6,
+    "interactive-common": 3,
+    "apple-pay": 8,
+    "authentication": 3,
+    "form": 6,
+    "tutorial": 7
+  },
+  "fixtures": [
+    {
+      "slug": "msp-rest-api-77-0",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "line": 77,
+      "block": 0,
+      "status": "unparsed",
+      "error": "Expecting property name enclosed in double quotes: line 3 column 1 (char 20)"
+    },
+    {
+      "slug": "msp-rest-api-77-1",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 1,
+      "status": "ok",
+      "normalized": true,
+      "substitutions": [
+        {
+          "kind": "angle",
+          "token": "<CSP-ID>"
+        },
+        {
+          "kind": "angle",
+          "token": "<issued at unix-timestamp (in seconds)>"
+        }
+      ],
+      "top_level_keys": [
+        "aud",
+        "iat"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-2",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "line": 77,
+      "block": 2,
+      "status": "unparsed",
+      "error": "Expecting property name enclosed in double quotes: line 3 column 1 (char 20)"
+    },
+    {
+      "slug": "msp-rest-api-77-3",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 3,
+      "status": "ok",
+      "normalized": true,
+      "substitutions": [
+        {
+          "kind": "angle",
+          "token": "<MSP-ID>"
+        },
+        {
+          "kind": "angle",
+          "token": "<issued at unix-timestamp (in seconds)>"
+        }
+      ],
+      "top_level_keys": [
+        "iat",
+        "iss"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-4",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 4,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "Authorization",
+        "Content-Type",
+        "Destination-Id",
+        "Source-Id",
+        "id"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-5",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 5,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "Authorization",
+        "Content-Type",
+        "Destination-Id",
+        "Source-Id",
+        "id"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-6",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 6,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-7",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "line": 77,
+      "block": 7,
+      "status": "unparsed",
+      "error": "Expecting ',' delimiter: line 7 column 2 (char 142)"
+    },
+    {
+      "slug": "msp-rest-api-77-8",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 8,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-9",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 9,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-10",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 10,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-11",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "line": 77,
+      "block": 11,
+      "status": "unparsed",
+      "error": "Expecting ',' delimiter: line 8 column 3 (char 192)"
+    },
+    {
+      "slug": "msp-rest-api-77-12",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 12,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-13",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 13,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-14",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 14,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "attachments",
+        "body",
+        "destinationId",
+        "id",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-15",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 15,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "cache-control",
+        "content-encoding",
+        "content-length",
+        "content-type",
+        "strict-transport-security",
+        "x-frame-options"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-16",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "line": 77,
+      "block": 16,
+      "status": "unparsed",
+      "error": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "slug": "msp-rest-api-77-17",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 17,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "download-url"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-18",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 18,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-19",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 19,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "singleFile"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-20",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 20,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "attachments",
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-21",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 21,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-22",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 22,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "richLinkData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-23",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 23,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "richLinkData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-24",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 24,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": null
+    },
+    {
+      "slug": "msp-rest-api-77-25",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "line": 77,
+      "block": 25,
+      "status": "unparsed",
+      "error": "Expecting value: line 6 column 18 (char 138)"
+    },
+    {
+      "slug": "msp-rest-api-77-26",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 26,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveDataRef",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-27",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 27,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "interactiveData"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-28",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 28,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "payment",
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-29",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 29,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "status"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-30",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "line": 77,
+      "block": 30,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "msp-rest-api-77-31",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 31,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "payment",
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-32",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 32,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "newLineItems",
+        "newTotal"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-33",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 33,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "payment",
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-34",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 34,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "newLineItems",
+        "newTotal"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-35",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 35,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "interactiveData",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-36",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 36,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveData",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-37",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 37,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-38",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 38,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "interactiveData",
+        "type"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-39",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 39,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "interactiveData",
+        "type"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-40",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 40,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-41",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 41,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "link",
+        "type",
+        "version"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-42",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 42,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "richLinkDataRef",
+        "version"
+      ]
+    },
+    {
+      "slug": "msp-rest-api-77-43",
+      "group": "rest-api-reference",
+      "section": "msp-rest-api",
+      "canonical_line": 77,
+      "block": 43,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "richLinkDataRef",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "example-closesession-message-752-0",
+      "group": "close-session",
+      "section": "Example CloseSession Message",
+      "canonical_line": 752,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "example-closesession-message-752-1",
+      "group": "close-session",
+      "section": "Example CloseSession Message",
+      "canonical_line": 752,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "attachments",
+        "body",
+        "destinationId",
+        "id",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "example-closesession-message-752-2",
+      "group": "close-session",
+      "section": "Example CloseSession Message",
+      "canonical_line": 752,
+      "block": 2,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "cache-control",
+        "content-encoding",
+        "content-length",
+        "content-type",
+        "strict-transport-security",
+        "x-frame-options"
+      ]
+    },
+    {
+      "slug": "example-closesession-message-752-3",
+      "group": "close-session",
+      "section": "Example CloseSession Message",
+      "line": 752,
+      "block": 3,
+      "status": "unparsed",
+      "error": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"
+    },
+    {
+      "slug": "example-closesession-message-752-4",
+      "group": "close-session",
+      "section": "Example CloseSession Message",
+      "canonical_line": 752,
+      "block": 4,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "download-url"
+      ]
+    },
+    {
+      "slug": "example-of-a-text-message-997-0",
+      "group": "text",
+      "section": "Example of a Text Message",
+      "canonical_line": 997,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "example-of-a-text-message-997-1",
+      "group": "text",
+      "section": "Example of a Text Message",
+      "canonical_line": 997,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "singleFile"
+      ]
+    },
+    {
+      "slug": "example-of-a-text-message-997-2",
+      "group": "text",
+      "section": "Example of a Text Message",
+      "canonical_line": 997,
+      "block": 2,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "attachments",
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "example-of-a-text-message-997-3",
+      "group": "text",
+      "section": "Example of a Text Message",
+      "canonical_line": 997,
+      "block": 3,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "example-of-a-text-message-997-4",
+      "group": "text",
+      "section": "Example of a Text Message",
+      "canonical_line": 997,
+      "block": 4,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "richLinkData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "example-of-a-text-message-997-5",
+      "group": "text",
+      "section": "Example of a Text Message",
+      "canonical_line": 997,
+      "block": 5,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "body",
+        "destinationId",
+        "id",
+        "richLinkData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "imageitem-dictionary-1631-0",
+      "group": "interactive-common",
+      "section": "ImageItem Dictionary",
+      "canonical_line": 1631,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": null
+    },
+    {
+      "slug": "replymessage-dictionary-1725-0",
+      "group": "interactive-common",
+      "section": "ReplyMessage Dictionary",
+      "line": 1725,
+      "block": 0,
+      "status": "unparsed",
+      "error": "Expecting value: line 6 column 18 (char 138)"
+    },
+    {
+      "slug": "replymessage-dictionary-1725-1",
+      "group": "interactive-common",
+      "section": "ReplyMessage Dictionary",
+      "canonical_line": 1725,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveDataRef",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "replymessage-dictionary-1725-2",
+      "group": "interactive-common",
+      "section": "ReplyMessage Dictionary",
+      "canonical_line": 1725,
+      "block": 2,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "interactiveData"
+      ]
+    },
+    {
+      "slug": "payment-dictionary-2316-0",
+      "group": "apple-pay",
+      "section": "Payment Dictionary",
+      "canonical_line": 2316,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "payment",
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    {
+      "slug": "payment-dictionary-2316-1",
+      "group": "apple-pay",
+      "section": "Payment Dictionary",
+      "canonical_line": 2316,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "status"
+      ]
+    },
+    {
+      "slug": "sending-an-apple-pay-payment-request-2446-0",
+      "group": "apple-pay",
+      "section": "Sending an Apple Pay Payment Request",
+      "line": 2446,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "payment-method-dictionary-2645-0",
+      "group": "apple-pay",
+      "section": "Payment Method Dictionary",
+      "canonical_line": 2645,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "payment",
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    {
+      "slug": "payment-method-dictionary-2645-1",
+      "group": "apple-pay",
+      "section": "Payment Method Dictionary",
+      "canonical_line": 2645,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "newLineItems",
+        "newTotal"
+      ]
+    },
+    {
+      "slug": "payment-dictionary-2744-0",
+      "group": "apple-pay",
+      "section": "Payment Dictionary",
+      "canonical_line": 2744,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "payment",
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    {
+      "slug": "payment-dictionary-2744-1",
+      "group": "apple-pay",
+      "section": "Payment Dictionary",
+      "canonical_line": 2744,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "newLineItems",
+        "newTotal"
+      ]
+    },
+    {
+      "slug": "authentication-message-2854-0",
+      "group": "authentication",
+      "section": "Authentication Message",
+      "canonical_line": 2854,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "interactiveData",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "data-authenticate-dictionary-3051-0",
+      "group": "authentication",
+      "section": "Data.authenticate Dictionary",
+      "canonical_line": 3051,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveData",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "data-authenticate-dictionary-3051-1",
+      "group": "authentication",
+      "section": "Data.authenticate Dictionary",
+      "canonical_line": 3051,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "form-message-3175-0",
+      "group": "form",
+      "section": "Form Message",
+      "canonical_line": 3175,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "interactiveData",
+        "type"
+      ]
+    },
+    {
+      "slug": "form-message-3175-1",
+      "group": "form",
+      "section": "Form Message",
+      "canonical_line": 3175,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "interactiveData",
+        "type"
+      ]
+    },
+    {
+      "slug": "form-message-3175-2",
+      "group": "form",
+      "section": "Form Message",
+      "canonical_line": 3175,
+      "block": 2,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "interactiveData",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "form-message-3175-3",
+      "group": "form",
+      "section": "Form Message",
+      "canonical_line": 3175,
+      "block": 3,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "link",
+        "type",
+        "version"
+      ]
+    },
+    {
+      "slug": "form-message-3175-4",
+      "group": "form",
+      "section": "Form Message",
+      "canonical_line": 3175,
+      "block": 4,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "richLinkDataRef",
+        "version"
+      ]
+    },
+    {
+      "slug": "form-message-3175-5",
+      "group": "form",
+      "section": "Form Message",
+      "canonical_line": 3175,
+      "block": 5,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "richLinkDataRef",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-0",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "canonical_line": 4265,
+      "block": 0,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-1",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "canonical_line": 4265,
+      "block": 1,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "dataRef"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-2",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "canonical_line": 4265,
+      "block": 2,
+      "status": "ok",
+      "normalized": true,
+      "substitutions": [
+        {
+          "kind": "angle",
+          "token": "<SHA256 hash of your text merchant identifier>"
+        },
+        {
+          "kind": "angle",
+          "token": "<domain name associated with Apple Pay merchant account>"
+        },
+        {
+          "kind": "angle",
+          "token": "<Merchant name in human readable form>"
+        }
+      ],
+      "top_level_keys": [
+        "displayName",
+        "domainName",
+        "initiative",
+        "initiativeContext",
+        "merchantIdentifier"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-3",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "canonical_line": 4265,
+      "block": 3,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "displayName",
+        "epochTimestamp",
+        "expiresAt",
+        "initiative",
+        "initiativeContext",
+        "merchantIdentifier",
+        "merchantSessionIdentifier",
+        "nonce",
+        "signature",
+        "signedFields"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-4",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "line": 4265,
+      "block": 4,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "msp-api-tutorial-4265-5",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "line": 4265,
+      "block": 5,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "msp-api-tutorial-4265-6",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "line": 4265,
+      "block": 6,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "msp-api-tutorial-4265-7",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "canonical_line": 4265,
+      "block": 7,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "destinationId",
+        "interactiveData",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-8",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "canonical_line": 4265,
+      "block": 8,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "email",
+        "email_verified",
+        "family_name",
+        "given_name",
+        "locale",
+        "name",
+        "sub"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-9",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "canonical_line": 4265,
+      "block": 9,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "attachments",
+        "destinationId",
+        "id",
+        "interactiveData",
+        "locale",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    {
+      "slug": "msp-api-tutorial-4265-10",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "line": 4265,
+      "block": 10,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "msp-api-tutorial-4265-11",
+      "group": "tutorial",
+      "section": "msp-api-tutorial",
+      "line": 4265,
+      "block": 11,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "merchant-tokens-are-also-designed-to-help-prevent-or-resolve-billing-issues-by-giving-visibility-into-10456-0",
+      "group": "apple-pay",
+      "section": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+      "line": 10456,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "merchant-tokens-are-also-designed-to-help-prevent-or-resolve-billing-issues-by-giving-visibility-into-10456-1",
+      "group": "apple-pay",
+      "section": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+      "line": 10456,
+      "block": 1,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "apple-pay-payment-object-10523-0",
+      "group": "apple-pay",
+      "section": "Apple Pay Payment Object",
+      "line": 10523,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "apple-pay-payment-object-10523-1",
+      "group": "apple-pay",
+      "section": "Apple Pay Payment Object",
+      "line": 10523,
+      "block": 1,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "apple-pay-payment-object-10523-2",
+      "group": "apple-pay",
+      "section": "Apple Pay Payment Object",
+      "canonical_line": 10523,
+      "block": 2,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "paymentData",
+        "paymentMethod",
+        "transactionIdentifier"
+      ]
+    },
+    {
+      "slug": "decrypting-the-payment-data-10600-0",
+      "group": "apple-pay",
+      "section": "Decrypting the Payment Data",
+      "line": 10600,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "decrypting-the-payment-data-10600-1",
+      "group": "apple-pay",
+      "section": "Decrypting the Payment Data",
+      "line": 10600,
+      "block": 1,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "configure-apple-pay-on-the-web-11517-0",
+      "group": "apple-pay",
+      "section": "Configure Apple Pay on the Web",
+      "line": 11517,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-0",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-1",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 1,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-2",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 2,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-3",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 3,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-4",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 4,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-5",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 5,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-6",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 6,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "present-the-payment-sheet-11715-7",
+      "group": "apple-pay",
+      "section": "Present the Payment Sheet",
+      "line": 11715,
+      "block": 7,
+      "status": "unparsed",
+      "error": "Expecting property name enclosed in double quotes: line 1 column 3 (char 2)"
+    },
+    {
+      "slug": "merchant-tokens-are-also-designed-to-help-prevent-or-resolve-billing-issues-by-giving-visibility-into-12010-0",
+      "group": "apple-pay",
+      "section": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+      "line": 12010,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "merchant-tokens-are-also-designed-to-help-prevent-or-resolve-billing-issues-by-giving-visibility-into-12010-1",
+      "group": "apple-pay",
+      "section": "Merchant tokens are also designed to help prevent or resolve billing issues by giving visibility into",
+      "line": 12010,
+      "block": 1,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "authorize-payment-and-map-customer-information-12065-0",
+      "group": "apple-pay",
+      "section": "Authorize payment and map customer information",
+      "line": 12065,
+      "block": 0,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "authorize-payment-and-map-customer-information-12065-1",
+      "group": "apple-pay",
+      "section": "Authorize payment and map customer information",
+      "line": 12065,
+      "block": 1,
+      "status": "no-json-core"
+    },
+    {
+      "slug": "authorize-payment-and-map-customer-information-12065-2",
+      "group": "apple-pay",
+      "section": "Authorize payment and map customer information",
+      "canonical_line": 12065,
+      "block": 2,
+      "status": "ok",
+      "normalized": false,
+      "substitutions": [],
+      "top_level_keys": [
+        "paymentData",
+        "paymentMethod",
+        "transactionIdentifier"
+      ]
+    }
+  ]
+}

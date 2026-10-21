@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/http-body.json",
+  "title": "HTTP Body",
+  "type": "object",
+  "properties": {
+    "attachments": {
+      "$comment": "source Type cell = 'attachments' (not a known primitive)",
+      "description": "An array of attachment dictionaries. For more information, see Attachments."
+    },
+    "destinationId": {
+      "type": "string",
+      "description": "REQUIRED. Identifies the message recipient. When the MSP platform receives a message from Apple Messages for Business, the value is the business ID. When the MSP platform sends a reply to Apple Messages for Business, the value is the user’s opaque ID."
+    },
+    "group": {
+      "type": "string",
+      "description": "The group identifier for the message as specified by the business, such as the department name. For more information, see About Intent, Group, and Body Values."
+    },
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "x-amb-source-type": "UUID",
+      "description": "REQUIRED. A UUID string that identifies the message."
+    },
+    "intent": {
+      "type": "string",
+      "description": "The intention, or purpose, of the chat as specified by the business, such as account_question. For more information, see About Intent, Group, and Body Values."
+    },
+    "locale": {
+      "type": "string",
+      "description": "User's device locale settings. For example, en_AU specifies the language as English and the region as Australia. For more information, see Internationalization and Localization Guide - Locale ID."
+    },
+    "sourceId": {
+      "type": "string",
+      "description": "REQUIRED. A string that identifies the message sender. When a user sends a message, the source-id is the user’s opaque ID. When a business sends a reply to the customer, the source-id is the business ID."
+    },
+    "type": {
+      "type": "string",
+      "description": "REQUIRED. A string that identifies the message type. For the list of possible values and their meanings, see Message Type Values. Possible values: interactive, typing_start, typing_end, text."
+    },
+    "v": {
+      "type": "integer",
+      "description": "REQUIRED. The message payload version number. This value must be 1, which is the current version of the message JSON."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "id": "http-body",
+    "structural": true,
+    "kind": "object",
+    "canonical_lines": [
+      322,
+      343
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "note": "The actual /message request body envelope. Interactive messages inherit from HTTP Body (canonical L419); the interactive path additionally carries interactiveData (wired in amb.openapi.json to baseinteractivemessage).",
+    "extracted_utc": "2026-07-09T04:36:43.948684+00:00",
+    "table_layout": "3col",
+    "enum_in_prose_detected": "possible values and their meanings, see Message Type Values. Possible values:"
+  },
+  "required": [
+    "destinationId",
+    "id",
+    "sourceId",
+    "type",
+    "v"
+  ]
+}

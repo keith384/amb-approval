@@ -1,0 +1,16 @@
+{
+  "interactiveDataRef": {
+    "url": "https://p61-content.icloud.com/M58C0A1A2EB62B6E899B4F28996E8DA229E1914295299C39944B2F2CA7482AE50.C01USN00",
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension",
+    "signature-base64": "gdYWyD3loBxhiXGaXSDhdDDGMeHr",
+    "key": "00c0d1827fdc858fe7b42421de1fb289c2ee0a9463d787ce4f118506f970bd6e38",
+    "signature": "81a619c81da5a01c6139219a5d20e17430c631e1eb",
+    "owner": "M58C0A2A1EB62B4E859B4F28996E8DA229E1914295299C39944B2F2CA7482AE50.C01USN00",
+    "size": 101267
+  },
+  "sourceId": "",
+  "destinationId": "",
+  "v": 1,
+  "type": "interactive",
+  "id": "80c72dab-dc7b-4750-8fae-ee7a90fae0cb"
+}

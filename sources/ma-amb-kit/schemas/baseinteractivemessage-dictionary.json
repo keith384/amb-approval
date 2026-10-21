@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/baseinteractivemessage-dictionary.json",
+  "title": "BaseInteractiveMessage",
+  "type": "object",
+  "properties": {
+    "bid": {
+      "type": "string",
+      "description": "REQUIRED. A string identifying the iMessage extension that the user interacts with while using Messages. The bid value format is: com.apple.messages.MSMessageExtensionBalloonPlugin:team-id:extension-id When using your custom interactive message, replace team-id and extension-id with your team and extension IDs. When using an Apple Messages for Business interactive message, set team-id to 0000000000 and the extension-id to com.apple.icloud.apps.messages.business.extension. For example: com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension"
+    },
+    "receivedMessage": {
+      "$ref": "./receivedmessage-dictionary.json",
+      "description": "REQUIRED. A dictionary with information telling the Messages app how and what content to display the received message bubble. See ReceivedMessage Dictionary."
+    },
+    "replyMessage": {
+      "$ref": "./replymessage-dictionary.json",
+      "description": "REQUIRED. A dictionary with information telling the Messages app how and what to display in the reply message bubble. See ReplyMessage Dictionary."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "baseinteractivemessage-dictionary",
+    "qualified_name": "msp-rest-api › BaseInteractiveMessage",
+    "canonical_lines": [
+      1582,
+      1596
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944287+00:00"
+  },
+  "required": [
+    "bid",
+    "receivedMessage",
+    "replyMessage"
+  ]
+}

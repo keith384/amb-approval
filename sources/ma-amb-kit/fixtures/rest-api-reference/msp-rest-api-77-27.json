@@ -1,0 +1,9 @@
+{
+  "interactiveData": {
+    "bid": "some-bid",
+    "URL": "url-data",
+    "receivedMessage": {
+      "title": "Interaction Title"
+    }
+  }
+}

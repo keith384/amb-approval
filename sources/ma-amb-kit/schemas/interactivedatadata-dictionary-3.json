@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivedatadata-dictionary-3.json",
+  "title": "InteractiveData.Data",
+  "type": "object",
+  "properties": {
+    "images": {
+      "type": "array",
+      "description": "An array of image dictionaries."
+    },
+    "requestIdentifier": {
+      "type": "string",
+      "format": "uuid",
+      "x-amb-source-type": "UUID",
+      "description": "REQUIRED. An unique identifier for the authentication request. Value must be UUID: uuid."
+    },
+    "version": {
+      "type": "string",
+      "description": "REQUIRED. A numerical version number of the message extension schema. Set 2.0 for the New Authentication Message."
+    },
+    "authenticate": {
+      "type": "object",
+      "description": "REQUIRED. An object to construct the authorization URL."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivedatadata-dictionary-3",
+    "qualified_name": "msp-rest-api › InteractiveData.Data @L2954",
+    "canonical_lines": [
+      2954,
+      2963
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.948159+00:00"
+  },
+  "required": [
+    "authenticate",
+    "requestIdentifier",
+    "version"
+  ]
+}

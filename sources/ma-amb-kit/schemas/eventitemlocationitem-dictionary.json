@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/eventitemlocationitem-dictionary.json",
+  "title": "EventItem.LocationItem",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "description": "A double representing the latitude of the location."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "A double representing the longitude of the location."
+    },
+    "radius": {
+      "type": "number",
+      "description": "A double representing the location radius, in meters. Apple Messages for Business ignores this field when latitude and longitude are missing."
+    },
+    "title": {
+      "type": "string",
+      "description": "A string field of the location title."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "eventitemlocationitem-dictionary",
+    "qualified_name": "msp-rest-api › EventItem.LocationItem",
+    "canonical_lines": [
+      2100,
+      2115
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945983+00:00"
+  }
+}

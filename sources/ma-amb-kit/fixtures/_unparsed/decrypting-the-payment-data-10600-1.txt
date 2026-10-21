@@ -1,0 +1,28 @@
+{
+    "paymentDataType": "3DSecure",
+    "applicationExpirationDate": "YYMMDD",
+    "applicationPrimaryAccountNumber": "0001...5678",
+    "currencyCode": "826",
+    "deviceManufacturerIdentifier": "54...56",
+    "transactionAmount": "10000",
+    "merchantTokenIdentifier": “MAPL...1654”,
+    "merchantTokenMetadata": {
+      "cardArt": [
+        {
+          "name": "card.png",
+          "type": "image/png",
+          "url": "https://...d91b"
+        }
+      ],
+      "cardMetadata": {
+        "longDescription": "Long Card Name",
+        "shortDescription": "Short Name",
+        "cardCountry": "GB",
+        "fpanSuf x": "1234"
+      }
+    },
+    "paymentData": {
+      "onlinePaymentCryptogram": "TIA0...bdE=",
+      "eciIndicator": “XX"
+    }
+}

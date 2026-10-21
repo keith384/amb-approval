@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/jwt-claims.json",
+  "title": "JWT Authorization Fields (JOSE header + claims)",
+  "type": "object",
+  "properties": {
+    "alg": {
+      "type": "string",
+      "description": "A string used in the header, identifying the algorithm used to encode the payload. The alg value is always HS256 when exchanging messages with Apple Messages for Business."
+    },
+    "aud": {
+      "type": "string",
+      "description": "A claim that is a string, or array of strings, identifying the recipients of the JWT. The value should be a string when the JWT has one recipient; otherwise, it should be an array of strings where each string represents a recipient. The aud value is always the MSP ID when exchanging messages with Apple Messages for Business. This value is used when sending messages from the business to the MSP platform"
+    },
+    "iss": {
+      "type": "string",
+      "description": "A claim that is a string identifying the principal that issued the JWT. The value is always the MSP ID when exchanging messages with Apple Messages for Business. This value is used with traffic coming from the MSP platform to the business."
+    },
+    "iat": {
+      "$comment": "source Type cell = 'dateTime' (not a known primitive)",
+      "description": "A claim that is a numeric date—that is, an integer—identifying the time at which the JWT was issued. The value is the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date and time, ignoring leap seconds. For more information, see the Terminology section in RFC 7519."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "id": "jwt-claims",
+    "structural": true,
+    "kind": "object",
+    "canonical_lines": [
+      136,
+      145
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "note": "Subset of JWT fields used to sign the Authorization header; alg is always HS256.",
+    "extracted_utc": "2026-07-09T04:36:43.948870+00:00",
+    "table_layout": "3col"
+  }
+}

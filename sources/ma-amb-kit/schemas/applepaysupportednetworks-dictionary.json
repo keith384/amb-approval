@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/applepaysupportednetworks-dictionary.json",
+  "title": "ApplePay.SupportedNetworks",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "applepaysupportednetworks-dictionary",
+    "qualified_name": "msp-rest-api › ApplePay.SupportedNetworks",
+    "canonical_lines": [
+      2223,
+      2228
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "none",
+    "extracted_utc": "2026-07-09T04:36:43.946808+00:00",
+    "no_table_in_span": true
+  },
+  "$comment": "No property table in source span; this dictionary is described in prose only. Verify against canonical."
+}

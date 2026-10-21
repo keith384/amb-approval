@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/datalistpickersection-dictionary.json",
+  "title": "Data.ListPickerSection",
+  "type": "object",
+  "properties": {
+    "listPickerItem": {
+      "type": "object",
+      "x-amb-note": "source prose says 'an array of ...' but Type cell = object",
+      "$ref": "./listpickersectionlistpickeritem-dictionary.json",
+      "description": "An array of section items. See ListPickerItem."
+    },
+    "multipleSelection": {
+      "type": "boolean",
+      "description": "A Boolean that indicates whether the customer can make multiple selections within the section. Defaults to false."
+    },
+    "order": {
+      "type": "integer",
+      "description": "An integer containing the ordinal pn the sections array."
+    },
+    "title": {
+      "type": "string",
+      "description": "REQUIRED. A string field of the section title."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "datalistpickersection-dictionary",
+    "qualified_name": "msp-rest-api › Data.ListPickerSection",
+    "canonical_lines": [
+      2028,
+      2039
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945570+00:00"
+  },
+  "required": [
+    "title"
+  ]
+}

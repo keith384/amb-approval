@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/locationtimeitem-dictionary.json",
+  "title": "Location.TimeItem",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "integer",
+      "description": "REQUIRED. An integer representing the duration of the time slot, in seconds."
+    },
+    "identifier": {
+      "type": "string",
+      "description": "REQUIRED. A string field identifying the time item that must be unique within the payload, if more than one exists."
+    },
+    "startTime": {
+      "type": "string",
+      "description": "REQUIRED. A UTC date string, represented by a valid date in ISO-8601 format and specified as absolute GMT +0000 date; for example, 2017-05-26T08:27+0000 or 2025-07-10T17:00+0000; the API does not accept seconds (:ss) or the Z notation (2025-07-10T17:00:00Z is invalid). The timezoneOffset, from the EventItem dictionary, determines whether the startTime is in a specific time zone or in the customer's current time zone."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "locationtimeitem-dictionary",
+    "qualified_name": "msp-rest-api › Location.TimeItem",
+    "canonical_lines": [
+      2116,
+      2130
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.946072+00:00"
+  },
+  "required": [
+    "duration",
+    "identifier",
+    "startTime"
+  ]
+}

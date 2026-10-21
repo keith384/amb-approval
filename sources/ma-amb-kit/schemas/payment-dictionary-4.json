@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/payment-dictionary-4.json",
+  "title": "Payment",
+  "type": "object",
+  "properties": {
+    "billingContact": {
+      "$comment": "type not specified in source (2-column Name|Description table); prose ref 'billingContact.' unresolved: 'billingContact.'",
+      "description": "The customer's billing contact information. For more information, see billingContact."
+    },
+    "errors": {
+      "$comment": "type not specified in source (2-column Name|Description table)",
+      "description": "An array of ApplePayError types. This field is present only when the payment processing request detects errors."
+    },
+    "shippingContact": {
+      "$comment": "type not specified in source (2-column Name|Description table); prose ref 'shippingContact.' unresolved: 'shippingContact.'",
+      "description": "The customer's shipping address information. For more information, see shippingContact."
+    },
+    "shippingMethod": {
+      "$comment": "type not specified in source (2-column Name|Description table); prose ref 'ApplePayShippingMethodItem.' unresolved: 'ApplePayShippingMethodItem.'",
+      "description": "The shipping method selected by the customer. For more information, see ApplePayShippingMethodItem."
+    },
+    "summaryItems": {
+      "$comment": "type not specified in source (2-column Name|Description table)",
+      "description": "An array of ApplePayLineItem dictionaries."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "payment-dictionary-4",
+    "qualified_name": "msp-rest-api › Payment @L2837",
+    "canonical_lines": [
+      2837,
+      2853
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "2col",
+    "extracted_utc": "2026-07-09T04:36:43.948009+00:00"
+  }
+}

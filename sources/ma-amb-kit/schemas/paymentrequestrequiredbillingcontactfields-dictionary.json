@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/paymentrequestrequiredbillingcontactfields-dictionary.json",
+  "title": "PaymentRequest.requiredBillingContactFields",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "REQUIRED. Email address of the Apple Pay contact."
+    },
+    "name": {
+      "type": "string",
+      "description": "REQUIRED. Full name of the Apple Pay contact."
+    },
+    "phone": {
+      "type": "string",
+      "description": "REQUIRED. Phone number of the Apple Pay contact."
+    },
+    "phoneticName": {
+      "type": "string",
+      "description": "REQUIRED. Phonetic spelling of the Apple Pay contact."
+    },
+    "post": {
+      "type": "string",
+      "description": "REQUIRED. Postal address of the Apple Pay contact."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "paymentrequestrequiredbillingcontactfields-dictionary",
+    "qualified_name": "msp-rest-api › PaymentRequest.requiredBillingContactFields",
+    "canonical_lines": [
+      2179,
+      2191
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.946461+00:00"
+  },
+  "required": [
+    "email",
+    "name",
+    "phone",
+    "phoneticName",
+    "post"
+  ]
+}

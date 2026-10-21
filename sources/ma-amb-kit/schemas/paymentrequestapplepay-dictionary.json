@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/paymentrequestapplepay-dictionary.json",
+  "title": "PaymentRequest.ApplePay",
+  "type": "object",
+  "properties": {
+    "merchantCapabilities": {
+      "$ref": "./applepaymerchantcapabilities-dictionary.json",
+      "description": "An array of payment capabilities supported by the merchant. The array must include supports3DS, and may optionally include supportsCredit, supportsDebit, and supportsEMV. For more information, see [merchantCapabilities."
+    },
+    "merchantIdentifier": {
+      "type": "string",
+      "description": "REQUIRED. A unique identifier that represents a merchant for Apple Pay."
+    },
+    "supportedNetworks": {
+      "$ref": "./applepaysupportednetworks-dictionary.json",
+      "description": "An array of payment networks supported by the merchant. The array must include one or more of the following values: amex, discover, jcb, masterCard, privateLabel, or visa. For more information, see [supportedNetworks."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "paymentrequestapplepay-dictionary",
+    "qualified_name": "msp-rest-api › PaymentRequest.ApplePay",
+    "canonical_lines": [
+      2206,
+      2216
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.946735+00:00"
+  },
+  "required": [
+    "merchantIdentifier"
+  ]
+}

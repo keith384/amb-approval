@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/dataauthenticateoauth2-dictionary.json",
+  "title": "Data.Authenticate.Oauth2",
+  "type": "object",
+  "properties": {
+    "responseType": {
+      "type": "string",
+      "description": "REQUIRED. A string indicating the type of authentication request. Set code for authorization flow."
+    },
+    "scope": {
+      "type": "array",
+      "description": "REQUIRED. An array of scope items that specifies the scope of the request.This dictionary entry gives the exact fields of data that the authentication service provides to the client requesting the authentication."
+    },
+    "state": {
+      "type": "string",
+      "description": "REQUIRED. A string indicating the state of the authentication request."
+    },
+    "redirectURI": {
+      "type": "string",
+      "description": "REQUIRED. A string representing the redirect URL that the OAuth provider redirects the user."
+    },
+    "additionalParameters": {
+      "type": "string",
+      "description": "A string value that you can add on the authorization URL query parameter."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "dataauthenticateoauth2-dictionary",
+    "qualified_name": "msp-rest-api › Data.Authenticate.Oauth2",
+    "canonical_lines": [
+      2971,
+      3041
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.948354+00:00"
+  },
+  "required": [
+    "redirectURI",
+    "responseType",
+    "scope",
+    "state"
+  ]
+}

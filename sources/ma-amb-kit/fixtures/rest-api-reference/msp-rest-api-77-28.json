@@ -1,0 +1,59 @@
+{
+  "requestIdentifier": "8EF748B5-3DC5-47AE-B185-65E91518D209",
+  "version": "1.0",
+  "payment": {
+    "billingContact": {
+      "phoneticFamilyName": "",
+      "locality": "Cupertino",
+      "postalCode": "95014",
+      "subLocality": "",
+      "administrativeArea": "CA",
+      "country": "United States",
+      "familyName": "Appleseed",
+      "addressLines": [
+        "1 Infinite Loop"
+      ],
+      "givenName": "Johnny",
+      "phoneticGivenName": "",
+      "countryCode": "us"
+    },
+    "shippingContact": {
+      "phoneNumber": "55555555555",
+      "emailAddress": "user@example.com",
+      "subLocality": "",
+      "phoneticGivenName": "",
+      "countryCode": "us",
+      "phoneticFamilyName": "",
+      "administrativeArea": "CA",
+      "addressLines": [
+        "1 Infinite Loop"
+      ],
+      "givenName": "",
+      "postalCode": "95014",
+      "familyName": "",
+      "locality": "Cupertino",
+      "country": "United States"
+    },
+    "shippingMethod": {
+      "amount": "0",
+      "label": "In-Store Pickup",
+      "detail": "Available within an hour",
+      "type": "Final",
+      "identifier": "in_store_pickup"
+    },
+    "paymentToken": {
+      "transactionIdentifier": "5394..00",
+      "paymentData": {
+        "version": "EC_v1",
+        "data": "kdHd..GQ==",
+        "signature": "MIAGCSqGSIb3DQEH...AAA",
+        "header": {
+          "applicationData": "94ee0..C2",
+          "transactionId": "d3b28af..f8",
+          "ephemeralPublicKey": "MFkwE..Q==",
+          "publicKeyHash": "dxCK..6o="
+        }
+      }
+    }
+  }
+}

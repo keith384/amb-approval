@@ -1,0 +1,2010 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/amb_schemas_bundle.json",
+  "title": "Apple Messages for Business — schema bundle (derived from canonical v7.0)",
+  "x-amb-generator": {
+    "tool": "extract_schemas.py",
+    "canonical": "AMB_Layer2_Canonical_v7_0.md",
+    "canonical_version": "v7.0-verbatim-consolidated",
+    "generated_utc": "2026-07-09T04:36:43.950364+00:00",
+    "schema_count": 49,
+    "dictionary_schema_count": 47,
+    "structural_object_schema_count": 2,
+    "faithfulness_note": "Nodes assert only what the source tables state. Ambiguous items ($comment nodes, x-amb-note) are logged in schema_coverage_report.md for human verification; none are guessed."
+  },
+  "$defs": {
+    "interactivedata-dictionary": {
+      "title": "InteractiveData",
+      "type": "object",
+      "properties": {
+        "bid": {
+          "type": "string",
+          "description": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension"
+        },
+        "data": {
+          "type": "object",
+          "description": "A collection of name and values used for interactive message types."
+        },
+        "sessionIdentifier": {
+          "type": "string",
+          "description": "sessionIdentifier is related to generic iMessage app sessions. If the interactive data in the message from MSP contains sessionIdentifier, Apple Messages for Business server will use the same sessionIdentifier in the payload to device. Otherwise, Apple will generate a random session identifier (UUID) and use it in the bp payload to device."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedata-dictionary",
+        "qualified_name": "msp-rest-api › InteractiveData @L1564",
+        "canonical_lines": [
+          1564,
+          1572
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944047+00:00"
+      }
+    },
+    "interactivedatadata-dictionary": {
+      "title": "InteractiveData.Data",
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "description": "An array of image dictionaries. The image size must be 200kB or smaller, and the format is restricted to PNG only."
+        },
+        "requestIdentifier": {
+          "type": "string",
+          "format": "uuid",
+          "x-amb-source-type": "UUID",
+          "description": "REQUIRED. An unique identifier for the authenticate request. Value must be UUID: uuid."
+        },
+        "version": {
+          "type": "string",
+          "description": "REQUIRED. A numerical version number of the message extension schema."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedatadata-dictionary",
+        "qualified_name": "msp-rest-api › InteractiveData.Data @L1573",
+        "canonical_lines": [
+          1573,
+          1581
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944162+00:00"
+      },
+      "required": [
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    "baseinteractivemessage-dictionary": {
+      "title": "BaseInteractiveMessage",
+      "type": "object",
+      "properties": {
+        "bid": {
+          "type": "string",
+          "description": "REQUIRED. A string identifying the iMessage extension that the user interacts with while using Messages. The bid value format is: com.apple.messages.MSMessageExtensionBalloonPlugin:team-id:extension-id When using your custom interactive message, replace team-id and extension-id with your team and extension IDs. When using an Apple Messages for Business interactive message, set team-id to 0000000000 and the extension-id to com.apple.icloud.apps.messages.business.extension. For example: com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension"
+        },
+        "receivedMessage": {
+          "$ref": "#/$defs/receivedmessage-dictionary",
+          "description": "REQUIRED. A dictionary with information telling the Messages app how and what content to display the received message bubble. See ReceivedMessage Dictionary."
+        },
+        "replyMessage": {
+          "$ref": "#/$defs/replymessage-dictionary",
+          "description": "REQUIRED. A dictionary with information telling the Messages app how and what to display in the reply message bubble. See ReplyMessage Dictionary."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "baseinteractivemessage-dictionary",
+        "qualified_name": "msp-rest-api › BaseInteractiveMessage",
+        "canonical_lines": [
+          1582,
+          1596
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944287+00:00"
+      },
+      "required": [
+        "bid",
+        "receivedMessage",
+        "replyMessage"
+      ]
+    },
+    "interactiveresponse-dictionary": {
+      "title": "InteractiveResponse",
+      "type": "object",
+      "properties": {
+        "imageSubtitle": {
+          "type": "string",
+          "description": "The attached image's subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "imageTitle": {
+          "type": "string",
+          "description": "The attached image's title. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "secondarySubtitle": {
+          "type": "string",
+          "description": "A right-aligned title. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "style": {
+          "type": "string",
+          "description": "A style that controls the size of the view rendered by Live Layout. The default is icon. Depending if the message is a reply or response, see Reply Message Style Values or Received Message Style Values for the list of possible values. This key is optional. Default: icon Possible values: icon,small,large"
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "The subtitle that appears under the main title in the reply message bubble. When the user taps the reply message bubble, Messages displays the subtitle in the header. Limited to 512 characters."
+        },
+        "tertiarySubtitle": {
+          "type": "string",
+          "description": "A right-aligned subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "title": {
+          "type": "string",
+          "description": "REQUIRED. The main title that Messages shows in the header of the reply message bubble. When the user taps the reply message bubble, Messages replaces the title with the user’s selection. Limited to 512 characters."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactiveresponse-dictionary",
+        "qualified_name": "msp-rest-api › InteractiveResponse",
+        "canonical_lines": [
+          1597,
+          1615
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944429+00:00",
+        "enum_in_prose_detected": "possible values. This key is optional. Default: icon Possible values:"
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "interactivemessagedata-dictionary": {
+      "title": "InteractiveMessageData",
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/imageitem-dictionary"
+          },
+          "description": "An array of image dictionaries. For the list of keys in the image dictionary, see ImageItem dictionary."
+        },
+        "requestIdentifier": {
+          "type": "string",
+          "format": "uuid",
+          "x-amb-source-type": "UUID",
+          "description": "REQUIRED. A string representing a unique identifier for the request. Apple Messages for Business returns the ID in the response it sends back to the MSP platform. Value must be UUID: uuid."
+        },
+        "version": {
+          "type": "string",
+          "description": "REQUIRED. A string representing the version number of the message extension schema. Should be 1.0."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivemessagedata-dictionary",
+        "qualified_name": "msp-rest-api › InteractiveMessageData",
+        "canonical_lines": [
+          1616,
+          1630
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944533+00:00"
+      },
+      "required": [
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    "imageitem-dictionary": {
+      "title": "ImageItem",
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "string",
+          "contentEncoding": "base64",
+          "x-amb-source-type": "byte",
+          "description": "REQUIRED. A Base64-encoded string representing the image file data. Always provide @3x images at 72 dpi. The system downscales the @3x images to generate @2x and @1x versions for use on lower-resolution devices."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the image that the systems reads aloud to users who have VoiceOver enabled on their device. If the value is null, VoiceOver ignores the image. This key is optional."
+        },
+        "identifier": {
+          "type": "string",
+          "description": "REQUIRED.A string containing the image identifier, which must be unique within the list of images. The list picker items and other dictionaries, such as receiveMessage and replyMessage, refer to identifier as imageIdentifier."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "imageitem-dictionary",
+        "qualified_name": "msp-rest-api › ImageItem",
+        "canonical_lines": [
+          1631,
+          1672
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944685+00:00"
+      },
+      "required": [
+        "data",
+        "identifier"
+      ]
+    },
+    "interactivemessageresponse-dictionary": {
+      "title": "InteractiveMessageResponse",
+      "type": "object",
+      "properties": {
+        "bid": {
+          "type": "string",
+          "description": "REQUIRED. A string identifying the iMessage extension that the user interacts with while using the Messages app."
+        },
+        "data": {
+          "$ref": "#/$defs/interactivemessagedata-dictionary",
+          "description": "A dictionary containing additional information for Apple Messages for Business interactive messages"
+        },
+        "receivedMessage": {
+          "$ref": "#/$defs/receivedmessage-dictionary",
+          "description": "A dictionary with information telling the Messages app what content and how to display it in the received message bubble."
+        },
+        "replyMessage": {
+          "$ref": "#/$defs/replymessage-dictionary",
+          "description": "A dictionary with information telling the Messages app what and how to display it in the reply message bubble."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivemessageresponse-dictionary",
+        "qualified_name": "msp-rest-api › InteractiveMessageResponse",
+        "canonical_lines": [
+          1673,
+          1686
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944789+00:00"
+      },
+      "required": [
+        "bid"
+      ]
+    },
+    "receivedmessage-dictionary": {
+      "title": "ReceivedMessage",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "REQUIRED. The main title that the Messages app shows in the header of the received message bubble."
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "REQUIRED. The subtitle that appears under the main title in the received message bubble."
+        },
+        "imageIdentifier": {
+          "type": "integer",
+          "description": "REQUIRED. The identifier for one of the images specified in interactiveData.data.images."
+        },
+        "style": {
+          "type": "string",
+          "description": "A style that controls the size of the view rendered by Live Layout. The default is icon."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "receivedmessage-dictionary",
+        "qualified_name": "msp-rest-api › ReceivedMessage",
+        "canonical_lines": [
+          1687,
+          1724
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.944893+00:00",
+        "enum_in_prose_detected": "possible string values for the receivedMessage style are:"
+      },
+      "required": [
+        "imageIdentifier",
+        "subtitle",
+        "title"
+      ]
+    },
+    "replymessage-dictionary": {
+      "title": "ReplyMessage",
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The main title that the Messages app shows in the header of the reply message bubble. When the user taps the reply message bubble, the Messages app replaces the title with the user’s selection. Limited to 512 characters.",
+          "x-amb-enriched-from-fixture": {
+            "type": "string",
+            "observations": 8,
+            "evidence": "fixture literals (all agree)"
+          }
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "The subtitle that appears under the main title in the reply message bubble. When the user taps the reply message bubble, the Messages app displays the subtitle in the header. Limited to 512 characters.",
+          "x-amb-enriched-from-fixture": {
+            "type": "string",
+            "observations": 4,
+            "evidence": "fixture literals (all agree)"
+          }
+        },
+        "imageTitle": {
+          "$comment": "type not specified in source (2-column Name|Description table)",
+          "description": "The attached image's title. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "imageSubtitle": {
+          "$comment": "type not specified in source (2-column Name|Description table)",
+          "description": "The attached image's subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "secondarySubtitle": {
+          "$comment": "type not specified in source (2-column Name|Description table)",
+          "description": "A right-aligned title. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "tertiarySubtitle": {
+          "$comment": "type not specified in source (2-column Name|Description table)",
+          "description": "A right-aligned subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+        },
+        "imageIdentifier": {
+          "type": "string",
+          "description": "The identifier for one of the images specified in interactiveData.data.images.",
+          "x-amb-enriched-from-fixture": {
+            "type": "string",
+            "observations": 4,
+            "evidence": "fixture literals (all agree)"
+          }
+        },
+        "style": {
+          "type": "string",
+          "description": "A style that controls the size of the view rendered by Live Layout. The default is icon. See Reply Message Style Values for the list of possible values.",
+          "x-amb-enriched-from-fixture": {
+            "type": "string",
+            "observations": 5,
+            "evidence": "fixture literals (all agree)"
+          }
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "replymessage-dictionary",
+        "qualified_name": "msp-rest-api › ReplyMessage",
+        "canonical_lines": [
+          1725,
+          1958
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "2col",
+        "extracted_utc": "2026-07-09T04:36:43.945115+00:00",
+        "enum_in_prose_detected": "possible reply message style values are:"
+      }
+    },
+    "interactivedatadata-dictionary-1": {
+      "title": "InteractiveData.Data",
+      "type": "object",
+      "properties": {
+        "quick-reply": {
+          "type": "object",
+          "description": "REQUIRED. An array of objects."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedatadata-dictionary-1",
+        "qualified_name": "msp-rest-api › InteractiveData.Data @L1959",
+        "canonical_lines": [
+          1959,
+          1965
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945189+00:00"
+      },
+      "required": [
+        "quick-reply"
+      ]
+    },
+    "dataquick-reply-dictionary": {
+      "title": "Data.Quick-Reply",
+      "type": "object",
+      "properties": {
+        "summaryText": {
+          "type": "string",
+          "description": "REQUIRED. A summary text that will be used for device notification but also shown in the transcript after user makes a choice."
+        },
+        "items": {
+          "type": "object",
+          "description": "REQUIRED. An array of section items."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "dataquick-reply-dictionary",
+        "qualified_name": "msp-rest-api › Data.Quick-Reply @L1966",
+        "canonical_lines": [
+          1966,
+          1973
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945257+00:00"
+      },
+      "required": [
+        "items",
+        "summaryText"
+      ]
+    },
+    "quick-replyitems-dictionary": {
+      "title": "Quick-Reply.Items",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "REQUIRED. An identifier to identify the item."
+        },
+        "title": {
+          "type": "string",
+          "description": "REQUIRED. Title of the quick reply item. Max 1 line of text."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "quick-replyitems-dictionary",
+        "qualified_name": "msp-rest-api › Quick-Reply.Items",
+        "canonical_lines": [
+          1974,
+          1987
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945322+00:00"
+      },
+      "required": [
+        "identifier",
+        "title"
+      ]
+    },
+    "dataquick-reply-dictionary-1": {
+      "title": "Data.Quick-Reply",
+      "type": "object",
+      "properties": {
+        "selectedIndex": {
+          "type": "integer",
+          "description": "The selected item number from top order."
+        },
+        "selectedIdentifier": {
+          "type": "string",
+          "description": "The selected identifier of the item."
+        },
+        "items": {
+          "type": "object",
+          "description": "The array of section items, max of 5 items allowed."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "dataquick-reply-dictionary-1",
+        "qualified_name": "msp-rest-api › Data.Quick-Reply @L1988",
+        "canonical_lines": [
+          1988,
+          2002
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945393+00:00"
+      }
+    },
+    "listpickermessage-dictionary": {
+      "title": "ListPickerMessage",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "listpickermessage-dictionary",
+        "qualified_name": "msp-rest-api › ListPickerMessage",
+        "canonical_lines": [
+          2015,
+          2018
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "none",
+        "extracted_utc": "2026-07-09T04:36:43.945432+00:00",
+        "no_table_in_span": true
+      },
+      "$comment": "No property table in source span; this dictionary is described in prose only. Verify against canonical."
+    },
+    "interactivedatadata-dictionary-2": {
+      "title": "InteractiveData.data",
+      "type": "object",
+      "properties": {
+        "listPicker": {
+          "type": "object",
+          "x-amb-note": "source prose says 'an array of ...' but Type cell = object",
+          "$ref": "#/$defs/datalistpickersection-dictionary",
+          "description": "REQUIRED. An array of objects. See ListPickerSection."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedatadata-dictionary-2",
+        "qualified_name": "msp-rest-api › InteractiveData.data",
+        "canonical_lines": [
+          2019,
+          2027
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945485+00:00"
+      },
+      "required": [
+        "listPicker"
+      ]
+    },
+    "datalistpickersection-dictionary": {
+      "title": "Data.ListPickerSection",
+      "type": "object",
+      "properties": {
+        "listPickerItem": {
+          "type": "object",
+          "x-amb-note": "source prose says 'an array of ...' but Type cell = object",
+          "$ref": "#/$defs/listpickersectionlistpickeritem-dictionary",
+          "description": "An array of section items. See ListPickerItem."
+        },
+        "multipleSelection": {
+          "type": "boolean",
+          "description": "A Boolean that indicates whether the customer can make multiple selections within the section. Defaults to false."
+        },
+        "order": {
+          "type": "integer",
+          "description": "An integer containing the ordinal pn the sections array."
+        },
+        "title": {
+          "type": "string",
+          "description": "REQUIRED. A string field of the section title."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "datalistpickersection-dictionary",
+        "qualified_name": "msp-rest-api › Data.ListPickerSection",
+        "canonical_lines": [
+          2028,
+          2039
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945570+00:00"
+      },
+      "required": [
+        "title"
+      ]
+    },
+    "listpickersectionlistpickeritem-dictionary": {
+      "title": "ListPickerSection.ListPickerItem",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "REQUIRED. A string field identifying the item."
+        },
+        "imageIdentifier": {
+          "type": "string",
+          "description": "A string field of the item title."
+        },
+        "order": {
+          "type": "integer",
+          "description": "An integer representing the ordinal position for the item. If this key is missing, the item isn't sorted within the items array."
+        },
+        "subtitle": {
+          "type": "string",
+          "description": "A string field of the item's subtitle."
+        },
+        "title": {
+          "type": "string",
+          "description": "REQUIRED. A string field of the section title."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "listpickersectionlistpickeritem-dictionary",
+        "qualified_name": "msp-rest-api › ListPickerSection.ListPickerItem",
+        "canonical_lines": [
+          2040,
+          2052
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945699+00:00"
+      },
+      "required": [
+        "identifier",
+        "title"
+      ]
+    },
+    "timepickermessage-dictionary": {
+      "title": "TimePickerMessage",
+      "type": "object",
+      "properties": {
+        "event": {
+          "type": "object",
+          "$ref": "#/$defs/dataevent-dictionary",
+          "description": "REQUIRED. A dictionary containing specific information for the user. See Event"
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "timepickermessage-dictionary",
+        "qualified_name": "msp-rest-api › TimePickerMessage",
+        "canonical_lines": [
+          2073,
+          2085
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945770+00:00"
+      },
+      "required": [
+        "event"
+      ]
+    },
+    "dataevent-dictionary": {
+      "title": "Data.Event",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "REQUIRED. A string field identifying the event that must be unique within the payload, if more than one exists."
+        },
+        "imageIdentifier": {
+          "type": "string",
+          "description": "An identifier for the image to show when the user taps a reply message bubble. The image should be a @3x image sized at 375 x 208 points (that is, 1125 x 624 pixels)."
+        },
+        "location": {
+          "$ref": "#/$defs/eventitemlocationitem-dictionary",
+          "description": "A dictionary describing a location. For the list of location dictionary keys, see LocationItem dictionary."
+        },
+        "timeslots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/locationtimeitem-dictionary"
+          },
+          "description": "An array of time slots. For the list of time slot dictionary keys, see TimeItem dictionary."
+        },
+        "timezoneOffset": {
+          "type": "integer",
+          "description": "An integer representing the number of minutes from GMT, specifying the timezone of the event’s location. If not set, times are shown according to the customer’s current time zone. If set, the times are shown according to the event’s time zone, regardless of the customer’s location."
+        },
+        "title": {
+          "type": "string",
+          "description": "A string field of the event title."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "dataevent-dictionary",
+        "qualified_name": "msp-rest-api › Data.Event",
+        "canonical_lines": [
+          2086,
+          2099
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945884+00:00"
+      },
+      "required": [
+        "identifier"
+      ]
+    },
+    "eventitemlocationitem-dictionary": {
+      "title": "EventItem.LocationItem",
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "description": "A double representing the latitude of the location."
+        },
+        "longitude": {
+          "type": "number",
+          "description": "A double representing the longitude of the location."
+        },
+        "radius": {
+          "type": "number",
+          "description": "A double representing the location radius, in meters. Apple Messages for Business ignores this field when latitude and longitude are missing."
+        },
+        "title": {
+          "type": "string",
+          "description": "A string field of the location title."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "eventitemlocationitem-dictionary",
+        "qualified_name": "msp-rest-api › EventItem.LocationItem",
+        "canonical_lines": [
+          2100,
+          2115
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.945983+00:00"
+      }
+    },
+    "locationtimeitem-dictionary": {
+      "title": "Location.TimeItem",
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "integer",
+          "description": "REQUIRED. An integer representing the duration of the time slot, in seconds."
+        },
+        "identifier": {
+          "type": "string",
+          "description": "REQUIRED. A string field identifying the time item that must be unique within the payload, if more than one exists."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "REQUIRED. A UTC date string, represented by a valid date in ISO-8601 format and specified as absolute GMT +0000 date; for example, 2017-05-26T08:27+0000 or 2025-07-10T17:00+0000; the API does not accept seconds (:ss) or the Z notation (2025-07-10T17:00:00Z is invalid). The timezoneOffset, from the EventItem dictionary, determines whether the startTime is in a specific time zone or in the customer's current time zone."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "locationtimeitem-dictionary",
+        "qualified_name": "msp-rest-api › Location.TimeItem",
+        "canonical_lines": [
+          2116,
+          2130
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946072+00:00"
+      },
+      "required": [
+        "duration",
+        "identifier",
+        "startTime"
+      ]
+    },
+    "applepaymessage-dictionary": {
+      "title": "ApplePayMessage",
+      "type": "object",
+      "properties": {
+        "InteractiveData": {
+          "type": "object",
+          "$comment": "references 'Sending' (unresolved)",
+          "description": "REQUIRED. Fields that contain all the data needed to submit an Apple Pay payment request. See Sending an Apple Pay Payment Request."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "applepaymessage-dictionary",
+        "qualified_name": "msp-rest-api › ApplePayMessage",
+        "canonical_lines": [
+          2143,
+          2153
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946138+00:00"
+      },
+      "required": [
+        "InteractiveData"
+      ]
+    },
+    "applepayinteractivedata-dictionary": {
+      "title": "ApplePay.InteractiveData",
+      "type": "object",
+      "properties": {
+        "receivedMessage": {
+          "type": "object",
+          "description": "REQUIRED. Contains fields giving the specifics of an Apple Pay request"
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "applepayinteractivedata-dictionary",
+        "qualified_name": "msp-rest-api › ApplePay.InteractiveData",
+        "canonical_lines": [
+          2154,
+          2169
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946198+00:00"
+      },
+      "required": [
+        "receivedMessage"
+      ]
+    },
+    "datapayment-dictionary": {
+      "title": "Data.Payment",
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "type": "object",
+          "x-amb-source-type": "dictionary",
+          "description": "REQUIRED. A dictionary containing the endpoints for payment processing, contact updates, and order tracking. For the list of dictionary keys, see ApplePayEndpoints dictionary."
+        },
+        "merchantSession": {
+          "type": "object",
+          "x-amb-source-type": "dictionary",
+          "description": "REQUIRED. A dictionary containing the payment session provided by Apple Pay after requesting a new payment session. For more information, see Requesting an Apple Pay Payment Session."
+        },
+        "paymentRequest": {
+          "type": "object",
+          "x-amb-source-type": "dictionary",
+          "description": "REQUIRED. A dictionary with information about the payment request. For the list of dictionary keys, see ApplePayPaymentRequest dictionary."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "datapayment-dictionary",
+        "qualified_name": "msp-rest-api › Data.Payment",
+        "canonical_lines": [
+          2170,
+          2178
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946321+00:00"
+      },
+      "required": [
+        "endpoints",
+        "merchantSession",
+        "paymentRequest"
+      ]
+    },
+    "paymentrequestrequiredbillingcontactfields-dictionary": {
+      "title": "PaymentRequest.requiredBillingContactFields",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "REQUIRED. Email address of the Apple Pay contact."
+        },
+        "name": {
+          "type": "string",
+          "description": "REQUIRED. Full name of the Apple Pay contact."
+        },
+        "phone": {
+          "type": "string",
+          "description": "REQUIRED. Phone number of the Apple Pay contact."
+        },
+        "phoneticName": {
+          "type": "string",
+          "description": "REQUIRED. Phonetic spelling of the Apple Pay contact."
+        },
+        "post": {
+          "type": "string",
+          "description": "REQUIRED. Postal address of the Apple Pay contact."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "paymentrequestrequiredbillingcontactfields-dictionary",
+        "qualified_name": "msp-rest-api › PaymentRequest.requiredBillingContactFields",
+        "canonical_lines": [
+          2179,
+          2191
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946461+00:00"
+      },
+      "required": [
+        "email",
+        "name",
+        "phone",
+        "phoneticName",
+        "post"
+      ]
+    },
+    "paymentapplepayendpoints-dictionary": {
+      "title": "Payment.ApplePayEndpoints",
+      "type": "object",
+      "properties": {
+        "fallbackUrl": {
+          "type": "string",
+          "description": "A URL that opens in a web browser so the customer can complete the purchase if their device is unable to make payments using Apple Pay."
+        },
+        "orderTrackingUrl": {
+          "type": "string",
+          "description": "Called by Apple Messages for Business after completing the order; provides you with an opportunity to update the order information in your system. For more information, see Tracking Orders."
+        },
+        "paymentGatewayUrl": {
+          "type": "string",
+          "description": "REQUIRED. Called by Apple Pay to process the payment through the payment provider. The URL should match the URL in the initiativeContext field of the payment session. For more information, see Processing Payment Requests."
+        },
+        "paymentMethodUpdateUrl": {
+          "type": "string",
+          "description": "Called by Apple Pay when the customer changes the payment method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. For more information, see Updating Payment Methods."
+        },
+        "shippingContactUpdateUrl": {
+          "type": "string",
+          "description": "Called by Apple Pay when the customer changes their shipping address information. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. For more information, see Updating Shipping Contacts."
+        },
+        "shippingMethodUpdateUrl": {
+          "type": "string",
+          "description": "Called by Apple Pay when the customer changes the shipping method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. For more information, see Updating Shipping Methods."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "paymentapplepayendpoints-dictionary",
+        "qualified_name": "msp-rest-api › Payment.ApplePayEndpoints",
+        "canonical_lines": [
+          2192,
+          2205
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946601+00:00"
+      },
+      "required": [
+        "paymentGatewayUrl"
+      ]
+    },
+    "paymentrequestapplepay-dictionary": {
+      "title": "PaymentRequest.ApplePay",
+      "type": "object",
+      "properties": {
+        "merchantCapabilities": {
+          "$ref": "#/$defs/applepaymerchantcapabilities-dictionary",
+          "description": "An array of payment capabilities supported by the merchant. The array must include supports3DS, and may optionally include supportsCredit, supportsDebit, and supportsEMV. For more information, see [merchantCapabilities."
+        },
+        "merchantIdentifier": {
+          "type": "string",
+          "description": "REQUIRED. A unique identifier that represents a merchant for Apple Pay."
+        },
+        "supportedNetworks": {
+          "$ref": "#/$defs/applepaysupportednetworks-dictionary",
+          "description": "An array of payment networks supported by the merchant. The array must include one or more of the following values: amex, discover, jcb, masterCard, privateLabel, or visa. For more information, see [supportedNetworks."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "paymentrequestapplepay-dictionary",
+        "qualified_name": "msp-rest-api › PaymentRequest.ApplePay",
+        "canonical_lines": [
+          2206,
+          2216
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946735+00:00"
+      },
+      "required": [
+        "merchantIdentifier"
+      ]
+    },
+    "applepaymerchantcapabilities-dictionary": {
+      "title": "ApplePay.MerchantCapabilities",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "applepaymerchantcapabilities-dictionary",
+        "qualified_name": "msp-rest-api › ApplePay.MerchantCapabilities",
+        "canonical_lines": [
+          2217,
+          2222
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "none",
+        "extracted_utc": "2026-07-09T04:36:43.946779+00:00",
+        "no_table_in_span": true
+      },
+      "$comment": "No property table in source span; this dictionary is described in prose only. Verify against canonical."
+    },
+    "applepaysupportednetworks-dictionary": {
+      "title": "ApplePay.SupportedNetworks",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "applepaysupportednetworks-dictionary",
+        "qualified_name": "msp-rest-api › ApplePay.SupportedNetworks",
+        "canonical_lines": [
+          2223,
+          2228
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "none",
+        "extracted_utc": "2026-07-09T04:36:43.946808+00:00",
+        "no_table_in_span": true
+      },
+      "$comment": "No property table in source span; this dictionary is described in prose only. Verify against canonical."
+    },
+    "applepaylineitems-dictionary": {
+      "title": "ApplePay.lineItems",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "description": "REQUIRED. The monetary amount of the line item."
+        },
+        "label": {
+          "type": "string",
+          "description": "REQUIRED. A short, localized description of the line item."
+        },
+        "type": {
+          "type": "string",
+          "description": "A value that indicates whether the line item is final or pending."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "applepaylineitems-dictionary",
+        "qualified_name": "msp-rest-api › ApplePay.lineItems",
+        "canonical_lines": [
+          2229,
+          2241
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.946877+00:00"
+      },
+      "required": [
+        "amount",
+        "label"
+      ]
+    },
+    "paymentmerchantsession-dictionary": {
+      "title": "Payment.MerchantSession",
+      "type": "object",
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "REQUIRED. The canonical name for your store, suitable for display and consisting of 64 or fewer UTF-8 characters. Do not localize the name."
+        },
+        "epochTimestamp": {
+          "type": "string",
+          "description": "REQUIRED. The time representation in number of seconds that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970."
+        },
+        "expiresAt": {
+          "type": "string",
+          "description": "REQUIRED. The exipiration time representation in number of seconds that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970."
+        },
+        "initiative": {
+          "type": "string",
+          "description": "REQUIRED. A predefined value that identifies the e-commerce application making the request."
+        },
+        "initiativeContext": {
+          "type": "string",
+          "description": "REQUIRED. A value you provide based on the initiative. The values for initiative and initiativeContext depend on the kind of application you're building. For Apple Messages for Business, use \"messaging\"for the initiative parameter. For the initiativeContextparameter, pass your payment gateway URL. See Processing Payment Requests for more information."
+        },
+        "merchantIdentifier": {
+          "type": "string",
+          "description": "REQUIRED. A unique identifier that represents a merchant for Apple Pay."
+        },
+        "merchantSessionIdentifier": {
+          "type": "string",
+          "description": "REQUIRED. A unique identifier that represents a merchant's session for Apple Pay."
+        },
+        "nonce": {
+          "type": "string",
+          "x-amb-source-type": "binary",
+          "description": "A single-use string that checks the integrity of the interaction."
+        },
+        "signature": {
+          "type": "string",
+          "x-amb-source-type": "binary",
+          "description": "A hash of the public key used to sign the interactions."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "paymentmerchantsession-dictionary",
+        "qualified_name": "msp-rest-api › Payment.MerchantSession",
+        "canonical_lines": [
+          2242,
+          2260
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.947069+00:00"
+      },
+      "required": [
+        "displayName",
+        "epochTimestamp",
+        "expiresAt",
+        "initiative",
+        "initiativeContext",
+        "merchantIdentifier",
+        "merchantSessionIdentifier"
+      ]
+    },
+    "paymentrequest-dictionary": {
+      "title": "PaymentRequest",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "paymentrequest-dictionary",
+        "qualified_name": "msp-rest-api › PaymentRequest",
+        "canonical_lines": [
+          2261,
+          2264
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "none",
+        "extracted_utc": "2026-07-09T04:36:43.947125+00:00",
+        "no_table_in_span": true
+      },
+      "$comment": "No property table in source span; this dictionary is described in prose only. Verify against canonical."
+    },
+    "paymentrequestsupportedcountries-dictionary": {
+      "title": "PaymentRequest.supportedCountries",
+      "type": "object",
+      "properties": {},
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "paymentrequestsupportedcountries-dictionary",
+        "qualified_name": "msp-rest-api › PaymentRequest.supportedCountries",
+        "canonical_lines": [
+          2265,
+          2272
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "none",
+        "extracted_utc": "2026-07-09T04:36:43.947155+00:00",
+        "no_table_in_span": true
+      },
+      "$comment": "No property table in source span; this dictionary is described in prose only. Verify against canonical."
+    },
+    "paymentrequestshippingmethoditem-dictionary": {
+      "title": "PaymentRequest.shippingMethodItem",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "description": "REQUIRED. The nonnegative cost associated with this shipping method."
+        },
+        "detail": {
+          "type": "string",
+          "description": "REQUIRED. Additional description of the shipping method."
+        },
+        "identifier": {
+          "type": "string",
+          "description": "REQUIRED. A client-defined value used to identify this shipping method."
+        },
+        "label": {
+          "type": "string",
+          "description": "REQUIRED. A short description of the shipping method."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "paymentrequestshippingmethoditem-dictionary",
+        "qualified_name": "msp-rest-api › PaymentRequest.shippingMethodItem",
+        "canonical_lines": [
+          2273,
+          2315
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.947253+00:00"
+      },
+      "required": [
+        "amount",
+        "detail",
+        "identifier",
+        "label"
+      ]
+    },
+    "payment-dictionary": {
+      "title": "Payment",
+      "type": "object",
+      "properties": {
+        "billingContact": {
+          "type": "object",
+          "description": "The customer's billing contact information. For more information, see billingContact.",
+          "x-amb-enriched-from-fixture": {
+            "type": "object",
+            "observations": 2,
+            "evidence": "fixture literals (all agree)"
+          }
+        },
+        "paymentToken": {
+          "type": "object",
+          "description": "The payment token. For more information, see Payment Token Format Reference for more information.",
+          "x-amb-enriched-from-fixture": {
+            "type": "object",
+            "observations": 2,
+            "evidence": "fixture literals (all agree)"
+          }
+        },
+        "shippingContact": {
+          "type": "object",
+          "description": "The customer's shipping address information. For more information, see shippingContact.",
+          "x-amb-enriched-from-fixture": {
+            "type": "object",
+            "observations": 2,
+            "evidence": "fixture literals (all agree)"
+          }
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "payment-dictionary",
+        "qualified_name": "msp-rest-api › Payment @L2316",
+        "canonical_lines": [
+          2316,
+          2432
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "2col",
+        "extracted_utc": "2026-07-09T04:36:43.947424+00:00"
+      }
+    },
+    "applepayitem-dictionary": {
+      "title": "ApplePayItem",
+      "type": "object",
+      "properties": {
+        "merchantCapabilities": {
+          "$ref": "#/$defs/applepaymerchantcapabilities-dictionary",
+          "description": "An array of payment capabilities supported by the merchant. The array must include supports3DS, and may optionally include supportsCredit, supportsDebit, and supportsEMV. For more information, see merchantCapabilities."
+        },
+        "merchantIdentifier": {
+          "type": "string",
+          "description": "REQUIRED. A unique identifier that represents a merchant for Apple Pay."
+        },
+        "supportedNetworks": {
+          "$ref": "#/$defs/applepaysupportednetworks-dictionary",
+          "description": "An array of payment networks supported by the merchant. The array must include one or more of the following values: amex, discover, jcb, masterCard, privateLabel, or visa. For more information, see supportedNetworks."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "applepayitem-dictionary",
+        "qualified_name": "msp-rest-api › ApplePayItem",
+        "canonical_lines": [
+          2433,
+          2445
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.947518+00:00"
+      },
+      "required": [
+        "merchantIdentifier"
+      ]
+    },
+    "payment-dictionary-1": {
+      "title": "Payment",
+      "type": "object",
+      "properties": {
+        "shippingContact": {
+          "$comment": "type not specified in source (2-column Name|Description table); prose ref 'shippingContact.' unresolved: 'shippingContact.'",
+          "description": "A dictionary with the customer's updated shipping address information. For more information, see shippingContact."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "payment-dictionary-1",
+        "qualified_name": "msp-rest-api › Payment @L2600",
+        "canonical_lines": [
+          2600,
+          2635
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "2col",
+        "extracted_utc": "2026-07-09T04:36:43.947608+00:00"
+      }
+    },
+    "payment-dictionary-2": {
+      "title": "Payment",
+      "type": "object",
+      "properties": {
+        "paymentMethod": {
+          "type": "object",
+          "description": "A dictionary with payment method information. For the list of dictionary keys, see Payment Method Dictionary.",
+          "x-amb-enriched-from-fixture": {
+            "type": "object",
+            "observations": 2,
+            "evidence": "fixture literals (all agree)"
+          }
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "payment-dictionary-2",
+        "qualified_name": "msp-rest-api › Payment @L2636",
+        "canonical_lines": [
+          2636,
+          2644
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "2col",
+        "extracted_utc": "2026-07-09T04:36:43.947696+00:00"
+      }
+    },
+    "payment-method-dictionary": {
+      "title": "Payment Method",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Indicates the payment method type. For more information, see ApplePayPaymentMethodType.",
+          "x-amb-enriched-from-fixture": {
+            "type": "string",
+            "observations": 4,
+            "evidence": "fixture literals (all agree)"
+          }
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "payment-method-dictionary",
+        "qualified_name": "msp-rest-api › Payment Method",
+        "canonical_lines": [
+          2645,
+          2743
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "2col",
+        "extracted_utc": "2026-07-09T04:36:43.947815+00:00"
+      }
+    },
+    "payment-dictionary-3": {
+      "title": "Payment",
+      "type": "object",
+      "properties": {
+        "shippingMethod": {
+          "type": "object",
+          "description": "The shipping method selected by the customer. For more information, see shippingMethod.",
+          "x-amb-enriched-from-fixture": {
+            "type": "object",
+            "observations": 4,
+            "evidence": "fixture literals (all agree)"
+          }
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "payment-dictionary-3",
+        "qualified_name": "msp-rest-api › Payment @L2744",
+        "canonical_lines": [
+          2744,
+          2836
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "2col",
+        "extracted_utc": "2026-07-09T04:36:43.947927+00:00"
+      }
+    },
+    "payment-dictionary-4": {
+      "title": "Payment",
+      "type": "object",
+      "properties": {
+        "billingContact": {
+          "$comment": "type not specified in source (2-column Name|Description table); prose ref 'billingContact.' unresolved: 'billingContact.'",
+          "description": "The customer's billing contact information. For more information, see billingContact."
+        },
+        "errors": {
+          "$comment": "type not specified in source (2-column Name|Description table)",
+          "description": "An array of ApplePayError types. This field is present only when the payment processing request detects errors."
+        },
+        "shippingContact": {
+          "$comment": "type not specified in source (2-column Name|Description table); prose ref 'shippingContact.' unresolved: 'shippingContact.'",
+          "description": "The customer's shipping address information. For more information, see shippingContact."
+        },
+        "shippingMethod": {
+          "$comment": "type not specified in source (2-column Name|Description table); prose ref 'ApplePayShippingMethodItem.' unresolved: 'ApplePayShippingMethodItem.'",
+          "description": "The shipping method selected by the customer. For more information, see ApplePayShippingMethodItem."
+        },
+        "summaryItems": {
+          "$comment": "type not specified in source (2-column Name|Description table)",
+          "description": "An array of ApplePayLineItem dictionaries."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "payment-dictionary-4",
+        "qualified_name": "msp-rest-api › Payment @L2837",
+        "canonical_lines": [
+          2837,
+          2853
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "2col",
+        "extracted_utc": "2026-07-09T04:36:43.948009+00:00"
+      }
+    },
+    "interactivedata-dictionary-1": {
+      "title": "InteractiveData",
+      "type": "object",
+      "properties": {
+        "bid": {
+          "type": "string",
+          "description": "REQUIRED. com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:"
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedata-dictionary-1",
+        "qualified_name": "msp-rest-api › InteractiveData @L2939",
+        "canonical_lines": [
+          2939,
+          2953
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.948078+00:00"
+      },
+      "required": [
+        "bid"
+      ]
+    },
+    "interactivedatadata-dictionary-3": {
+      "title": "InteractiveData.Data",
+      "type": "object",
+      "properties": {
+        "images": {
+          "type": "array",
+          "description": "An array of image dictionaries."
+        },
+        "requestIdentifier": {
+          "type": "string",
+          "format": "uuid",
+          "x-amb-source-type": "UUID",
+          "description": "REQUIRED. An unique identifier for the authentication request. Value must be UUID: uuid."
+        },
+        "version": {
+          "type": "string",
+          "description": "REQUIRED. A numerical version number of the message extension schema. Set 2.0 for the New Authentication Message."
+        },
+        "authenticate": {
+          "type": "object",
+          "description": "REQUIRED. An object to construct the authorization URL."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedatadata-dictionary-3",
+        "qualified_name": "msp-rest-api › InteractiveData.Data @L2954",
+        "canonical_lines": [
+          2954,
+          2963
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.948159+00:00"
+      },
+      "required": [
+        "authenticate",
+        "requestIdentifier",
+        "version"
+      ]
+    },
+    "interactivedatadataauthenticate-dictionary": {
+      "title": "InteractiveData.Data.Authenticate",
+      "type": "object",
+      "properties": {
+        "oauth2": {
+          "type": "object",
+          "description": "REQUIRED. A dictionary that describes the authentication request."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedatadataauthenticate-dictionary",
+        "qualified_name": "msp-rest-api › InteractiveData.Data.Authenticate",
+        "canonical_lines": [
+          2964,
+          2970
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.948219+00:00"
+      },
+      "required": [
+        "oauth2"
+      ]
+    },
+    "dataauthenticateoauth2-dictionary": {
+      "title": "Data.Authenticate.Oauth2",
+      "type": "object",
+      "properties": {
+        "responseType": {
+          "type": "string",
+          "description": "REQUIRED. A string indicating the type of authentication request. Set code for authorization flow."
+        },
+        "scope": {
+          "type": "array",
+          "description": "REQUIRED. An array of scope items that specifies the scope of the request.This dictionary entry gives the exact fields of data that the authentication service provides to the client requesting the authentication."
+        },
+        "state": {
+          "type": "string",
+          "description": "REQUIRED. A string indicating the state of the authentication request."
+        },
+        "redirectURI": {
+          "type": "string",
+          "description": "REQUIRED. A string representing the redirect URL that the OAuth provider redirects the user."
+        },
+        "additionalParameters": {
+          "type": "string",
+          "description": "A string value that you can add on the authorization URL query parameter."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "dataauthenticateoauth2-dictionary",
+        "qualified_name": "msp-rest-api › Data.Authenticate.Oauth2",
+        "canonical_lines": [
+          2971,
+          3041
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.948354+00:00"
+      },
+      "required": [
+        "redirectURI",
+        "responseType",
+        "scope",
+        "state"
+      ]
+    },
+    "interactivedatadata-dictionary-4": {
+      "title": "InteractiveData.Data",
+      "type": "object",
+      "properties": {
+        "requestIdentifier": {
+          "type": "string",
+          "format": "uuid",
+          "x-amb-source-type": "UUID",
+          "description": "An unique identifier for the authentication request. Value must be UUID: uuid."
+        },
+        "version": {
+          "type": "string",
+          "description": "A numerical version number of the message extension schema. 2.0 for the New Authentication Message."
+        },
+        "authenticate": {
+          "type": "array",
+          "description": "An array object to construct the authorization URL."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "interactivedatadata-dictionary-4",
+        "qualified_name": "msp-rest-api › InteractiveData.Data @L3042",
+        "canonical_lines": [
+          3042,
+          3050
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.948433+00:00"
+      }
+    },
+    "dataauthenticate-dictionary": {
+      "title": "Data.authenticate",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "success, failure, cancel, unknown is returned as a value, which indicates that the authentication flow was closed."
+        },
+        "error_code": {
+          "type": "string",
+          "description": "A numeric number of the error_code sent from"
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "anchor": "dataauthenticate-dictionary",
+        "qualified_name": "msp-rest-api › Data.authenticate",
+        "canonical_lines": [
+          3051,
+          3174
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "part": "Part 1A — MSP REST API Reference (verbatim)",
+        "table_layout": "3col",
+        "extracted_utc": "2026-07-09T04:36:43.948554+00:00",
+        "enum_in_prose_detected": "Possible values for the autocomplete attribute are"
+      }
+    },
+    "http-body": {
+      "title": "HTTP Body",
+      "type": "object",
+      "properties": {
+        "attachments": {
+          "$comment": "source Type cell = 'attachments' (not a known primitive)",
+          "description": "An array of attachment dictionaries. For more information, see Attachments."
+        },
+        "destinationId": {
+          "type": "string",
+          "description": "REQUIRED. Identifies the message recipient. When the MSP platform receives a message from Apple Messages for Business, the value is the business ID. When the MSP platform sends a reply to Apple Messages for Business, the value is the user’s opaque ID."
+        },
+        "group": {
+          "type": "string",
+          "description": "The group identifier for the message as specified by the business, such as the department name. For more information, see About Intent, Group, and Body Values."
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "x-amb-source-type": "UUID",
+          "description": "REQUIRED. A UUID string that identifies the message."
+        },
+        "intent": {
+          "type": "string",
+          "description": "The intention, or purpose, of the chat as specified by the business, such as account_question. For more information, see About Intent, Group, and Body Values."
+        },
+        "locale": {
+          "type": "string",
+          "description": "User's device locale settings. For example, en_AU specifies the language as English and the region as Australia. For more information, see Internationalization and Localization Guide - Locale ID."
+        },
+        "sourceId": {
+          "type": "string",
+          "description": "REQUIRED. A string that identifies the message sender. When a user sends a message, the source-id is the user’s opaque ID. When a business sends a reply to the customer, the source-id is the business ID."
+        },
+        "type": {
+          "type": "string",
+          "description": "REQUIRED. A string that identifies the message type. For the list of possible values and their meanings, see Message Type Values. Possible values: interactive, typing_start, typing_end, text."
+        },
+        "v": {
+          "type": "integer",
+          "description": "REQUIRED. The message payload version number. This value must be 1, which is the current version of the message JSON."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "id": "http-body",
+        "structural": true,
+        "kind": "object",
+        "canonical_lines": [
+          322,
+          343
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "note": "The actual /message request body envelope. Interactive messages inherit from HTTP Body (canonical L419); the interactive path additionally carries interactiveData (wired in amb.openapi.json to baseinteractivemessage).",
+        "extracted_utc": "2026-07-09T04:36:43.948684+00:00",
+        "table_layout": "3col",
+        "enum_in_prose_detected": "possible values and their meanings, see Message Type Values. Possible values:"
+      },
+      "required": [
+        "destinationId",
+        "id",
+        "sourceId",
+        "type",
+        "v"
+      ]
+    },
+    "jwt-claims": {
+      "title": "JWT Authorization Fields (JOSE header + claims)",
+      "type": "object",
+      "properties": {
+        "alg": {
+          "type": "string",
+          "description": "A string used in the header, identifying the algorithm used to encode the payload. The alg value is always HS256 when exchanging messages with Apple Messages for Business."
+        },
+        "aud": {
+          "type": "string",
+          "description": "A claim that is a string, or array of strings, identifying the recipients of the JWT. The value should be a string when the JWT has one recipient; otherwise, it should be an array of strings where each string represents a recipient. The aud value is always the MSP ID when exchanging messages with Apple Messages for Business. This value is used when sending messages from the business to the MSP platform"
+        },
+        "iss": {
+          "type": "string",
+          "description": "A claim that is a string identifying the principal that issued the JWT. The value is always the MSP ID when exchanging messages with Apple Messages for Business. This value is used with traffic coming from the MSP platform to the business."
+        },
+        "iat": {
+          "$comment": "source Type cell = 'dateTime' (not a known primitive)",
+          "description": "A claim that is a numeric date—that is, an integer—identifying the time at which the JWT was issued. The value is the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date and time, ignoring leap seconds. For more information, see the Terminology section in RFC 7519."
+        }
+      },
+      "additionalProperties": true,
+      "x-amb": {
+        "id": "jwt-claims",
+        "structural": true,
+        "kind": "object",
+        "canonical_lines": [
+          136,
+          145
+        ],
+        "source": "msp-rest-api",
+        "source_rank": 1,
+        "source_version": "4.2.9",
+        "source_date": "2026-06-03",
+        "source_stale": false,
+        "source_citation": null,
+        "note": "Subset of JWT fields used to sign the Authorization header; alg is always HS256.",
+        "extracted_utc": "2026-07-09T04:36:43.948870+00:00",
+        "table_layout": "3col"
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+"intent": "SomeIntent",
+"group": "SomeGroup"
+}
+The intent field value is specified with biz-intent-id key in the URL, but appears under intent key in the message payload. Similarly, the group field is specified with biz-group-id in the URL and group from the message.

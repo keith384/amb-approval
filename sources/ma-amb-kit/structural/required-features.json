@@ -1,0 +1,143 @@
+{
+  "id": "required-features",
+  "title": "Required Features",
+  "x-amb": {
+    "id": "required-features",
+    "structural": true,
+    "kind": "matrix",
+    "canonical_lines": [
+      101,
+      125
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "note": "Apple's approval matrix (feature x Bot/API x Agent-Triggered). Feeds the conformance checklist (C2).",
+    "extracted_utc": "2026-07-09T04:36:43.948992+00:00"
+  },
+  "columns": [
+    "Feature",
+    "Bot/API",
+    "Agent Triggered*",
+    "Description"
+  ],
+  "rows": [
+    {
+      "feature": "Receiving and Sending Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Send and receive text, international characters, and emojis."
+    },
+    {
+      "feature": "Receiving and Sending attachments",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Send and receive commonly known type files up to 100MB between your platform and the user."
+    },
+    {
+      "feature": "Tapback Reactions",
+      "bot_api": "N/A",
+      "agent_triggered": "Required",
+      "description": "Detect user tapbacks."
+    },
+    {
+      "feature": "Receiving Closed Conversation Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Notify live agents and automated agents of customer opt-out, and prevent additional messages from being sent to the user."
+    },
+    {
+      "feature": "Rich Link Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Every URL sent by an automated or human agent should be recognised and sent as a rich link."
+    },
+    {
+      "feature": "Quick Reply Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Send quick reply choices to end user."
+    },
+    {
+      "feature": "List Picker Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Single selection, multi selection and multi section with icons for send/received list pickers as well as images."
+    },
+    {
+      "feature": "Time Picker Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Send time pickers including icons."
+    },
+    {
+      "feature": "Apple Pay Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Send an Apple Pay payment request."
+    },
+    {
+      "feature": "Authentication Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "New OAuth2 inline authentication."
+    },
+    {
+      "feature": "Authentication Message",
+      "bot_api": "Deprecated",
+      "agent_triggered": "Deprecated",
+      "description": "oAuth authentication."
+    },
+    {
+      "feature": "iMessage Apps",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Support iMessage apps for advanced interactions."
+    },
+    {
+      "feature": "Form Message",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Support forms interactions."
+    },
+    {
+      "feature": "Construct Payload API",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Support construct payload API for App Clips, Apple Music and Apple Maps RichLink interactions."
+    },
+    {
+      "feature": "Invitation Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Send invitation messages to opted-in customers to initiate a conversation via Apple Messages for Business using their provided mobile number."
+    },
+    {
+      "feature": "Typing Indicator Message",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Show bidirectional typing indicators."
+    },
+    {
+      "feature": "Routing based on entrypoint parameters",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Route new conversations using intentID and groupID attributes."
+    },
+    {
+      "feature": "Channel settings and Landing Page",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Centrally host channel settings and provide a landing page with account linking"
+    },
+    {
+      "feature": "Device capabilities",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Support alternate handling for devices with different capabilities."
+    }
+  ]
+}

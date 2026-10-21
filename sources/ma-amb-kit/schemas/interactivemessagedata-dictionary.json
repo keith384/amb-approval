@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivemessagedata-dictionary.json",
+  "title": "InteractiveMessageData",
+  "type": "object",
+  "properties": {
+    "images": {
+      "type": "array",
+      "items": {
+        "$ref": "./imageitem-dictionary.json"
+      },
+      "description": "An array of image dictionaries. For the list of keys in the image dictionary, see ImageItem dictionary."
+    },
+    "requestIdentifier": {
+      "type": "string",
+      "format": "uuid",
+      "x-amb-source-type": "UUID",
+      "description": "REQUIRED. A string representing a unique identifier for the request. Apple Messages for Business returns the ID in the response it sends back to the MSP platform. Value must be UUID: uuid."
+    },
+    "version": {
+      "type": "string",
+      "description": "REQUIRED. A string representing the version number of the message extension schema. Should be 1.0."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivemessagedata-dictionary",
+    "qualified_name": "msp-rest-api › InteractiveMessageData",
+    "canonical_lines": [
+      1616,
+      1630
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944533+00:00"
+  },
+  "required": [
+    "requestIdentifier",
+    "version"
+  ]
+}

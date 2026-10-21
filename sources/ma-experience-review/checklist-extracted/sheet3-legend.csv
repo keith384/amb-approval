@@ -1,0 +1,41 @@
+,Legend and instructions,
+,How to use this template,
+,"1. Duplicate all five tabs for each new client or brand experience. Summary and Checklist read each other by name, so keep them together.",
+,"2. Fill in Appendix A first. It is the scope agreement, and it decides which rows apply. Appendix B is completed at the same stage but tests nothing.",
+,3. Work through the Checklist against the live build. Use the Status dropdown in column I.,
+,4. Mark a row N/A where the Applies when condition is not met on Appendix A.,
+,"5. Log evidence in column J as video and timestamp, for example V1 04:12. Exporting that column gives you the timestamp index Apple asks for alongside the recordings.",
+,6. Summary rolls up automatically. Formulas recalculate on open.,
+,"7. Section 0 is a final pre-submission gate, not a re-test. It holds only the items not duplicated elsewhere. See the mapping below.",
+,The two appendices,
+,"Appendix A and Appendix B reproduce Apple's own brand facing forms, Messages for Business Use Cases and Messages for Business Readiness Review. Apple recommends that brands complete both at the start of the engagement. They are included here so the answers sit alongside the tests they govern. Appendix A drives which rows apply. Appendix B is commercial and operational qualification and tests nothing against the build.",
+,"Apple's five non-negotiables, and where each is tested",
+,"Live agent escalation reachable, or the exempted path","0.1, and Section 9"
+,Opt-out works end to end,"0.4, and 10.8"
+,No personal data requested in plain conversation,7.4 and 7.8
+,Consent captured before any opt-in notification,10.1 and 10.2
+,Capability aware fallback,"8.1, 8.2 and 8.5"
+,Section 0 also carries two further gate items that are not among Apple's five but fail a review on their own: Leave Conversation respected (0.2) and no forbidden or restricted platform wording (0.3).,
+,Status values,
+,Not Started,Not yet tested
+,In Progress,Testing underway
+,Pass,Meets the expected result
+,Fail,Does not meet the expected result
+,Blocked,Cannot be tested yet
+,N/A,Applies when condition not met for this build
+,Requires client testing,"Only the client can verify, for example agent training"
+,TBD,Scope or expectation not yet agreed
+,Severity,
+,Non negotiable,Checked on every Apple review. A failure blocks submission.
+,Apple standard,A documented Apple requirement. A failure is very likely to be returned.
+,Field,"A Messaging Advisory observation. A failure is a quality risk, not an Apple rule."
+,Reading the Ref column,
+,"A reference shown in blue is new in this version. Rule ref points at the section of Document 2, the Conversation Design Standards and Best Practices, that the row tests. Doc 1 and Doc 4 references point at the Process Overview and the Recording Guide.",
+,Version and sources,
+,Template version,2.0
+,Date,31 August 2026
+,Derived from,Conversation Design Standards and Best Practices v2.1
+,Scope tab mirrors,"Apple, Messages for Business Use Cases form"
+,Previous version,"63 test cases, 12 sections"
+,This version,"114 test cases, 13 sections: 54 carried unchanged, 10 reworded or widened, 50 new"
+,Also derived from,"Experience items in the MSP Integration Checklist, Apple Feedback Update 25 August 2026"

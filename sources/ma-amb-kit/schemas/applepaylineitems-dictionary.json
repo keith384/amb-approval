@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/applepaylineitems-dictionary.json",
+  "title": "ApplePay.lineItems",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "string",
+      "description": "REQUIRED. The monetary amount of the line item."
+    },
+    "label": {
+      "type": "string",
+      "description": "REQUIRED. A short, localized description of the line item."
+    },
+    "type": {
+      "type": "string",
+      "description": "A value that indicates whether the line item is final or pending."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "applepaylineitems-dictionary",
+    "qualified_name": "msp-rest-api › ApplePay.lineItems",
+    "canonical_lines": [
+      2229,
+      2241
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.946877+00:00"
+  },
+  "required": [
+    "amount",
+    "label"
+  ]
+}

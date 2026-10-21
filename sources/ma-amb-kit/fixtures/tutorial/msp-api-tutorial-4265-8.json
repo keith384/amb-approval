@@ -1,0 +1,12 @@
+{
+  "sub": "****",
+  "email_verified": true,
+  "name": "ClientName",
+  "locale": {
+    "country": "CC",
+    "language": "en"
+  },
+  "given_name": "ClientGivenName",
+  "family_name": "ClientFamilyName",
+  "email": "****@email.com"
+}

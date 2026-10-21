@@ -1,0 +1,42 @@
+,Apple Messages for Business,
+,"Experience Review, validation summary",
+,Fill in the Checklist tab. This tab rolls up automatically. Scope comes from the Scope tab.,
+,Status breakdown,
+,Status,Count
+,Not Started,114
+,In Progress,0
+,Pass,0
+,Fail,0
+,Blocked,0
+,N/A,0
+,Requires client testing,0
+,TBD,0
+,Total test cases,114
+,Pass rate of tested (Pass + Fail),0
+,Non-negotiable gate,
+,Failed or blocked non-negotiables,0
+,Any non-zero count here means the submission is not ready. These are checked on every Apple review.,
+,Coverage,
+,Rows in scope (not N/A),114
+,Rows marked N/A,0
+,Rows with recording evidence logged,0
+,In-scope rows still without evidence,114
+,Fails by severity,
+,Non negotiable,0
+,Apple standard,0
+,Field,0
+,Fails by category,
+,Category,Fail count
+,"0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",0
+,1. Pre-Test and Review Readiness,0
+,2. Entry Points and Passable Context,0
+,"3. Agent Identification, Honesty and Triage",0
+,"4. Core Messaging, Rich Links and Close",0
+,5. Interactive Features,0
+,6. Attachments and Wallet Passes,0
+,"7. Authentication, Apple Pay and Personal Data",0
+,8. Device Capability and Fallback,0
+,9. Human Escalation and Live Agent Handoff,0
+,"10. Policy, Consent and Conversational Design",0
+,11. Recording and Submission Prep,0
+,"12. Entry Point Configuration, Buttons and Readiness",0

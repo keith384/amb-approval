@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivedatadata-dictionary.json",
+  "title": "InteractiveData.Data",
+  "type": "object",
+  "properties": {
+    "images": {
+      "type": "array",
+      "description": "An array of image dictionaries. The image size must be 200kB or smaller, and the format is restricted to PNG only."
+    },
+    "requestIdentifier": {
+      "type": "string",
+      "format": "uuid",
+      "x-amb-source-type": "UUID",
+      "description": "REQUIRED. An unique identifier for the authenticate request. Value must be UUID: uuid."
+    },
+    "version": {
+      "type": "string",
+      "description": "REQUIRED. A numerical version number of the message extension schema."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivedatadata-dictionary",
+    "qualified_name": "msp-rest-api › InteractiveData.Data @L1573",
+    "canonical_lines": [
+      1573,
+      1581
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944162+00:00"
+  },
+  "required": [
+    "requestIdentifier",
+    "version"
+  ]
+}

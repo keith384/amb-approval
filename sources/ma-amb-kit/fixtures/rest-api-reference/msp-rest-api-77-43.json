@@ -1,0 +1,15 @@
+{
+  "sourceId": "<business_id>",
+  "destinationId": "<destination_id>",
+  "id": "<message_id>",
+  "v": 1,
+  "type": "richLink",
+  "richLinkDataRef": {
+    "title": "https://www.example.com",
+    "signature-base64": "AZ60f1FhkxZ4HdtzGFXXXXX",
+    "size": 351298,
+    "url": "https://p97-content.icloud.com",
+    "owner": "M66169d55-aaee-48dd-b781-XXXXXXXXX.XXXXXX",
+    "key": "00ccec31f00f05d3416bf0a41f4762afa3241f486ff3509dXXXXXXXX"
+  }
+}

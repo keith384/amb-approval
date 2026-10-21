@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivedatadataauthenticate-dictionary.json",
+  "title": "InteractiveData.Data.Authenticate",
+  "type": "object",
+  "properties": {
+    "oauth2": {
+      "type": "object",
+      "description": "REQUIRED. A dictionary that describes the authentication request."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivedatadataauthenticate-dictionary",
+    "qualified_name": "msp-rest-api › InteractiveData.Data.Authenticate",
+    "canonical_lines": [
+      2964,
+      2970
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.948219+00:00"
+  },
+  "required": [
+    "oauth2"
+  ]
+}

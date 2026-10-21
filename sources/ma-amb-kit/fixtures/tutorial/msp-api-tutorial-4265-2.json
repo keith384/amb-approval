@@ -1,0 +1,7 @@
+{
+  "merchantIdentifier": "<SHA256 hash of your text merchant identifier>",
+  "domainName": "<domain name associated with Apple Pay merchant account>",
+  "displayName": "<Merchant name in human readable form>",
+  "initiative": "messaging",
+  "initiativeContext": "https://<...your endpoint URL...>/paymentGateway"
+}

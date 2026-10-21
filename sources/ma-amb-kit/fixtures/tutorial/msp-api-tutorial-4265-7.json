@@ -1,0 +1,32 @@
+{
+  "v": 1,
+  "sourceId": "<sourceId>",
+  "destinationId": "<destinationId>",
+  "type": "interactive",
+  "locale": "en_us",
+  "interactiveData": {
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension",
+    "data": {
+      "version": "2.0",
+      "requestIdentifier": "f8[****]5d",
+      "authenticate": {
+        "oauth2": {
+          "state": "3D13[***]hPQ",
+          "responseType": "code",
+          "scope": [
+            "openid",
+            "email",
+            "profile"
+          ],
+          "redirectURI": "https://example.com/auth/linkedin/callback"
+        }
+      }
+    },
+    "receivedMessage": {
+      "title": "Lets Sign In"
+    },
+    "replyMessage": {
+      "title": "Sign In Completed"
+    }
+  }
+}

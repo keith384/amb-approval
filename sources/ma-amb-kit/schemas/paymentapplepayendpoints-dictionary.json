@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/paymentapplepayendpoints-dictionary.json",
+  "title": "Payment.ApplePayEndpoints",
+  "type": "object",
+  "properties": {
+    "fallbackUrl": {
+      "type": "string",
+      "description": "A URL that opens in a web browser so the customer can complete the purchase if their device is unable to make payments using Apple Pay."
+    },
+    "orderTrackingUrl": {
+      "type": "string",
+      "description": "Called by Apple Messages for Business after completing the order; provides you with an opportunity to update the order information in your system. For more information, see Tracking Orders."
+    },
+    "paymentGatewayUrl": {
+      "type": "string",
+      "description": "REQUIRED. Called by Apple Pay to process the payment through the payment provider. The URL should match the URL in the initiativeContext field of the payment session. For more information, see Processing Payment Requests."
+    },
+    "paymentMethodUpdateUrl": {
+      "type": "string",
+      "description": "Called by Apple Pay when the customer changes the payment method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. For more information, see Updating Payment Methods."
+    },
+    "shippingContactUpdateUrl": {
+      "type": "string",
+      "description": "Called by Apple Pay when the customer changes their shipping address information. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. For more information, see Updating Shipping Contacts."
+    },
+    "shippingMethodUpdateUrl": {
+      "type": "string",
+      "description": "Called by Apple Pay when the customer changes the shipping method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. For more information, see Updating Shipping Methods."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "paymentapplepayendpoints-dictionary",
+    "qualified_name": "msp-rest-api › Payment.ApplePayEndpoints",
+    "canonical_lines": [
+      2192,
+      2205
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.946601+00:00"
+  },
+  "required": [
+    "paymentGatewayUrl"
+  ]
+}

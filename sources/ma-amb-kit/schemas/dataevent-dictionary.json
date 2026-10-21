@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/dataevent-dictionary.json",
+  "title": "Data.Event",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "REQUIRED. A string field identifying the event that must be unique within the payload, if more than one exists."
+    },
+    "imageIdentifier": {
+      "type": "string",
+      "description": "An identifier for the image to show when the user taps a reply message bubble. The image should be a @3x image sized at 375 x 208 points (that is, 1125 x 624 pixels)."
+    },
+    "location": {
+      "$ref": "./eventitemlocationitem-dictionary.json",
+      "description": "A dictionary describing a location. For the list of location dictionary keys, see LocationItem dictionary."
+    },
+    "timeslots": {
+      "type": "array",
+      "items": {
+        "$ref": "./locationtimeitem-dictionary.json"
+      },
+      "description": "An array of time slots. For the list of time slot dictionary keys, see TimeItem dictionary."
+    },
+    "timezoneOffset": {
+      "type": "integer",
+      "description": "An integer representing the number of minutes from GMT, specifying the timezone of the event’s location. If not set, times are shown according to the customer’s current time zone. If set, the times are shown according to the event’s time zone, regardless of the customer’s location."
+    },
+    "title": {
+      "type": "string",
+      "description": "A string field of the event title."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "dataevent-dictionary",
+    "qualified_name": "msp-rest-api › Data.Event",
+    "canonical_lines": [
+      2086,
+      2099
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945884+00:00"
+  },
+  "required": [
+    "identifier"
+  ]
+}

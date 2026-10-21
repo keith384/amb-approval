@@ -1,0 +1,66 @@
+{
+  "generated_utc": "2026-07-09T04:36:43.891315+00:00",
+  "note": "Types inferred ONLY from genuine fixture literals; conflicts left null. Applied by extract_schemas.py as x-amb-enriched-from-fixture.",
+  "enrichments": {
+    "payment-dictionary": {
+      "billingContact": {
+        "type": "object",
+        "observations": 2,
+        "evidence": "fixture literals (all agree)"
+      },
+      "shippingContact": {
+        "type": "object",
+        "observations": 2,
+        "evidence": "fixture literals (all agree)"
+      },
+      "paymentToken": {
+        "type": "object",
+        "observations": 2,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "payment-dictionary-3": {
+      "shippingMethod": {
+        "type": "object",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "payment-dictionary-2": {
+      "paymentMethod": {
+        "type": "object",
+        "observations": 2,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "payment-method-dictionary": {
+      "type": {
+        "type": "string",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "replymessage-dictionary": {
+      "title": {
+        "type": "string",
+        "observations": 8,
+        "evidence": "fixture literals (all agree)"
+      },
+      "subtitle": {
+        "type": "string",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      },
+      "style": {
+        "type": "string",
+        "observations": 5,
+        "evidence": "fixture literals (all agree)"
+      },
+      "imageIdentifier": {
+        "type": "string",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      }
+    }
+  }
+}

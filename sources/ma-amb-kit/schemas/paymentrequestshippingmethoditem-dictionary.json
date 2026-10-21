@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/paymentrequestshippingmethoditem-dictionary.json",
+  "title": "PaymentRequest.shippingMethodItem",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "string",
+      "description": "REQUIRED. The nonnegative cost associated with this shipping method."
+    },
+    "detail": {
+      "type": "string",
+      "description": "REQUIRED. Additional description of the shipping method."
+    },
+    "identifier": {
+      "type": "string",
+      "description": "REQUIRED. A client-defined value used to identify this shipping method."
+    },
+    "label": {
+      "type": "string",
+      "description": "REQUIRED. A short description of the shipping method."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "paymentrequestshippingmethoditem-dictionary",
+    "qualified_name": "msp-rest-api › PaymentRequest.shippingMethodItem",
+    "canonical_lines": [
+      2273,
+      2315
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.947253+00:00"
+  },
+  "required": [
+    "amount",
+    "detail",
+    "identifier",
+    "label"
+  ]
+}

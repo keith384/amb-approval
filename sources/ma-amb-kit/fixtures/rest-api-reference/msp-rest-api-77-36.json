@@ -1,0 +1,18 @@
+{
+  "type": "interactive",
+  "id": "a2cb006d-8025-4f68-832f-78922518d1b9",
+  "v": 1,
+  "sourceId": "<OpaqueID>",
+  "destinationId": "<BusinessID>",
+  "locale": "en_us",
+  "interactiveData": {
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension",
+    "data": {
+      "requestIdentifier": "f8ad656-12b0-43c9-a28d-13d103a0ae5d",
+      "version": "2.0",
+      "authenticate": {
+        "status": "success"
+      }
+    }
+  }
+}

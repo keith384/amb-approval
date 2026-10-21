@@ -1,0 +1,12 @@
+[
+  {
+    "data": "base64encoded-image-file",
+    "description": "Optional image description",
+    "identifier": "1"
+  },
+  {
+    "data": "base64encoded-image-file",
+    "description": "Optional image description",
+    "identifier": "2"
+  }
+]

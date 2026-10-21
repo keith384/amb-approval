@@ -1,0 +1,40 @@
+{
+    "type": "interactive",
+    "interactiveData": {
+      "appId": app-store-id,
+      "appName": "Name of the App",
+      "appIcon": A Base64-encoded string representing the app icon of the iMessage extension.
+      "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:{team-id}:{ext-bundle-id}",
+      "URL": "?data=passed-to-app&data2=more-data-passed-to-app",
+      "sessionIdentifier": "uuid-for-this-interaction",
+      "receivedMessage": {
+        "title": "Title of bubble",
+        "subtitle": "Subtitle to be displayed under title",
+        "imageTitle": "Title of image attachment",
+        "imageSubtitle": "Subtitle of the image attachment.",
+        "secondarySubtitle": "Title that is aligned right",
+        "tertiarySubtitle": "Subtitle that is aligned right"
+        "style":"A style that controls the size of the view rendered by Live Layout"
+      }
+    "useLiveLayout": A Boolean that determines whether Messages should use Live Layout
+    },
+        "attachments": [
+            {
+              "name":"FileName",
+              "mimeType":"image/jpeg",
+              "size":file size,
+              "key":decryption_key,
+              "url":mmcs_url,
+              "owner": mmcs_owner,
+              "signature-base64":base64_encoded_signature
+            }
+    ],
+    "sourceId": "A string that identifies the message sender",
+    "destinationId": "A string that identifies the message recipient",
+    "v": The message payload version number,
+    "intent": "Purpose, of the chat",
+    "group":  "Designates the department or individuals best qualified to handle the user’s particular question or problem",
+    "locale": "Language in ISO 639-1",
+    "id": "A UUID string that identifies the message"
+}
+Receiving an Interactive Message

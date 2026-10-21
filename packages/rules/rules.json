@@ -1,0 +1,2096 @@
+{
+  "version": "0.1.0",
+  "generated_from": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+  "note": "Normalized from MA sources. No rules authored here. Letter-IDs and applies-when scope keys layered in later phases.",
+  "summary": {
+    "total": 114,
+    "by_severity": {
+      "Non negotiable": 23,
+      "Apple standard": 83,
+      "Field": 8
+    },
+    "non_negotiables": [
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.4",
+      "3.1",
+      "3.2",
+      "3.4",
+      "3.5",
+      "4.1",
+      "4.8",
+      "5.2",
+      "5.11",
+      "7.6",
+      "7.8",
+      "8.1",
+      "8.2",
+      "9.1",
+      "10.1",
+      "10.7",
+      "10.8",
+      "11.1",
+      "11.4",
+      "11.8"
+    ],
+    "machine_checkable": 43,
+    "with_letter_id": 0
+  },
+  "rules": [
+    {
+      "id": "0.1",
+      "letter_id": null,
+      "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
+      "name": "Reachable escalation",
+      "check": "Escalation path is reachable and functional.",
+      "test_steps": "Confirm a live agent connection is reachable within stated hours, OR the exempted callback or in conversation message path is offered and works end to end (see Section 9).",
+      "expected_result": "Escalation path is reachable and functional.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "0.2",
+      "letter_id": null,
+      "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
+      "name": "Leave Conversation respected",
+      "check": "Both bot and human agent are blocked from sending; the business cannot re-engage until the user restarts.",
+      "test_steps": "End the conversation via Leave Conversation, then attempt to send from both the bot and a live agent.",
+      "expected_result": "Both bot and human agent are blocked from sending; the business cannot re-engage until the user restarts.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "0.3",
+      "letter_id": null,
+      "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
+      "name": "No forbidden or restricted platform wording",
+      "check": "No use of \"iMessage\", \"AMB\", \"Apple Chat\", \"chat\" or \"text\" as a channel name, and no wording implying Apple endorses the brand. Correct product naming throughout.",
+      "test_steps": "Review every piece of bot copy, template text, interface label, localisation bundle, onboarding copy and spoken narration in the recording.",
+      "expected_result": "No use of \"iMessage\", \"AMB\", \"Apple Chat\", \"chat\" or \"text\" as a channel name, and no wording implying Apple endorses the brand. Correct product naming throughout.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.12",
+      "applies_when": "Always",
+      "stages": [
+        "doc",
+        "storyboard",
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "0.4",
+      "letter_id": null,
+      "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
+      "name": "Opt-out works end to end",
+      "check": "Both bot and live agent stop sending immediately; opt-out applies brand-wide, not just the current thread; re-engagement requires a fresh opt-in.",
+      "test_steps": "Trigger STOP / UNSUBSCRIBE / QUIT from an active, opted-in conversation.",
+      "expected_result": "Both bot and live agent stop sending immediately; opt-out applies brand-wide, not just the current thread; re-engagement requires a fresh opt-in.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "1.1",
+      "letter_id": null,
+      "section": "1. Pre-Test and Review Readiness",
+      "name": "Apple Messages for Business account connected and delivering",
+      "check": "Message delivery is confirmed end to end.",
+      "test_steps": "Confirm the account is connected and send a test message.",
+      "expected_result": "Message delivery is confirmed end to end.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 1 s4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "1.2",
+      "letter_id": null,
+      "section": "1. Pre-Test and Review Readiness",
+      "name": "Commercial account access restricted",
+      "check": "Access is restricted to authorized Apple IDs used for testing.",
+      "test_steps": "Check Account Testing then Advanced settings.",
+      "expected_result": "Access is restricted to authorized Apple IDs used for testing.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 1 s4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "1.3",
+      "letter_id": null,
+      "section": "1. Pre-Test and Review Readiness",
+      "name": "All registered use cases are testable",
+      "check": "Every submitted use case has a corresponding, working flow in the test environment.",
+      "test_steps": "Cross-check the approved use case list on Appendix A against scenarios available in the test build.",
+      "expected_result": "Every submitted use case has a corresponding, working flow in the test environment.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 1 s4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "1.4",
+      "letter_id": null,
+      "section": "1. Pre-Test and Review Readiness",
+      "name": "All entry points are functional",
+      "check": "Each entry point opens a Messages conversation with the correct business account and correct routing context.",
+      "test_steps": "Test each entry point marked in scope on Appendix A (URL button, Message Suggest, Apple Maps, Wallet, QR or App Store link, Business Invitation, IVR deflection, social).",
+      "expected_result": "Each entry point opens a Messages conversation with the correct business account and correct routing context.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.13",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "1.5",
+      "letter_id": null,
+      "section": "1. Pre-Test and Review Readiness",
+      "name": "Agents trained, and an introduction script is defined",
+      "check": "Agents are prepared and trained for the channel and the relevant use cases, and a consistent introduction script exists.",
+      "test_steps": "Confirm with the client that live agent staff have been briefed, and review the written agent introduction script.",
+      "expected_result": "Agents are prepared and trained for the channel and the relevant use cases, and a consistent introduction script exists.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "1.6",
+      "letter_id": null,
+      "section": "1. Pre-Test and Review Readiness",
+      "name": "Tested on macOS as well as iPhone",
+      "check": "The experience works on macOS. iPhone is the priority platform, but macOS is also tested before submission.",
+      "test_steps": "Run the primary use case from the Messages app on a Mac signed in to the same Apple ID.",
+      "expected_result": "The experience works on macOS. iPhone is the priority platform, but macOS is also tested before submission.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 1 s4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "1.7",
+      "letter_id": null,
+      "section": "1. Pre-Test and Review Readiness",
+      "name": "Baseline metrics planned before launch",
+      "check": "Response times, resolution rates and satisfaction baselines are planned before launch, not after.",
+      "test_steps": "Confirm with the client which metrics are captured and from when.",
+      "expected_result": "Response times, resolution rates and satisfaction baselines are planned before launch, not after.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.15",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "2.1",
+      "letter_id": null,
+      "section": "2. Entry Points and Passable Context",
+      "name": "Entry point routing lands in the correct flow",
+      "check": "Each entry point routes to the correct, distinct flow, not the same generic flow regardless of source.",
+      "test_steps": "Open the conversation from each of the brand's registered entry points (for example two different QR codes for two different stores or intents).",
+      "expected_result": "Each entry point routes to the correct, distinct flow, not the same generic flow regardless of source.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.13",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "2.2",
+      "letter_id": null,
+      "section": "2. Entry Points and Passable Context",
+      "name": "Bot confirms context received from entry point",
+      "check": "The opening message reflects the context received, for example \"I see you're asking about [Store or Product X]\", rather than a generic greeting.",
+      "test_steps": "Open a conversation from an entry point carrying routing context (store, product or campaign reference).",
+      "expected_result": "The opening message reflects the context received, for example \"I see you're asking about [Store or Product X]\", rather than a generic greeting.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Any entry point carrying context",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "2.3",
+      "letter_id": null,
+      "section": "2. Entry Points and Passable Context",
+      "name": "Business Invitation opt-in gate and decline handling",
+      "check": "Platform requires opt-in coverage before sending; a decline is correctly registered and that user is not messaged again.",
+      "test_steps": "Attempt to send a Business Invitation to a number that has not opted in; then send a valid test invite and respond \"No\" or decline.",
+      "expected_result": "Platform requires opt-in coverage before sending; a decline is correctly registered and that user is not messaged again.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Business Invitations in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "2.4",
+      "letter_id": null,
+      "section": "2. Entry Points and Passable Context",
+      "name": "Invitation opt-out present in every Business Update",
+      "check": "Opt-out instructions appear in every single Business Update message, not just the first.",
+      "test_steps": "Review every Business Invitation and Business Update message the brand sends.",
+      "expected_result": "Opt-out instructions appear in every single Business Update message, not just the first.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Business Invitations in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "2.5",
+      "letter_id": null,
+      "section": "2. Entry Points and Passable Context",
+      "name": "A \"Yes\" on a Business Invitation is followed by a welcome that explains what was accepted",
+      "check": "An agent message welcomes the customer and states plainly what they signed up for, for example what notifications will be sent and how often.",
+      "test_steps": "Accept a Business Invitation and read the next message.",
+      "expected_result": "An agent message welcomes the customer and states plainly what they signed up for, for example what notifications will be sent and how often.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Business Invitations in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.1",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "First response within 5 seconds, with typing indicator",
+      "check": "A typing indicator appears first, then the automated response arrives within 5 seconds total.",
+      "test_steps": "Send the first message of a new conversation and time the automated reply.",
+      "expected_result": "A typing indicator appears first, then the automated response arrives within 5 seconds total.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "3.2",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Bot self-identifies as automated on entry",
+      "check": "Message clearly and plainly states it is an automated agent, not implied or buried.",
+      "test_steps": "Review the opening automated message.",
+      "expected_result": "Message clearly and plainly states it is an automated agent, not implied or buried.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.3",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "The opener states the assistant's name and what it covers",
+      "check": "The opener names the assistant and states its scope, for example \"I'm [NAME], here to help with orders, delivery and returns\". Disclosure followed only by \"what can we help you with?\" does not satisfy this.",
+      "test_steps": "Read the opening message after the disclosure.",
+      "expected_result": "The opener names the assistant and states its scope, for example \"I'm [NAME], here to help with orders, delivery and returns\". Disclosure followed only by \"what can we help you with?\" does not satisfy this.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.4",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Bot answers truthfully when asked if it is a bot",
+      "check": "Bot always answers truthfully that it is automated. It never claims to be human or dodges the question.",
+      "test_steps": "At multiple points in the conversation ask directly: \"are you a bot?\", \"am I talking to a real person?\", \"are you AI?\"",
+      "expected_result": "Bot always answers truthfully that it is automated. It never claims to be human or dodges the question.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.5",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Typing indicator before every outbound message, including rich features",
+      "check": "A typing indicator appears before every single outbound payload, not just the first, including one-off notifications, attachments, rich and interactive bubbles, the Authentication card and Apple Pay.",
+      "test_steps": "Step through a multi-message bot flow, including back-to-back sequences with no user input between them (enrollment confirmations, status updates, summaries, quick replies, forms).",
+      "expected_result": "A typing indicator appears before every single outbound payload, not just the first, including one-off notifications, attachments, rich and interactive bubbles, the Authentication card and Apple Pay.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.6",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Typing indicator never hangs or misleads",
+      "check": "Indicator resolves or refreshes sensibly rather than hanging indefinitely and implying an imminent reply that never comes.",
+      "test_steps": "Have a live agent leave a typing indicator active for an extended period without sending.",
+      "expected_result": "Indicator resolves or refreshes sensibly rather than hanging indefinitely and implying an imminent reply that never comes.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.7",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Live agent messages also carry a typing indicator",
+      "check": "The typing indicator appears on the customer side for agent messages as well as bot messages.",
+      "test_steps": "During a live agent exchange, watch the customer device while the agent composes.",
+      "expected_result": "The typing indicator appears on the customer side for agent messages as well as bot messages.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.8",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Triage menu appears when intent is unclear",
+      "check": "Bot offers a Quick Reply triage menu of up to five options instead of guessing or forcing free text.",
+      "test_steps": "Send an ambiguous opening message such as \"hi\".",
+      "expected_result": "Bot offers a Quick Reply triage menu of up to five options instead of guessing or forcing free text.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "3.9",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Triage menu leads with the most common options",
+      "check": "The most common reasons customers make contact appear first, and the list reflects real demand rather than an internal org chart.",
+      "test_steps": "Compare the order of the menu options against real demand data.",
+      "expected_result": "The most common reasons customers make contact appear first, and the list reflects real demand rather than an internal org chart.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.5",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "3.10",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "A clearly written intent is answered rather than overridden by the menu",
+      "check": "The bot answers what was asked. It does not discard the stated intent and present the triage menu instead.",
+      "test_steps": "Open the conversation with a specific, unambiguous request.",
+      "expected_result": "The bot answers what was asked. It does not discard the stated intent and present the triage menu instead.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.11",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "A route to a person appears on every menu",
+      "check": "Each menu includes an option to reach a person, or the agreed alternative path.",
+      "test_steps": "Review every triage menu and sub-menu in the experience.",
+      "expected_result": "Each menu includes an option to reach a person, or the agreed alternative path.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "3.12",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Triage is never more than two levels deep",
+      "check": "No path requires more than two menu selections before reaching a task or a person.",
+      "test_steps": "Walk the deepest menu path in the design.",
+      "expected_result": "No path requires more than two menu selections before reaching a task or a person.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.13",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Actionable keywords trigger the defined behaviour",
+      "check": "Each keyword triggers its defined behaviour. Matching is case insensitive and tolerates whitespace. AGENT and REPRESENTATIVE escalate, HELP gives contextual help, MENU returns the triage menu.",
+      "test_steps": "Send AGENT, REPRESENTATIVE, HELP and MENU, in mixed case and with surrounding whitespace.",
+      "expected_result": "Each keyword triggers its defined behaviour. Matching is case insensitive and tolerates whitespace. AGENT and REPRESENTATIVE escalate, HELP gives contextual help, MENU returns the triage menu.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.14",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Recovery re-offers options and escalates after one clarification",
+      "check": "The bot apologises, says plainly it did not understand, and re-offers two or three options as a Quick Reply with at least one route to a person. On the second failure it escalates rather than looping.",
+      "test_steps": "Send an input the bot cannot classify, then send a second unclassifiable input.",
+      "expected_result": "The bot apologises, says plainly it did not understand, and re-offers two or three options as a Quick Reply with at least one route to a person. On the second failure it escalates rather than looping.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "3.15",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Recovery wording varies rather than repeating identically",
+      "check": "The recovery message is not the exact same sentence every time. Repetition of an identical failure message reads as a broken loop.",
+      "test_steps": "Send three consecutive inputs the bot cannot classify.",
+      "expected_result": "The recovery message is not the exact same sentence every time. Repetition of an identical failure message reads as a broken loop.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "3.16",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Device locale drives language, and any switch is confirmed first",
+      "check": "The conversation opens in the device locale. A detected language change is confirmed with a Quick Reply before switching.",
+      "test_steps": "Set the device to a supported non-default locale and open a conversation. Then write in a different supported language.",
+      "expected_result": "The conversation opens in the device locale. A detected language change is confirmed with a Quick Reply before switching.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Multilingual in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.17",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "The conversation never opens by asking which language the customer wants",
+      "check": "Language is read from the device, never asked for.",
+      "test_steps": "Read the opening message.",
+      "expected_result": "Language is read from the device, never asked for.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Multilingual in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.18",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Off-hours automated message is accurate and non-deceptive",
+      "check": "Automated message explains the business is closed and states expected response time or business hours, without pretending a person is available.",
+      "test_steps": "Message the account, or request a live agent, outside of stated business hours.",
+      "expected_result": "Automated message explains the business is closed and states expected response time or business hours, without pretending a person is available.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.19",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Off-hours notice is triggered at the right moment",
+      "check": "The out-of-hours notice fires specifically when the user tries to connect to a live agent outside messaging hours, not generically at the start of any off-hours conversation.",
+      "test_steps": "Attempt to reach a live agent outside business hours, as distinct from simply messaging the bot outside hours.",
+      "expected_result": "The out-of-hours notice fires specifically when the user tries to connect to a live agent outside messaging hours, not generically at the start of any off-hours conversation.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "3.20",
+      "letter_id": null,
+      "section": "3. Agent Identification, Honesty and Triage",
+      "name": "Welcome message tone matches brand",
+      "check": "Tone is warm, on-brand, and not robotic or legalistic.",
+      "test_steps": "Review the welcome and greeting copy against brand voice guidelines.",
+      "expected_result": "Tone is warm, on-brand, and not robotic or legalistic.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "3.6",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "4.1",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Rich Links used for all URLs",
+      "check": "All URLs are sent as Rich Links. Plain-text and \"tap-to-load\" text links are not used anywhere.",
+      "test_steps": "Review every message containing a URL, from the bot and from live agents.",
+      "expected_result": "All URLs are sent as Rich Links. Plain-text and \"tap-to-load\" text links are not used anywhere.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.7",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "4.2",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Rich Link logo image is properly sized",
+      "check": "Image is square or a rectangle with width under 150px, so it renders as a clean icon rather than a cropped or blurry preview.",
+      "test_steps": "Inspect the image used for any Rich Link built from a logo.",
+      "expected_result": "Image is square or a rectangle with width under 150px, so it renders as a clean icon rather than a cropped or blurry preview.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.7",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "4.3",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Rich Link preview asset meets Apple's specification",
+      "check": "PNG, optimised at 240 by 240 pixels, up to 200 kB. This is separate from the 150 pixel icon ceiling.",
+      "test_steps": "Inspect the preview asset file for a content Rich Link.",
+      "expected_result": "PNG, optimised at 240 by 240 pixels, up to 200 kB. This is separate from the 150 pixel icon ceiling.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.7",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "4.4",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Every Rich Link image reflects the destination page",
+      "check": "The image reflects the page content rather than being a generic logo placeholder. Where the destination has no Open Graph image, one is generated before sending.",
+      "test_steps": "Open each Rich Link and compare the preview image to the page it opens.",
+      "expected_result": "The image reflects the page content rather than being a generic logo placeholder. Where the destination has no Open Graph image, one is generated before sending.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.7",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "4.5",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Video Rich Links have a background image",
+      "check": "The preview renders with a background image. A black preview is a fast route to a review finding.",
+      "test_steps": "Send every video Rich Link in the experience and view it on device.",
+      "expected_result": "The preview renders with a background image. A black preview is a fast route to a review finding.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "3.7",
+      "applies_when": "Video Rich Links in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "4.6",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Maps and Apple Music are sent through Construct Payload",
+      "check": "Maps and Apple Music are sent as Construct Payload, not as a Rich Link.",
+      "test_steps": "Trigger any flow that shares a location or a music link.",
+      "expected_result": "Maps and Apple Music are sent as Construct Payload, not as a Rich Link.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.7",
+      "applies_when": "Maps or Music in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "4.7",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Rich Link is followed by a message or call to action",
+      "check": "A follow-up message with a clear call to action follows the Rich Link. It is not left to sit on its own.",
+      "test_steps": "Send a Rich Link and observe what follows.",
+      "expected_result": "A follow-up message with a clear call to action follows the Rich Link. It is not left to sit on its own.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "4.8",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Unclassified input never lands in silence",
+      "check": "The bot never stays silent. It responds with a clear, polite recovery message and a way forward. (Branch-level dead ends are tested separately at 10.7.)",
+      "test_steps": "Send one unclear or unsupported input and observe the immediate response.",
+      "expected_result": "The bot never stays silent. It responds with a clear, polite recovery message and a way forward. (Branch-level dead ends are tested separately at 10.7.)",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "4.9",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "\"Anything else?\" close prompt",
+      "check": "Bot asks if the user needs further assistance, optionally with a follow-up Quick Reply, rather than abruptly ending the flow.",
+      "test_steps": "Complete a use case end to end and observe the closing message.",
+      "expected_result": "Bot asks if the user needs further assistance, optionally with a follow-up Quick Reply, rather than abruptly ending the flow.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "4.10",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "No prohibited closing phrases",
+      "check": "Phrases like \"This conversation has been closed\", \"Finish conversation\", \"Messaging rates may apply\" and \"Data rates may apply\" are not used. Closing language leaves the door open for future contact.",
+      "test_steps": "Review all conversation-ending copy.",
+      "expected_result": "Phrases like \"This conversation has been closed\", \"Finish conversation\", \"Messaging rates may apply\" and \"Data rates may apply\" are not used. Closing language leaves the door open for future contact.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.10",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "4.11",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "No repeated requests for information already given",
+      "check": "The bot does not ask the user to repeat information already captured earlier in the conversation.",
+      "test_steps": "Provide information such as name or email earlier in the flow, then continue to a step that would normally ask for it again.",
+      "expected_result": "The bot does not ask the user to repeat information already captured earlier in the conversation.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "4.12",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Proper casing throughout",
+      "check": "All messages use proper casing. Messages sent entirely in lowercase are flagged as poor customer experience regardless of brand voice.",
+      "test_steps": "Review all message copy.",
+      "expected_result": "All messages use proper casing. Messages sent entirely in lowercase are flagged as poor customer experience regardless of brand voice.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "3.6",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "4.13",
+      "letter_id": null,
+      "section": "4. Core Messaging, Rich Links and Close",
+      "name": "Quick Reply summaryText is a short label",
+      "check": "summaryText is short and label-based, for example \"Option selected\". It does not repeat the full previous message and is never used as the introduction to the Quick Reply.",
+      "test_steps": "Review the summary text each Quick Reply echoes back into the transcript.",
+      "expected_result": "summaryText is short and label-based, for example \"Option selected\". It does not repeat the full previous message and is never used as the introduction to the Quick Reply.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Quick Reply in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.1",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Every interactive option carries a thumbnail or icon",
+      "check": "Each includes a thumbnail image or icon making it clearly recognizable as a tappable UI element. SF Symbols where symbols are used.",
+      "test_steps": "Review every receivedMessage, replyMessage, and each individual option in a List Picker.",
+      "expected_result": "Each includes a thumbnail image or icon making it clearly recognizable as a tappable UI element. SF Symbols where symbols are used.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Any interactive feature in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.2",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "The rich card itself carries its own image",
+      "check": "The card has an image of its own. Row thumbnails do not satisfy this. A Form splash screen needs one too. This is the single most commonly missed rule.",
+      "test_steps": "Inspect the card that carries each interactive element, separately from the row thumbnails.",
+      "expected_result": "The card has an image of its own. Row thumbnails do not satisfy this. A Form splash screen needs one too. This is the single most commonly missed rule.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Any interactive feature in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.3",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "No brand card image forced onto Apple Pay or Authentication",
+      "check": "Neither carries a brand card image. Both render with Apple's own supplied iconography.",
+      "test_steps": "Inspect the Apple Pay sheet and the Authentication card.",
+      "expected_result": "Neither carries a brand card image. Both render with Apple's own supplied iconography.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Apple Pay or Authentication in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.4",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "List Picker versus Quick Reply used appropriately",
+      "check": "List Pickers are used only where there is genuine category variation. Five or fewer flat options use a Quick Reply instead. Bounded questions are answered by a Quick Reply rather than typed text.",
+      "test_steps": "Review each menu presented to the user.",
+      "expected_result": "List Pickers are used only where there is genuine category variation. Five or fewer flat options use a Quick Reply instead. Bounded questions are answered by a Quick Reply rather than typed text.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "List Picker in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.5",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "List Picker items carry subtitles and secondary text",
+      "check": "Rows show a subtitle, and second or third subtitle lines where the choice needs them, so each row can be told apart at a glance. Titles alone force the customer to guess. Visible copy stays short; the rendered string caps near 200 characters.",
+      "test_steps": "Review the rows of every List Picker.",
+      "expected_result": "Rows show a subtitle, and second or third subtitle lines where the choice needs them, so each row can be told apart at a glance. Titles alone force the customer to guess. Visible copy stays short; the rendered string caps near 200 characters.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "List Picker in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.6",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Forms include splash screen, title, intro and review screen",
+      "check": "Each form has a splash screen, a title, an introductory description, and a final review screen before submission.",
+      "test_steps": "Step through every Form Message in the experience.",
+      "expected_result": "Each form has a splash screen, a title, an introductory description, and a final review screen before submission.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Form in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.7",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "The Form review page sits at the end of the final section",
+      "check": "The Review button sits at the end of the final section to be filled, not in the middle of the flow.",
+      "test_steps": "Step through a multi-page Form to the end.",
+      "expected_result": "The Review button sits at the end of the final section to be filled, not in the middle of the flow.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Multi-page Form in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.8",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Form context set in a conversational bubble first",
+      "check": "The \"why\" for the form is stated in a conversational bubble before the form opens, not buried in the form's subtitle where it can be cropped.",
+      "test_steps": "Review the message immediately preceding each form.",
+      "expected_result": "The \"why\" for the form is stated in a conversational bubble before the form opens, not buried in the form's subtitle where it can be cropped.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Form in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.9",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Simple one or two field forms use plain text conversational flow",
+      "check": "A plain-text conversational exchange is used instead of a formal Form object.",
+      "test_steps": "Identify any form collecting only one or two fields, such as name and email.",
+      "expected_result": "A plain-text conversational exchange is used instead of a formal Form object.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "3.4",
+      "applies_when": "Form in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.10",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Sensitive Form responses are marked private",
+      "check": "Responses that carry sensitive data are marked private.",
+      "test_steps": "Inspect the payload for any form field taking sensitive data.",
+      "expected_result": "Responses that carry sensitive data are marked private.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.5",
+      "applies_when": "Form taking sensitive data",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.11",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Introductory text precedes every rich element",
+      "check": "A brief conversational message sets expectations before the interactive bubble appears. This includes Authentication and Apple Pay, for example \"Please log into your account\" before the Authentication card.",
+      "test_steps": "Observe the message immediately before every Time Picker, List Picker, Form, Quick Reply, Rich Link, Authentication card and Apple Pay request.",
+      "expected_result": "A brief conversational message sets expectations before the interactive bubble appears. This includes Authentication and Apple Pay, for example \"Please log into your account\" before the Authentication card.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Any interactive feature in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.12",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Time Picker confirmation includes a save-to-calendar tip",
+      "check": "The confirmation message tells the user they can tap their selected time to save it to their Apple Calendar.",
+      "test_steps": "Complete a booking flow through a Time Picker.",
+      "expected_result": "The confirmation message tells the user they can tap their selected time to save it to their Apple Calendar.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Time Picker in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.13",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Time Picker carries a location and an explicit time zone",
+      "check": "The location is populated so the venue name and map pin render inside the picker and travel with the calendar entry. The intended time zone is stated in the payload rather than inferred.",
+      "test_steps": "Inspect the Time Picker payload for an appointment that happens somewhere.",
+      "expected_result": "The location is populated so the venue name and map pin render inside the picker and travel with the calendar entry. The intended time zone is stated in the payload rather than inferred.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Time Picker in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.14",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "A shared location is acknowledged and reflected back",
+      "check": "The next message acknowledges it and reflects back the resolved address or place name so the customer can correct it before anything is dispatched on it. It never lands in silence.",
+      "test_steps": "Share a location from the compose bar mid-conversation.",
+      "expected_result": "The next message acknowledges it and reflects back the resolved address or place name so the customer can correct it before anything is dispatched on it. It never lands in silence.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "5.15",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "The confirmation image after a tap stays within the icon ceiling",
+      "check": "The user_confirmation image stays within about 150 pixels wide, so the thread reads as a question and an acknowledgement rather than two competing cards.",
+      "test_steps": "Tap an interactive element and inspect the confirmation that comes back.",
+      "expected_result": "The user_confirmation image stays within about 150 pixels wide, so the thread reads as a question and an acknowledgement rather than two competing cards.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Any interactive feature in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "5.16",
+      "letter_id": null,
+      "section": "5. Interactive Features",
+      "name": "Long text kept outside feature bubbles",
+      "check": "Long text is sent as a separate message outside the bubble. The first line of any feature bubble is its title, since longer text gets cropped.",
+      "test_steps": "Review any feature bubble containing more than a short label.",
+      "expected_result": "Long text is sent as a separate message outside the bubble. The first line of any feature bubble is its title, since longer text gets cropped.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.6",
+      "applies_when": "Any interactive feature in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "6.1",
+      "letter_id": null,
+      "section": "6. Attachments and Wallet Passes",
+      "name": "Attachments render correctly and are relevant",
+      "check": "Attachment renders correctly on-device and is directly relevant to the step in the flow.",
+      "test_steps": "Trigger every flow that sends an image, PDF, or other attachment.",
+      "expected_result": "Attachment renders correctly on-device and is directly relevant to the step in the flow.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.5",
+      "applies_when": "Attachments in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "6.2",
+      "letter_id": null,
+      "section": "6. Attachments and Wallet Passes",
+      "name": "Wallet passes generate and add correctly",
+      "check": "Pass generates with correct details and adds to Apple Wallet end to end without errors.",
+      "test_steps": "Trigger a flow that issues a Wallet pass and tap to add it.",
+      "expected_result": "Pass generates with correct details and adds to Apple Wallet end to end without errors.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.5",
+      "applies_when": "Wallet passes in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "7.1",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "Authentication used for identity verification",
+      "check": "The Authentication message type with inline OAuth 2.0 and password autofill is used, rather than collecting credentials as plain chat text.",
+      "test_steps": "Trigger a flow requiring identity or login verification.",
+      "expected_result": "The Authentication message type with inline OAuth 2.0 and password autofill is used, rather than collecting credentials as plain chat text.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.8",
+      "applies_when": "Authentication in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "7.2",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "Authentication precedes any account data being shared",
+      "check": "No order detail, account data or balance is returned until the customer has authenticated. This is a positive obligation, not only a prohibition.",
+      "test_steps": "Ask for an order status, an account detail or a balance without signing in first.",
+      "expected_result": "No order detail, account data or balance is returned until the customer has authenticated. This is a positive obligation, not only a prohibition.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.8",
+      "applies_when": "Account data in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "7.3",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "Apple Pay used for payment collection",
+      "check": "Apple Pay is used to collect payment. Full card numbers are never requested as plain text.",
+      "test_steps": "Trigger a flow that requires payment.",
+      "expected_result": "Apple Pay is used to collect payment. Full card numbers are never requested as plain text.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.8",
+      "applies_when": "Apple Pay in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "7.4",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "Personal data request is gated by a clarifying question",
+      "check": "A yes or no clarifying question precedes the request, for example \"Is your inquiry related to your account with us?\". Details are collected only on a yes.",
+      "test_steps": "Trigger a flow that asks for name, email or contact details.",
+      "expected_result": "A yes or no clarifying question precedes the request, for example \"Is your inquiry related to your account with us?\". Details are collected only on a yes.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.8",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "7.5",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "Data collection prompts use the QuickType phrasings",
+      "check": "Prompts use Apple's phrasings exactly, so iOS surfaces a QuickType suggestion and no typing is required.",
+      "test_steps": "Read the exact wording of every prompt asking for customer data.",
+      "expected_result": "Prompts use Apple's phrasings exactly, so iOS surfaces a QuickType suggestion and no typing is required.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.8",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "7.6",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "No health data collected, echoed, or stored",
+      "check": "The bot declines to engage with the health detail, does not echo it back, and nothing is logged or stored downstream. Confirm this explicitly with the client rather than assuming.",
+      "test_steps": "Trigger a flow where a user might disclose a health condition or diagnosis.",
+      "expected_result": "The bot declines to engage with the health detail, does not echo it back, and nothing is logged or stored downstream. Confirm this explicitly with the client rather than assuming.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.11",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "7.7",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "Privacy Policy and Terms of Use are Rich Links, sent only twice",
+      "check": "Both are sent as Rich Links to the brand's webpage, never pasted inline, and only on first engagement or after a policy update. Never at the start of every conversation.",
+      "test_steps": "Trigger a first engagement, then a second and third conversation.",
+      "expected_result": "Both are sent as Rich Links to the brand's webpage, never pasted inline, and only on first engagement or after a policy update. Never at the start of every conversation.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.11",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "7.8",
+      "letter_id": null,
+      "section": "7. Authentication, Apple Pay and Personal Data",
+      "name": "No sensitive data is ever requested as plain text",
+      "check": "No full card number, no government ID number, no full social security number and no account password is requested in the thread. Identity goes through Authentication, payment through Apple Pay, and structured sensitive intake through a Form with private responses.",
+      "test_steps": "Walk every flow that collects customer data, and review the agent console templates as well as the bot flows.",
+      "expected_result": "No full card number, no government ID number, no full social security number and no account password is requested in the thread. Identity goes through Authentication, payment through Apple Pay, and structured sensitive intake through a Form with private responses.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.8",
+      "applies_when": "Where sensitive data is collected",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "8.1",
+      "letter_id": null,
+      "section": "8. Device Capability and Fallback",
+      "name": "Fallback happens automatically and live",
+      "check": "The experience swaps live, at send time, to a supported alternative, demonstrated on-device rather than described.",
+      "test_steps": "Run the same use case on an unsupported device or OS version.",
+      "expected_result": "The experience swaps live, at send time, to a supported alternative, demonstrated on-device rather than described.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "8.2",
+      "letter_id": null,
+      "section": "8. Device Capability and Fallback",
+      "name": "Fallback path is not a dead end",
+      "check": "The user can still complete or meaningfully progress the use case through the fallback path.",
+      "test_steps": "Reach the fallback path and attempt to continue the use case.",
+      "expected_result": "The user can still complete or meaningfully progress the use case through the fallback path.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "8.3",
+      "letter_id": null,
+      "section": "8. Device Capability and Fallback",
+      "name": "Capability data is read on every inbound, not cached once",
+      "check": "The capability list is parsed on every inbound message and the most recent value is stored against the device, so a device switch changes what can be sent.",
+      "test_steps": "Send from one device, then send from a second device on the same Apple ID with different capabilities.",
+      "expected_result": "The capability list is parsed on every inbound message and the most recent value is stored against the device, so a device switch changes what can be sent.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "8.4",
+      "letter_id": null,
+      "section": "8. Device Capability and Fallback",
+      "name": "The console cannot send what the device will not render",
+      "check": "The unsupported option is hidden or hard disabled for that recipient, so an agent cannot send something the device cannot render.",
+      "test_steps": "In the agent console, open a conversation with a device that lacks a feature in scope.",
+      "expected_result": "The unsupported option is hidden or hard disabled for that recipient, so an agent cannot send something the device cannot render.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "8.5",
+      "letter_id": null,
+      "section": "8. Device Capability and Fallback",
+      "name": "The fallback decision tree is documented",
+      "check": "A documented tree exists covering every interactive type in scope: the preferred type, the fallback type or sequence, the OS floor that triggers it, and the customer facing copy variant. It is versioned and kept current. Reviewers may ask to see the tree itself.",
+      "test_steps": "Ask to see the written fallback tree, not only its behaviour on device.",
+      "expected_result": "A documented tree exists covering every interactive type in scope: the preferred type, the fallback type or sequence, the OS floor that triggers it, and the customer facing copy variant. It is versioned and kept current. Reviewers may ask to see the tree itself.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9 note",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "9.1",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "Handoff to a live agent is explicitly stated",
+      "check": "The transition is explicitly communicated, and the agent introduces themselves on joining. The reason for the transfer is given.",
+      "test_steps": "Trigger escalation to a live agent.",
+      "expected_result": "The transition is explicitly communicated, and the agent introduces themselves on joining. The reason for the transfer is given.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "9.2",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "Wait time is communicated",
+      "check": "An estimated wait time is communicated, with queue position where available.",
+      "test_steps": "Trigger escalation when no agent is immediately available.",
+      "expected_result": "An estimated wait time is communicated, with queue position where available.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "9.3",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "Key details are collected before escalation",
+      "check": "Essential information is gathered before routing, so the agent can help without re-asking.",
+      "test_steps": "Escalate mid-task and observe what the agent receives.",
+      "expected_result": "Essential information is gathered before routing, so the agent can help without re-asking.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "9.4",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "An in conversation message is the first option when no agent is available",
+      "check": "Leaving a message in the conversation is offered first, with a stated response window. Callback and email are offered afterwards, never as the first option.",
+      "test_steps": "Request a person while the team is offline or at capacity.",
+      "expected_result": "Leaving a message in the conversation is offered first, with a stated response window. Callback and email are offered afterwards, never as the first option.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "9.5",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "Out-of-hours escalation stays in-thread",
+      "check": "The user can leave a message within the current thread. They are not forced out to an external email system, and an agent replies to that message in the same thread.",
+      "test_steps": "Request a live agent outside business hours.",
+      "expected_result": "The user can leave a message within the current thread. They are not forced out to an external email system, and an agent replies to that message in the same thread.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "9.6",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "Contextual escalation stays in-channel",
+      "check": "The bot helps compose the email within the channel rather than abruptly shifting the user away from the conversation.",
+      "test_steps": "Trigger a flow where an email to support would be drafted on the user's behalf.",
+      "expected_result": "The bot helps compose the email within the channel rather than abruptly shifting the user away from the conversation.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "3.5",
+      "applies_when": "Email escalation in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "9.7",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "First response service level is documented",
+      "check": "A specific figure is documented and available to reference if Apple asks.",
+      "test_steps": "Confirm with the client what the committed first-response time for a live agent is.",
+      "expected_result": "A specific figure is documented and available to reference if Apple asks.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.15",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "9.8",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "The agent console experience is good on both sides",
+      "check": "The customer feels responsiveness. The agent can read the thread easily and send what the conversation needs, including rich elements, without friction. A slow or awkward console shows up on the customer's screen as silence and plain text.",
+      "test_steps": "Sit with an agent through a real escalation and watch both the console and the device.",
+      "expected_result": "The customer feels responsiveness. The agent can read the thread easily and send what the conversation needs, including rich elements, without friction. A slow or awkward console shows up on the customer's screen as silence and plain text.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "9.9",
+      "letter_id": null,
+      "section": "9. Human Escalation and Live Agent Handoff",
+      "name": "The escalation acknowledgement states a specific commitment",
+      "check": "The confirmation states what happens next and when, with a specific figure, for example \"a team member will call you within two business hours\". A vague acknowledgement such as \"someone will be in touch\" is a review finding.",
+      "test_steps": "Escalate, choose the offered path, and read the acknowledgement message.",
+      "expected_result": "The confirmation states what happens next and when, with a specific figure, for example \"a team member will call you within two business hours\". A vague acknowledgement such as \"someone will be in touch\" is a review finding.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.3",
+      "applies_when": "Live agent in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "10.1",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "Opt-in captured before non-transactional notifications",
+      "check": "Explicit opt-in is captured as an active tap before enrollment, and the record persists brand, channel, purpose, destination, source, timestamp and disclosure version.",
+      "test_steps": "Reach any flow that would enroll the customer in ongoing automated notifications.",
+      "expected_result": "Explicit opt-in is captured as an active tap before enrollment, and the record persists brand, channel, purpose, destination, source, timestamp and disclosure version.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Notifications in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "10.2",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "The enrolment template carries its own opt out instruction",
+      "check": "The opt out instruction sits in the template itself, not only in the moment of consent. Apple's shape: welcome, brand name, automated disclosure, then \"Reply STOP anytime to turn off notifications.\"",
+      "test_steps": "Read the enrolment and confirmation message templates.",
+      "expected_result": "The opt out instruction sits in the template itself, not only in the moment of consent. Apple's shape: welcome, brand name, automated disclosure, then \"Reply STOP anytime to turn off notifications.\"",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Notifications in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "10.3",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "STOP re-entry shows a \"Welcome back\" message",
+      "check": "The bot recognizes the re-entry and responds with a \"Welcome back\" style message.",
+      "test_steps": "Opt out via STOP, then message the brand again to re-subscribe.",
+      "expected_result": "The bot recognizes the re-entry and responds with a \"Welcome back\" style message.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Notifications in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "10.4",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "Restarting restores reply permission, not notification consent",
+      "check": "The brand may reply inside that conversation. It may not resume notifications. The two states reset separately.",
+      "test_steps": "Opt out of notifications, then start a fresh conversation and complete a task.",
+      "expected_result": "The brand may reply inside that conversation. It may not resume notifications. The two states reset separately.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Notifications in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "10.5",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "Satisfaction survey timing and format",
+      "check": "A survey fires only after a real resolution. Not after every FAQ answer, not before the task is resolved, and never after a close, a Leave Conversation or an opt out. It uses descriptive labels rather than a bare one to five scale, delivered as a Quick Reply, or a Form Message for a multi question survey.",
+      "test_steps": "Complete an individual FAQ interaction, then complete a full end-to-end use case, then close a conversation. Review the survey itself.",
+      "expected_result": "A survey fires only after a real resolution. Not after every FAQ answer, not before the task is resolved, and never after a close, a Leave Conversation or an opt out. It uses descriptive labels rather than a bare one to five scale, delivered as a Quick Reply, or a Form Message for a multi question survey.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.10",
+      "applies_when": "Survey in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "10.6",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "Channel constraints on unsolicited surveys respected",
+      "check": "Where such agreements exist, survey timing is controlled by the brand or institution rather than fired automatically.",
+      "test_steps": "Check whether the brand has a protective agreement affecting unsolicited messages to its end users, for example school districts and parent inboxes.",
+      "expected_result": "Where such agreements exist, survey timing is controlled by the brand or institution rather than fired automatically.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.10",
+      "applies_when": "Survey in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "10.7",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "No dead ends anywhere in the flow",
+      "check": "Every path has a clear next step, a fallback, or an escalation route. Never a dead end.",
+      "test_steps": "Walk every branch of the conversation design, including error and edge-case paths. (Single unclassified inputs are tested at 4.8.)",
+      "expected_result": "Every path has a clear next step, a fallback, or an escalation route. Never a dead end.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "10.8",
+      "letter_id": null,
+      "section": "10. Policy, Consent and Conversational Design",
+      "name": "No unsolicited outbound",
+      "check": "Outbound is only sent inside an ongoing customer initiated conversation, or through an approved Business Invitation template. No SMS style marketing blasts and no unsolicited sends. Reviewers actively look for this.",
+      "test_steps": "Review every outbound path the platform can fire: campaigns, scheduled sends, retries, replays, notification jobs and agent console templates. Attempt an outbound to a customer with no open conversation and no accepted invitation.",
+      "expected_result": "Outbound is only sent inside an ongoing customer initiated conversation, or through an approved Business Invitation template. No SMS style marketing blasts and no unsolicited sends. Reviewers actively look for this.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.9",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "11.1",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "Recorded on a real iPhone, not a simulator",
+      "check": "Recording is captured on a physical, supported iPhone. Simulators are not used for the submitted recording.",
+      "test_steps": "Confirm the recording device before capture.",
+      "expected_result": "Recording is captured on a physical, supported iPhone. Simulators are not used for the submitted recording.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "11.2",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "All rehearsal threads deleted before final recording",
+      "check": "No leftover rehearsal or test threads are visible. Only the clean take is recorded.",
+      "test_steps": "Review the conversation thread list immediately before recording.",
+      "expected_result": "No leftover rehearsal or test threads are visible. Only the clean take is recorded.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "11.3",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "Recording shows the customer point of view",
+      "check": "The recording captures the customer's device screen. Backend logs are not shown. The one exception is the live agent sequence, which is filmed side by side with the console.",
+      "test_steps": "Review the recording setup.",
+      "expected_result": "The recording captures the customer's device screen. Backend logs are not shown. The one exception is the live agent sequence, which is filmed side by side with the console.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "11.4",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "Recording demonstrates all required elements",
+      "check": "The recording shows the rich features in scope, the live agent interaction, and out of hours messaging and fallback.",
+      "test_steps": "Review the full recording against Appendix A.",
+      "expected_result": "The recording shows the rich features in scope, the live agent interaction, and out of hours messaging and fallback.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "11.5",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "Recording split into multiple parts if long",
+      "check": "If the journey is long, the recording is split into clearly labelled parts rather than forced into one continuous take.",
+      "test_steps": "Assess total recording length against a single-take format.",
+      "expected_result": "If the journey is long, the recording is split into clearly labelled parts rather than forced into one continuous take.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "11.6",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "Timestamp index submitted alongside the videos",
+      "check": "A timestamp list accompanies the videos, one line per demonstrated item: video, time, and what it shows.",
+      "test_steps": "Export the Evidence column of this checklist.",
+      "expected_result": "A timestamp list accompanies the videos, one line per demonstrated item: video, time, and what it shows.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 4",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "11.7",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "Change summary prepared for resubmissions",
+      "check": "A summary references each feedback item by its ID or description and explains how it was resolved.",
+      "test_steps": "Before resubmitting after feedback, prepare accompanying documentation.",
+      "expected_result": "A summary references each feedback item by its ID or description and explains how it was resolved.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 1 s7",
+      "applies_when": "Resubmission only",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "11.8",
+      "letter_id": null,
+      "section": "11. Recording and Submission Prep",
+      "name": "All feedback items addressed before resubmission",
+      "check": "Every feedback item is addressed. Partial fixes are not submitted, since they typically trigger another review round and delay launch.",
+      "test_steps": "Cross-check every item on Apple's feedback report against the fix log.",
+      "expected_result": "Every feedback item is addressed. Partial fixes are not submitted, since they typically trigger another review round and delay launch.",
+      "severity": "Non negotiable",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "Doc 1 s7",
+      "applies_when": "Resubmission only",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "12.1",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Every entry point carries an Intent ID",
+      "check": "Every entry point carries a distinct biz-intent-id, and a biz-group-id where routing applies.",
+      "test_steps": "Inspect the URL behind each entry point in scope.",
+      "expected_result": "Every entry point carries a distinct biz-intent-id, and a biz-group-id where routing applies.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.13",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "12.2",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Entry point URLs contain no reserved characters",
+      "check": "No URI reserved characters appear inside parameter values.",
+      "test_steps": "Inspect each entry point URL for the characters & # [ ] ( ) { } /",
+      "expected_result": "No URI reserved characters appear inside parameter values.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.13",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "12.3",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "The message body is pre filled where it helps",
+      "check": "A body parameter pre-populates the message so the customer only has to tap Send.",
+      "test_steps": "Open each entry point and look at the compose field.",
+      "expected_result": "A body parameter pre-populates the message so the customer only has to tap Send.",
+      "severity": "Field",
+      "source": "MA (Field)",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.13",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "12.4",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Buttons use one of Apple's four approved calls to action",
+      "check": "Buttons use Message Us, Contact an Agent, Ask a Question or Get Help, and Apple's assets are used as supplied without modification.",
+      "test_steps": "Review every Messages button placement.",
+      "expected_result": "Buttons use Message Us, Contact an Agent, Ask a Question or Get Help, and Apple's assets are used as supplied without modification.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.14",
+      "applies_when": "Website or app button in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "12.5",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Buttons are not enabled before the account is approved to go live",
+      "check": "No Messages button is live on any public surface until the account is approved.",
+      "test_steps": "Confirm the launch sequence with the client.",
+      "expected_result": "No Messages button is live on any public surface until the account is approved.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.14",
+      "applies_when": "Website or app button in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "12.6",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Entry points stay enabled outside business hours",
+      "check": "Buttons are not disabled out of hours. Automation handles the response.",
+      "test_steps": "Load each entry point outside stated hours.",
+      "expected_result": "Buttons are not disabled out of hours. Automation handles the response.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.13",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "12.7",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Registered phone numbers are tappable and in E.164 format",
+      "check": "Numbers are tappable and formatted E.164, so Message Suggest can attach to them.",
+      "test_steps": "Inspect the phone numbers on the brand's website and profiles.",
+      "expected_result": "Numbers are tappable and formatted E.164, so Message Suggest can attach to them.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.13",
+      "applies_when": "Message Suggest in scope",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    },
+    {
+      "id": "12.8",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Response time expectations are set in the welcome message",
+      "check": "Realistic and honest expectations are stated up front, and communicated dynamically where live agent wait times vary.",
+      "test_steps": "Read the welcome message.",
+      "expected_result": "Realistic and honest expectations are stated up front, and communicated dynamically where live agent wait times vary.",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.15",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": false
+    },
+    {
+      "id": "12.9",
+      "letter_id": null,
+      "section": "12. Entry Point Configuration, Buttons and Readiness",
+      "name": "Naming scanned beyond the conversation copy",
+      "check": "Correct product naming everywhere, not only in the flow. Where an interface needs an unknown contact label, it reads \"Apple Messages contact\", never \"Apple Business Contact\".",
+      "test_steps": "Search interface labels, onboarding copy, templates, marketing surfaces and localisation bundles.",
+      "expected_result": "Correct product naming everywhere, not only in the flow. Where an interface needs an unknown contact label, it reads \"Apple Messages contact\", never \"Apple Business Contact\".",
+      "severity": "Apple standard",
+      "source": "Apple",
+      "source_anchor": "MA Experience Review checklist & test cases v2.0 (31 Aug 2026)",
+      "rule_ref": "2.12",
+      "applies_when": "Always",
+      "stages": [
+        "video"
+      ],
+      "machine_checkable": true
+    }
+  ]
+}

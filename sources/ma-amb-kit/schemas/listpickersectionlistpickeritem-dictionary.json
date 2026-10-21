@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/listpickersectionlistpickeritem-dictionary.json",
+  "title": "ListPickerSection.ListPickerItem",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string",
+      "description": "REQUIRED. A string field identifying the item."
+    },
+    "imageIdentifier": {
+      "type": "string",
+      "description": "A string field of the item title."
+    },
+    "order": {
+      "type": "integer",
+      "description": "An integer representing the ordinal position for the item. If this key is missing, the item isn't sorted within the items array."
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "A string field of the item's subtitle."
+    },
+    "title": {
+      "type": "string",
+      "description": "REQUIRED. A string field of the section title."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "listpickersectionlistpickeritem-dictionary",
+    "qualified_name": "msp-rest-api › ListPickerSection.ListPickerItem",
+    "canonical_lines": [
+      2040,
+      2052
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945699+00:00"
+  },
+  "required": [
+    "identifier",
+    "title"
+  ]
+}

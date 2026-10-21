@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/dataquick-reply-dictionary.json",
+  "title": "Data.Quick-Reply",
+  "type": "object",
+  "properties": {
+    "summaryText": {
+      "type": "string",
+      "description": "REQUIRED. A summary text that will be used for device notification but also shown in the transcript after user makes a choice."
+    },
+    "items": {
+      "type": "object",
+      "description": "REQUIRED. An array of section items."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "dataquick-reply-dictionary",
+    "qualified_name": "msp-rest-api › Data.Quick-Reply @L1966",
+    "canonical_lines": [
+      1966,
+      1973
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945257+00:00"
+  },
+  "required": [
+    "items",
+    "summaryText"
+  ]
+}

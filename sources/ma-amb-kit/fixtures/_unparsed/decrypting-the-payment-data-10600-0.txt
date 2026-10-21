@@ -1,0 +1,12 @@
+{
+    "paymentDataType": "3DSecure",
+    "applicationExpirationDate": "YYMMDD",
+    "applicationPrimaryAccountNumber": "0001...1234",
+    "currencyCode": "826",
+    "deviceManufacturerIdentifier": "54...56",
+    "transactionAmount": "10000",
+    "paymentData": {
+      "onlinePaymentCryptogram": "INX0...AwA=",
+      "eciIndicator": “XX"
+    }
+}

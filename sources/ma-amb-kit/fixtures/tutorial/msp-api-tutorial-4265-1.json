@@ -1,0 +1,12 @@
+{
+  "dataRef": {
+    "bid": "<bid save for next exercise>",
+    "owner": "<owner save for next exercise>",
+    "url": "<url save for next exercise>",
+    "size": "<size save for next exercise>",
+    "signature": "<signature save for next exercise>",
+    "signature-base64": "<signature-Base64 save for next exercise>",
+    "title": "Select Produce",
+    "dataRefSig": "<dataRefSig save for next exercise>"
+  }
+}

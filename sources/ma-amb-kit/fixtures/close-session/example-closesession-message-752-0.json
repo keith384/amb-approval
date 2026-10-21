@@ -1,0 +1,7 @@
+{
+  "id": "UUID-IDENTIFIER-FOR-MESSAGE",
+  "sourceId": "OPAQUE-USER-ID",
+  "destinationId": "BUSINESS-ID",
+  "type": "close",
+  "v": 1
+}

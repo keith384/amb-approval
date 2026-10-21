@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/replymessage-dictionary.json",
+  "title": "ReplyMessage",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The main title that the Messages app shows in the header of the reply message bubble. When the user taps the reply message bubble, the Messages app replaces the title with the user’s selection. Limited to 512 characters.",
+      "x-amb-enriched-from-fixture": {
+        "type": "string",
+        "observations": 8,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "The subtitle that appears under the main title in the reply message bubble. When the user taps the reply message bubble, the Messages app displays the subtitle in the header. Limited to 512 characters.",
+      "x-amb-enriched-from-fixture": {
+        "type": "string",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "imageTitle": {
+      "$comment": "type not specified in source (2-column Name|Description table)",
+      "description": "The attached image's title. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "imageSubtitle": {
+      "$comment": "type not specified in source (2-column Name|Description table)",
+      "description": "The attached image's subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "secondarySubtitle": {
+      "$comment": "type not specified in source (2-column Name|Description table)",
+      "description": "A right-aligned title. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "tertiarySubtitle": {
+      "$comment": "type not specified in source (2-column Name|Description table)",
+      "description": "A right-aligned subtitle. Limited to 512 characters. Only custom interactive messages use this key."
+    },
+    "imageIdentifier": {
+      "type": "string",
+      "description": "The identifier for one of the images specified in interactiveData.data.images.",
+      "x-amb-enriched-from-fixture": {
+        "type": "string",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "style": {
+      "type": "string",
+      "description": "A style that controls the size of the view rendered by Live Layout. The default is icon. See Reply Message Style Values for the list of possible values.",
+      "x-amb-enriched-from-fixture": {
+        "type": "string",
+        "observations": 5,
+        "evidence": "fixture literals (all agree)"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "replymessage-dictionary",
+    "qualified_name": "msp-rest-api › ReplyMessage",
+    "canonical_lines": [
+      1725,
+      1958
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "2col",
+    "extracted_utc": "2026-07-09T04:36:43.945115+00:00",
+    "enum_in_prose_detected": "possible reply message style values are:"
+  }
+}

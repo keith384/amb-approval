@@ -1,0 +1,30 @@
+{
+  "v": 1,
+  "sourceId": "<sourceId>",
+  "destinationId": "<destinationId>",
+  "type": "interactive",
+  "locale": "en_us",
+  "interactiveData": {
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension",
+    "data": {
+      "version": "2.0",
+      "requestIdentifier": "f8ad656-12a0-4fc9-a28d-22d103a0ae5d",
+      "authenticate": {
+        "oauth2": {
+          "state": "3D138r5719ru3e1%26AQAAY+jbFom1SW+wCRR2yq3eh+k0VtLQrTRnVPYF9V2fQ5LM5c53uamshW1DYOF2d+jnENvo5c1sV+UWvjV2+rmGwJ+q2GsvPziBDsgw+Jps7YjbvqwtB+SVdLV2EJC4H0l3cVj8tMuEC0gSw3lGeRP4z+QhhPQ=",
+          "responseType": "code",
+          "scope": [
+            "r_liteprofile"
+          ],
+          "redirectURI": "https://example.com/auth/linkedin/callback"
+        }
+      }
+    },
+    "receivedMessage": {
+      "title": "Lets Sign In"
+    },
+    "replyMessage": {
+      "title": "Sign In Completed"
+    }
+  }
+}

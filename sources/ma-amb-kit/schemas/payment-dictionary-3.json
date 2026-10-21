@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/payment-dictionary-3.json",
+  "title": "Payment",
+  "type": "object",
+  "properties": {
+    "shippingMethod": {
+      "type": "object",
+      "description": "The shipping method selected by the customer. For more information, see shippingMethod.",
+      "x-amb-enriched-from-fixture": {
+        "type": "object",
+        "observations": 4,
+        "evidence": "fixture literals (all agree)"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "payment-dictionary-3",
+    "qualified_name": "msp-rest-api › Payment @L2744",
+    "canonical_lines": [
+      2744,
+      2836
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "2col",
+    "extracted_utc": "2026-07-09T04:36:43.947927+00:00"
+  }
+}

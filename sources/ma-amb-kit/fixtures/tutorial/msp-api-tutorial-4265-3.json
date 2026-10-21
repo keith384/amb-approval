@@ -1,0 +1,19 @@
+{
+  "displayName": "<REDACTED>",
+  "epochTimestamp": 1588615039232,
+  "expiresAt": 1588622239232,
+  "initiative": "messaging",
+  "initiativeContext": "<REDACTED>/paymentGateway",
+  "merchantIdentifier": "<REDACTED>",
+  "merchantSessionIdentifier": "<REDACTED>",
+  "nonce": "<REDACTED>",
+  "signature": "<REDACTED>",
+  "signedFields": [
+    "merchantIdentifier",
+    "merchantSessionIdentifier",
+    "initiative",
+    "initiativeContext",
+    "displayName",
+    "nonce"
+  ]
+}

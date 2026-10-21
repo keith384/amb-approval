@@ -1,0 +1,29 @@
+{
+  "type": "interactive",
+  "id": "<messageId>",
+  "v": 1,
+  "sourceId": "<sourceId>",
+  "destinationId": "<destinationId>",
+  "locale": "en_IE",
+  "interactiveData": {
+    "bid": "com.apple.[****].business.extension",
+    "data": {
+      "replyMessage": {
+        "alternateTitle": "Sign In Completed",
+        "title": "Sign In Completed",
+        "style": "icon"
+      },
+      "receivedMessage": {
+        "title": "Lets Sign In",
+        "style": "icon"
+      },
+      "authenticate": {
+        "status": "success"
+      },
+      "version": "2",
+      "requestIdentifier": "<requestIdentifier>"
+    },
+    "sessionIdentifier": "<sessionIdentifier>"
+  },
+  "attachments": []
+}

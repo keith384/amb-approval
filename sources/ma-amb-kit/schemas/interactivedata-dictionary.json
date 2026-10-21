@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/interactivedata-dictionary.json",
+  "title": "InteractiveData",
+  "type": "object",
+  "properties": {
+    "bid": {
+      "type": "string",
+      "description": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension"
+    },
+    "data": {
+      "type": "object",
+      "description": "A collection of name and values used for interactive message types."
+    },
+    "sessionIdentifier": {
+      "type": "string",
+      "description": "sessionIdentifier is related to generic iMessage app sessions. If the interactive data in the message from MSP contains sessionIdentifier, Apple Messages for Business server will use the same sessionIdentifier in the payload to device. Otherwise, Apple will generate a random session identifier (UUID) and use it in the bp payload to device."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "interactivedata-dictionary",
+    "qualified_name": "msp-rest-api › InteractiveData @L1564",
+    "canonical_lines": [
+      1564,
+      1572
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.944047+00:00"
+  }
+}

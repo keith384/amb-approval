@@ -1,0 +1,8 @@
+{
+  "id": "UUID-IDENTIFIER-FOR-MESSAGE",
+  "sourceId": "BUSINESS-ID",
+  "destinationId": "OPAQUE-USER-ID",
+  "v": 1,
+  "type": "text",
+  "body": "The message text"
+}

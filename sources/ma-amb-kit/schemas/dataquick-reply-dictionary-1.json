@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/dataquick-reply-dictionary-1.json",
+  "title": "Data.Quick-Reply",
+  "type": "object",
+  "properties": {
+    "selectedIndex": {
+      "type": "integer",
+      "description": "The selected item number from top order."
+    },
+    "selectedIdentifier": {
+      "type": "string",
+      "description": "The selected identifier of the item."
+    },
+    "items": {
+      "type": "object",
+      "description": "The array of section items, max of 5 items allowed."
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "dataquick-reply-dictionary-1",
+    "qualified_name": "msp-rest-api › Data.Quick-Reply @L1988",
+    "canonical_lines": [
+      1988,
+      2002
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "3col",
+    "extracted_utc": "2026-07-09T04:36:43.945393+00:00"
+  }
+}

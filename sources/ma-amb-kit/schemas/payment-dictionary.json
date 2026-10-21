@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apple-amb.local/schemas/payment-dictionary.json",
+  "title": "Payment",
+  "type": "object",
+  "properties": {
+    "billingContact": {
+      "type": "object",
+      "description": "The customer's billing contact information. For more information, see billingContact.",
+      "x-amb-enriched-from-fixture": {
+        "type": "object",
+        "observations": 2,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "paymentToken": {
+      "type": "object",
+      "description": "The payment token. For more information, see Payment Token Format Reference for more information.",
+      "x-amb-enriched-from-fixture": {
+        "type": "object",
+        "observations": 2,
+        "evidence": "fixture literals (all agree)"
+      }
+    },
+    "shippingContact": {
+      "type": "object",
+      "description": "The customer's shipping address information. For more information, see shippingContact.",
+      "x-amb-enriched-from-fixture": {
+        "type": "object",
+        "observations": 2,
+        "evidence": "fixture literals (all agree)"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "x-amb": {
+    "anchor": "payment-dictionary",
+    "qualified_name": "msp-rest-api › Payment @L2316",
+    "canonical_lines": [
+      2316,
+      2432
+    ],
+    "source": "msp-rest-api",
+    "source_rank": 1,
+    "source_version": "4.2.9",
+    "source_date": "2026-06-03",
+    "source_stale": false,
+    "source_citation": null,
+    "part": "Part 1A — MSP REST API Reference (verbatim)",
+    "table_layout": "2col",
+    "extracted_utc": "2026-07-09T04:36:43.947424+00:00"
+  }
+}

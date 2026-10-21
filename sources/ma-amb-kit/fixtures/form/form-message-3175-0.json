@@ -1,0 +1,205 @@
+{
+  "type": "interactive",
+  "interactiveData": {
+    "bid": "com.apple.messages.MSMessageExtensionBalloonPlugin:0000000000:com.apple.icloud.apps.messages.business.extension",
+    "data": {
+      "version": "1.0",
+      "requestIdentifier": "da39a3ee5e6b4b0d3255 <truncated>",
+      "dynamic": {
+        "version": "1.2",
+        "template": "messageForms",
+        "data": {
+          "startPageIdentifier": "0",
+          "showSummary": true,
+          "splash": {
+            "header": "Apple Card",
+            "splashtext": "Kindly answer the following questions to help us dispute this transaction.",
+            "buttonTitle": "Continue",
+            "imageIdentifier": "2"
+          },
+          "pages": [
+            {
+              "pageIdentifier": "0",
+              "type": "select",
+              "title": "Type of Product",
+              "subtitle": "Was the merchandise you received defective or not as the merchant described?",
+              "multipleSelection": true,
+              "nextPageIdentifier": "1",
+              "items": [
+                {
+                  "title": "Option 1",
+                  "value": "option1",
+                  "identifier": "001"
+                },
+                {
+                  "title": "Option 2",
+                  "value": "option2",
+                  "identifier": "002"
+                },
+                {
+                  "title": "Option 3",
+                  "value": "option3",
+                  "identifier": "003"
+                },
+                {
+                  "title": "Option 4",
+                  "value": "option4",
+                  "identifier": "004"
+                },
+                {
+                  "title": "Option 5",
+                  "value": "option5",
+                  "identifier": "005"
+                },
+                {
+                  "title": "Option 6",
+                  "value": "option6",
+                  "identifier": "006"
+                }
+              ]
+            },
+            {
+              "pageIdentifier": "1",
+              "type": "select",
+              "title": "Item Condition",
+              "subtitle": "Was the merchandise you received defective or not as the merchant described?",
+              "multipleSelection": false,
+              "items": [
+                {
+                  "title": "Defective",
+                  "value": "defective",
+                  "identifier": "101",
+                  "nextPageIdentifier": "2"
+                },
+                {
+                  "title": "Not as described",
+                  "value": "notAsDescribed",
+                  "identifier": "102",
+                  "nextPageIdentifier": "3"
+                }
+              ]
+            },
+            {
+              "pageIdentifier": "2",
+              "type": "select",
+              "title": "Supporting Documents",
+              "subtitle": "Do you have any supporting documents that demonstrate that the product quality was not sufficient?",
+              "multipleSelection": false,
+              "items": [
+                {
+                  "title": "Yes",
+                  "value": "yes",
+                  "identifier": "201",
+                  "nextPageIdentifier": "3"
+                },
+                {
+                  "title": "No",
+                  "value": "no",
+                  "identifier": "202",
+                  "nextPageIdentifier": "3"
+                }
+              ]
+            },
+            {
+              "pageIdentifier": "3",
+              "type": "picker",
+              "pickerTitle": "Select Your Region",
+              "nextPageIdentifier": "4",
+              "items": [
+                {
+                  "title": "APAC",
+                  "value": "apac",
+                  "identifier": "301"
+                },
+                {
+                  "title": "EMEA",
+                  "value": "emea",
+                  "identifier": "302"
+                },
+                {
+                  "title": "LATAM",
+                  "value": "latam",
+                  "identifier": "303"
+                },
+                {
+                  "title": "NAM",
+                  "value": "nam",
+                  "identifier": "304"
+                }
+              ]
+            },
+            {
+              "pageIdentifier": "4",
+              "type": "datePicker",
+              "title": "Retrieval Date",
+              "subtitle": "What date did you receive, or expect to receive the product?",
+              "nextPageIdentifier": "5",
+              "options": {
+                "startDate": "2020-02-12",
+                "maximumDate": "2020-02-13",
+                "minimumDate": "2020-01-01",
+                "dateFormat": "MM/dd/yyyy"
+              }
+            },
+            {
+              "pageIdentifier": "5",
+              "type": "input",
+              "title": "Remaining Issues",
+              "subtitle": "Please provide details about remaining issue",
+              "nextPageIdentifier": "6",
+              "options": {
+                "required": true,
+                "inputType": "multiline",
+                "maximumCharacterCount": 300,
+                "keyboardType": "UIKeyboardTypeEmailAddress"
+              }
+            },
+            {
+              "pageIdentifier": "6",
+              "type": "input",
+              "title": "Product name",
+              "subtitle": "Please provide name of the product",
+              "options": {
+                "required": false,
+                "inputType": "singleline",
+                "maximumCharacterCount": 25,
+                "keyboardType": "UIKeyboardTypePhonePad"
+              },
+              "submitForm": true
+            }
+          ]
+        }
+      },
+      "images": [
+        {
+          "data": "base64encoded-image-file",
+          "identifier": "1"
+        },
+        {
+          "data": "base64encoded-image-file",
+          "identifier": "2"
+        },
+        {
+          "data": "base64encoded-image-file",
+          "identifier": "3"
+        },
+        {
+          "data": "base64encoded-image-file",
+          "identifier": "4"
+        }
+      ]
+    },
+    "receivedMessage": {
+      "title": "Apple Card Dispute Form",
+      "subtitle": "Please fill out the following dispute form.",
+      "style": "small",
+      "imageIdentifier": "1"
+    },
+    "replyMessage": {
+      "title": "Tap to view your response.",
+      "subtitle": "",
+      "style": "small",
+      "imageIdentifier": "1"
+    }
+  }
+}

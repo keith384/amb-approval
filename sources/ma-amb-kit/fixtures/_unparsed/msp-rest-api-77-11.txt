@@ -1,0 +1,18 @@
+{
+  "type": "text",
+  "id": "ce5e8c7c-ade6-4495-b373-4c94f44b123c",
+  "v": 1,
+  "sourceId": "<sourceId>",
+  "destinationId": "<destinationId>",
+  "body": "Reacted with a sticker to “Hello”"
+  "attachments": [{
+      "name": "4bdd43066e6d692a-sticker.png",
+      "size": 77526,
+      "mimeType": "image/png",
+      "signature-base64": "gbfE2SGlaM<truncated>"
+      "key": "002CC85B3<truncated>",
+      "url": "https://p27-content.icloud.com/<truncated>",
+     "owner": "MZ87d0b6daba5<truncated>",
+    }],
+}
+Group and Intent ID-based Routing

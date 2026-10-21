@@ -1,0 +1,325 @@
+{
+  "generated_utc": "2026-07-09T04:36:45.179940+00:00",
+  "source": "Apple Required Features table (canonical L101-124)",
+  "note": "Associations are keyword-derived from extracted artifacts, not from an explicit Apple mapping. 'integrator-owned' = no direct schema/endpoint artifact exists; the integrator must build & demonstrate it for approval.",
+  "features": [
+    {
+      "feature": "Receiving and Sending Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Send and receive text, international characters, and emojis.",
+      "schemas": [
+        "http-body",
+        "receivedmessage-dictionary",
+        "replymessage-dictionary"
+      ],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {
+        "text": 6
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Receiving and Sending attachments",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Send and receive commonly known type files up to 100MB between your platform and the user.",
+      "schemas": [
+        "imageitem-dictionary"
+      ],
+      "endpoints": [
+        "/preDownload",
+        "https://mspgw.push.apple.com/v1/preDownload",
+        "https://mspgw.push.apple.com/v1/preUpload"
+      ],
+      "fixtures": {},
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Tapback Reactions",
+      "bot_api": "N/A",
+      "agent_triggered": "Required",
+      "description": "Detect user tapbacks.",
+      "schemas": [],
+      "endpoints": [],
+      "fixtures": {},
+      "status": "integrator-owned"
+    },
+    {
+      "feature": "Receiving Closed Conversation Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Notify live agents and automated agents of customer opt-out, and prevent additional messages from being sent to the user.",
+      "schemas": [],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {
+        "close-session": 4
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Rich Link Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Every URL sent by an automated or human agent should be recognised and sent as a rich link.",
+      "schemas": [],
+      "endpoints": [
+        "https://mspgw.push.apple.com/v1/constructPayload"
+      ],
+      "fixtures": {},
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Quick Reply Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Send quick reply choices to end user.",
+      "schemas": [
+        "dataquick-reply-dictionary",
+        "dataquick-reply-dictionary-1",
+        "quick-replyitems-dictionary"
+      ],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {
+        "quick-reply": 0
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "List Picker Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Single selection, multi selection and multi section with icons for send/received list pickers as well as images.",
+      "schemas": [
+        "datalistpickersection-dictionary",
+        "listpickermessage-dictionary",
+        "listpickersectionlistpickeritem-dictionary"
+      ],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {
+        "list-picker": 0
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Time Picker Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Send time pickers including icons.",
+      "schemas": [
+        "dataevent-dictionary",
+        "eventitemlocationitem-dictionary",
+        "locationtimeitem-dictionary",
+        "timepickermessage-dictionary"
+      ],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {
+        "time-picker": 0
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Apple Pay Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Send an Apple Pay payment request.",
+      "schemas": [
+        "applepayinteractivedata-dictionary",
+        "applepayitem-dictionary",
+        "applepaylineitems-dictionary",
+        "applepaymerchantcapabilities-dictionary",
+        "applepaymessage-dictionary",
+        "applepaysupportednetworks-dictionary",
+        "datapayment-dictionary",
+        "payment-dictionary",
+        "payment-dictionary-1",
+        "payment-dictionary-2",
+        "payment-dictionary-3",
+        "payment-dictionary-4",
+        "payment-method-dictionary",
+        "paymentapplepayendpoints-dictionary",
+        "paymentmerchantsession-dictionary",
+        "paymentrequest-dictionary",
+        "paymentrequestapplepay-dictionary",
+        "paymentrequestrequiredbillingcontactfields-dictionary",
+        "paymentrequestshippingmethoditem-dictionary",
+        "paymentrequestsupportedcountries-dictionary"
+      ],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://msp.example.com/paymentGateway",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {
+        "apple-pay": 8
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Authentication Message",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "New OAuth2 inline authentication.",
+      "schemas": [
+        "dataauthenticate-dictionary",
+        "dataauthenticateoauth2-dictionary",
+        "interactivedatadataauthenticate-dictionary"
+      ],
+      "endpoints": [
+        "https://mspgw.push.apple.com/v1/authenticate"
+      ],
+      "fixtures": {
+        "authentication": 3
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Authentication Message",
+      "bot_api": "Deprecated",
+      "agent_triggered": "Deprecated",
+      "description": "oAuth authentication.",
+      "schemas": [
+        "dataauthenticate-dictionary",
+        "dataauthenticateoauth2-dictionary",
+        "interactivedatadataauthenticate-dictionary"
+      ],
+      "endpoints": [
+        "https://mspgw.push.apple.com/v1/authenticate"
+      ],
+      "fixtures": {
+        "authentication": 3
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "iMessage Apps",
+      "bot_api": "Required",
+      "agent_triggered": "Optional",
+      "description": "Support iMessage apps for advanced interactions.",
+      "schemas": [
+        "applepayinteractivedata-dictionary",
+        "baseinteractivemessage-dictionary",
+        "interactivedata-dictionary",
+        "interactivedata-dictionary-1",
+        "interactivedatadata-dictionary",
+        "interactivedatadata-dictionary-1",
+        "interactivedatadata-dictionary-2",
+        "interactivedatadata-dictionary-3",
+        "interactivedatadata-dictionary-4",
+        "interactivedatadataauthenticate-dictionary"
+      ],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {},
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Form Message",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Support forms interactions.",
+      "schemas": [],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {
+        "form": 6
+      },
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Construct Payload API",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Support construct payload API for App Clips, Apple Music and Apple Maps RichLink interactions.",
+      "schemas": [],
+      "endpoints": [
+        "https://mspgw.push.apple.com/v1/constructPayload"
+      ],
+      "fixtures": {},
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Invitation Messages",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Send invitation messages to opted-in customers to initiate a conversation via Apple Messages for Business using their provided mobile number.",
+      "schemas": [],
+      "endpoints": [],
+      "fixtures": {},
+      "status": "integrator-owned"
+    },
+    {
+      "feature": "Typing Indicator Message",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Show bidirectional typing indicators.",
+      "schemas": [
+        "http-body"
+      ],
+      "endpoints": [
+        "/message",
+        "https://msp.example.com/message",
+        "https://mspgw.push.apple.com/v1/message"
+      ],
+      "fixtures": {},
+      "status": "spec-linked"
+    },
+    {
+      "feature": "Routing based on entrypoint parameters",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Route new conversations using intentID and groupID attributes.",
+      "schemas": [],
+      "endpoints": [],
+      "fixtures": {},
+      "status": "integrator-owned"
+    },
+    {
+      "feature": "Channel settings and Landing Page",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Centrally host channel settings and provide a landing page with account linking",
+      "schemas": [],
+      "endpoints": [],
+      "fixtures": {},
+      "status": "integrator-owned"
+    },
+    {
+      "feature": "Device capabilities",
+      "bot_api": "Required",
+      "agent_triggered": "Required",
+      "description": "Support alternate handling for devices with different capabilities.",
+      "schemas": [],
+      "endpoints": [],
+      "fixtures": {},
+      "status": "integrator-owned"
+    }
+  ]
+}
