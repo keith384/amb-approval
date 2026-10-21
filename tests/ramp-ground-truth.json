@@ -1,0 +1,355 @@
+{
+  "source": "MA Ramp review 2026-10-09",
+  "counts": {
+    "Fail": 6,
+    "Caveat": 20,
+    "NotShownMandatory": 8,
+    "NotShownRecommended": 9,
+    "AppleWillAsk": 5
+  },
+  "_extracted_counts": {
+    "Fail": 6,
+    "Caveat": 20,
+    "NotShownMandatory": 8,
+    "NotShownRecommended": 9,
+    "AppleWillAsk": 5
+  },
+  "findings": [
+    {
+      "bucket": "Fail",
+      "letter_id": "B1",
+      "timestamp": "0:02",
+      "name": "Approved button",
+      "issue": "Entry point is a text suggestion, not Apple's button"
+    },
+    {
+      "bucket": "Fail",
+      "letter_id": "C1",
+      "timestamp": "0:06 to 0:13",
+      "name": "First reply in 5 seconds",
+      "issue": "First reply is over 5 s by either measure (7 s from send, 5.3 s from delivery); no indicator for the first 4 s"
+    },
+    {
+      "bucket": "Fail",
+      "letter_id": "B3",
+      "timestamp": "1:15",
+      "name": "Service naming",
+      "issue": "Ramp settings screen labels the channel iMessage"
+    },
+    {
+      "bucket": "Fail",
+      "letter_id": "G11",
+      "timestamp": "2:55 to 3:10",
+      "name": "Agent uses rich features",
+      "issue": "Agent asks yes or no questions as plain text"
+    },
+    {
+      "bucket": "Fail",
+      "letter_id": "D1",
+      "timestamp": "3:51 to 4:23",
+      "name": "Indicator before every message",
+      "issue": "No typing indicator before the MUTE, pause, START and STOP replies (confirmed at 5 fps)"
+    },
+    {
+      "bucket": "Fail",
+      "letter_id": "E4",
+      "timestamp": "3:53",
+      "name": "Escape option",
+      "issue": "Pause picker has no way out"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "A1",
+      "timestamp": "0:00 to 0:03",
+      "name": "Real journey",
+      "issue": "Starts on qa.ramp.com, then a blank redirect page"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "B2",
+      "timestamp": "0:02",
+      "name": "Call to action",
+      "issue": "Entry text does not say what the customer can do"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "B4",
+      "timestamp": "0:02",
+      "name": "Prominence",
+      "issue": "Entry only appears after tapping the search field"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "E10",
+      "timestamp": "0:16",
+      "name": "Clear copy",
+      "issue": "Second welcome message is a keyword list"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "X0",
+      "timestamp": "0:20 to 1:38",
+      "name": "Outside the plan",
+      "issue": "Ask an expense question becomes Ask a question"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "D3",
+      "timestamp": "0:21 to 3:47",
+      "name": "Reply latency",
+      "issue": "Five bot replies took 7 to 12 s"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "D2",
+      "timestamp": "0:46 to 0:48",
+      "name": "Bot indicator length",
+      "issue": "One bot indicator ran about 3 s"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "E10",
+      "timestamp": "0:49",
+      "name": "Clear copy",
+      "issue": "Policy answer is one very long bubble with no source"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "I5",
+      "timestamp": "1:01 to 1:09",
+      "name": "Silence after close",
+      "issue": "Card alert lands 3 s after You're welcome!"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "A6",
+      "timestamp": "1:14 to 1:22",
+      "name": "Clean screen",
+      "issue": "Photo library shows QA tools and other recordings; a colleague's work email is visible at 1:18"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "X0",
+      "timestamp": "1:21",
+      "name": "Outside the plan",
+      "issue": "Receipt is visibly test data"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "G3",
+      "timestamp": "2:02",
+      "name": "Transfer announced",
+      "issue": "Transfer announced without a reason"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "G4",
+      "timestamp": "2:02 to 2:15",
+      "name": "Wait time",
+      "issue": "Shortly, then in just a moment; no wait time"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "H2",
+      "timestamp": "2:25",
+      "name": "Clarifying question first",
+      "issue": "No yes or no question before asking for card digits"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "A5",
+      "timestamp": "2:36 to 3:31",
+      "name": "Continuous take",
+      "issue": "About 5 s missing from the take"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "I1",
+      "timestamp": "3:10",
+      "name": "Clear resolution",
+      "issue": "Replacement card promised without the customer agreeing; address and timing never confirmed"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "E10",
+      "timestamp": "4:02 to 4:13",
+      "name": "Clear copy",
+      "issue": "Pause offers RESUME, but START replies resubscribed"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "H7",
+      "timestamp": "4:23",
+      "name": "Trigger words",
+      "issue": "Unclear whether STOP ends support chats or only alerts"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "A2",
+      "timestamp": "Whole",
+      "name": "Rich features",
+      "issue": "Feature list not supplied; only two features shown"
+    },
+    {
+      "bucket": "Caveat",
+      "letter_id": "B6",
+      "timestamp": "Whole",
+      "name": "Brand header",
+      "issue": "Header shows placeholder name and icon"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": "A4 / G9",
+      "timestamp": null,
+      "name": "Out of hours",
+      "issue": "Out of hours message not recorded"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": "B8",
+      "timestamp": null,
+      "name": "Always available",
+      "issue": "Entry point not shown outside business hours"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": "C6",
+      "timestamp": null,
+      "name": "Handles misunderstanding",
+      "issue": "Bot never shown failing to understand"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": "G2",
+      "timestamp": null,
+      "name": "Keywords",
+      "issue": "AGENT and HELP advertised but not typed"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": "H7",
+      "timestamp": null,
+      "name": "Trigger words",
+      "issue": "MENU and RESUME offered but not typed"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": "H7",
+      "timestamp": null,
+      "name": "Opt out and return",
+      "issue": "START is sent before STOP, so return after STOP is never shown"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": "RL1 to RL4",
+      "timestamp": null,
+      "name": "Rich links",
+      "issue": "No URLs sent by bot or agent"
+    },
+    {
+      "bucket": "NotShownMandatory",
+      "letter_id": null,
+      "timestamp": null,
+      "name": "Security codes",
+      "issue": "Promised in the welcome but never shown"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": null,
+      "timestamp": null,
+      "name": "Options not tapped",
+      "issue": "Submit a receipt, Talk to a person button, I'm all set, two pause options"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "AT1 / AT2",
+      "timestamp": null,
+      "name": "Business attachments",
+      "issue": "No file or image sent by Ramp; the icon at 1:32 is a receipt emoji"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "G8",
+      "timestamp": null,
+      "name": "Agent to agent transfer",
+      "issue": "No transfer between agents"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "LP1 to LP4",
+      "timestamp": null,
+      "name": "List Picker",
+      "issue": "List Picker not used"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "TP1 to TP4",
+      "timestamp": null,
+      "name": "Time Picker",
+      "issue": "Time Picker not used"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "FM1 to FM6",
+      "timestamp": null,
+      "name": "Form",
+      "issue": "Form not used"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "AP1 to AP4",
+      "timestamp": null,
+      "name": "Apple Pay",
+      "issue": "Apple Pay not used"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "AU1 to AU3",
+      "timestamp": null,
+      "name": "Authentication",
+      "issue": "No sign in bubble; how card actions are verified is unclear"
+    },
+    {
+      "bucket": "NotShownRecommended",
+      "letter_id": "IA1",
+      "timestamp": null,
+      "name": "iMessage app",
+      "issue": "iMessage app not used"
+    },
+    {
+      "bucket": "AppleWillAsk",
+      "letter_id": "H6",
+      "timestamp": null,
+      "name": "Card alert consent",
+      "issue": "Card alert pushed at 1:09; no opt in shown"
+    },
+    {
+      "bucket": "AppleWillAsk",
+      "letter_id": null,
+      "timestamp": null,
+      "name": "Live agent response time",
+      "issue": "23 s from handoff (2:02), 30 s from request (1:55)"
+    },
+    {
+      "bucket": "AppleWillAsk",
+      "letter_id": null,
+      "timestamp": null,
+      "name": "Verification for card actions",
+      "issue": "Only the last 4 digits are typed before lock and reissue (2:43)"
+    },
+    {
+      "bucket": "AppleWillAsk",
+      "letter_id": null,
+      "timestamp": null,
+      "name": "Expense policy source",
+      "issue": "Bot quotes a $70 daily cap, $100 in high cost hubs, 20% tips, receipts from $75 (0:49)"
+    },
+    {
+      "bucket": "AppleWillAsk",
+      "letter_id": null,
+      "timestamp": null,
+      "name": "Replacement card",
+      "issue": "Replacement promised at 3:10 with no address or timing"
+    }
+  ]
+}

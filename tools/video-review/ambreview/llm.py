@@ -110,7 +110,7 @@ def run(work_dir: str) -> dict:
                 f"TIMESTAMPED TRANSCRIPT (OCR; business=agent, cust=customer):\n{transcript}\n\n"
                 f"Key frames follow (each labeled with its timestamp). Judge these rules; return JSON.")
         content = [{"type": "text", "text": task}] + img_content
-        resp = client.messages.create(model=MODEL, max_tokens=4000, temperature=0, system=system,
+        resp = client.messages.create(model=MODEL, max_tokens=4000, system=system,
                                       messages=[{"role": "user", "content": content}])
         m = re.search(r"\{.*\}", resp.content[0].text, re.S)
         parsed = json.loads(m.group(0)) if m else {"findings": []}
