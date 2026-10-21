@@ -35,12 +35,12 @@ _Last updated: 2026-10-21_
   and `sources/skills/amb-technical-qa/` (SKILL + 5 refs: approval, experience-review,
   platform, payments-auth, elements).
 
-## Still NEEDED from Keith
-1. **Apple onboarding email (9 Sep 2026)** — naming/embargo/PR rules the terminology lint
-   enforces. The 21 Oct drive-download zip contained only the two Apple forms, not the email.
-   → Paste into `sources/apple-onboarding-2026-09-09.md`.
-2. **Walmart brand nomination doc** — the Tool 1 narrative template. Shared as a Google Doc
-   link (needs export; I can't fetch an authed Google Doc). → Export to PDF/markdown into
-   `sources/examples/walmart-brand-nomination.*`. Ramp's doc is in `sources/examples/` as fallback.
-3. **First real Apple feedback reply** (whenever one exists) — decides how much of the
-   `/amb feedback` ingest can be parsed automatically (open question in the plan).
+- [x] **Walmart brand nomination doc** → `sources/examples/walmart-brand-nomination.pdf`
+  (the Tool 1 narrative template "format Apple receives").
+
+## Decisions / still outstanding
+- **Apple onboarding email — SKIPPED** (Keith, 21 Oct): the terminology/naming rules are
+  already captured in rule 0.3 + the skills; the docs are the output of record, so the email
+  isn't needed as a separate source. The terminology lint stands on 0.3 + the skills.
+- **First real Apple feedback reply** (whenever one exists) — decides how much of the
+  `/amb feedback` ingest can be parsed automatically (open question in the plan).
