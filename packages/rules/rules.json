@@ -35,12 +35,12 @@
       "11.8"
     ],
     "machine_checkable": 43,
-    "with_letter_id": 0
+    "with_letter_id": 39
   },
   "rules": [
     {
       "id": "0.1",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
       "name": "Reachable escalation",
       "check": "Escalation path is reachable and functional.",
@@ -58,7 +58,7 @@
     },
     {
       "id": "0.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
       "name": "Leave Conversation respected",
       "check": "Both bot and human agent are blocked from sending; the business cannot re-engage until the user restarts.",
@@ -76,7 +76,9 @@
     },
     {
       "id": "0.3",
-      "letter_id": null,
+      "letter_ids": [
+        "B3"
+      ],
       "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
       "name": "No forbidden or restricted platform wording",
       "check": "No use of \"iMessage\", \"AMB\", \"Apple Chat\", \"chat\" or \"text\" as a channel name, and no wording implying Apple endorses the brand. Correct product naming throughout.",
@@ -96,7 +98,7 @@
     },
     {
       "id": "0.4",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "0. Final Gate (checked on every Apple review, see the Legend for Apple's five)",
       "name": "Opt-out works end to end",
       "check": "Both bot and live agent stop sending immediately; opt-out applies brand-wide, not just the current thread; re-engagement requires a fresh opt-in.",
@@ -114,7 +116,7 @@
     },
     {
       "id": "1.1",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "1. Pre-Test and Review Readiness",
       "name": "Apple Messages for Business account connected and delivering",
       "check": "Message delivery is confirmed end to end.",
@@ -132,7 +134,7 @@
     },
     {
       "id": "1.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "1. Pre-Test and Review Readiness",
       "name": "Commercial account access restricted",
       "check": "Access is restricted to authorized Apple IDs used for testing.",
@@ -150,7 +152,7 @@
     },
     {
       "id": "1.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "1. Pre-Test and Review Readiness",
       "name": "All registered use cases are testable",
       "check": "Every submitted use case has a corresponding, working flow in the test environment.",
@@ -168,7 +170,7 @@
     },
     {
       "id": "1.4",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "1. Pre-Test and Review Readiness",
       "name": "All entry points are functional",
       "check": "Each entry point opens a Messages conversation with the correct business account and correct routing context.",
@@ -186,7 +188,7 @@
     },
     {
       "id": "1.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "1. Pre-Test and Review Readiness",
       "name": "Agents trained, and an introduction script is defined",
       "check": "Agents are prepared and trained for the channel and the relevant use cases, and a consistent introduction script exists.",
@@ -204,7 +206,7 @@
     },
     {
       "id": "1.6",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "1. Pre-Test and Review Readiness",
       "name": "Tested on macOS as well as iPhone",
       "check": "The experience works on macOS. iPhone is the priority platform, but macOS is also tested before submission.",
@@ -222,7 +224,7 @@
     },
     {
       "id": "1.7",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "1. Pre-Test and Review Readiness",
       "name": "Baseline metrics planned before launch",
       "check": "Response times, resolution rates and satisfaction baselines are planned before launch, not after.",
@@ -240,7 +242,7 @@
     },
     {
       "id": "2.1",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "2. Entry Points and Passable Context",
       "name": "Entry point routing lands in the correct flow",
       "check": "Each entry point routes to the correct, distinct flow, not the same generic flow regardless of source.",
@@ -258,7 +260,7 @@
     },
     {
       "id": "2.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "2. Entry Points and Passable Context",
       "name": "Bot confirms context received from entry point",
       "check": "The opening message reflects the context received, for example \"I see you're asking about [Store or Product X]\", rather than a generic greeting.",
@@ -276,7 +278,7 @@
     },
     {
       "id": "2.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "2. Entry Points and Passable Context",
       "name": "Business Invitation opt-in gate and decline handling",
       "check": "Platform requires opt-in coverage before sending; a decline is correctly registered and that user is not messaged again.",
@@ -294,7 +296,7 @@
     },
     {
       "id": "2.4",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "2. Entry Points and Passable Context",
       "name": "Invitation opt-out present in every Business Update",
       "check": "Opt-out instructions appear in every single Business Update message, not just the first.",
@@ -312,7 +314,7 @@
     },
     {
       "id": "2.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "2. Entry Points and Passable Context",
       "name": "A \"Yes\" on a Business Invitation is followed by a welcome that explains what was accepted",
       "check": "An agent message welcomes the customer and states plainly what they signed up for, for example what notifications will be sent and how often.",
@@ -330,7 +332,10 @@
     },
     {
       "id": "3.1",
-      "letter_id": null,
+      "letter_ids": [
+        "C1",
+        "D3"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "First response within 5 seconds, with typing indicator",
       "check": "A typing indicator appears first, then the automated response arrives within 5 seconds total.",
@@ -348,7 +353,7 @@
     },
     {
       "id": "3.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Bot self-identifies as automated on entry",
       "check": "Message clearly and plainly states it is an automated agent, not implied or buried.",
@@ -366,7 +371,7 @@
     },
     {
       "id": "3.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "The opener states the assistant's name and what it covers",
       "check": "The opener names the assistant and states its scope, for example \"I'm [NAME], here to help with orders, delivery and returns\". Disclosure followed only by \"what can we help you with?\" does not satisfy this.",
@@ -384,7 +389,7 @@
     },
     {
       "id": "3.4",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Bot answers truthfully when asked if it is a bot",
       "check": "Bot always answers truthfully that it is automated. It never claims to be human or dodges the question.",
@@ -402,7 +407,9 @@
     },
     {
       "id": "3.5",
-      "letter_id": null,
+      "letter_ids": [
+        "D1"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Typing indicator before every outbound message, including rich features",
       "check": "A typing indicator appears before every single outbound payload, not just the first, including one-off notifications, attachments, rich and interactive bubbles, the Authentication card and Apple Pay.",
@@ -420,7 +427,9 @@
     },
     {
       "id": "3.6",
-      "letter_id": null,
+      "letter_ids": [
+        "D2"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Typing indicator never hangs or misleads",
       "check": "Indicator resolves or refreshes sensibly rather than hanging indefinitely and implying an imminent reply that never comes.",
@@ -438,7 +447,7 @@
     },
     {
       "id": "3.7",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Live agent messages also carry a typing indicator",
       "check": "The typing indicator appears on the customer side for agent messages as well as bot messages.",
@@ -456,7 +465,7 @@
     },
     {
       "id": "3.8",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Triage menu appears when intent is unclear",
       "check": "Bot offers a Quick Reply triage menu of up to five options instead of guessing or forcing free text.",
@@ -474,7 +483,7 @@
     },
     {
       "id": "3.9",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Triage menu leads with the most common options",
       "check": "The most common reasons customers make contact appear first, and the list reflects real demand rather than an internal org chart.",
@@ -492,7 +501,7 @@
     },
     {
       "id": "3.10",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "A clearly written intent is answered rather than overridden by the menu",
       "check": "The bot answers what was asked. It does not discard the stated intent and present the triage menu instead.",
@@ -510,7 +519,7 @@
     },
     {
       "id": "3.11",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "A route to a person appears on every menu",
       "check": "Each menu includes an option to reach a person, or the agreed alternative path.",
@@ -528,7 +537,7 @@
     },
     {
       "id": "3.12",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Triage is never more than two levels deep",
       "check": "No path requires more than two menu selections before reaching a task or a person.",
@@ -546,7 +555,10 @@
     },
     {
       "id": "3.13",
-      "letter_id": null,
+      "letter_ids": [
+        "H7",
+        "G2"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Actionable keywords trigger the defined behaviour",
       "check": "Each keyword triggers its defined behaviour. Matching is case insensitive and tolerates whitespace. AGENT and REPRESENTATIVE escalate, HELP gives contextual help, MENU returns the triage menu.",
@@ -564,7 +576,9 @@
     },
     {
       "id": "3.14",
-      "letter_id": null,
+      "letter_ids": [
+        "C6"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Recovery re-offers options and escalates after one clarification",
       "check": "The bot apologises, says plainly it did not understand, and re-offers two or three options as a Quick Reply with at least one route to a person. On the second failure it escalates rather than looping.",
@@ -582,7 +596,7 @@
     },
     {
       "id": "3.15",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Recovery wording varies rather than repeating identically",
       "check": "The recovery message is not the exact same sentence every time. Repetition of an identical failure message reads as a broken loop.",
@@ -600,7 +614,7 @@
     },
     {
       "id": "3.16",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Device locale drives language, and any switch is confirmed first",
       "check": "The conversation opens in the device locale. A detected language change is confirmed with a Quick Reply before switching.",
@@ -618,7 +632,7 @@
     },
     {
       "id": "3.17",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "The conversation never opens by asking which language the customer wants",
       "check": "Language is read from the device, never asked for.",
@@ -636,7 +650,9 @@
     },
     {
       "id": "3.18",
-      "letter_id": null,
+      "letter_ids": [
+        "A4"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Off-hours automated message is accurate and non-deceptive",
       "check": "Automated message explains the business is closed and states expected response time or business hours, without pretending a person is available.",
@@ -654,7 +670,9 @@
     },
     {
       "id": "3.19",
-      "letter_id": null,
+      "letter_ids": [
+        "G9"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Off-hours notice is triggered at the right moment",
       "check": "The out-of-hours notice fires specifically when the user tries to connect to a live agent outside messaging hours, not generically at the start of any off-hours conversation.",
@@ -672,7 +690,9 @@
     },
     {
       "id": "3.20",
-      "letter_id": null,
+      "letter_ids": [
+        "E10"
+      ],
       "section": "3. Agent Identification, Honesty and Triage",
       "name": "Welcome message tone matches brand",
       "check": "Tone is warm, on-brand, and not robotic or legalistic.",
@@ -690,7 +710,9 @@
     },
     {
       "id": "4.1",
-      "letter_id": null,
+      "letter_ids": [
+        "RL1"
+      ],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Rich Links used for all URLs",
       "check": "All URLs are sent as Rich Links. Plain-text and \"tap-to-load\" text links are not used anywhere.",
@@ -708,7 +730,9 @@
     },
     {
       "id": "4.2",
-      "letter_id": null,
+      "letter_ids": [
+        "RL2"
+      ],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Rich Link logo image is properly sized",
       "check": "Image is square or a rectangle with width under 150px, so it renders as a clean icon rather than a cropped or blurry preview.",
@@ -726,7 +750,9 @@
     },
     {
       "id": "4.3",
-      "letter_id": null,
+      "letter_ids": [
+        "RL3"
+      ],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Rich Link preview asset meets Apple's specification",
       "check": "PNG, optimised at 240 by 240 pixels, up to 200 kB. This is separate from the 150 pixel icon ceiling.",
@@ -744,7 +770,9 @@
     },
     {
       "id": "4.4",
-      "letter_id": null,
+      "letter_ids": [
+        "RL4"
+      ],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Every Rich Link image reflects the destination page",
       "check": "The image reflects the page content rather than being a generic logo placeholder. Where the destination has no Open Graph image, one is generated before sending.",
@@ -762,7 +790,7 @@
     },
     {
       "id": "4.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Video Rich Links have a background image",
       "check": "The preview renders with a background image. A black preview is a fast route to a review finding.",
@@ -780,7 +808,7 @@
     },
     {
       "id": "4.6",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Maps and Apple Music are sent through Construct Payload",
       "check": "Maps and Apple Music are sent as Construct Payload, not as a Rich Link.",
@@ -798,7 +826,7 @@
     },
     {
       "id": "4.7",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Rich Link is followed by a message or call to action",
       "check": "A follow-up message with a clear call to action follows the Rich Link. It is not left to sit on its own.",
@@ -816,7 +844,7 @@
     },
     {
       "id": "4.8",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Unclassified input never lands in silence",
       "check": "The bot never stays silent. It responds with a clear, polite recovery message and a way forward. (Branch-level dead ends are tested separately at 10.7.)",
@@ -834,7 +862,7 @@
     },
     {
       "id": "4.9",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "\"Anything else?\" close prompt",
       "check": "Bot asks if the user needs further assistance, optionally with a follow-up Quick Reply, rather than abruptly ending the flow.",
@@ -852,7 +880,7 @@
     },
     {
       "id": "4.10",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "No prohibited closing phrases",
       "check": "Phrases like \"This conversation has been closed\", \"Finish conversation\", \"Messaging rates may apply\" and \"Data rates may apply\" are not used. Closing language leaves the door open for future contact.",
@@ -870,7 +898,7 @@
     },
     {
       "id": "4.11",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "No repeated requests for information already given",
       "check": "The bot does not ask the user to repeat information already captured earlier in the conversation.",
@@ -888,7 +916,7 @@
     },
     {
       "id": "4.12",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Proper casing throughout",
       "check": "All messages use proper casing. Messages sent entirely in lowercase are flagged as poor customer experience regardless of brand voice.",
@@ -906,7 +934,7 @@
     },
     {
       "id": "4.13",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "4. Core Messaging, Rich Links and Close",
       "name": "Quick Reply summaryText is a short label",
       "check": "summaryText is short and label-based, for example \"Option selected\". It does not repeat the full previous message and is never used as the introduction to the Quick Reply.",
@@ -924,7 +952,9 @@
     },
     {
       "id": "5.1",
-      "letter_id": null,
+      "letter_ids": [
+        "LP3"
+      ],
       "section": "5. Interactive Features",
       "name": "Every interactive option carries a thumbnail or icon",
       "check": "Each includes a thumbnail image or icon making it clearly recognizable as a tappable UI element. SF Symbols where symbols are used.",
@@ -942,7 +972,7 @@
     },
     {
       "id": "5.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "5. Interactive Features",
       "name": "The rich card itself carries its own image",
       "check": "The card has an image of its own. Row thumbnails do not satisfy this. A Form splash screen needs one too. This is the single most commonly missed rule.",
@@ -960,7 +990,9 @@
     },
     {
       "id": "5.3",
-      "letter_id": null,
+      "letter_ids": [
+        "AP2"
+      ],
       "section": "5. Interactive Features",
       "name": "No brand card image forced onto Apple Pay or Authentication",
       "check": "Neither carries a brand card image. Both render with Apple's own supplied iconography.",
@@ -978,7 +1010,9 @@
     },
     {
       "id": "5.4",
-      "letter_id": null,
+      "letter_ids": [
+        "LP1"
+      ],
       "section": "5. Interactive Features",
       "name": "List Picker versus Quick Reply used appropriately",
       "check": "List Pickers are used only where there is genuine category variation. Five or fewer flat options use a Quick Reply instead. Bounded questions are answered by a Quick Reply rather than typed text.",
@@ -996,7 +1030,9 @@
     },
     {
       "id": "5.5",
-      "letter_id": null,
+      "letter_ids": [
+        "LP2"
+      ],
       "section": "5. Interactive Features",
       "name": "List Picker items carry subtitles and secondary text",
       "check": "Rows show a subtitle, and second or third subtitle lines where the choice needs them, so each row can be told apart at a glance. Titles alone force the customer to guess. Visible copy stays short; the rendered string caps near 200 characters.",
@@ -1014,7 +1050,9 @@
     },
     {
       "id": "5.6",
-      "letter_id": null,
+      "letter_ids": [
+        "FM1"
+      ],
       "section": "5. Interactive Features",
       "name": "Forms include splash screen, title, intro and review screen",
       "check": "Each form has a splash screen, a title, an introductory description, and a final review screen before submission.",
@@ -1032,7 +1070,9 @@
     },
     {
       "id": "5.7",
-      "letter_id": null,
+      "letter_ids": [
+        "FM2"
+      ],
       "section": "5. Interactive Features",
       "name": "The Form review page sits at the end of the final section",
       "check": "The Review button sits at the end of the final section to be filled, not in the middle of the flow.",
@@ -1050,7 +1090,9 @@
     },
     {
       "id": "5.8",
-      "letter_id": null,
+      "letter_ids": [
+        "FM3"
+      ],
       "section": "5. Interactive Features",
       "name": "Form context set in a conversational bubble first",
       "check": "The \"why\" for the form is stated in a conversational bubble before the form opens, not buried in the form's subtitle where it can be cropped.",
@@ -1068,7 +1110,9 @@
     },
     {
       "id": "5.9",
-      "letter_id": null,
+      "letter_ids": [
+        "FM4"
+      ],
       "section": "5. Interactive Features",
       "name": "Simple one or two field forms use plain text conversational flow",
       "check": "A plain-text conversational exchange is used instead of a formal Form object.",
@@ -1086,7 +1130,9 @@
     },
     {
       "id": "5.10",
-      "letter_id": null,
+      "letter_ids": [
+        "FM5"
+      ],
       "section": "5. Interactive Features",
       "name": "Sensitive Form responses are marked private",
       "check": "Responses that carry sensitive data are marked private.",
@@ -1104,7 +1150,9 @@
     },
     {
       "id": "5.11",
-      "letter_id": null,
+      "letter_ids": [
+        "FM6"
+      ],
       "section": "5. Interactive Features",
       "name": "Introductory text precedes every rich element",
       "check": "A brief conversational message sets expectations before the interactive bubble appears. This includes Authentication and Apple Pay, for example \"Please log into your account\" before the Authentication card.",
@@ -1122,7 +1170,9 @@
     },
     {
       "id": "5.12",
-      "letter_id": null,
+      "letter_ids": [
+        "TP1"
+      ],
       "section": "5. Interactive Features",
       "name": "Time Picker confirmation includes a save-to-calendar tip",
       "check": "The confirmation message tells the user they can tap their selected time to save it to their Apple Calendar.",
@@ -1140,7 +1190,9 @@
     },
     {
       "id": "5.13",
-      "letter_id": null,
+      "letter_ids": [
+        "TP2"
+      ],
       "section": "5. Interactive Features",
       "name": "Time Picker carries a location and an explicit time zone",
       "check": "The location is populated so the venue name and map pin render inside the picker and travel with the calendar entry. The intended time zone is stated in the payload rather than inferred.",
@@ -1158,7 +1210,7 @@
     },
     {
       "id": "5.14",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "5. Interactive Features",
       "name": "A shared location is acknowledged and reflected back",
       "check": "The next message acknowledges it and reflects back the resolved address or place name so the customer can correct it before anything is dispatched on it. It never lands in silence.",
@@ -1176,7 +1228,7 @@
     },
     {
       "id": "5.15",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "5. Interactive Features",
       "name": "The confirmation image after a tap stays within the icon ceiling",
       "check": "The user_confirmation image stays within about 150 pixels wide, so the thread reads as a question and an acknowledgement rather than two competing cards.",
@@ -1194,7 +1246,7 @@
     },
     {
       "id": "5.16",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "5. Interactive Features",
       "name": "Long text kept outside feature bubbles",
       "check": "Long text is sent as a separate message outside the bubble. The first line of any feature bubble is its title, since longer text gets cropped.",
@@ -1212,7 +1264,10 @@
     },
     {
       "id": "6.1",
-      "letter_id": null,
+      "letter_ids": [
+        "AT1",
+        "AT2"
+      ],
       "section": "6. Attachments and Wallet Passes",
       "name": "Attachments render correctly and are relevant",
       "check": "Attachment renders correctly on-device and is directly relevant to the step in the flow.",
@@ -1230,7 +1285,7 @@
     },
     {
       "id": "6.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "6. Attachments and Wallet Passes",
       "name": "Wallet passes generate and add correctly",
       "check": "Pass generates with correct details and adds to Apple Wallet end to end without errors.",
@@ -1248,7 +1303,9 @@
     },
     {
       "id": "7.1",
-      "letter_id": null,
+      "letter_ids": [
+        "AU1"
+      ],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "Authentication used for identity verification",
       "check": "The Authentication message type with inline OAuth 2.0 and password autofill is used, rather than collecting credentials as plain chat text.",
@@ -1266,7 +1323,9 @@
     },
     {
       "id": "7.2",
-      "letter_id": null,
+      "letter_ids": [
+        "AU2"
+      ],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "Authentication precedes any account data being shared",
       "check": "No order detail, account data or balance is returned until the customer has authenticated. This is a positive obligation, not only a prohibition.",
@@ -1284,7 +1343,9 @@
     },
     {
       "id": "7.3",
-      "letter_id": null,
+      "letter_ids": [
+        "AP1"
+      ],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "Apple Pay used for payment collection",
       "check": "Apple Pay is used to collect payment. Full card numbers are never requested as plain text.",
@@ -1302,7 +1363,9 @@
     },
     {
       "id": "7.4",
-      "letter_id": null,
+      "letter_ids": [
+        "H2"
+      ],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "Personal data request is gated by a clarifying question",
       "check": "A yes or no clarifying question precedes the request, for example \"Is your inquiry related to your account with us?\". Details are collected only on a yes.",
@@ -1320,7 +1383,7 @@
     },
     {
       "id": "7.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "Data collection prompts use the QuickType phrasings",
       "check": "Prompts use Apple's phrasings exactly, so iOS surfaces a QuickType suggestion and no typing is required.",
@@ -1338,7 +1401,7 @@
     },
     {
       "id": "7.6",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "No health data collected, echoed, or stored",
       "check": "The bot declines to engage with the health detail, does not echo it back, and nothing is logged or stored downstream. Confirm this explicitly with the client rather than assuming.",
@@ -1356,7 +1419,7 @@
     },
     {
       "id": "7.7",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "Privacy Policy and Terms of Use are Rich Links, sent only twice",
       "check": "Both are sent as Rich Links to the brand's webpage, never pasted inline, and only on first engagement or after a policy update. Never at the start of every conversation.",
@@ -1374,7 +1437,7 @@
     },
     {
       "id": "7.8",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "7. Authentication, Apple Pay and Personal Data",
       "name": "No sensitive data is ever requested as plain text",
       "check": "No full card number, no government ID number, no full social security number and no account password is requested in the thread. Identity goes through Authentication, payment through Apple Pay, and structured sensitive intake through a Form with private responses.",
@@ -1392,7 +1455,7 @@
     },
     {
       "id": "8.1",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "8. Device Capability and Fallback",
       "name": "Fallback happens automatically and live",
       "check": "The experience swaps live, at send time, to a supported alternative, demonstrated on-device rather than described.",
@@ -1410,7 +1473,7 @@
     },
     {
       "id": "8.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "8. Device Capability and Fallback",
       "name": "Fallback path is not a dead end",
       "check": "The user can still complete or meaningfully progress the use case through the fallback path.",
@@ -1428,7 +1491,7 @@
     },
     {
       "id": "8.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "8. Device Capability and Fallback",
       "name": "Capability data is read on every inbound, not cached once",
       "check": "The capability list is parsed on every inbound message and the most recent value is stored against the device, so a device switch changes what can be sent.",
@@ -1446,7 +1509,7 @@
     },
     {
       "id": "8.4",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "8. Device Capability and Fallback",
       "name": "The console cannot send what the device will not render",
       "check": "The unsupported option is hidden or hard disabled for that recipient, so an agent cannot send something the device cannot render.",
@@ -1464,7 +1527,7 @@
     },
     {
       "id": "8.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "8. Device Capability and Fallback",
       "name": "The fallback decision tree is documented",
       "check": "A documented tree exists covering every interactive type in scope: the preferred type, the fallback type or sequence, the OS floor that triggers it, and the customer facing copy variant. It is versioned and kept current. Reviewers may ask to see the tree itself.",
@@ -1482,7 +1545,9 @@
     },
     {
       "id": "9.1",
-      "letter_id": null,
+      "letter_ids": [
+        "G3"
+      ],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "Handoff to a live agent is explicitly stated",
       "check": "The transition is explicitly communicated, and the agent introduces themselves on joining. The reason for the transfer is given.",
@@ -1500,7 +1565,9 @@
     },
     {
       "id": "9.2",
-      "letter_id": null,
+      "letter_ids": [
+        "G4"
+      ],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "Wait time is communicated",
       "check": "An estimated wait time is communicated, with queue position where available.",
@@ -1518,7 +1585,7 @@
     },
     {
       "id": "9.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "Key details are collected before escalation",
       "check": "Essential information is gathered before routing, so the agent can help without re-asking.",
@@ -1536,7 +1603,7 @@
     },
     {
       "id": "9.4",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "An in conversation message is the first option when no agent is available",
       "check": "Leaving a message in the conversation is offered first, with a stated response window. Callback and email are offered afterwards, never as the first option.",
@@ -1554,7 +1621,7 @@
     },
     {
       "id": "9.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "Out-of-hours escalation stays in-thread",
       "check": "The user can leave a message within the current thread. They are not forced out to an external email system, and an agent replies to that message in the same thread.",
@@ -1572,7 +1639,7 @@
     },
     {
       "id": "9.6",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "Contextual escalation stays in-channel",
       "check": "The bot helps compose the email within the channel rather than abruptly shifting the user away from the conversation.",
@@ -1590,7 +1657,7 @@
     },
     {
       "id": "9.7",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "First response service level is documented",
       "check": "A specific figure is documented and available to reference if Apple asks.",
@@ -1608,7 +1675,7 @@
     },
     {
       "id": "9.8",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "The agent console experience is good on both sides",
       "check": "The customer feels responsiveness. The agent can read the thread easily and send what the conversation needs, including rich elements, without friction. A slow or awkward console shows up on the customer's screen as silence and plain text.",
@@ -1626,7 +1693,7 @@
     },
     {
       "id": "9.9",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "9. Human Escalation and Live Agent Handoff",
       "name": "The escalation acknowledgement states a specific commitment",
       "check": "The confirmation states what happens next and when, with a specific figure, for example \"a team member will call you within two business hours\". A vague acknowledgement such as \"someone will be in touch\" is a review finding.",
@@ -1644,7 +1711,9 @@
     },
     {
       "id": "10.1",
-      "letter_id": null,
+      "letter_ids": [
+        "H6"
+      ],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "Opt-in captured before non-transactional notifications",
       "check": "Explicit opt-in is captured as an active tap before enrollment, and the record persists brand, channel, purpose, destination, source, timestamp and disclosure version.",
@@ -1662,7 +1731,7 @@
     },
     {
       "id": "10.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "The enrolment template carries its own opt out instruction",
       "check": "The opt out instruction sits in the template itself, not only in the moment of consent. Apple's shape: welcome, brand name, automated disclosure, then \"Reply STOP anytime to turn off notifications.\"",
@@ -1680,7 +1749,7 @@
     },
     {
       "id": "10.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "STOP re-entry shows a \"Welcome back\" message",
       "check": "The bot recognizes the re-entry and responds with a \"Welcome back\" style message.",
@@ -1698,7 +1767,7 @@
     },
     {
       "id": "10.4",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "Restarting restores reply permission, not notification consent",
       "check": "The brand may reply inside that conversation. It may not resume notifications. The two states reset separately.",
@@ -1716,7 +1785,7 @@
     },
     {
       "id": "10.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "Satisfaction survey timing and format",
       "check": "A survey fires only after a real resolution. Not after every FAQ answer, not before the task is resolved, and never after a close, a Leave Conversation or an opt out. It uses descriptive labels rather than a bare one to five scale, delivered as a Quick Reply, or a Form Message for a multi question survey.",
@@ -1734,7 +1803,7 @@
     },
     {
       "id": "10.6",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "Channel constraints on unsolicited surveys respected",
       "check": "Where such agreements exist, survey timing is controlled by the brand or institution rather than fired automatically.",
@@ -1752,7 +1821,9 @@
     },
     {
       "id": "10.7",
-      "letter_id": null,
+      "letter_ids": [
+        "E4"
+      ],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "No dead ends anywhere in the flow",
       "check": "Every path has a clear next step, a fallback, or an escalation route. Never a dead end.",
@@ -1770,7 +1841,9 @@
     },
     {
       "id": "10.8",
-      "letter_id": null,
+      "letter_ids": [
+        "I5"
+      ],
       "section": "10. Policy, Consent and Conversational Design",
       "name": "No unsolicited outbound",
       "check": "Outbound is only sent inside an ongoing customer initiated conversation, or through an approved Business Invitation template. No SMS style marketing blasts and no unsolicited sends. Reviewers actively look for this.",
@@ -1788,7 +1861,7 @@
     },
     {
       "id": "11.1",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "11. Recording and Submission Prep",
       "name": "Recorded on a real iPhone, not a simulator",
       "check": "Recording is captured on a physical, supported iPhone. Simulators are not used for the submitted recording.",
@@ -1806,7 +1879,9 @@
     },
     {
       "id": "11.2",
-      "letter_id": null,
+      "letter_ids": [
+        "A6"
+      ],
       "section": "11. Recording and Submission Prep",
       "name": "All rehearsal threads deleted before final recording",
       "check": "No leftover rehearsal or test threads are visible. Only the clean take is recorded.",
@@ -1824,7 +1899,7 @@
     },
     {
       "id": "11.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "11. Recording and Submission Prep",
       "name": "Recording shows the customer point of view",
       "check": "The recording captures the customer's device screen. Backend logs are not shown. The one exception is the live agent sequence, which is filmed side by side with the console.",
@@ -1842,7 +1917,9 @@
     },
     {
       "id": "11.4",
-      "letter_id": null,
+      "letter_ids": [
+        "A2"
+      ],
       "section": "11. Recording and Submission Prep",
       "name": "Recording demonstrates all required elements",
       "check": "The recording shows the rich features in scope, the live agent interaction, and out of hours messaging and fallback.",
@@ -1860,7 +1937,7 @@
     },
     {
       "id": "11.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "11. Recording and Submission Prep",
       "name": "Recording split into multiple parts if long",
       "check": "If the journey is long, the recording is split into clearly labelled parts rather than forced into one continuous take.",
@@ -1878,7 +1955,7 @@
     },
     {
       "id": "11.6",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "11. Recording and Submission Prep",
       "name": "Timestamp index submitted alongside the videos",
       "check": "A timestamp list accompanies the videos, one line per demonstrated item: video, time, and what it shows.",
@@ -1896,7 +1973,7 @@
     },
     {
       "id": "11.7",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "11. Recording and Submission Prep",
       "name": "Change summary prepared for resubmissions",
       "check": "A summary references each feedback item by its ID or description and explains how it was resolved.",
@@ -1914,7 +1991,7 @@
     },
     {
       "id": "11.8",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "11. Recording and Submission Prep",
       "name": "All feedback items addressed before resubmission",
       "check": "Every feedback item is addressed. Partial fixes are not submitted, since they typically trigger another review round and delay launch.",
@@ -1932,7 +2009,7 @@
     },
     {
       "id": "12.1",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Every entry point carries an Intent ID",
       "check": "Every entry point carries a distinct biz-intent-id, and a biz-group-id where routing applies.",
@@ -1950,7 +2027,7 @@
     },
     {
       "id": "12.2",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Entry point URLs contain no reserved characters",
       "check": "No URI reserved characters appear inside parameter values.",
@@ -1968,7 +2045,7 @@
     },
     {
       "id": "12.3",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "The message body is pre filled where it helps",
       "check": "A body parameter pre-populates the message so the customer only has to tap Send.",
@@ -1986,7 +2063,9 @@
     },
     {
       "id": "12.4",
-      "letter_id": null,
+      "letter_ids": [
+        "B1"
+      ],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Buttons use one of Apple's four approved calls to action",
       "check": "Buttons use Message Us, Contact an Agent, Ask a Question or Get Help, and Apple's assets are used as supplied without modification.",
@@ -2004,7 +2083,7 @@
     },
     {
       "id": "12.5",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Buttons are not enabled before the account is approved to go live",
       "check": "No Messages button is live on any public surface until the account is approved.",
@@ -2022,7 +2101,9 @@
     },
     {
       "id": "12.6",
-      "letter_id": null,
+      "letter_ids": [
+        "B8"
+      ],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Entry points stay enabled outside business hours",
       "check": "Buttons are not disabled out of hours. Automation handles the response.",
@@ -2040,7 +2121,7 @@
     },
     {
       "id": "12.7",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Registered phone numbers are tappable and in E.164 format",
       "check": "Numbers are tappable and formatted E.164, so Message Suggest can attach to them.",
@@ -2058,7 +2139,7 @@
     },
     {
       "id": "12.8",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Response time expectations are set in the welcome message",
       "check": "Realistic and honest expectations are stated up front, and communicated dynamically where live agent wait times vary.",
@@ -2076,7 +2157,7 @@
     },
     {
       "id": "12.9",
-      "letter_id": null,
+      "letter_ids": [],
       "section": "12. Entry Point Configuration, Buttons and Readiness",
       "name": "Naming scanned beyond the conversation copy",
       "check": "Correct product naming everywhere, not only in the flow. Where an interface needs an unknown contact label, it reads \"Apple Messages contact\", never \"Apple Business Contact\".",

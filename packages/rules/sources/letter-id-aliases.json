@@ -1,1 +1,358 @@
-{}
+{
+  "_comment": "Best-effort map of Ramp review letter-IDs to numeric rule refs (the 'id' field in packages/rules/rules.json). Source: sources/examples/ramp-review-report.pdf (MA Ramp review, 9 Oct 2026). ref=null means no existing numeric rule matched -> candidate NEW rule sourced to the Ramp report (NOT added to rules.json). Mapping is documentation only; matched on test name/meaning, not authored. confidence high=clear 1:1 meaning match, low=family/approximate/uncertain.",
+  "_counts": {
+    "distinct_letter_ids": 58,
+    "mapped_to_numeric_ref": 42,
+    "unmatched_candidate_new_rules": 16
+  },
+  "aliases": {
+    "B1": {
+      "ref": "12.4",
+      "name": "Approved button",
+      "rule_name": "Buttons use one of Apple's four approved calls to action",
+      "confidence": "high"
+    },
+    "C1": {
+      "ref": "3.1",
+      "name": "First reply in 5 seconds",
+      "rule_name": "First response within 5 seconds, with typing indicator",
+      "confidence": "high"
+    },
+    "B3": {
+      "ref": "0.3",
+      "name": "Service naming",
+      "rule_name": "No forbidden or restricted platform wording",
+      "confidence": "high"
+    },
+    "G11": {
+      "ref": null,
+      "name": "Agent uses rich features",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "D1": {
+      "ref": "3.5",
+      "name": "Indicator before every message",
+      "rule_name": "Typing indicator before every outbound message, including rich features",
+      "confidence": "high"
+    },
+    "E4": {
+      "ref": "10.7",
+      "name": "Escape option",
+      "rule_name": "No dead ends anywhere in the flow",
+      "confidence": "low"
+    },
+    "A1": {
+      "ref": null,
+      "name": "Real journey",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "B2": {
+      "ref": null,
+      "name": "Call to action",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "B4": {
+      "ref": null,
+      "name": "Prominence",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "E10": {
+      "ref": "3.20",
+      "name": "Clear copy",
+      "rule_name": "Welcome message tone matches brand",
+      "confidence": "low"
+    },
+    "X0": {
+      "ref": null,
+      "name": "Outside the plan",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "D3": {
+      "ref": "3.1",
+      "name": "Reply latency",
+      "rule_name": "First response within 5 seconds, with typing indicator",
+      "confidence": "low"
+    },
+    "D2": {
+      "ref": "3.6",
+      "name": "Bot indicator length",
+      "rule_name": "Typing indicator never hangs or misleads",
+      "confidence": "low"
+    },
+    "I5": {
+      "ref": "10.8",
+      "name": "Silence after close",
+      "rule_name": "No unsolicited outbound",
+      "confidence": "low"
+    },
+    "A6": {
+      "ref": "11.2",
+      "name": "Clean screen",
+      "rule_name": "All rehearsal threads deleted before final recording",
+      "confidence": "low"
+    },
+    "G3": {
+      "ref": "9.1",
+      "name": "Transfer announced",
+      "rule_name": "Handoff to a live agent is explicitly stated",
+      "confidence": "high"
+    },
+    "G4": {
+      "ref": "9.2",
+      "name": "Wait time",
+      "rule_name": "Wait time is communicated",
+      "confidence": "high"
+    },
+    "H2": {
+      "ref": "7.4",
+      "name": "Clarifying question first",
+      "rule_name": "Personal data request is gated by a clarifying question",
+      "confidence": "high"
+    },
+    "A5": {
+      "ref": null,
+      "name": "Continuous take",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "I1": {
+      "ref": null,
+      "name": "Clear resolution",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "H7": {
+      "ref": "3.13",
+      "name": "Trigger words",
+      "rule_name": "Actionable keywords trigger the defined behaviour",
+      "confidence": "low"
+    },
+    "A2": {
+      "ref": "11.4",
+      "name": "Rich features",
+      "rule_name": "Recording demonstrates all required elements",
+      "confidence": "low"
+    },
+    "B6": {
+      "ref": null,
+      "name": "Brand header",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "A4": {
+      "ref": "3.18",
+      "name": "Out of hours",
+      "rule_name": "Off-hours automated message is accurate and non-deceptive",
+      "confidence": "high"
+    },
+    "G9": {
+      "ref": "3.19",
+      "name": "Out of hours",
+      "rule_name": "Off-hours notice is triggered at the right moment",
+      "confidence": "high"
+    },
+    "B8": {
+      "ref": "12.6",
+      "name": "Always available",
+      "rule_name": "Entry points stay enabled outside business hours",
+      "confidence": "high"
+    },
+    "C6": {
+      "ref": "3.14",
+      "name": "Handles misunderstanding",
+      "rule_name": "Recovery re-offers options and escalates after one clarification",
+      "confidence": "high"
+    },
+    "G2": {
+      "ref": "3.13",
+      "name": "Keywords",
+      "rule_name": "Actionable keywords trigger the defined behaviour",
+      "confidence": "high"
+    },
+    "RL1": {
+      "ref": "4.1",
+      "name": "Rich links",
+      "rule_name": "Rich Links used for all URLs",
+      "confidence": "high"
+    },
+    "RL2": {
+      "ref": "4.2",
+      "name": "Rich links",
+      "rule_name": "Rich Link logo image is properly sized",
+      "confidence": "low"
+    },
+    "RL3": {
+      "ref": "4.3",
+      "name": "Rich links",
+      "rule_name": "Rich Link preview asset meets Apple's specification",
+      "confidence": "low"
+    },
+    "RL4": {
+      "ref": "4.4",
+      "name": "Rich links",
+      "rule_name": "Every Rich Link image reflects the destination page",
+      "confidence": "low"
+    },
+    "AT1": {
+      "ref": "6.1",
+      "name": "Business attachments",
+      "rule_name": "Attachments render correctly and are relevant",
+      "confidence": "high"
+    },
+    "AT2": {
+      "ref": "6.1",
+      "name": "Business attachments",
+      "rule_name": "Attachments render correctly and are relevant",
+      "confidence": "low"
+    },
+    "G8": {
+      "ref": null,
+      "name": "Agent to agent transfer",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "LP1": {
+      "ref": "5.4",
+      "name": "List Picker",
+      "rule_name": "List Picker versus Quick Reply used appropriately",
+      "confidence": "high"
+    },
+    "LP2": {
+      "ref": "5.5",
+      "name": "List Picker",
+      "rule_name": "List Picker items carry subtitles and secondary text",
+      "confidence": "low"
+    },
+    "LP3": {
+      "ref": "5.1",
+      "name": "List Picker",
+      "rule_name": "Every interactive option carries a thumbnail or icon",
+      "confidence": "low"
+    },
+    "LP4": {
+      "ref": null,
+      "name": "List Picker",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "TP1": {
+      "ref": "5.12",
+      "name": "Time Picker",
+      "rule_name": "Time Picker confirmation includes a save-to-calendar tip",
+      "confidence": "low"
+    },
+    "TP2": {
+      "ref": "5.13",
+      "name": "Time Picker",
+      "rule_name": "Time Picker carries a location and an explicit time zone",
+      "confidence": "low"
+    },
+    "TP3": {
+      "ref": null,
+      "name": "Time Picker",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "TP4": {
+      "ref": null,
+      "name": "Time Picker",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "FM1": {
+      "ref": "5.6",
+      "name": "Form",
+      "rule_name": "Forms include splash screen, title, intro and review screen",
+      "confidence": "high"
+    },
+    "FM2": {
+      "ref": "5.7",
+      "name": "Form",
+      "rule_name": "The Form review page sits at the end of the final section",
+      "confidence": "low"
+    },
+    "FM3": {
+      "ref": "5.8",
+      "name": "Form",
+      "rule_name": "Form context set in a conversational bubble first",
+      "confidence": "low"
+    },
+    "FM4": {
+      "ref": "5.9",
+      "name": "Form",
+      "rule_name": "Simple one or two field forms use plain text conversational flow",
+      "confidence": "low"
+    },
+    "FM5": {
+      "ref": "5.10",
+      "name": "Form",
+      "rule_name": "Sensitive Form responses are marked private",
+      "confidence": "low"
+    },
+    "FM6": {
+      "ref": "5.11",
+      "name": "Form",
+      "rule_name": "Introductory text precedes every rich element",
+      "confidence": "low"
+    },
+    "AP1": {
+      "ref": "7.3",
+      "name": "Apple Pay",
+      "rule_name": "Apple Pay used for payment collection",
+      "confidence": "high"
+    },
+    "AP2": {
+      "ref": "5.3",
+      "name": "Apple Pay",
+      "rule_name": "No brand card image forced onto Apple Pay or Authentication",
+      "confidence": "low"
+    },
+    "AP3": {
+      "ref": null,
+      "name": "Apple Pay",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "AP4": {
+      "ref": null,
+      "name": "Apple Pay",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "AU1": {
+      "ref": "7.1",
+      "name": "Authentication",
+      "rule_name": "Authentication used for identity verification",
+      "confidence": "high"
+    },
+    "AU2": {
+      "ref": "7.2",
+      "name": "Authentication",
+      "rule_name": "Authentication precedes any account data being shared",
+      "confidence": "low"
+    },
+    "AU3": {
+      "ref": null,
+      "name": "Authentication",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "IA1": {
+      "ref": null,
+      "name": "iMessage app",
+      "rule_name": null,
+      "confidence": "low"
+    },
+    "H6": {
+      "ref": "10.1",
+      "name": "Card alert consent",
+      "rule_name": "Opt-in captured before non-transactional notifications",
+      "confidence": "high"
+    }
+  }
+}

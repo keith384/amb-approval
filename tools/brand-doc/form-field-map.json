@@ -1,0 +1,694 @@
+{
+  "_comment": "Faithful field map of the two Apple intake AcroForms. Field names are extracted EXACTLY via pypdf reader.get_fields(), including Apple's original misspellings (e.g. 'GF Authenticaiton', 'UC4 Rick Links', 'EP App  Messages Button' with double space, 'UC2 iMessages App'). 'type' is derived from /FT and field flags. 'options' are the raw AcroForm export/on states (Off included). 'maps_to' is a best-effort guess of the scope.json key or human label, null where unknown. Sources: sources/ma-experience-review/Messages-for-Business_UseCases.pdf and _Readiness.pdf.",
+  "_counts": {
+    "usecases": 57,
+    "readiness": 25
+  },
+  "usecases": [
+    {
+      "field": "CI Requested Date",
+      "type": "text",
+      "options": null,
+      "maps_to": "brand.requested_date"
+    },
+    {
+      "field": "CI Define Success",
+      "type": "text",
+      "options": null,
+      "maps_to": "brand.define_success"
+    },
+    {
+      "field": "EP Web Messages Button",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.web_messages_button"
+    },
+    {
+      "field": "EP Message Suggest",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.message_suggest"
+    },
+    {
+      "field": "EP App  Messages Button",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.app_messages_button"
+    },
+    {
+      "field": "EP IVR deflect",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.ivr_deflect"
+    },
+    {
+      "field": "EP Apple Maps",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.apple_maps"
+    },
+    {
+      "field": "EP Social media links",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.social_media"
+    },
+    {
+      "field": "EP QR codes",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.qr_code"
+    },
+    {
+      "field": "GF Automated welcome message",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "global.automated_welcome"
+    },
+    {
+      "field": "EP Other",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "entry_point.other"
+    },
+    {
+      "field": "GF CSAT survey",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "global.csat_survey"
+    },
+    {
+      "field": "GF Authenticaiton",
+      "type": "checkbox",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "maps_to": "global.authentication"
+    },
+    {
+      "field": "EP Other Specify Field",
+      "type": "text",
+      "options": null,
+      "maps_to": "entry_point.other.specify"
+    },
+    {
+      "field": "GF CSAT survey Specify",
+      "type": "text",
+      "options": null,
+      "maps_to": "global.csat_survey.specify"
+    },
+    {
+      "field": "GF Authentication Specify",
+      "type": "text",
+      "options": null,
+      "maps_to": "global.authentication.specify"
+    },
+    {
+      "field": "UC1 Specify",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.1.specify"
+    },
+    {
+      "field": "UC2 Specify",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.2.specify"
+    },
+    {
+      "field": "UC3 Specify",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.3.specify"
+    },
+    {
+      "field": "UC4 Specify",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.4.specify"
+    },
+    {
+      "field": "CI Brand Name",
+      "type": "text",
+      "options": null,
+      "maps_to": "brand.name"
+    },
+    {
+      "field": "UC2 General Description",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.2.description"
+    },
+    {
+      "field": "UC3 General Description",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.3.description"
+    },
+    {
+      "field": "UC1 General Description",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.1.description"
+    },
+    {
+      "field": "UC4 General Description",
+      "type": "text",
+      "options": null,
+      "maps_to": "usecase.4.description"
+    },
+    {
+      "field": "UC3 PDF images video wallet attachment",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.attachments"
+    },
+    {
+      "field": "UC3 iMessage App",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.imessage_app"
+    },
+    {
+      "field": "UC3 Apple Pay",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.apple_pay"
+    },
+    {
+      "field": "UC3 Quick Reply",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.quick_reply"
+    },
+    {
+      "field": "UC3 Forms",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.form"
+    },
+    {
+      "field": "UC4 Attachments",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.attachments"
+    },
+    {
+      "field": "UC4 Forms",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.form"
+    },
+    {
+      "field": "UC4 Apple Pay",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.apple_pay"
+    },
+    {
+      "field": "UC4 List Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.list_picker"
+    },
+    {
+      "field": "UC4 Quick Reply",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.quick_reply"
+    },
+    {
+      "field": "UC4 Time Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.time_picker"
+    },
+    {
+      "field": "UC4 Rick Links",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.rich_link"
+    },
+    {
+      "field": "UC3 Rich Link",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.rich_link"
+    },
+    {
+      "field": "UC2 Attachments",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.attachments"
+    },
+    {
+      "field": "UC2 Time Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.time_picker"
+    },
+    {
+      "field": "UC2 Forms",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.form"
+    },
+    {
+      "field": "UC2 Rich Link",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.rich_link"
+    },
+    {
+      "field": "UC2 List Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.list_picker"
+    },
+    {
+      "field": "UC2 Quick Reply",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.quick_reply"
+    },
+    {
+      "field": "UC2 Apple Pay",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.apple_pay"
+    },
+    {
+      "field": "UC2 iMessages App",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.2.imessage_app"
+    },
+    {
+      "field": "UC1 Quick Reply",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.quick_reply"
+    },
+    {
+      "field": "UC1 List Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.list_picker"
+    },
+    {
+      "field": "UC1 Time Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.time_picker"
+    },
+    {
+      "field": "UC1 Rich Link",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.rich_link"
+    },
+    {
+      "field": "UC1 Apple Pay",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.apple_pay"
+    },
+    {
+      "field": "UC1 iMessages App",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.imessage_app"
+    },
+    {
+      "field": "UC1 Forms",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.form"
+    },
+    {
+      "field": "UC1 Attachments",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.1.attachments"
+    },
+    {
+      "field": "UC4 iMessage App",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.4.imessage_app"
+    },
+    {
+      "field": "UC3 Time Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.time_picker"
+    },
+    {
+      "field": "UC3 List Picker",
+      "type": "checkbox",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "maps_to": "usecase.3.list_picker"
+    }
+  ],
+  "readiness": [
+    {
+      "field": "text-brand name",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.brand_name"
+    },
+    {
+      "field": "text-industry vertical",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.industry_vertical"
+    },
+    {
+      "field": "text-country hq",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.country_hq"
+    },
+    {
+      "field": "text-country coverage",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.country_coverage"
+    },
+    {
+      "field": "digital priorities-01",
+      "type": "radio",
+      "options": [
+        "High",
+        "Med",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.01"
+    },
+    {
+      "field": "digital priorities-02",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.02"
+    },
+    {
+      "field": "digital priorities-03",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.03"
+    },
+    {
+      "field": "digital priorities-04",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.04"
+    },
+    {
+      "field": "digital priorities-05",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.05"
+    },
+    {
+      "field": "digital priorities-06",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.06"
+    },
+    {
+      "field": "digital priorities-07",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.07"
+    },
+    {
+      "field": "digital priorities-08",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.08"
+    },
+    {
+      "field": "digital priorities-09",
+      "type": "radio",
+      "options": [
+        "Med",
+        "High",
+        "Low"
+      ],
+      "maps_to": "readiness.digital_priority.09"
+    },
+    {
+      "field": "strategy and operations-01",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "maps_to": "readiness.strategy_ops.01"
+    },
+    {
+      "field": "strategy and operations-02",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "maps_to": "readiness.strategy_ops.02"
+    },
+    {
+      "field": "text-current MSP",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.current_msp"
+    },
+    {
+      "field": "strategy and operations-04",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "maps_to": "readiness.strategy_ops.04"
+    },
+    {
+      "field": "strategy and operations-05",
+      "type": "radio",
+      "options": [
+        "<50%",
+        "50-70",
+        ">75%"
+      ],
+      "maps_to": "readiness.strategy_ops.05"
+    },
+    {
+      "field": "strategy and operations-06",
+      "type": "radio",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "maps_to": "readiness.strategy_ops.06"
+    },
+    {
+      "field": "strategy and operations-07",
+      "type": "radio",
+      "options": [
+        "$10-14",
+        "$1-9",
+        "$15-19",
+        "$20+"
+      ],
+      "maps_to": "readiness.strategy_ops.07"
+    },
+    {
+      "field": "strategy and operations-08",
+      "type": "radio",
+      "options": [
+        "$10-14",
+        "$1-9",
+        "$15-19",
+        "$20+"
+      ],
+      "maps_to": "readiness.strategy_ops.08"
+    },
+    {
+      "field": "text-digital capacity",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.digital_capacity"
+    },
+    {
+      "field": "text-growth 12 months",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.growth_12m"
+    },
+    {
+      "field": "text-growth 24 months",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.growth_24m"
+    },
+    {
+      "field": "text-Apple device percentage",
+      "type": "text",
+      "options": null,
+      "maps_to": "readiness.apple_device_pct"
+    }
+  ]
+}

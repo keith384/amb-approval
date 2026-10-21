@@ -77,7 +77,17 @@ def main() -> int:
         print(f"ERROR: checklist source not found: {CHECKLIST}", file=sys.stderr)
         return 2
 
-    aliases = load_json(ALIASES, {})
+    # Invert the Ramp letter-ID map {letter: {ref, confidence,...}} into
+    # {numeric_ref: [letter_ids]} — a rule can carry several letter aliases.
+    raw_aliases = load_json(ALIASES, {})
+    alias_entries = raw_aliases.get("aliases", raw_aliases)
+    ref_to_letters: dict[str, list[str]] = {}
+    for letter, info in alias_entries.items():
+        if letter.startswith("_"):
+            continue
+        ref = info.get("ref") if isinstance(info, dict) else info
+        if ref:
+            ref_to_letters.setdefault(ref, []).append(letter)
     stage_overrides = load_json(STAGE_OVERRIDES, {})
 
     rules = []
@@ -107,7 +117,7 @@ def main() -> int:
 
             rules.append({
                 "id": ref,
-                "letter_id": aliases.get(ref),           # null until Ramp map extracted
+                "letter_ids": ref_to_letters.get(ref, []),  # Ramp report aliases (0+)
                 "section": section,
                 "name": name,
                 "check": check_text,
@@ -134,7 +144,7 @@ def main() -> int:
         "by_severity": _count(rules, "severity"),
         "non_negotiables": [r["id"] for r in rules if r["severity"] == "Non negotiable"],
         "machine_checkable": sum(1 for r in rules if r["machine_checkable"]),
-        "with_letter_id": sum(1 for r in rules if r["letter_id"]),
+        "with_letter_id": sum(1 for r in rules if r["letter_ids"]),
     }
 
     if errors:
