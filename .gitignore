@@ -35,3 +35,6 @@ tools/brand-doc/.venv/
 tools/brand-doc/work/
 
 tools/storyboard/work/
+
+# Per-brand runtime data (artifacts, recordings, state)
+brands/
