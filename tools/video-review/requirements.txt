@@ -1,0 +1,6 @@
+# Tool 3 (Video Review) — pure-Python pipeline, no system ffmpeg needed.
+opencv-python-headless>=4.9   # frame extraction + decode
+pillow>=10                    # image handling for OCR + crops
+numpy>=1.24
+ocrmac>=1.0                   # Apple Vision OCR (macOS). Tesseract is the fallback engine.
+anthropic>=0.40              # LLM pass for qualitative rules (Phase: rule eval)

@@ -25,3 +25,7 @@ frames/            # Tool 3 extracted frames
 
 # Generated per-brand outputs (artifacts live in brand folders / blob storage)
 brands/*/output/
+
+# Tool 3 work dirs (frames, ocr cache) + venvs
+tools/video-review/work/
+tools/*/.venv/
