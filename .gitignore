@@ -33,3 +33,5 @@ tools/*/.venv/
 # brand-doc venv + work
 tools/brand-doc/.venv/
 tools/brand-doc/work/
+
+tools/storyboard/work/

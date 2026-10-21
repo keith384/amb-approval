@@ -1,0 +1,28 @@
+{
+  "_note": "Authored conversation script for Tool 2. One step per line: actor (bot|customer|human), kind, copy, options. The storyboard renders each step as an iPhone frame and validates it against the storyboard rules. Flow A = use case end to end; B = human handoff; C = degraded (out-of-hours / fallback).",
+  "brand": "Ramp",
+  "flows": {
+    "A": [
+      {"actor": "bot", "kind": "framing", "copy": "Hi, I'm Ramp's automated assistant. I can help with cards, expenses, and account questions."},
+      {"actor": "bot", "kind": "quick_reply", "copy": "What can I help you with?", "options": ["Report a lost card", "Ask a question", "Verify business info", "Talk to a person"]},
+      {"actor": "customer", "kind": "text", "copy": "Report a lost card"},
+      {"actor": "bot", "kind": "framing", "copy": "I can help you replace a lost card. First, let's confirm it's you."},
+      {"actor": "bot", "kind": "auth", "copy": "Verify your identity to continue."},
+      {"actor": "bot", "kind": "text", "copy": "Thanks — I've frozen the lost card so it can't be used."},
+      {"actor": "bot", "kind": "framing", "copy": "Where should we send the replacement?"},
+      {"actor": "bot", "kind": "list_picker", "copy": "Choose a shipping address", "options": ["Office — 28 W 23rd St", "Home — on file", "Add a new address"]},
+      {"actor": "customer", "kind": "text", "copy": "Office — 28 W 23rd St"},
+      {"actor": "bot", "kind": "text", "copy": "Done — your replacement card ships to the office in 2-3 business days."},
+      {"actor": "bot", "kind": "quick_reply", "copy": "Anything else I can help with?", "options": ["Yes", "No, thanks", "Talk to a person"]}
+    ],
+    "B": [
+      {"actor": "customer", "kind": "text", "copy": "I need to talk to a person about a charge."},
+      {"actor": "bot", "kind": "framing", "copy": "I'll connect you with a Ramp specialist — typical wait is under 2 minutes."},
+      {"actor": "human", "kind": "text", "copy": "Hi, this is Maya, a Ramp support specialist. I can see your thread — how can I help?"}
+    ],
+    "C": [
+      {"actor": "bot", "kind": "framing", "copy": "Our team is offline right now (hours: Mon-Fri 9am-8pm ET). I'm the automated assistant and can still help, or leave a message."},
+      {"actor": "bot", "kind": "quick_reply", "copy": "What would you like to do?", "options": ["Ask the assistant", "Leave a message"]}
+    ]
+  }
+}
