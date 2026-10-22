@@ -28,8 +28,19 @@ export async function moveStage(brand: string, stage: string) {
   st.events.push({ at: new Date().toISOString(), action: "stage_moved", detail: stage });
   fs.mkdirSync(path.dirname(f), { recursive: true });
   fs.writeFileSync(f, JSON.stringify(st, null, 2));
+  syncHubspot(brand);
   revalidatePath(`/brand/${brand}`);
   revalidatePath("/");
+}
+
+// One-way board → HubSpot on stage change. Dry-run unless AMB_HUBSPOT_WRITE is set
+// (and the brand is mapped to a deal + the 4 custom properties exist).
+function syncHubspot(brand: string) {
+  try {
+    const args = [path.join(REPO, "apps/slack-bot/hubspot_sync.py"), "sync", brand];
+    if (process.env.AMB_HUBSPOT_WRITE) args.push("--write");
+    spawn("python3", args, { cwd: REPO, detached: true, stdio: "ignore", env: { ...process.env } }).unref();
+  } catch { /* best-effort; board stays source of record */ }
 }
 
 export async function setOwner(brand: string, owner: string) {
