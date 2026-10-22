@@ -1,22 +1,28 @@
 # Status & source inventory
 
-_Last updated: 2026-10-21_
+_Last updated: 2026-10-22_
 
 ## Phase tracker (build sequence from the plan)
 
-- [x] **Phase 0 — Rule set foundation.** `packages/rules/build_rules.py` normalizes the
-  MA 114-case checklist → `rules.json` (114 rules: 23 Non-negotiable, 83 Apple standard,
-  8 Field). Test asserts source anchors, severity, gate items. _Remaining in Phase 0:_
-  letter-ID aliases from the Ramp report; applies-when → `scope.json` key normalization;
-  stage tagging (doc/storyboard/video) beyond the default; regression-corpus + versioning
-  harness; fold in Standards 2.1–2.18 anchors and the AMB-kit element limits.
-- [ ] **Phase 1 — Video Review tool (Tool 3).** ffmpeg 5fps → OCR → event detection →
-  rule eval (deterministic + LLM) → Ramp-format report. Test pair = Ramp recording + MA report.
-- [ ] **Phase 2 — Brand Approval Doc generator (Tool 1).**
-- [ ] **Phase 3 — UX Storyboard tool (Tool 2).**
-- [ ] **Phase 4 — Slack bot + feedback ingest/reconcile.**
-- [ ] **Phase 5 — Pipeline board (Vercel + SSO, blob upload, worker).**
-- [ ] **Phase 6 (scoped, unscheduled) — HubSpot one-way sync.**
+All 7 components built end-to-end and chained (scope.json → shotlist.json → findings),
+reading one versioned rule set, writing to shared brand folders the board renders.
+
+- [x] **Phase 0 — Rule set.** `packages/rules` → `rules.json` (114 rules; 23 Non-negotiable,
+  83 Apple standard, 8 Field) + Ramp letter-ID aliases; test asserts source anchors/severity/
+  gate items. _Open:_ applies-when→scope normalization; regression-corpus/versioning harness.
+- [x] **Phase 1 — Tool 3 (Video Review).** extract→OCR(Apple Vision)→typing detector→events→
+  deterministic + LLM rule eval→Ramp-format report, with an acceptance harness vs MA's 48
+  findings. _Calibration backlog: Fail 1/6 strict (latency, B3-OCR, B1/E4/G11 detectors, LLM
+  caveat alignment)._
+- [x] **Phase 2 — Tool 1 (Brand Doc).** intake→doc model + Walmart HTML + 2 filled Apple forms
+  (57/25) + scope.json + readiness note; terminology lint; form-coverage test.
+- [x] **Phase 3 — Tool 2 (UX Storyboard).** validate flow→iPhone frames→2.18 self-check→shotlist.
+- [x] **Phase 4 — Slack bot.** `/amb brand-doc|storyboard|review|feedback|status` dispatcher +
+  Socket-Mode wrapper. _Needs Slack app tokens to go live._
+- [x] **Phase 5 — Pipeline board.** Next.js board reading brand folders; grid, artifact viewer,
+  stage/owner controls, tool triggers. _Local v1; Vercel+SSO+blob is the production path._
+- [x] **Phase 6 — HubSpot one-way sync.** `hubspot_sync.py` writes 4 deal props + notes; dry-run
+  by default. _Needs: `ensure-props --write`, per-brand deal mapping, `AMB_HUBSPOT_WRITE`._
 
 ## Sources present (in `sources/`)
 - `ma-experience-review/` — MA combined package v1.1 (MD), checklist+test-cases v2.0
