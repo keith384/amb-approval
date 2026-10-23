@@ -47,7 +47,7 @@ def _sb(path: str, rows, params: str = ""):
 def _kind(fname: str) -> str:
     f = fname.lower()
     if "usecases" in f: return "usecases_form"
-    if "readiness-" in f or f.startswith("readiness"): return "readiness_note" if f.endswith(".md") else "readiness_form"
+    if "readiness" in f: return "readiness_note" if f.endswith(".md") else "readiness_form"
     if "brand-approval" in f: return "doc"
     if "storyboard" in f: return "storyboard"
     if "shotlist" in f: return "shotlist"
@@ -122,7 +122,10 @@ def cmd_brand_doc(brand: str) -> dict:
         return {"text": f"No intake for *{brand}*. Drop `intake.json` in the thread (brand facts + 4 use cases) and re-run."}
     ok, out = _run([_venv_py("brand-doc"), str(TOOLS / "brand-doc/brand_doc.py"), str(intake), str(d / "output")],
                    TOOLS / "brand-doc")
-    files = [p.name for p in (d / "output").glob("*.html")] + [p.name for p in (d / "output").glob("*.pdf")]
+    files = ([p.name for p in (d / "output").glob("brand-approval-*.html")]
+             + [p.name for p in (d / "output").glob("*-usecases.pdf")]
+             + [p.name for p in (d / "output").glob("*-readiness.pdf")]
+             + [p.name for p in (d / "output").glob("readiness-*.md")])
     if ok:
         st = _state(d); st["stage"] = "brand_approval"; _save_state(d, st)
         _log(d, "brand_doc", "generated")
