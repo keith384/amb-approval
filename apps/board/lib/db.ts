@@ -2,7 +2,8 @@ import { createClient } from "@supabase/supabase-js";
 
 // Shared Supabase project — pipeline STATE lives here; artifacts live in Slack
 // (amb_artifact.link). Board reads/writes server-side with the service role.
-const URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+// Accept either our var or the ones the Vercel↔Supabase integration injects.
+const URL = (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL)!;
 const KEY = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function sb(): any {
