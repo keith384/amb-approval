@@ -24,6 +24,46 @@ TOOLS = REPO / "tools"
 
 STAGES = ["brand_approval", "ux_approval", "experience_review", "launch"]
 
+# ── Supabase (shared pipeline state the board reads). Best-effort: no env = skip. ──
+import urllib.request  # noqa: E402
+
+def _sb_cfg():
+    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or os.environ.get("SUPABASE_URL")
+    return (url, os.environ.get("SUPABASE_SERVICE_ROLE_KEY")) if (url and os.environ.get("SUPABASE_SERVICE_ROLE_KEY")) else (None, None)
+
+def _sb(path: str, rows, params: str = ""):
+    url, key = _sb_cfg()
+    if not url:
+        return
+    req = urllib.request.Request(
+        f"{url}/rest/v1/{path}{params}", data=json.dumps(rows).encode(), method="POST",
+        headers={"apikey": key, "Authorization": f"Bearer {key}", "Content-Type": "application/json",
+                 "Prefer": "resolution=merge-duplicates,return=minimal"})
+    try:
+        urllib.request.urlopen(req)
+    except Exception:
+        pass  # board state is best-effort; local run still succeeds
+
+def _kind(fname: str) -> str:
+    f = fname.lower()
+    if "usecases" in f: return "usecases_form"
+    if "readiness-" in f or f.startswith("readiness"): return "readiness_note" if f.endswith(".md") else "readiness_form"
+    if "brand-approval" in f: return "doc"
+    if "storyboard" in f: return "storyboard"
+    if "shotlist" in f: return "shotlist"
+    if "timestamp-index" in f: return "timestamp_index"
+    if "review-" in f or f == "review.json": return "review"
+    if f == "scope.json": return "scope"
+    return "artifact"
+
+def _record(brand: str, stage: str, action: str, artifacts: list[str]):
+    now = datetime.now(timezone.utc).isoformat()
+    _sb("amb_brand", [{"name": brand, "stage": stage, "stage_entered_at": now, "updated_at": now}], "?on_conflict=name")
+    _sb("amb_event", [{"brand": brand, "action": action}])
+    rows = [{"brand": brand, "stage": stage, "kind": _kind(a), "label": a, "link": None} for a in artifacts]
+    if rows:
+        _sb("amb_artifact", rows)
+
 
 def _venv_py(tool: str) -> str:
     p = TOOLS / tool / ".venv/bin/python"
@@ -64,10 +104,11 @@ def cmd_brand_doc(brand: str) -> dict:
         return {"text": f"No intake for *{brand}*. Drop `intake.json` in the thread (brand facts + 4 use cases) and re-run."}
     ok, out = _run([_venv_py("brand-doc"), str(TOOLS / "brand-doc/brand_doc.py"), str(intake), str(d / "output")],
                    TOOLS / "brand-doc")
+    files = [p.name for p in (d / "output").glob("*.html")] + [p.name for p in (d / "output").glob("*.pdf")]
     if ok:
         st = _state(d); st["stage"] = "brand_approval"; _save_state(d, st)
         _log(d, "brand_doc", "generated")
-    files = [p.name for p in (d / "output").glob("*.html")] + [p.name for p in (d / "output").glob("*.pdf")]
+        _record(brand, "brand_approval", "brand_doc", files)
     return {"text": f"*Brand Approval doc — {brand}*\n```{out.strip()[-800:]}```", "files": files, "ok": ok}
 
 
@@ -90,6 +131,8 @@ def cmd_storyboard(brand: str) -> dict:
     ok, out = _run(args, TOOLS / "storyboard")
     if ok:
         st = _state(d); st["stage"] = "ux_approval"; _save_state(d, st); _log(d, "storyboard", "generated")
+        arts = [p.name for p in (d / "output").glob("storyboard-*.html")] + [p.name for p in (d / "output").glob("shotlist-*.json")]
+        _record(brand, "ux_approval", "storyboard", arts)
     return {"text": f"*Storyboard — {brand}*\n```{out.strip()[-800:]}```", "ok": ok}
 
 
@@ -102,6 +145,9 @@ def cmd_review(brand: str) -> dict:
     ok, out = _run(args, TOOLS / "video-review")
     if ok:
         st = _state(d); st["stage"] = "experience_review"; _save_state(d, st); _log(d, "review", rec.name)
+        rv = d / "output" / "review"
+        arts = [f"review/{p.name}" for p in rv.glob("review-*")] + [f"review/{p.name}" for p in rv.glob("timestamp-index-*")]
+        _record(brand, "experience_review", "review", arts or ["review.json"])
     return {"text": f"*Experience Review — {brand}*\n```{out.strip()[-1000:]}```", "ok": ok}
 
 
