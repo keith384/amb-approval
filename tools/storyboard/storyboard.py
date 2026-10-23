@@ -49,10 +49,44 @@ def shotlist(flow_data: dict) -> list[dict]:
     return rows
 
 
+def model_shotlist(model: dict) -> list[dict]:
+    rows = []
+    for s in model.get("sections", []):
+        for i, st in enumerate(s.get("steps", []), 1):
+            tag = st.get("tag") or {}
+            rows.append({"section": s.get("id") or s.get("title"), "step": i,
+                         "mode": st.get("mode"), "tag": tag.get("text"),
+                         "element": (st.get("screen") or {}).get("element"),
+                         "copy": " ".join(b.get("text", "") for b in (st.get("screen") or {}).get("bubbles", []) or [])[:80]})
+    return rows
+
+
+def run_from_review(review_dir: str, out_dir: str):
+    """Review-driven path: brand review (scope + doc_model) -> Juno-format deck."""
+    import json as _json
+    import generate, render_deck, validate as _v
+    g = generate.run(review_dir, out_dir)
+    out = Path(out_dir)
+    model = _json.loads((out / "storyboard_model.json").read_text())
+    brand = (model.get("brand", "brand")).lower().replace(" ", "-")
+    (out / f"storyboard-{brand}.html").write_text(render_deck.render_html(model))
+    (out / f"shotlist-{brand}.json").write_text(_json.dumps({"brand": brand, "steps": model_shotlist(model)}, indent=2))
+    issues = _v.validate_model(model)
+    print(f"storyboard-{brand}.html · {g['sections']} slides · {g['steps']} steps ({g['model']})")
+    print(f"validation: {sum(i['severity']=='blocker' for i in issues)} blocker(s), {sum(i['severity']=='warn' for i in issues)} warning(s)")
+    for i in issues:
+        print(f"  {i['severity'].upper():7} [{i['flow']}:{i['step']}] ({i['rule']}) {i['msg']}")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("flow"); ap.add_argument("out_dir"); ap.add_argument("--scope", default=None)
+    ap.add_argument("flow", nargs="?"); ap.add_argument("out_dir")
+    ap.add_argument("--scope", default=None)
+    ap.add_argument("--from-review", default=None, help="brand-review dir (scope.json + doc_model.json) → generate the deck")
     a = ap.parse_args()
+    if a.from_review:
+        return run_from_review(a.from_review, a.out_dir)
     out = Path(a.out_dir); out.mkdir(parents=True, exist_ok=True)
     flow_data = json.loads(Path(a.flow).read_text())
     scope = json.loads(Path(a.scope).read_text()) if a.scope and Path(a.scope).exists() else {}

@@ -18,6 +18,41 @@ def _f(flow, i, sev, rule, msg):
     return {"flow": flow, "step": i, "severity": sev, "rule": rule, "msg": msg}
 
 
+def validate_model(model: dict) -> list[dict]:
+    """Validate the review-driven slide model (sections/steps/screens)."""
+    issues = []
+    sections = model.get("sections", [])
+    all_text = " ".join(
+        (b.get("text", "") for s in sections for st in s.get("steps", [])
+         for b in (st.get("screen", {}) or {}).get("bubbles", []) or [])).lower()
+    # welcome self-identifies as automated + explains HELP/STOP
+    signup = next((s for s in sections if "sign" in (s.get("id", "") + s.get("title", "")).lower()
+                   or "welcome" in (s.get("title", "")).lower()), None)
+    welcome_text = ""
+    if signup:
+        welcome_text = " ".join(b.get("text", "") for st in signup.get("steps", [])
+                                for b in (st.get("screen", {}) or {}).get("bubbles", []) or []).lower()
+    if not AUTO.search(welcome_text or all_text):
+        issues.append(_f("signup", 0, "blocker", "3.2", "Welcome doesn't self-identify as an automated assistant."))
+    if "help" not in (welcome_text or all_text) or "stop" not in (welcome_text or all_text):
+        issues.append(_f("signup", 0, "warn", "10.8", "Welcome should explain HELP (reach a person) and STOP (opt out)."))
+    # framing before every rich element + person route + out-of-hours
+    for s in sections:
+        steps = s.get("steps", [])
+        for i, st in enumerate(steps):
+            el = (st.get("screen", {}) or {}).get("element")
+            if el and el in RICH:
+                prev = steps[i - 1] if i >= 1 else None
+                prev_txt = " ".join(b.get("text", "") for b in ((prev or {}).get("screen", {}) or {}).get("bubbles", []) or [])
+                if not prev_txt.strip():
+                    issues.append(_f(s.get("id", "?"), i + 1, "blocker", "4.5", f"No framing bubble before the {el}."))
+    if not PERSON.search(all_text):
+        issues.append(_f("all", 0, "blocker", "9.1", "No route to a person shown anywhere."))
+    if not OOH.search(all_text) and "stop" not in all_text:
+        issues.append(_f("all", 0, "warn", "3.18", "No out-of-hours / opt-out path shown."))
+    return issues
+
+
 def validate(flow_data: dict) -> list[dict]:
     issues = []
     flows = flow_data.get("flows", {})

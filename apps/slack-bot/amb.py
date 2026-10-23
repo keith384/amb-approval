@@ -73,13 +73,20 @@ def cmd_brand_doc(brand: str) -> dict:
 
 def cmd_storyboard(brand: str) -> dict:
     d = _brand_dir(brand)
-    flow = d / "inputs/flow.json"
     scope = d / "output/scope.json"
-    if not flow.exists():
-        return {"text": f"No flow for *{brand}*. Attach `flow.json` (the conversation script) and re-run."}
-    args = [_venv_py("storyboard"), str(TOOLS / "storyboard/storyboard.py"), str(flow), str(d / "output")]
-    if scope.exists():
-        args += ["--scope", str(scope)]
+    doc = d / "output/doc_model.json"
+    flow = d / "inputs/flow.json"
+    # Preferred: generate the Juno-format deck from the brand review (Tool 1 output).
+    if scope.exists() and doc.exists():
+        args = [_venv_py("storyboard"), str(TOOLS / "storyboard/storyboard.py"),
+                "--from-review", str(d / "output"), str(d / "output")]
+    elif flow.exists():
+        args = [_venv_py("storyboard"), str(TOOLS / "storyboard/storyboard.py"), str(flow), str(d / "output")]
+        if scope.exists():
+            args += ["--scope", str(scope)]
+    else:
+        return {"text": f"No brand review or flow for *{brand}*. Run `/amb brand-doc {brand}` first "
+                        f"(the storyboard is generated from the use cases), or attach a `flow.json`."}
     ok, out = _run(args, TOOLS / "storyboard")
     if ok:
         st = _state(d); st["stage"] = "ux_approval"; _save_state(d, st); _log(d, "storyboard", "generated")
