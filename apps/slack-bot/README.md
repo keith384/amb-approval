@@ -4,6 +4,14 @@ One slash command, `/amb <sub> <brand> [text]`, that runs the three tools and
 reports back. `amb.py` is the dispatcher (no Slack deps — CLI-testable);
 `bot.py` is the Socket-Mode wrapper.
 
+## Scopes
+- App-level token (`xapp-`, Socket Mode): **`connections:write`**
+- Bot token (`xoxb-`): **`commands`** (slash command), **`files:write`** (upload generated
+  artifacts to the thread), **`chat:write`** (post results into the channel)
+- Env: `SLACK_BOT_TOKEN`, `SLACK_APP_TOKEN`, `ANTHROPIC_API_KEY` (feedback parse + tools),
+  `HUBSPOT_PRIVATE_APP_TOKEN` (sync), `NEXT_PUBLIC_SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`
+  (so runs record to the board). Invite the bot to `#amb-implimenation`.
+
 ## Commands
 - `/amb brand-doc <brand>` — Tool 1: intake → Walmart doc + filled Apple forms + scope + readiness note
 - `/amb storyboard <brand>` — Tool 2: validate flow → iPhone-frame storyboard + shotlist

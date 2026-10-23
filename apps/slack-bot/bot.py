@@ -42,12 +42,26 @@ def main():
         if not brand and sub != "status":
             ack("usage: `/amb <brand-doc|storyboard|review|feedback|status> <brand> [text]`")
             return
-        # Long-running tools: ack now, post when done.
+        # Long-running tools: ack now, run + upload artifacts, post when done.
         if sub in ("brand-doc", "storyboard", "review"):
             ack(f":hourglass_flowing_sand: running *{sub}* for *{brand}*…")
+            channel_id = command.get("channel_id")
+
             def work():
                 res = amb.dispatch(sub, brand, extra)
-                respond(res["text"])
+                uploaded = 0
+                for it in res.get("artifacts", []):
+                    try:
+                        up = app.client.files_upload_v2(channel=channel_id, file=it["path"], title=it["label"])
+                        f = up.get("file") or (up.get("files") or [{}])[0]
+                        perma = f.get("permalink")
+                        if perma:
+                            amb.set_artifact_link(brand, it["label"], perma)
+                            uploaded += 1
+                    except Exception:
+                        pass  # posting results still works even if an upload fails
+                tail = f"\n_{uploaded} artifact(s) posted; links are on the board._" if uploaded else ""
+                respond(res["text"] + tail)
             threading.Thread(target=work, daemon=True).start()
         else:
             res = amb.dispatch(sub, brand, extra)

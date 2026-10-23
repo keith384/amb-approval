@@ -64,6 +64,24 @@ def _record(brand: str, stage: str, action: str, artifacts: list[str]):
     if rows:
         _sb("amb_artifact", rows)
 
+def set_artifact_link(brand: str, label: str, link: str):
+    """Fill in the Slack permalink on the artifact row the bot just uploaded."""
+    url, key = _sb_cfg()
+    if not url:
+        return
+    import urllib.parse
+    q = f"?brand=eq.{urllib.parse.quote(brand)}&label=eq.{urllib.parse.quote(label)}&link=is.null"
+    req = urllib.request.Request(
+        f"{url}/rest/v1/amb_artifact{q}", data=json.dumps({"link": link}).encode(), method="PATCH",
+        headers={"apikey": key, "Authorization": f"Bearer {key}", "Content-Type": "application/json", "Prefer": "return=minimal"})
+    try:
+        urllib.request.urlopen(req)
+    except Exception:
+        pass
+
+def _artifact_items(d: Path, names: list[str], stage: str) -> list[dict]:
+    return [{"path": str(d / "output" / n), "label": n, "kind": _kind(n), "stage": stage} for n in names]
+
 
 def _venv_py(tool: str) -> str:
     p = TOOLS / tool / ".venv/bin/python"
@@ -109,7 +127,8 @@ def cmd_brand_doc(brand: str) -> dict:
         st = _state(d); st["stage"] = "brand_approval"; _save_state(d, st)
         _log(d, "brand_doc", "generated")
         _record(brand, "brand_approval", "brand_doc", files)
-    return {"text": f"*Brand Approval doc — {brand}*\n```{out.strip()[-800:]}```", "files": files, "ok": ok}
+    return {"text": f"*Brand Approval doc — {brand}*\n```{out.strip()[-800:]}```",
+            "artifacts": _artifact_items(d, files, "brand_approval"), "ok": ok}
 
 
 def cmd_storyboard(brand: str) -> dict:
@@ -133,6 +152,8 @@ def cmd_storyboard(brand: str) -> dict:
         st = _state(d); st["stage"] = "ux_approval"; _save_state(d, st); _log(d, "storyboard", "generated")
         arts = [p.name for p in (d / "output").glob("storyboard-*.html")] + [p.name for p in (d / "output").glob("shotlist-*.json")]
         _record(brand, "ux_approval", "storyboard", arts)
+        return {"text": f"*Storyboard — {brand}*\n```{out.strip()[-800:]}```",
+                "artifacts": _artifact_items(d, arts, "ux_approval"), "ok": ok}
     return {"text": f"*Storyboard — {brand}*\n```{out.strip()[-800:]}```", "ok": ok}
 
 
@@ -148,6 +169,8 @@ def cmd_review(brand: str) -> dict:
         rv = d / "output" / "review"
         arts = [f"review/{p.name}" for p in rv.glob("review-*")] + [f"review/{p.name}" for p in rv.glob("timestamp-index-*")]
         _record(brand, "experience_review", "review", arts or ["review.json"])
+        return {"text": f"*Experience Review — {brand}*\n```{out.strip()[-1000:]}```",
+                "artifacts": _artifact_items(d, arts, "experience_review"), "ok": ok}
     return {"text": f"*Experience Review — {brand}*\n```{out.strip()[-1000:]}```", "ok": ok}
 
 
