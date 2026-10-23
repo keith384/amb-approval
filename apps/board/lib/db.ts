@@ -76,6 +76,26 @@ export async function moveStage(name: string, stage: string): Promise<void> {
   await supabase.from("amb_event").insert({ brand: name, action: "stage_moved", detail: stage });
 }
 
+export interface UserOption { name: string; email: string | null }
+
+// Internal Linq people (reused from the WikiBot project's slack_users) for the owner picker.
+export async function listUsers(): Promise<UserOption[]> {
+  const supabase = sb();
+  const { data } = await supabase
+    .from("slack_users")
+    .select("name, email")
+    .eq("is_linq_internal", true)
+    .not("name", "is", null)
+    .order("name");
+  // de-dup by name (multiple Slack rows can share a name)
+  const seen = new Set<string>();
+  const out: UserOption[] = [];
+  for (const u of (data ?? []) as UserOption[]) {
+    if (u.name && !seen.has(u.name)) { seen.add(u.name); out.push(u); }
+  }
+  return out;
+}
+
 export async function setOwner(name: string, owner: string): Promise<void> {
   const supabase = sb();
   await supabase.from("amb_brand").upsert(

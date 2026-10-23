@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBrand, STAGES } from "@/lib/db";
+import { getBrand, listUsers, STAGES } from "@/lib/db";
 import { moveStage, setOwner } from "@/app/actions";
 
 export const dynamic = "force-dynamic";
@@ -11,6 +11,7 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
   const { brand } = await params;
   const b = await getBrand(brand);
   if (!b) notFound();
+  const users = await listUsers();
 
   async function ownerAction(formData: FormData) {
     "use server";
@@ -62,7 +63,11 @@ export default async function BrandPage({ params }: { params: Promise<{ brand: s
         <div>
           <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: ".06em", color: "#9aa4b1", fontWeight: 700, marginBottom: 6 }}>Next-step owner</div>
           <form action={ownerAction} style={{ display: "flex", gap: 6 }}>
-            <input name="owner" defaultValue={b.owner ?? ""} placeholder="name" style={{ padding: "6px 10px", border: "1px solid #c9d2dc", borderRadius: 7, fontSize: 13 }} />
+            <select name="owner" defaultValue={b.owner ?? ""} style={{ padding: "6px 10px", border: "1px solid #c9d2dc", borderRadius: 7, fontSize: 13, minWidth: 160 }}>
+              <option value="">— unassigned —</option>
+              {b.owner && !users.some((u) => u.name === b.owner) && <option value={b.owner}>{b.owner}</option>}
+              {users.map((u) => <option key={u.name} value={u.name}>{u.name}</option>)}
+            </select>
             <button style={btn}>Save</button>
           </form>
         </div>
