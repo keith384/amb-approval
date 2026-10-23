@@ -3,68 +3,72 @@ import { listBrands, STAGES } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
-const STATE_COLOR: Record<string, string> = { done: "#1f8b5b", active: "#2f6db0", none: "#c3cad3" };
-
-function cellState(stageKey: string, brandStage: string | null, count: number): "done" | "active" | "none" {
-  const order: string[] = STAGES.map((s) => s.key);
-  const bi = brandStage ? order.indexOf(brandStage) : -1;
-  const si = order.indexOf(stageKey);
-  if (count) return "done";
-  if (bi >= 0 && si <= bi) return "active";
-  return "none";
-}
+// Stage accents (dot colors), mirroring the Strategic Accounts board feel.
+const ACCENT: Record<string, string> = {
+  brand_approval: "#8a929c",
+  ux_approval: "#2f6db0",
+  experience_review: "#d98a1f",
+  launch: "#1f8b5b",
+};
 
 export default async function Home() {
   const brands = await listBrands();
+  // Each brand sits in one column = its current stage (null → the first stage).
+  const byStage: Record<string, typeof brands> = {};
+  for (const s of STAGES) byStage[s.key] = [];
+  for (const b of brands) {
+    const key = b.stage && byStage[b.stage] ? b.stage : STAGES[0].key;
+    byStage[key].push(b);
+  }
+
   return (
     <main>
-      <h1 style={{ fontSize: 24, fontWeight: 800, color: "#16375c", margin: 0 }}>AMB Approval Board</h1>
-      <p style={{ color: "#6b7280", marginTop: 4 }}>
-        Apple Messages for Business pipeline · {brands.length} brand{brands.length === 1 ? "" : "s"} · tracking (artifacts live in Slack)
-      </p>
+      <div style={{ marginBottom: 18 }}>
+        <h1 style={{ fontSize: 24, fontWeight: 800, color: "#16375c", margin: 0 }}>AMB Approval</h1>
+        <p style={{ color: "#6b7280", marginTop: 4, fontSize: 13 }}>
+          {brands.length} brand{brands.length === 1 ? "" : "s"} · Apple Messages for Business pipeline
+        </p>
+      </div>
 
-      <div style={{ marginTop: 20, overflowX: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13, background: "#fff", borderRadius: 10, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,.06)" }}>
-          <thead>
-            <tr style={{ background: "#16375c", color: "#fff", textAlign: "left" }}>
-              <th style={{ padding: "10px 14px" }}>Brand</th>
-              {STAGES.map((s) => <th key={s.key} style={{ padding: "10px 14px" }}>{s.label}</th>)}
-              <th style={{ padding: "10px 14px" }}>Owner</th>
-            </tr>
-          </thead>
-          <tbody>
-            {brands.length === 0 && (
-              <tr><td colSpan={STAGES.length + 2} style={{ padding: 18, color: "#9aa4b1" }}>
-                No brands yet. Run <code>/amb brand-doc &lt;brand&gt;</code> in Slack — it records the brand here.
-              </td></tr>
-            )}
-            {brands.map((b) => (
-              <tr key={b.name} style={{ borderTop: "1px solid #eef1f4" }}>
-                <td style={{ padding: "10px 14px", fontWeight: 600 }}>
-                  <Link href={`/brand/${b.name}`} style={{ color: "#16375c", textDecoration: "none" }}>{b.name}</Link>
-                </td>
-                {STAGES.map((s) => {
-                  const n = (b.artifactsByStage[s.key] ?? []).length;
-                  const state = cellState(s.key, b.stage, n);
+      <div style={{ display: "flex", gap: 14, alignItems: "flex-start", overflowX: "auto", paddingBottom: 12 }}>
+        {STAGES.map((s) => {
+          const cards = byStage[s.key];
+          return (
+            <div key={s.key} style={{ width: 270, flex: "0 0 270px", background: "rgba(0,0,0,0.025)", border: "1px solid #e8ebef", borderRadius: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "11px 14px", borderBottom: "1px solid #e8ebef" }}>
+                <span style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, fontWeight: 600, color: "#374151" }}>
+                  <span style={{ width: 9, height: 9, borderRadius: 9, background: ACCENT[s.key] }} />
+                  {s.label}
+                </span>
+                <span style={{ fontSize: 11, fontFamily: "ui-monospace,monospace", color: "#9aa4b1" }}>{cards.length}</span>
+              </div>
+              <div style={{ padding: 10, display: "flex", flexDirection: "column", gap: 10, minHeight: 60 }}>
+                {cards.length === 0 && <p style={{ fontSize: 11, color: "#c3cad3", textAlign: "center", padding: "14px 0" }}>—</p>}
+                {cards.map((b) => {
+                  const artCount = Object.values(b.artifactsByStage).reduce((n, a) => n + a.length, 0);
                   return (
-                    <td key={s.key} style={{ padding: "10px 14px" }}>
-                      <Link href={`/brand/${b.name}`} style={{ textDecoration: "none", color: "inherit", display: "flex", alignItems: "center", gap: 7 }}>
-                        <span style={{ width: 9, height: 9, borderRadius: 9, background: STATE_COLOR[state], display: "inline-block" }} />
-                        <span style={{ color: state === "none" ? "#b0b8c1" : "#374151" }}>
-                          {n ? `${n} artifact${n === 1 ? "" : "s"}` : state === "active" ? "in progress" : "—"}
-                        </span>
-                      </Link>
-                    </td>
+                    <Link key={b.name} href={`/brand/${b.name}`} style={{ textDecoration: "none" }}>
+                      <div style={{ background: "#fff", border: "1px solid #e3e7ec", borderRadius: 10, padding: "12px 13px", boxShadow: "0 1px 2px rgba(0,0,0,.04)" }}>
+                        <div style={{ fontSize: 14, fontWeight: 700, color: "#16375c" }}>{b.name}</div>
+                        {artCount > 0 && (
+                          <div style={{ fontSize: 11, color: "#9aa4b1", marginTop: 2 }}>{artCount} artifact{artCount === 1 ? "" : "s"}</div>
+                        )}
+                        <div style={{ marginTop: 10 }}>
+                          <span style={{ fontSize: 11, color: b.owner ? "#55606e" : "#b0b8c1", background: "rgba(0,0,0,0.04)", border: "1px solid #e8ebef", borderRadius: 5, padding: "2px 7px" }}>
+                            {b.owner || "Unclaimed"}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
                   );
                 })}
-                <td style={{ padding: "10px 14px", color: "#6b7280" }}>{b.owner ?? "—"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              </div>
+            </div>
+          );
+        })}
       </div>
-      <p style={{ marginTop: 14, fontSize: 12, color: "#9aa4b1" }}>
-        State in Supabase · artifacts in Slack · tool runs via <code>/amb</code> in #amb-implimenation.
+      <p style={{ marginTop: 10, fontSize: 12, color: "#9aa4b1" }}>
+        Click a tile to open the brand · state in Supabase · artifacts in Slack · runs via <code>/amb</code>.
       </p>
     </main>
   );
