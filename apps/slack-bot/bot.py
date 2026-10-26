@@ -67,6 +67,46 @@ def main():
             res = amb.dispatch(sub, brand, extra)
             ack(res["text"])
 
+    @app.event("app_mention")
+    def on_mention(event, say):
+        text = event.get("text", "")
+        files = event.get("files", []) or []
+        channel = event.get("channel")
+        thread = event.get("thread_ts") or event.get("ts")
+        pdfs = [f for f in files if (f.get("name", "").lower().endswith(".pdf"))]
+        req = amb.parse_request(text, [f.get("name", "") for f in pdfs])
+        brand = req["brand"]
+        if brand == "unknown" or not pdfs:
+            say(text="Mention me with a brand and attach the PDFs, e.g. "
+                     "`@AMB build a storyboard for Superpower` + the brand's PDFs.", thread_ts=thread)
+            return
+        say(text=f":hourglass_flowing_sand: Reading {len(pdfs)} attachment(s) and building *{brand}*…", thread_ts=thread)
+
+        def work():
+            d = amb._brand_dir(brand)
+            paths = []
+            for f in pdfs:
+                dest = d / "inputs" / f["name"]
+                try:
+                    amb.download(f.get("url_private_download") or f["url_private"], str(dest), os.environ["SLACK_BOT_TOKEN"])
+                    paths.append(str(dest))
+                except Exception:
+                    pass
+            if not paths:
+                say(text=f"Couldn't download the attachments for *{brand}* (need `files:read`).", thread_ts=thread)
+                return
+            res = amb.run_from_sources(brand, paths, note=text)
+            for it in res.get("artifacts", []):
+                try:
+                    up = app.client.files_upload_v2(channel=channel, thread_ts=thread, file=it["path"], title=it["label"])
+                    f = up.get("file") or (up.get("files") or [{}])[0]
+                    if f.get("permalink"):
+                        amb.set_artifact_link(brand, it["label"], f["permalink"])
+                except Exception:
+                    pass
+            say(text=res["text"], thread_ts=thread)
+        threading.Thread(target=work, daemon=True).start()
+
     SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"]).start()
 
 

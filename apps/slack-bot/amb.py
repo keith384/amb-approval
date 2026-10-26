@@ -13,6 +13,7 @@ rule-set feedback loop). Slack wiring is in bot.py; this module has no Slack dep
 from __future__ import annotations
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -220,6 +221,46 @@ def cmd_feedback(brand: str, text: str) -> dict:
         return {"text": f"*Apple feedback — {brand}* ({len(items)} items; react ✅ to confirm each)\n{body}"}
     except Exception as e:
         return {"text": f"feedback parse unavailable ({e}). Needs ANTHROPIC_API_KEY."}
+
+
+def parse_request(text: str, filenames: list[str]) -> dict:
+    """Heuristically pull {brand, action} from a natural-language @mention."""
+    t = re.sub(r"<@[^>]+>", "", text or "").strip()  # drop the bot mention
+    low = t.lower()
+    action = ("review" if "review" in low or "recording" in low else
+              "storyboard" if "storyboard" in low or "story board" in low else
+              "brand-doc")
+    brand = None
+    m = re.search(r"\bfor\s+([A-Za-z0-9][\w.\-&' ]{1,40}?)(?:\.|,|\s+(?:use|using|from|with|and)\b|$)", t)
+    if m:
+        brand = m.group(1).strip()
+    if not brand and filenames:
+        # e.g. "Superpower- Apple Messages for Business Brand Nomination.pdf" → "Superpower"
+        base = re.split(r"[-–—]|messages|apple|brand|use", filenames[0], flags=re.I)[0]
+        brand = re.sub(r"\.pdf$", "", base, flags=re.I).strip() or None
+    return {"brand": (brand or "unknown").strip(), "action": action}
+
+
+def download(url: str, dest: str, token: str):
+    import urllib.request
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+    with urllib.request.urlopen(req) as r, open(dest, "wb") as f:
+        f.write(r.read())
+
+
+def run_from_sources(brand: str, pdf_paths: list[str], note: str = "") -> dict:
+    """Mention flow: PDFs → intake → brand-doc → storyboard. Returns combined text + artifacts."""
+    d = _brand_dir(brand)
+    intake = d / "inputs/intake.json"
+    ok, out = _run([_venv_py("brand-doc"), str(TOOLS / "brand-doc/intake_from_sources.py"),
+                    brand, str(intake), *pdf_paths, "--note", note], TOOLS / "brand-doc")
+    if not ok or not intake.exists():
+        return {"text": f"Couldn't read the attachments for *{brand}*.\n```{out[-500:]}```", "artifacts": []}
+    r1 = cmd_brand_doc(brand)
+    r2 = cmd_storyboard(brand)
+    arts = (r1.get("artifacts") or []) + (r2.get("artifacts") or [])
+    return {"text": f"*{brand}* — brand doc + storyboard built from the attachments.\n"
+                    f"{r2.get('text','')}", "artifacts": arts}
 
 
 DISPATCH = {"brand-doc": cmd_brand_doc, "storyboard": cmd_storyboard, "review": cmd_review, "status": cmd_status}
