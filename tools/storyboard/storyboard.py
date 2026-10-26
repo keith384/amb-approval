@@ -54,10 +54,12 @@ def model_shotlist(model: dict) -> list[dict]:
     for s in model.get("sections", []):
         for i, st in enumerate(s.get("steps", []), 1):
             tag = st.get("tag") or {}
+            adds = st.get("adds") or []
+            elements = [a["kind"] for a in adds if a.get("kind")]
+            copy = " ".join(a.get("text", "") for a in adds if a.get("text"))[:80]
             rows.append({"section": s.get("id") or s.get("title"), "step": i,
-                         "mode": st.get("mode"), "tag": tag.get("text"),
-                         "element": (st.get("screen") or {}).get("element"),
-                         "copy": " ".join(b.get("text", "") for b in (st.get("screen") or {}).get("bubbles", []) or [])[:80]})
+                         "mode": st.get("mode"), "tag": tag.get("text"), "phone": st.get("phone", False),
+                         "elements": elements, "copy": copy})
     return rows
 
 

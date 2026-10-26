@@ -19,17 +19,25 @@ from pathlib import Path
 
 MODEL = os.environ.get("AMB_LLM_MODEL", "claude-opus-4-8")
 
-SCREEN_HINT = {
-    "nav": "brand name shown in the chat header",
-    "bubbles": [{"side": "bot|user", "text": "message copy"}],
-    "chips": ["quick reply option", "..."],
-    "element": "none|quick_reply|list_picker|time_picker|rich_link|apple_pay|auth",
-}
+# A step either shows NO phone (phone:false — e.g. entry points, website signup) or
+# ADDS items to a developing Messages thread (the renderer accumulates them, so each
+# frame shows the whole conversation so far). Thread items are real elements:
+THREAD_ITEM_HINT = (
+    '{"side":"bot|user","text":"message copy"} '
+    '| {"side":"bot","kind":"quick_reply","text":"framing bubble","options":["<=5 options"]} '
+    '| {"side":"bot","kind":"list_picker","text":"framing bubble","title":"Choose…","rows":[{"title":"","subtitle":""}]} '
+    '| {"side":"bot","kind":"time_picker","text":"framing bubble","options":["Tomorrow 9:00 AM","Tomorrow 2:30 PM"]} '
+    '| {"side":"bot","kind":"rich_link","title":"link title","domain":"brand.com","image":"short caption of the preview image"} '
+    '| {"side":"bot","kind":"apple_pay","merchant":"Brand","amount":"$0.00"} '
+    '| {"side":"bot","kind":"auth","text":"framing bubble (identity verification)"} '
+    '| {"side":"bot","kind":"typing"}'
+)
 STEP_HINT = {
     "mode": "USER DOES|PAGE DISPLAYS",
-    "tag": {"type": "Apple feature|Requirement|Entry point|", "text": "e.g. Quick Reply, Privacy Policy & Terms, Website Messages button"},
+    "tag": {"type": "Apple feature|Requirement|Entry point", "text": "e.g. Quick Reply, Privacy Policy & Terms, Website"},
     "description": "one sentence: what the user does / what the page displays",
-    "screen": SCREEN_HINT,
+    "phone": "true if this step shows a Messages thread; false for non-Messages steps (entry points, web signup) — those render with NO phone",
+    "adds": ["thread items ADDED at this step (only when phone:true): " + THREAD_ITEM_HINT],
 }
 
 
@@ -46,14 +54,23 @@ def run(review_dir: str, out_dir: str) -> dict:
         "exact deck format (one section per slide): "
         "(1) Entry points, (2) Signing up & starting the chat, (3..N) one slide PER USE CASE from "
         "the brand review, (N+1) Escalation to a human (HELP) + CSAT survey, (N+2) Opt-out (STOP). "
-        "Each slide has ordered STEPS. Every step has: mode ('USER DOES' or 'PAGE DISPLAYS'), an "
-        "optional tag {type: 'Apple feature'|'Requirement'|'Entry point', text}, a one-sentence "
-        "description, and an iMessage screen {nav, bubbles:[{side:'bot'|'user',text}], chips:[], "
-        "element}. Tag every step that shows a rich element with the matching Apple feature. "
-        "Honor the rules: the welcome message must self-identify as automated and explain HELP + "
-        "STOP; put a framing bubble before every rich element; confirm after every tap; include a "
-        "route to a person on menus; ask 'anything else' before closing; show an out-of-hours path. "
-        "Use ONLY the use cases + features in the brand review; don't invent features or use "
+        "Each slide has ordered STEPS. Within a USE-CASE slide the steps build ONE continuous "
+        "Messages thread — each step ADDS to it (the renderer accumulates, so every frame shows "
+        "the whole conversation up to that point). Every step: mode ('USER DOES' or 'PAGE "
+        "DISPLAYS'), an optional tag {type:'Apple feature'|'Requirement'|'Entry point', text}, a "
+        "one-sentence description, phone (true/false), and (when phone:true) `adds` = the thread "
+        "items added at this step.\n"
+        "CRITICAL RULES:\n"
+        "- Entry-point steps and website/signup steps show NO Messages screen → set phone:false "
+        "and omit adds (the renderer shows no phone for them).\n"
+        "- The welcome message self-identifies as an automated assistant and explains HELP + STOP.\n"
+        "- Put a framing text bubble (side:bot, text) immediately before every rich element.\n"
+        "- Confirm after every user tap (a bot text bubble).\n"
+        "- Menus include a route to a person; ask 'anything else' before closing; show an "
+        "out-of-hours path in the opt-out/escalation slide.\n"
+        "- Tag each rich-element step with the matching Apple feature.\n"
+        "- Thread item shapes: " + THREAD_ITEM_HINT + "\n"
+        "Use ONLY the use cases + features in the brand review; never invent features or use "
         '"iMessage"/"AMB"/"Apple Chat". Return STRICT JSON: '
         + json.dumps({"brand": brand, "cover": {"summary": "", "use_cases": [{"title": "", "features": []}]},
                       "sections": [{"id": "", "title": "", "description": "", "steps": [STEP_HINT]}]}))
