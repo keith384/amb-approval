@@ -63,13 +63,22 @@ def model_shotlist(model: dict) -> list[dict]:
     return rows
 
 
-def run_from_review(review_dir: str, out_dir: str):
-    """Review-driven path: brand review (scope + doc_model) -> Juno-format deck."""
+def run_from_review(review_dir: str, out_dir: str, render_only: bool = False):
+    """Review-driven path: brand review (scope + doc_model) -> Juno-format deck.
+    render_only re-renders the existing storyboard_model.json (no LLM) — for visual
+    tweaks (entry screens, bubble colors, dropped-in images) that must not change
+    approved content."""
     import json as _json
-    import generate, render_deck, validate as _v
-    g = generate.run(review_dir, out_dir)
+    import render_deck, validate as _v
     out = Path(out_dir)
+    if render_only and (out / "storyboard_model.json").exists():
+        g = {"model": "render-only"}
+    else:
+        import generate
+        g = generate.run(review_dir, out_dir)
     model = _json.loads((out / "storyboard_model.json").read_text())
+    g.setdefault("sections", len(model.get("sections", [])))
+    g.setdefault("steps", sum(len(s.get("steps", [])) for s in model.get("sections", [])))
     brand = (model.get("brand", "brand")).lower().replace(" ", "-")
     (out / f"storyboard-{brand}.html").write_text(render_deck.render_html(model, str(out)))
     (out / f"shotlist-{brand}.json").write_text(_json.dumps({"brand": brand, "steps": model_shotlist(model)}, indent=2))
@@ -86,9 +95,10 @@ def main():
     ap.add_argument("flow", nargs="?"); ap.add_argument("out_dir")
     ap.add_argument("--scope", default=None)
     ap.add_argument("--from-review", default=None, help="brand-review dir (scope.json + doc_model.json) → generate the deck")
+    ap.add_argument("--render-only", action="store_true", help="re-render the existing model (no LLM) — visual tweaks only")
     a = ap.parse_args()
     if a.from_review:
-        return run_from_review(a.from_review, a.out_dir)
+        return run_from_review(a.from_review, a.out_dir, render_only=a.render_only)
     out = Path(a.out_dir); out.mkdir(parents=True, exist_ok=True)
     flow_data = json.loads(Path(a.flow).read_text())
     scope = json.loads(Path(a.scope).read_text()) if a.scope and Path(a.scope).exists() else {}

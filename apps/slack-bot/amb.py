@@ -161,15 +161,18 @@ def cmd_brand_doc(brand: str) -> dict:
             "artifacts": _artifact_items(d, files, "brand_approval"), "ok": ok}
 
 
-def cmd_storyboard(brand: str) -> dict:
+def cmd_storyboard(brand: str, render_only: bool = False) -> dict:
     d = _brand_dir(brand)
     scope = d / "output/scope.json"
     doc = d / "output/doc_model.json"
     flow = d / "inputs/flow.json"
+    model = d / "output/storyboard_model.json"
     # Preferred: generate the Juno-format deck from the brand review (Tool 1 output).
     if scope.exists() and doc.exists():
         args = [_venv_py("storyboard"), str(TOOLS / "storyboard/storyboard.py"),
                 "--from-review", str(d / "output"), str(d / "output")]
+        if render_only and model.exists():
+            args.append("--render-only")   # re-render current content (no LLM), visual tweaks only
     elif flow.exists():
         args = [_venv_py("storyboard"), str(TOOLS / "storyboard/storyboard.py"), str(flow), str(d / "output")]
         if scope.exists():
@@ -289,10 +292,29 @@ def run_from_sources(brand: str, pdf_paths: list[str], note: str = "") -> dict:
                     f"{r2.get('text','')}", "artifacts": arts}
 
 
+_ENTRY_ALIASES = {"web": "website", "site": "website", "ios": "app", "iphone": "app",
+                  "spotlight": "search", "siri": "search", "safari": "search", "suggest": "search",
+                  "text message": "sms", "deflect": "ivr", "phone call": "ivr", "invite": "invitation",
+                  "apple maps": "maps"}
+_ENTRY_KEYS = ["website", "app", "maps", "search", "social", "email", "sms", "qr", "ivr", "invitation"]
+
+def entry_key(text: str) -> str | None:
+    """Pull an entry-point type ('iOS app', 'Apple Maps', 'Spotlight') from free text."""
+    low = (text or "").lower()
+    for phrase, k in _ENTRY_ALIASES.items():
+        if phrase in low:
+            return k
+    for k in _ENTRY_KEYS:
+        if k in low:
+            return k
+    return None
+
+
 def followup_action(text: str) -> str:
-    """Map an in-thread follow-up to an action. Tolerant of typos (scoreboard→storyboard)."""
+    """Keyword fallback: map an in-thread follow-up to an action (typo-tolerant)."""
     low = re.sub(r"<@[^>]+>", "", text or "").lower()
-    if re.search(r"story\s*-?\s*board|scoreboard|storyboard|slide|deck|ux\s*flow", low):
+    if re.search(r"story\s*-?\s*board|scoreboard|storyboard|slide|deck|ux\s*flow|entry\s*point|"
+                 r"in\s*place\s*of\s*the\s*phone|mock\s*up|\bimage\b|\bmockup\b|render", low):
         return "storyboard"
     if re.search(r"brand[-\s]?doc|nomination|brand\s*approval", low):
         return "brand-doc"
@@ -303,6 +325,46 @@ def followup_action(text: str) -> str:
     if re.search(r"\bstatus\b|where\s+are\s+we|progress|what'?s\s+(left|next)", low):
         return "status"
     return "unknown"
+
+
+def interpret_followup(brand: str, text: str, stage: str = "", has_images: bool = False) -> dict:
+    """Interpret a free-form in-thread request → {action, entry_key, reply}. Uses the LLM
+    for real conversational routing; falls back to keywords with no ANTHROPIC_API_KEY."""
+    clean = re.sub(r"<@[^>]+>", "", text or "").strip()
+    fallback = {"action": followup_action(clean), "entry_key": entry_key(clean), "reply": ""}
+    if fallback["action"] == "unknown" and (fallback["entry_key"] or has_images):
+        fallback["action"] = "storyboard"
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        return fallback
+    try:
+        import anthropic
+        sysmsg = (
+            "You route a teammate's in-thread request about an Apple Messages for Business "
+            "storyboard project to ONE action. Actions:\n"
+            "- storyboard: (re)generate or re-render the UX storyboard deck. Use for ANYTHING "
+            "visual: entry points, phone screens, mockups, images, bubbles, colors, a specific "
+            "section/step, 'mock up', 'redo', 'use X in place of the phone'.\n"
+            "- brand-doc: regenerate the brand nomination doc / use cases / readiness.\n"
+            "- review: run the experience video review.\n"
+            "- status: report pipeline status.\n"
+            "- feedback: the user is relaying Apple's feedback to log against the rules.\n"
+            "- note: just record a comment; no tool run.\n"
+            "If the request names an entry-point type, set entry_key to one of "
+            "[website, app, maps, search, social, email, sms, qr, ivr, invitation], else null. "
+            "reply = one short sentence confirming what you will do, in the first person. "
+            'Return STRICT JSON {"action","entry_key","reply"}.')
+        usr = f"PROJECT: {brand} (stage: {stage or 'unknown'}). has_images={has_images}.\nMESSAGE: {clean}"
+        client = anthropic.Anthropic()
+        r = client.messages.create(model=os.environ.get("AMB_LLM_MODEL", "claude-opus-4-8"),
+                                   max_tokens=400, system=sysmsg,
+                                   messages=[{"role": "user", "content": usr}])
+        m = re.search(r"\{.*\}", r.content[0].text, re.S)
+        out = json.loads(m.group(0)) if m else {}
+        action = out.get("action") if out.get("action") in DISPATCH or out.get("action") in ("feedback", "note") else fallback["action"]
+        return {"action": action, "entry_key": out.get("entry_key") or fallback["entry_key"],
+                "reply": (out.get("reply") or "").strip()}
+    except Exception:
+        return fallback
 
 
 def _refresh_intake(brand: str, pdf_paths: list[str], note: str) -> bool:
@@ -316,10 +378,27 @@ def _refresh_intake(brand: str, pdf_paths: list[str], note: str) -> bool:
     return ok and intake.exists()
 
 
-def apply_followup(brand: str, action: str, note: str = "", pdf_paths: list[str] | None = None) -> dict:
-    """Run an in-thread follow-up for a known brand. New PDFs refresh the brand review
-    first; a bare 're-do the storyboard' just re-runs that tool on the current project."""
+def _save_entry_image(brand: str, key: str, image_paths: list[str]) -> bool:
+    """Drop the first attached image in as the entry-point override (inputs/entry-<key>.png)."""
+    if not (key and image_paths):
+        return False
+    import shutil
+    d = _brand_dir(brand)
+    ext = os.path.splitext(image_paths[0])[1].lower() or ".png"
+    try:
+        shutil.copy(image_paths[0], d / "inputs" / f"entry-{key}{ext}")
+        return True
+    except Exception:
+        return False
+
+
+def apply_followup(brand: str, action: str, note: str = "", pdf_paths: list[str] | None = None,
+                   image_paths: list[str] | None = None, entry_key: str | None = None) -> dict:
+    """Run an in-thread follow-up for a known brand. New PDFs refresh the brand review;
+    an attached image + an entry type is dropped in as that entry-point's screen; a bare
+    visual request re-renders the current deck (no LLM) so approved content is preserved."""
     pdf_paths = pdf_paths or []
+    image_paths = image_paths or []
     d = _brand_dir(brand)
     if action == "review":
         return cmd_review(brand)
@@ -331,11 +410,21 @@ def apply_followup(brand: str, action: str, note: str = "", pdf_paths: list[str]
         _refresh_intake(brand, pdf_paths, note)
         return cmd_brand_doc(brand)
     if action == "storyboard":
+        used_image = _save_entry_image(brand, entry_key, image_paths)
         arts = []
-        if _refresh_intake(brand, pdf_paths, note):
-            arts += cmd_brand_doc(brand).get("artifacts", [])   # refresh scope/doc_model
-        rs = cmd_storyboard(brand)
-        return {"text": rs.get("text", ""), "artifacts": arts + rs.get("artifacts", []), "ok": rs.get("ok")}
+        refreshed = _refresh_intake(brand, pdf_paths, note)
+        if refreshed:
+            arts += cmd_brand_doc(brand).get("artifacts", [])     # new content → refresh scope/doc_model
+        # Visual-only change (dropped image / entry / bubble tweak, no new PDFs) → cheap re-render.
+        render_only = not refreshed and (d / "output/storyboard_model.json").exists()
+        rs = cmd_storyboard(brand, render_only=render_only)
+        note_bits = []
+        if used_image:
+            note_bits.append(f"used your image for the *{entry_key}* entry point")
+        elif entry_key:
+            note_bits.append(f"the *{entry_key}* entry point now shows the real AMB entry screen")
+        extra = (" — " + "; ".join(note_bits)) if note_bits else ""
+        return {"text": rs.get("text", "") + extra, "artifacts": arts + rs.get("artifacts", []), "ok": rs.get("ok")}
     # unknown intent: new PDFs → full rebuild; otherwise log the note as feedback on the project.
     if pdf_paths:
         return run_from_sources(brand, pdf_paths, note)

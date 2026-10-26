@@ -75,34 +75,37 @@ def main():
         thread = event.get("thread_ts") or event.get("ts")
         attach = [f for f in files if f.get("name", "").lower().endswith((".pdf", ".png", ".jpg", ".jpeg"))]
         pdf_names = [f.get("name", "") for f in attach if f.get("name", "").lower().endswith(".pdf")]
-        # Resolve the project: an explicit "for <brand>", else the brand this thread remembers.
-        brand = amb.parse_request(text, pdf_names)["brand"]
-        if brand == "unknown":
-            brand = amb.thread_brand(channel, thread) or "unknown"
+        has_images = any(f.get("name", "").lower().endswith((".png", ".jpg", ".jpeg")) for f in attach)
+        # Resolve the project: the thread's remembered brand wins (a follow-up sentence
+        # like "…for the 1st entry point" must NOT be mis-read as a brand); only fall back
+        # to an explicit "for <brand>" when the thread is new.
+        brand = amb.thread_brand(channel, thread) or amb.parse_request(text, pdf_names)["brand"]
         if brand == "unknown":
             say(text="Which brand is this? Mention me with the brand (e.g. "
                      "`@AMB build a storyboard for Superpower` + the PDFs) and I'll remember it for this thread.",
                 thread_ts=thread)
             return
         amb.link_thread(channel, thread, brand)        # thread is now persistent for this project
-        action = amb.followup_action(text)
-        doing = {"storyboard": "re-doing the storyboard", "brand-doc": "updating the brand doc",
-                 "review": "running the experience review", "feedback": "logging Apple's feedback",
-                 "status": "checking status"}.get(action, "on it")
-        say(text=f":hourglass_flowing_sand: *{brand}* — {doing}…", thread_ts=thread)
+        stage = (amb._state(amb._brand_dir(brand)) or {}).get("stage") or ""
+        intent = amb.interpret_followup(brand, text, stage=stage, has_images=has_images)
+        action, ekey = intent["action"], intent.get("entry_key")
+        ack = intent.get("reply") or {
+            "storyboard": "re-doing the storyboard", "brand-doc": "updating the brand doc",
+            "review": "running the experience review", "feedback": "logging Apple's feedback",
+            "status": "checking status"}.get(action, "on it")
+        say(text=f":hourglass_flowing_sand: *{brand}* — {ack}", thread_ts=thread)
 
         def work():
             d = amb._brand_dir(brand)
-            pdfs = []
+            pdfs, imgs = [], []
             for f in attach:
                 dest = d / "inputs" / f["name"]
                 try:
                     amb.download(f.get("url_private_download") or f["url_private"], str(dest), os.environ["SLACK_BOT_TOKEN"])
-                    if f["name"].lower().endswith(".pdf"):
-                        pdfs.append(str(dest))
+                    (pdfs if f["name"].lower().endswith(".pdf") else imgs).append(str(dest))
                 except Exception:
                     pass
-            res = amb.apply_followup(brand, action, note=text, pdf_paths=pdfs)
+            res = amb.apply_followup(brand, action, note=text, pdf_paths=pdfs, image_paths=imgs, entry_key=ekey)
             for it in res.get("artifacts", []):
                 try:
                     up = app.client.files_upload_v2(channel=channel, thread_ts=thread, file=it["path"], title=it["label"])

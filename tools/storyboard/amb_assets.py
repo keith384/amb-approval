@@ -43,6 +43,68 @@ def _slug(s):
     return re.sub(r"[^a-z0-9]+", "-", (s or "brand").lower()).strip("-")
 
 
+# Entry-point tag → the real AMB entry-point frame (shown in place of a blank phone).
+ENTRY_FRAME = {
+    "app": "02_AMB_Entry_Points_Buttons_App",
+    "website": "01_AMB_Entry_Points_Buttons_Web",
+    "maps": "03_AMB_Entry_Points_Buttons_Maps",
+    "search": "01_AMB_Entry_Points_Message_Suggest_Search_Engine",
+    "social": "03_AMB_Entry_Points_BCRW_Link_Social",
+    "email": "02_AMB_Entry_Points_BCRW_Link_Email",
+    "sms": "01_AMB_Entry_Points_BCRW_Link_SMS",
+    "qr": "01_AMB_Entry_Points_BCRW_Link_SMS",
+    "ivr": "01_AMB_Entry_Points_IVR_Deflection",
+    "invitation": "01_AMB_Entry_Points_Invitation",
+}
+_ENTRY_ALIASES = {"web": "website", "site": "website", "ios": "app", "iphone": "app",
+                  "suggest": "search", "spotlight": "search", "siri": "search", "safari": "search",
+                  "text": "sms", "message suggest": "search", "deflect": "ivr", "call": "ivr",
+                  "phone call": "ivr", "invite": "invitation", "apple maps": "maps"}
+
+
+def entry_key(text: str) -> str | None:
+    """Map an entry-point tag/request ('iOS App', 'Apple Maps', 'Spotlight') to a frame key."""
+    low = (text or "").lower()
+    for phrase, k in _ENTRY_ALIASES.items():
+        if phrase in low:
+            return k
+    for k in ENTRY_FRAME:
+        if k in low:
+            return k
+    return None
+
+
+def entry_screen(tag_text: str, brand: str, *, out_dir: str = "") -> str | None:
+    """Return a path to the entry-point screen for this step: a brand-dropped custom
+    image if present (inputs/entry-<key>.png), else the real AMB entry frame. None →
+    the renderer shows no phone (old behaviour)."""
+    import shutil
+    key = entry_key(tag_text)
+    frame = ENTRY_FRAME.get(key or "")
+    if not frame:
+        return None
+    custom = None
+    if out_dir:
+        cdir = os.path.join(out_dir, os.pardir, "inputs")
+        for ext in (".png", ".jpg", ".jpeg"):
+            p = os.path.join(cdir, f"entry-{key}{ext}")
+            if os.path.exists(p):
+                custom = p
+                break
+    src = custom or os.path.join(FIGMA, frame + ".png")
+    if not os.path.exists(src):
+        return None
+    if out_dir:
+        rel = os.path.join("amb-assets", _slug(brand), f"entry_{key}.png")
+        dest = os.path.join(out_dir, rel)
+    else:
+        rel = os.path.join("assets", "amb-composed", _slug(brand), f"entry_{key}.png")
+        dest = os.path.join(HERE, rel)
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    shutil.copy(src, dest)
+    return rel
+
+
 def _font(sz, bold=False):
     from PIL import ImageFont
     paths = (["/System/Library/Fonts/SFNS.ttf", "/Library/Fonts/Arial Bold.ttf",

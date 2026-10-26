@@ -147,9 +147,19 @@ def _step_col(brand: str, color: str, i: int, step: dict, thread: list[dict], fs
         t = (tag.get("type") or "").lower()
         cls = "feature" if "feature" in t else "req" if "require" in t else "entry" if "entry" in t else "feature"
         tag_html = f'<span class="tag {cls}">{_esc(tag.get("type"))}: {_esc(tag.get("text"))}</span>'
-    # Priority: a real full-screen element → the developing CSS thread → no phone.
+    # Priority: entry-point screen → a real full-screen element → the developing CSS
+    # thread → no phone. Entry-point steps used to render blank; now they show the real
+    # AMB entry frame (or a brand-dropped custom image) for that entry type.
+    is_entry = "entr" in (tag.get("type") or "").lower()
     phone = ""
-    if step.get("phone") and fs:
+    if is_entry and amb_assets:
+        img = None
+        try:
+            img = amb_assets.entry_screen(tag.get("text", "") or step.get("description", ""), brand, out_dir=out_dir)
+        except Exception:
+            img = None
+        phone = f'<img class="ambscreen" src="{_esc(img)}" alt="entry point">' if img else ""
+    elif step.get("phone") and fs:
         img = _compose_screen(brand, color, fs, out_dir)
         phone = (f'<img class="ambscreen" src="{_esc(img)}" alt="{_esc(fs.get("kind"))}">'
                  if img else _phone(brand, thread + [fs]))
