@@ -72,7 +72,8 @@ def run(review_dir: str, out_dir: str) -> dict:
         "- Thread item shapes: " + THREAD_ITEM_HINT + "\n"
         "Use ONLY the use cases + features in the brand review; never invent features or use "
         '"iMessage"/"AMB"/"Apple Chat". Return STRICT JSON: '
-        + json.dumps({"brand": brand, "cover": {"summary": "", "use_cases": [{"title": "", "features": []}]},
+        + json.dumps({"brand": brand, "brand_color": "the brand's primary hex color (e.g. #5B4BDB) if known, else \"#1676FF\"",
+                      "cover": {"summary": "", "use_cases": [{"title": "", "features": []}]},
                       "sections": [{"id": "", "title": "", "description": "", "steps": [STEP_HINT]}]}))
     user = ("BRAND REVIEW — scope.json:\n" + json.dumps(scope, indent=2)
             + "\n\nBRAND REVIEW — doc_model.json (use cases, narrative, features):\n"
@@ -85,6 +86,7 @@ def run(review_dir: str, out_dir: str) -> dict:
     m = re.search(r"\{.*\}", resp.content[0].text, re.S)
     model = json.loads(m.group(0)) if m else {"brand": brand, "sections": []}
     model.setdefault("brand", brand)
+    model.setdefault("brand_color", "#1676FF")
     (out / "storyboard_model.json").write_text(json.dumps(model, indent=2))
     return {"model": MODEL, "brand": brand, "sections": len(model.get("sections", [])),
             "steps": sum(len(s.get("steps", [])) for s in model.get("sections", []))}

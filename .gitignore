@@ -41,3 +41,4 @@ brands/
 
 # AMB Figma asset mirror (116MB; regenerate with tools/storyboard/fetch_amb_assets.py)
 tools/storyboard/assets/amb-figma/*.png
+tools/storyboard/assets/amb-composed/

@@ -1,0 +1,3 @@
+# Tool 2 (UX Storyboard) dependencies
+anthropic>=0.40        # storyboard synthesis (generate.py)
+Pillow>=10.0           # compose real AMB element screens from the Figma mirror (amb_assets.py)

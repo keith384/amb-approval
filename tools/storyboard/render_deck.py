@@ -13,6 +13,17 @@ like real Apple Messages for Business screens:
 from __future__ import annotations
 import html
 
+try:
+    import amb_assets
+except Exception:
+    amb_assets = None
+
+# Element kinds shown as a real full-screen Apple sheet (composed from the Figma
+# library) rather than an in-thread CSS bubble. The rest (text, quick_reply,
+# rich_link, typing) stay in the developing CSS thread.
+FULLSCREEN = {"list_picker", "time_picker", "auth", "apple_pay"}
+
+
 def _esc(s):
     return html.escape(str(s or ""))
 
@@ -65,6 +76,7 @@ h2{font-size:19px;font-weight:800;color:#16375c}.desc{color:#55606e;font-size:13
 .au .lk{font-size:16px}.au .tx{font-size:10px;color:#374151;margin:4px 0 8px}.au .btn{background:#3797f0;color:#fff;border-radius:8px;font-size:10.5px;font-weight:600;padding:6px 0}
 .typing{align-self:flex-start;background:#e9e9eb;border-radius:15px;padding:8px 12px;display:flex;gap:3px}
 .typing i{width:6px;height:6px;border-radius:6px;background:#9aa0a6;display:inline-block}
+.ambscreen{width:100%;border-radius:18px;display:block;box-shadow:0 5px 16px rgba(0,0,0,.14)}
 .cap{margin-top:8px;font-size:10.5px;color:#55606e}.cap .st{font-weight:700;color:#16375c}
 @media print{body{background:#fff}.slide{box-shadow:none;break-inside:avoid;page-break-after:always}}
 """
@@ -111,21 +123,46 @@ def _phone(brand: str, thread: list[dict]) -> str:
             f'<div class="thread">{body}</div></div>')
 
 
-def _step_col(brand: str, i: int, step: dict, thread: list[dict]) -> str:
+def _compose_screen(brand: str, color: str, el: dict, out_dir: str) -> str | None:
+    """Composite a real full-screen AMB element; return PNG path (rel to out_dir) or None."""
+    if not amb_assets:
+        return None
+    kind = el.get("kind")
+    kw = {"color": color, "out_dir": out_dir}
+    if kind == "list_picker":
+        kw["rows"] = el.get("rows") or []
+        kw["title"] = el.get("title") or ""
+    elif kind == "time_picker":
+        kw["title"] = el.get("text") or f"Schedule with {brand}"
+    elif kind == "apple_pay":
+        kw["amount"] = el.get("amount") or ""
+    try:
+        return amb_assets.compose(kind, brand, **kw)
+    except Exception:
+        return None
+
+
+def _step_col(brand: str, color: str, i: int, step: dict, thread: list[dict], fs: dict | None, out_dir: str) -> str:
     tag = step.get("tag") or {}
     tag_html = ""
     if tag.get("text"):
         t = (tag.get("type") or "").lower()
         cls = "feature" if "feature" in t else "req" if "require" in t else "entry" if "entry" in t else "feature"
         tag_html = f'<span class="tag {cls}">{_esc(tag.get("type"))}: {_esc(tag.get("text"))}</span>'
-    # No Messages screen (entry points / web steps) → show no phone at all, just the caption.
-    phone = _phone(brand, thread) if (step.get("phone") and thread) else ""
+    # Priority: a real full-screen element → the developing CSS thread → no phone.
+    phone = ""
+    if step.get("phone") and fs:
+        img = _compose_screen(brand, color, fs, out_dir)
+        phone = (f'<img class="ambscreen" src="{_esc(img)}" alt="{_esc(fs.get("kind"))}">'
+                 if img else _phone(brand, thread + [fs]))
+    elif step.get("phone") and thread:
+        phone = _phone(brand, thread)
     return (f'<div class="step">{phone}'
             f'<div class="cap"><span class="st">STEP {i} · {_esc(step.get("mode","USER DOES"))}</span></div>'
             f'{tag_html}<div class="stepdesc">{_esc(step.get("description"))}</div></div>')
 
 
-def render_html(model: dict) -> str:
+def render_html(model: dict, out_dir: str = "") -> str:
     brand = model.get("brand", "Brand")
     cover = model.get("cover") or {}
     uc = cover.get("use_cases") or []
@@ -142,13 +179,19 @@ def render_html(model: dict) -> str:
            'Authentication). Purple tags are the Apple features selected per use case.</div>',
            (f'<div style="margin:8px 0 4px;color:#55606e;font-size:13px">{_esc(cover.get("summary"))}</div>' if cover.get("summary") else ""),
            f'<div class="uclist">{uc_html}</div></div>']
+    color = model.get("brand_color") or "#1676FF"
     for s in model.get("sections", []):
         thread: list[dict] = []
         cols = []
         for i, st in enumerate(s.get("steps", []), 1):
-            if st.get("phone") and st.get("adds"):
-                thread = thread + list(st["adds"])
-            cols.append(_step_col(brand, i, st, thread))
+            fs = None
+            if st.get("phone"):
+                for a in st.get("adds") or []:
+                    if a.get("kind") in FULLSCREEN:
+                        fs = a                      # shown as its own full-screen sheet
+                    else:
+                        thread = thread + [a]       # text / quick_reply / rich_link accumulate
+            cols.append(_step_col(brand, color, i, st, thread, fs, out_dir))
         out.append(f'<div class="slide"><h2>{_esc(s.get("title"))}</h2>'
                    f'<div class="desc">{_esc(s.get("description"))}</div>'
                    f'<div class="steps">{"".join(cols)}</div></div>')

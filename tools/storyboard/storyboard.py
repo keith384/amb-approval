@@ -71,7 +71,7 @@ def run_from_review(review_dir: str, out_dir: str):
     out = Path(out_dir)
     model = _json.loads((out / "storyboard_model.json").read_text())
     brand = (model.get("brand", "brand")).lower().replace(" ", "-")
-    (out / f"storyboard-{brand}.html").write_text(render_deck.render_html(model))
+    (out / f"storyboard-{brand}.html").write_text(render_deck.render_html(model, str(out)))
     (out / f"shotlist-{brand}.json").write_text(_json.dumps({"brand": brand, "steps": model_shotlist(model)}, indent=2))
     issues = _v.validate_model(model)
     print(f"storyboard-{brand}.html · {g['sections']} slides · {g['steps']} steps ({g['model']})")
