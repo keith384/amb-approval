@@ -107,6 +107,15 @@ def main():
             say(text=res["text"], thread_ts=thread)
         threading.Thread(target=work, daemon=True).start()
 
+    # No-op: we read attachments from the app_mention payload, not these events.
+    @app.event("file_shared")
+    def _ignore_file_shared():
+        pass
+
+    @app.event("file_created")
+    def _ignore_file_created():
+        pass
+
     SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"]).start()
 
 
