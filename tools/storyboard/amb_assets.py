@@ -17,12 +17,13 @@ HERE = os.path.dirname(__file__)
 FIGMA = os.path.join(HERE, "assets", "amb-figma")
 OUT = os.path.join(HERE, "assets", "amb-composed")
 
-# element kind -> source frame (expanded, "real as on the phone" view)
+# element kind -> source frame (expanded, "real as on the phone" view). These are
+# the clean standalone sheets; Apple Pay has no stray-copy-free frame in the library
+# (every variant is a full conversation), so it stays a CSS in-thread element.
 SOURCE = {
     "list_picker": "02_AMB_Elements_List_Picker_Open",
     "time_picker": "02_AMB_Elements_Time_Picker_Open",
     "auth": "02_AMB_Elements_OAuth2_Login",
-    "apple_pay": "01_AMB_Elements_ApplePay_Payment",
 }
 
 # List Picker Open: 5 rows, each with icon tile + title + subtitle. Fractions of H.
@@ -125,15 +126,19 @@ def compose(kind: str, brand: str, *, title: str = "", rows=None,
             d.text((x0, ly), ln, font=tf, fill=(17, 17, 17)); ly += 0.050 * H
         d.text((x0, ly + 0.004 * H), "Tap to select", font=sf, fill=(140, 146, 154))
 
-    elif kind == "apple_pay":
-        # merchant line near top of the pay sheet
-        d.rectangle([0.30 * W, 0.11 * H, 0.70 * W, 0.155 * H], fill="white")
-        mf = _font(int(0.04 * W), bold=True)
-        mb = d.textbbox((0, 0), brand, font=mf)
-        d.text((W / 2 - (mb[2] - mb[0]) / 2, 0.11 * H), brand, font=mf, fill=(17, 17, 17))
-
     elif kind == "auth":
-        pass  # login page is brand-neutral; header handled upstream
+        # OAuth2 login page: brand the domain bar, the logo tile, and the CTA color.
+        domain = title or f"signin.{re.sub(r'[^a-z0-9]', '', (brand or '').lower())}.com"
+        d.rectangle([0.18 * W, 0.113 * H, 0.82 * W, 0.160 * H], fill="white")
+        df = _font(int(0.040 * W), bold=True)
+        db = d.textbbox((0, 0), domain, font=df)
+        d.text((W / 2 - (db[2] - db[0]) / 2, 0.120 * H), domain, font=df, fill=(17, 17, 17))
+        _tile(d, (0.425 * W, 0.188 * H, 0.575 * W, 0.264 * H), accent, (brand or "?")[:1].upper())
+        # recolor the "Continue" CTA text to the brand accent (button is solid black)
+        d.rectangle([0.30 * W, 0.497 * H, 0.70 * W, 0.540 * H], fill=(0, 0, 0))
+        cf = _font(int(0.040 * W), bold=True)
+        cb = d.textbbox((0, 0), "Continue", font=cf)
+        d.text((W / 2 - (cb[2] - cb[0]) / 2, 0.503 * H), "Continue", font=cf, fill=accent)
 
     if out_dir:
         rel = os.path.join("amb-assets", _slug(brand), f"{kind}.png")

@@ -21,7 +21,7 @@ except Exception:
 # Element kinds shown as a real full-screen Apple sheet (composed from the Figma
 # library) rather than an in-thread CSS bubble. The rest (text, quick_reply,
 # rich_link, typing) stay in the developing CSS thread.
-FULLSCREEN = {"list_picker", "time_picker", "auth", "apple_pay"}
+FULLSCREEN = {"list_picker", "time_picker", "auth"}
 
 
 def _esc(s):
@@ -134,8 +134,6 @@ def _compose_screen(brand: str, color: str, el: dict, out_dir: str) -> str | Non
         kw["title"] = el.get("title") or ""
     elif kind == "time_picker":
         kw["title"] = el.get("text") or f"Schedule with {brand}"
-    elif kind == "apple_pay":
-        kw["amount"] = el.get("amount") or ""
     try:
         return amb_assets.compose(kind, brand, **kw)
     except Exception:
