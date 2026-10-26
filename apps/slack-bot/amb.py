@@ -61,7 +61,9 @@ def _record(brand: str, stage: str, action: str, artifacts: list[str]):
     now = datetime.now(timezone.utc).isoformat()
     _sb("amb_brand", [{"name": brand, "stage": stage, "stage_entered_at": now, "updated_at": now}], "?on_conflict=name")
     _sb("amb_event", [{"brand": brand, "action": action}])
-    rows = [{"brand": brand, "stage": stage, "kind": _kind(a), "label": a, "link": None} for a in artifacts]
+    # Internal JSON (scope/shotlist/model) stays on disk for the tools — never shared.
+    rows = [{"brand": brand, "stage": stage, "kind": _kind(a), "label": a, "link": None}
+            for a in artifacts if not a.lower().endswith(".json")]
     if rows:
         _sb("amb_artifact", rows)
 
@@ -81,7 +83,9 @@ def set_artifact_link(brand: str, label: str, link: str):
         pass
 
 def _artifact_items(d: Path, names: list[str], stage: str) -> list[dict]:
-    return [{"path": str(d / "output" / n), "label": n, "kind": _kind(n), "stage": stage} for n in names]
+    # Don't upload internal JSON to Slack — only the human-facing artifacts.
+    return [{"path": str(d / "output" / n), "label": n, "kind": _kind(n), "stage": stage}
+            for n in names if not n.lower().endswith(".json")]
 
 
 def _venv_py(tool: str) -> str:
