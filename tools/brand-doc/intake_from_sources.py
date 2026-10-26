@@ -29,9 +29,30 @@ def extract_text(paths: list[str], cap: int = 60000) -> str:
     return "\n\n".join(chunks)[:cap]
 
 
-def run(brand: str, paths: list[str], note: str = "") -> dict:
+def research_web(brand: str, hint: str) -> str:
+    """Claude web-search brief on the brand (site + public info). Empty on any failure."""
+    import anthropic
+    try:
+        client = anthropic.Anthropic()
+        resp = client.messages.create(
+            model=MODEL, max_tokens=1500,
+            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": 4}],
+            messages=[{"role": "user", "content":
+                       f"Research the company \"{brand}\". Context from their submitted docs:\n{hint[:2500]}\n\n"
+                       "Search the web (their official website first, then recent news). Write a tight, "
+                       "factual brief: what they do, who their customers are, what they're building, business "
+                       "model, and scale/funding if public. Facts only — no speculation."}])
+        return "".join(getattr(b, "text", "") for b in resp.content if getattr(b, "type", "") == "text").strip()
+    except Exception:
+        return ""
+
+
+def run(brand: str, paths: list[str], note: str = "", web: bool = True) -> dict:
     import anthropic
     text = extract_text(paths)
+    web_brief = research_web(brand, text) if web else ""
+    if web_brief:
+        text = f"=== WEB RESEARCH ({brand}) ===\n{web_brief}\n\n{text}"
     system = (
         "You build a structured intake for an Apple Messages for Business brand-approval "
         "submission from the brand's OWN source documents. Output STRICT JSON only, matching:\n"
@@ -56,11 +77,14 @@ def run(brand: str, paths: list[str], note: str = "") -> dict:
 if __name__ == "__main__":
     args = sys.argv[1:]
     note = ""
+    web = "--no-web" not in args
+    args = [a for a in args if a != "--no-web"]
     if "--note" in args:
         i = args.index("--note"); note = args[i + 1]; args = args[:i] + args[i + 2:]
     brand, out, pdfs = args[0], args[1], args[2:]
-    intake = run(brand, pdfs, note)
+    intake = run(brand, pdfs, note, web=web)
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     Path(out).write_text(json.dumps(intake, indent=2))
     uc = intake.get("use_cases", [])
-    print(f"intake for {brand}: {len(uc)} use cases, entry_points {intake.get('entry_points')} → {out}")
+    print(f"intake for {brand}: {len(uc)} use cases, entry_points {intake.get('entry_points')} "
+          f"(web research: {'on' if web else 'off'}) → {out}")
