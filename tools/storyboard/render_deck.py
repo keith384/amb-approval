@@ -54,8 +54,8 @@ h2{font-size:19px;font-weight:800;color:#16375c}.desc{color:#55606e;font-size:13
 .thread{height:330px;padding:9px 9px 12px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;overflow:hidden}
 .row{display:flex;flex-direction:column}
 .b{max-width:80%;padding:6px 10px;border-radius:17px;font-size:11px;line-height:1.35;word-wrap:break-word}
-.bot{align-self:flex-start;background:#e9e9eb;color:#111;border-bottom-left-radius:5px}
-.user{align-self:flex-end;background:#3797f0;color:#fff;border-bottom-right-radius:5px}
+.bot{align-self:flex-start;background:#e9e9ea;color:#111;border-bottom-left-radius:5px}
+.user{align-self:flex-end;background:#8e95a2;color:#fff;border-bottom-right-radius:5px}
 .chips{align-self:flex-start;display:flex;flex-wrap:wrap;gap:5px;max-width:92%;margin-top:1px}
 .chip{border:1px solid #3797f0;color:#3797f0;border-radius:15px;padding:4px 10px;font-size:10px;background:#fff}
 .lp{align-self:flex-start;width:94%;background:#fff;border:1px solid #e3e7ec;border-radius:13px;overflow:hidden}
@@ -74,7 +74,7 @@ h2{font-size:19px;font-weight:800;color:#16375c}.desc{color:#55606e;font-size:13
 .ap .pay{background:#fff;color:#000;border-radius:7px;text-align:center;font-size:11px;font-weight:700;padding:5px 0}
 .au{align-self:flex-start;width:84%;background:#fff;border:1px solid #e3e7ec;border-radius:13px;padding:11px;text-align:center}
 .au .lk{font-size:16px}.au .tx{font-size:10px;color:#374151;margin:4px 0 8px}.au .btn{background:#3797f0;color:#fff;border-radius:8px;font-size:10.5px;font-weight:600;padding:6px 0}
-.typing{align-self:flex-start;background:#e9e9eb;border-radius:15px;padding:8px 12px;display:flex;gap:3px}
+.typing{align-self:flex-start;background:#e9e9ea;border-radius:15px;padding:8px 12px;display:flex;gap:3px}
 .typing i{width:6px;height:6px;border-radius:6px;background:#9aa0a6;display:inline-block}
 .ambscreen{width:100%;border-radius:18px;display:block;box-shadow:0 5px 16px rgba(0,0,0,.14)}
 .cap{margin-top:8px;font-size:10.5px;color:#55606e}.cap .st{font-weight:700;color:#16375c}
