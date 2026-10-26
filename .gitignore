@@ -38,3 +38,6 @@ tools/storyboard/work/
 
 # Per-brand runtime data (artifacts, recordings, state)
 brands/
+
+# AMB Figma asset mirror (116MB; regenerate with tools/storyboard/fetch_amb_assets.py)
+tools/storyboard/assets/amb-figma/*.png

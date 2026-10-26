@@ -1,0 +1,459 @@
+{
+  "figma_file": "Wxm5RpbOVOCnow04AUE3pK",
+  "scale": "1",
+  "count": 113,
+  "screens": {
+    "01_AMB_Elements_ApplePay_Payment": {
+      "node": "1:2359",
+      "file": "assets/amb-figma/01_AMB_Elements_ApplePay_Payment.png"
+    },
+    "01_AMB_Elements_Live_Brands_Lifestyle": {
+      "node": "1:2373",
+      "file": "assets/amb-figma/01_AMB_Elements_Live_Brands_Lifestyle.png"
+    },
+    "03_AMB_Elements_Live_Brands_Support": {
+      "node": "1:2390",
+      "file": "assets/amb-figma/03_AMB_Elements_Live_Brands_Support.png"
+    },
+    "02_AMB_Elements_Live_Brands_AI_Assistant": {
+      "node": "1:2412",
+      "file": "assets/amb-figma/02_AMB_Elements_Live_Brands_AI_Assistant.png"
+    },
+    "03_AMB_Elements_Form_Multi-Select_List_1st_Selection": {
+      "node": "1:2430",
+      "file": "assets/amb-figma/03_AMB_Elements_Form_Multi-Select_List_1st_Selection.png"
+    },
+    "04_AMB_Elements_Form_Multi-Select_List_2nd_Selection": {
+      "node": "1:2470",
+      "file": "assets/amb-figma/04_AMB_Elements_Form_Multi-Select_List_2nd_Selection.png"
+    },
+    "01_AMB_Elements_Form_Splash": {
+      "node": "1:2510",
+      "file": "assets/amb-figma/01_AMB_Elements_Form_Splash.png"
+    },
+    "06_AMB_Elements_Form_Date_Selector_Selected": {
+      "node": "1:2527",
+      "file": "assets/amb-figma/06_AMB_Elements_Form_Date_Selector_Selected.png"
+    },
+    "09_AMB_Elements_Form_Single-Select_List": {
+      "node": "1:2543",
+      "file": "assets/amb-figma/09_AMB_Elements_Form_Single-Select_List.png"
+    },
+    "10_AMB_Elements_Form_Single-Select_List_1st_Selection": {
+      "node": "1:2580",
+      "file": "assets/amb-figma/10_AMB_Elements_Form_Single-Select_List_1st_Selection.png"
+    },
+    "07_AMB_Elements_Form_Numeric_Entry": {
+      "node": "1:2620",
+      "file": "assets/amb-figma/07_AMB_Elements_Form_Numeric_Entry.png"
+    },
+    "08_AMB_Elements_Form_Numeric_Entry_Filled": {
+      "node": "1:2639",
+      "file": "assets/amb-figma/08_AMB_Elements_Form_Numeric_Entry_Filled.png"
+    },
+    "11_AMB_Elements_Form_Text_Entry": {
+      "node": "1:2659",
+      "file": "assets/amb-figma/11_AMB_Elements_Form_Text_Entry.png"
+    },
+    "12_AMB_Elements_Form_Text_Entry_Filled": {
+      "node": "1:2690",
+      "file": "assets/amb-figma/12_AMB_Elements_Form_Text_Entry_Filled.png"
+    },
+    "02_AMB_Elements_Form_Multi-Select_List": {
+      "node": "1:2724",
+      "file": "assets/amb-figma/02_AMB_Elements_Form_Multi-Select_List.png"
+    },
+    "15_AMB_Elements_Form_Picker_Position_2": {
+      "node": "1:2764",
+      "file": "assets/amb-figma/15_AMB_Elements_Form_Picker_Position_2.png"
+    },
+    "14_AMB_Elements_Form_Picker_Position_1": {
+      "node": "1:2797",
+      "file": "assets/amb-figma/14_AMB_Elements_Form_Picker_Position_1.png"
+    },
+    "13_AMB_Elements_Form_Picker_Dial": {
+      "node": "1:2829",
+      "file": "assets/amb-figma/13_AMB_Elements_Form_Picker_Dial.png"
+    },
+    "16_AMB_Elements_Form_Picker_Position_3": {
+      "node": "1:2862",
+      "file": "assets/amb-figma/16_AMB_Elements_Form_Picker_Position_3.png"
+    },
+    "05_AMB_Elements_Form_Date_Selector": {
+      "node": "1:2898",
+      "file": "assets/amb-figma/05_AMB_Elements_Form_Date_Selector.png"
+    },
+    "04_AMB_Elements_Rich_Link_Video": {
+      "node": "1:2917",
+      "file": "assets/amb-figma/04_AMB_Elements_Rich_Link_Video.png"
+    },
+    "17_AMB_Elements_Form_Response_Review": {
+      "node": "1:2928",
+      "file": "assets/amb-figma/17_AMB_Elements_Form_Response_Review.png"
+    },
+    "02_AMB_Elements_OAuth2_Login": {
+      "node": "1:3002",
+      "file": "assets/amb-figma/02_AMB_Elements_OAuth2_Login.png"
+    },
+    "01_AMB_Elements_Quick_Reply_Offer": {
+      "node": "1:3026",
+      "file": "assets/amb-figma/01_AMB_Elements_Quick_Reply_Offer.png"
+    },
+    "02_AMB_Elements_Quick_Reply_Select": {
+      "node": "1:3032",
+      "file": "assets/amb-figma/02_AMB_Elements_Quick_Reply_Select.png"
+    },
+    "03_AMB_Elements_Quick_Reply_Confirmation": {
+      "node": "1:3039",
+      "file": "assets/amb-figma/03_AMB_Elements_Quick_Reply_Confirmation.png"
+    },
+    "01_AMB_Elements_Rich_Link_Large": {
+      "node": "1:3046",
+      "file": "assets/amb-figma/01_AMB_Elements_Rich_Link_Large.png"
+    },
+    "02_AMB_Elements_Rich_Link_Square": {
+      "node": "1:3055",
+      "file": "assets/amb-figma/02_AMB_Elements_Rich_Link_Square.png"
+    },
+    "03_AMB_Elements_Rich_Link_Icon": {
+      "node": "1:3064",
+      "file": "assets/amb-figma/03_AMB_Elements_Rich_Link_Icon.png"
+    },
+    "01_AMB_Elements_OAuth2": {
+      "node": "1:3073",
+      "file": "assets/amb-figma/01_AMB_Elements_OAuth2.png"
+    },
+    "03_AMB_Elements_OAuth2_Confirm": {
+      "node": "1:3088",
+      "file": "assets/amb-figma/03_AMB_Elements_OAuth2_Confirm.png"
+    },
+    "04_AMB_Elements_Time_Picker_Confirmation": {
+      "node": "1:3112",
+      "file": "assets/amb-figma/04_AMB_Elements_Time_Picker_Confirmation.png"
+    },
+    "01_AMB_Elements_Time_Picker_Offer": {
+      "node": "1:3146",
+      "file": "assets/amb-figma/01_AMB_Elements_Time_Picker_Offer.png"
+    },
+    "05_AMB_Elements_Time_Picker_Add_Calendar": {
+      "node": "1:3180",
+      "file": "assets/amb-figma/05_AMB_Elements_Time_Picker_Add_Calendar.png"
+    },
+    "06_AMB_Elements_Time_Picker_Add_Calendar_Tap": {
+      "node": "1:3205",
+      "file": "assets/amb-figma/06_AMB_Elements_Time_Picker_Add_Calendar_Tap.png"
+    },
+    "07_AMB_Elements_Time_Picker_Add_Calendar_Day": {
+      "node": "1:3231",
+      "file": "assets/amb-figma/07_AMB_Elements_Time_Picker_Add_Calendar_Day.png"
+    },
+    "08_AMB_Elements_Time_Picker_Add_Calendar_Week": {
+      "node": "1:3249",
+      "file": "assets/amb-figma/08_AMB_Elements_Time_Picker_Add_Calendar_Week.png"
+    },
+    "09_AMB_Elements_Time_Picker_Directions": {
+      "node": "1:3263",
+      "file": "assets/amb-figma/09_AMB_Elements_Time_Picker_Directions.png"
+    },
+    "10_AMB_Elements_Time_Picker_Directions_Tap": {
+      "node": "1:3291",
+      "file": "assets/amb-figma/10_AMB_Elements_Time_Picker_Directions_Tap.png"
+    },
+    "11_AMB_Elements_Time_Picker_Directions_Map": {
+      "node": "1:3321",
+      "file": "assets/amb-figma/11_AMB_Elements_Time_Picker_Directions_Map.png"
+    },
+    "04_AMB_Elements_Live_Brands_Commerce_Assistant": {
+      "node": "1:3339",
+      "file": "assets/amb-figma/04_AMB_Elements_Live_Brands_Commerce_Assistant.png"
+    },
+    "03_AMB_Elements_App_Extension_Action_Confirmation": {
+      "node": "1:3359",
+      "file": "assets/amb-figma/03_AMB_Elements_App_Extension_Action_Confirmation.png"
+    },
+    "02_AMB_Elements_App_Extension_Open": {
+      "node": "1:3385",
+      "file": "assets/amb-figma/02_AMB_Elements_App_Extension_Open.png"
+    },
+    "01_AMB_Elements_App_Extension": {
+      "node": "1:3396",
+      "file": "assets/amb-figma/01_AMB_Elements_App_Extension.png"
+    },
+    "03_AMB_Elements_Rich_Links_Construct_Payload_Apple_Music_Offer": {
+      "node": "1:3409",
+      "file": "assets/amb-figma/03_AMB_Elements_Rich_Links_Construct_Payload_Apple_Music_Offer.png"
+    },
+    "01_AMB_Elements_Rich_Links_Construct_Payload_App_Clip_Offer": {
+      "node": "1:3438",
+      "file": "assets/amb-figma/01_AMB_Elements_Rich_Links_Construct_Payload_App_Clip_Offer.png"
+    },
+    "02_AMB_Elements_Rich_Links_Construct_Payload_App_Clip_Open": {
+      "node": "1:3450",
+      "file": "assets/amb-figma/02_AMB_Elements_Rich_Links_Construct_Payload_App_Clip_Open.png"
+    },
+    "05_AMB_Elements_Rich_Links_Construct_Payload_Maps_Offer": {
+      "node": "1:3471",
+      "file": "assets/amb-figma/05_AMB_Elements_Rich_Links_Construct_Payload_Maps_Offer.png"
+    },
+    "06_AMB_Elements_Rich_Links_Construct_Payload_Maps_Open": {
+      "node": "1:3505",
+      "file": "assets/amb-figma/06_AMB_Elements_Rich_Links_Construct_Payload_Maps_Open.png"
+    },
+    "04_AMB_Elements_Rich_Links_Construct_Payload_Apple_Music_Open": {
+      "node": "1:3529",
+      "file": "assets/amb-figma/04_AMB_Elements_Rich_Links_Construct_Payload_Apple_Music_Open.png"
+    },
+    "03_AMB_Elements_Time_Picker_Select": {
+      "node": "1:3552",
+      "file": "assets/amb-figma/03_AMB_Elements_Time_Picker_Select.png"
+    },
+    "02_AMB_Elements_Time_Picker_Open": {
+      "node": "1:3621",
+      "file": "assets/amb-figma/02_AMB_Elements_Time_Picker_Open.png"
+    },
+    "01_AMB_Elements_Attachment_Wallet_Pass": {
+      "node": "1:3688",
+      "file": "assets/amb-figma/01_AMB_Elements_Attachment_Wallet_Pass.png"
+    },
+    "02_AMB_Elements_Attachment_Wallet_Pass_Open": {
+      "node": "1:3694",
+      "file": "assets/amb-figma/02_AMB_Elements_Attachment_Wallet_Pass_Open.png"
+    },
+    "03_AMB_Elements_Attachment_Wallet_Pass_In_Wallet": {
+      "node": "1:3701",
+      "file": "assets/amb-figma/03_AMB_Elements_Attachment_Wallet_Pass_In_Wallet.png"
+    },
+    "02_AMB_Elements_ApplePay_Offer": {
+      "node": "1:3707",
+      "file": "assets/amb-figma/02_AMB_Elements_ApplePay_Offer.png"
+    },
+    "01_AMB_Entry_Points_IVR_Deflection": {
+      "node": "1:3749",
+      "file": "assets/amb-figma/01_AMB_Entry_Points_IVR_Deflection.png"
+    },
+    "06_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Message_Notification": {
+      "node": "1:3755",
+      "file": "assets/amb-figma/06_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Message_Notification.png"
+    },
+    "05_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Press_1": {
+      "node": "1:3761",
+      "file": "assets/amb-figma/05_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Press_1.png"
+    },
+    "04_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Open": {
+      "node": "1:3767",
+      "file": "assets/amb-figma/04_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Open.png"
+    },
+    "03_AMB_Entry_Points_IVR_Deflection_Call_Tap_Keypad": {
+      "node": "1:3773",
+      "file": "assets/amb-figma/03_AMB_Entry_Points_IVR_Deflection_Call_Tap_Keypad.png"
+    },
+    "02_AMB_Entry_Points_IVR_Deflection_Call": {
+      "node": "1:3779",
+      "file": "assets/amb-figma/02_AMB_Entry_Points_IVR_Deflection_Call.png"
+    },
+    "01_AMB_Entry_Points_Invitation": {
+      "node": "1:3785",
+      "file": "assets/amb-figma/01_AMB_Entry_Points_Invitation.png"
+    },
+    "02_AMB_Entry_Points_Invitation_Tap": {
+      "node": "1:3791",
+      "file": "assets/amb-figma/02_AMB_Entry_Points_Invitation_Tap.png"
+    },
+    "03_AMB_Entry_Points_Invitation_Agent_Confirmation": {
+      "node": "1:3797",
+      "file": "assets/amb-figma/03_AMB_Entry_Points_Invitation_Agent_Confirmation.png"
+    },
+    "04_AMB_Entry_Points_Invitation_User_Confirmation": {
+      "node": "1:3803",
+      "file": "assets/amb-figma/04_AMB_Entry_Points_Invitation_User_Confirmation.png"
+    },
+    "05_AMB_Entry_Points_Conversation_1": {
+      "node": "1:3809",
+      "file": "assets/amb-figma/05_AMB_Entry_Points_Conversation_1.png"
+    },
+    "06_AMB_Entry_Points_Conversation_2": {
+      "node": "1:3815",
+      "file": "assets/amb-figma/06_AMB_Entry_Points_Conversation_2.png"
+    },
+    "07_AMB_Entry_Points_Conversation_3": {
+      "node": "1:3821",
+      "file": "assets/amb-figma/07_AMB_Entry_Points_Conversation_3.png"
+    },
+    "08_AMB_Entry_Points_Conversation_4": {
+      "node": "1:3827",
+      "file": "assets/amb-figma/08_AMB_Entry_Points_Conversation_4.png"
+    },
+    "18_AMB_Entry_Points_IVR_Deflection_Call_Conversation_7": {
+      "node": "1:3833",
+      "file": "assets/amb-figma/18_AMB_Entry_Points_IVR_Deflection_Call_Conversation_7.png"
+    },
+    "17_AMB_Entry_Points_IVR_Deflection_Call_Conversation_6": {
+      "node": "1:3838",
+      "file": "assets/amb-figma/17_AMB_Entry_Points_IVR_Deflection_Call_Conversation_6.png"
+    },
+    "16_AMB_Entry_Points_IVR_Deflection_Call_Conversation_5": {
+      "node": "1:3843",
+      "file": "assets/amb-figma/16_AMB_Entry_Points_IVR_Deflection_Call_Conversation_5.png"
+    },
+    "15_AMB_Entry_Points_IVR_Deflection_Call_Conversation_4": {
+      "node": "1:3848",
+      "file": "assets/amb-figma/15_AMB_Entry_Points_IVR_Deflection_Call_Conversation_4.png"
+    },
+    "14_AMB_Entry_Points_IVR_Deflection_Call_Conversation_3": {
+      "node": "1:3853",
+      "file": "assets/amb-figma/14_AMB_Entry_Points_IVR_Deflection_Call_Conversation_3.png"
+    },
+    "09_AMB_Entry_Points_IVR_Deflection_Call_Invitation_Tap": {
+      "node": "1:3858",
+      "file": "assets/amb-figma/09_AMB_Entry_Points_IVR_Deflection_Call_Invitation_Tap.png"
+    },
+    "13_AMB_Entry_Points_IVR_Deflection_Call_Conversation_2": {
+      "node": "1:3863",
+      "file": "assets/amb-figma/13_AMB_Entry_Points_IVR_Deflection_Call_Conversation_2.png"
+    },
+    "12_AMB_Entry_Points_IVR_Deflection_Call_Conversation_1": {
+      "node": "1:3868",
+      "file": "assets/amb-figma/12_AMB_Entry_Points_IVR_Deflection_Call_Conversation_1.png"
+    },
+    "11_AMB_Entry_Points_IVR_Deflection_Call_Invitation_User_Confirmation": {
+      "node": "1:3873",
+      "file": "assets/amb-figma/11_AMB_Entry_Points_IVR_Deflection_Call_Invitation_User_Confirmation.png"
+    },
+    "10_AMB_Entry_Points_IVR_Deflection_Call_Invitation_Agent_Confirmation": {
+      "node": "1:3878",
+      "file": "assets/amb-figma/10_AMB_Entry_Points_IVR_Deflection_Call_Invitation_Agent_Confirmation.png"
+    },
+    "08_AMB_Entry_Points_IVR_Deflection_Call_Invitation": {
+      "node": "1:3883",
+      "file": "assets/amb-figma/08_AMB_Entry_Points_IVR_Deflection_Call_Invitation.png"
+    },
+    "11_AMB_Entry_Points_BCRW_Link_QR_Conversation_6": {
+      "node": "1:3888",
+      "file": "assets/amb-figma/11_AMB_Entry_Points_BCRW_Link_QR_Conversation_6.png"
+    },
+    "10_AMB_Entry_Points_BCRW_Link_QR_Conversation_5": {
+      "node": "1:3897",
+      "file": "assets/amb-figma/10_AMB_Entry_Points_BCRW_Link_QR_Conversation_5.png"
+    },
+    "09_AMB_Entry_Points_BCRW_Link_QR_Conversation_4": {
+      "node": "1:3903",
+      "file": "assets/amb-figma/09_AMB_Entry_Points_BCRW_Link_QR_Conversation_4.png"
+    },
+    "07_AMB_Entry_Points_BCRW_Link_QR_Conversation_2": {
+      "node": "1:3917",
+      "file": "assets/amb-figma/07_AMB_Entry_Points_BCRW_Link_QR_Conversation_2.png"
+    },
+    "06_AMB_Entry_Points_BCRW_Link_QR_Conversation_1": {
+      "node": "1:3923",
+      "file": "assets/amb-figma/06_AMB_Entry_Points_BCRW_Link_QR_Conversation_1.png"
+    },
+    "07_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Message_Notification_Tap": {
+      "node": "1:3929",
+      "file": "assets/amb-figma/07_AMB_Entry_Points_IVR_Deflection_Call_Keypad_Message_Notification_Tap.png"
+    },
+    "02_AMB_Entry_Points_Buttons_App": {
+      "node": "1:3935",
+      "file": "assets/amb-figma/02_AMB_Entry_Points_Buttons_App.png"
+    },
+    "01_AMB_Entry_Points_BCRW_Link_SMS": {
+      "node": "1:3940",
+      "file": "assets/amb-figma/01_AMB_Entry_Points_BCRW_Link_SMS.png"
+    },
+    "02_AMB_Entry_Points_BCRW_Link_Email": {
+      "node": "1:3945",
+      "file": "assets/amb-figma/02_AMB_Entry_Points_BCRW_Link_Email.png"
+    },
+    "03_AMB_Entry_Points_BCRW_Link_Social": {
+      "node": "1:3950",
+      "file": "assets/amb-figma/03_AMB_Entry_Points_BCRW_Link_Social.png"
+    },
+    "03_AMB_Entry_Points_Buttons_Maps": {
+      "node": "1:3955",
+      "file": "assets/amb-figma/03_AMB_Entry_Points_Buttons_Maps.png"
+    },
+    "02_AMB_Entry_Points_Message_Suggest_Web": {
+      "node": "1:3961",
+      "file": "assets/amb-figma/02_AMB_Entry_Points_Message_Suggest_Web.png"
+    },
+    "03_AMB_Entry_Points_Message_Suggest_Maps": {
+      "node": "1:3967",
+      "file": "assets/amb-figma/03_AMB_Entry_Points_Message_Suggest_Maps.png"
+    },
+    "01_AMB_Entry_Points_Message_Suggest_Search_Engine": {
+      "node": "1:3973",
+      "file": "assets/amb-figma/01_AMB_Entry_Points_Message_Suggest_Search_Engine.png"
+    },
+    "01_AMB_Entry_Points_Buttons_Web": {
+      "node": "1:3986",
+      "file": "assets/amb-figma/01_AMB_Entry_Points_Buttons_Web.png"
+    },
+    "08_AMB_Entry_Points_BCRW_Link_QR_Conversation_3": {
+      "node": "1:3992",
+      "file": "assets/amb-figma/08_AMB_Entry_Points_BCRW_Link_QR_Conversation_3.png"
+    },
+    "02_AMB_Elements_List_Picker_Open": {
+      "node": "1:4001",
+      "file": "assets/amb-figma/02_AMB_Elements_List_Picker_Open.png"
+    },
+    "04_AMB_Elements_List_Picker_Send": {
+      "node": "1:4006",
+      "file": "assets/amb-figma/04_AMB_Elements_List_Picker_Send.png"
+    },
+    "03_AMB_Elements_List_Picker_Select": {
+      "node": "1:4011",
+      "file": "assets/amb-figma/03_AMB_Elements_List_Picker_Select.png"
+    },
+    "05_AMB_Elements_List_Picker_Agent_Confirmation": {
+      "node": "1:4016",
+      "file": "assets/amb-figma/05_AMB_Elements_List_Picker_Agent_Confirmation.png"
+    },
+    "06_AMB_Elements_List_Picker_User_Confirmation": {
+      "node": "1:4027",
+      "file": "assets/amb-figma/06_AMB_Elements_List_Picker_User_Confirmation.png"
+    },
+    "07_AMB_Elements_List_Picker_Agent_Response": {
+      "node": "1:4042",
+      "file": "assets/amb-figma/07_AMB_Elements_List_Picker_Agent_Response.png"
+    },
+    "01_AMB_Elements_List_Picker_Offer": {
+      "node": "1:4055",
+      "file": "assets/amb-figma/01_AMB_Elements_List_Picker_Offer.png"
+    },
+    "01_AMB_Elements_Attachment_USDZ_Offer": {
+      "node": "1:4060",
+      "file": "assets/amb-figma/01_AMB_Elements_Attachment_USDZ_Offer.png"
+    },
+    "02_AMB_Elements_Attachment_USDZ_Open": {
+      "node": "1:4069",
+      "file": "assets/amb-figma/02_AMB_Elements_Attachment_USDZ_Open.png"
+    },
+    "03_AMB_Elements_Attachment_USDZ_Scan": {
+      "node": "1:4096",
+      "file": "assets/amb-figma/03_AMB_Elements_Attachment_USDZ_Scan.png"
+    },
+    "04_AMB_Elements_Attachment_USDZ_Place": {
+      "node": "1:4123",
+      "file": "assets/amb-figma/04_AMB_Elements_Attachment_USDZ_Place.png"
+    },
+    "04_AMB_Elements_Attachment_USDZ_Move": {
+      "node": "1:4148",
+      "file": "assets/amb-figma/04_AMB_Elements_Attachment_USDZ_Move.png"
+    },
+    "01_AMB_Elements_Attachment_File": {
+      "node": "1:4173",
+      "file": "assets/amb-figma/01_AMB_Elements_Attachment_File.png"
+    },
+    "02_AMB_Elements_Attachment_Video": {
+      "node": "1:4189",
+      "file": "assets/amb-figma/02_AMB_Elements_Attachment_Video.png"
+    },
+    "01_AMB_Elements_Attachment_Image": {
+      "node": "1:4197",
+      "file": "assets/amb-figma/01_AMB_Elements_Attachment_Image.png"
+    },
+    "03_AMB_Elements_ApplePay_Confirmation": {
+      "node": "1:4205",
+      "file": "assets/amb-figma/03_AMB_Elements_ApplePay_Confirmation.png"
+    }
+  }
+}
