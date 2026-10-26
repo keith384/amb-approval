@@ -73,29 +73,36 @@ def main():
         files = event.get("files", []) or []
         channel = event.get("channel")
         thread = event.get("thread_ts") or event.get("ts")
-        pdfs = [f for f in files if (f.get("name", "").lower().endswith(".pdf"))]
-        req = amb.parse_request(text, [f.get("name", "") for f in pdfs])
-        brand = req["brand"]
-        if brand == "unknown" or not pdfs:
-            say(text="Mention me with a brand and attach the PDFs, e.g. "
-                     "`@AMB build a storyboard for Superpower` + the brand's PDFs.", thread_ts=thread)
+        attach = [f for f in files if f.get("name", "").lower().endswith((".pdf", ".png", ".jpg", ".jpeg"))]
+        pdf_names = [f.get("name", "") for f in attach if f.get("name", "").lower().endswith(".pdf")]
+        # Resolve the project: an explicit "for <brand>", else the brand this thread remembers.
+        brand = amb.parse_request(text, pdf_names)["brand"]
+        if brand == "unknown":
+            brand = amb.thread_brand(channel, thread) or "unknown"
+        if brand == "unknown":
+            say(text="Which brand is this? Mention me with the brand (e.g. "
+                     "`@AMB build a storyboard for Superpower` + the PDFs) and I'll remember it for this thread.",
+                thread_ts=thread)
             return
-        say(text=f":hourglass_flowing_sand: Reading {len(pdfs)} attachment(s) and building *{brand}*…", thread_ts=thread)
+        amb.link_thread(channel, thread, brand)        # thread is now persistent for this project
+        action = amb.followup_action(text)
+        doing = {"storyboard": "re-doing the storyboard", "brand-doc": "updating the brand doc",
+                 "review": "running the experience review", "feedback": "logging Apple's feedback",
+                 "status": "checking status"}.get(action, "on it")
+        say(text=f":hourglass_flowing_sand: *{brand}* — {doing}…", thread_ts=thread)
 
         def work():
             d = amb._brand_dir(brand)
-            paths = []
-            for f in pdfs:
+            pdfs = []
+            for f in attach:
                 dest = d / "inputs" / f["name"]
                 try:
                     amb.download(f.get("url_private_download") or f["url_private"], str(dest), os.environ["SLACK_BOT_TOKEN"])
-                    paths.append(str(dest))
+                    if f["name"].lower().endswith(".pdf"):
+                        pdfs.append(str(dest))
                 except Exception:
                     pass
-            if not paths:
-                say(text=f"Couldn't download the attachments for *{brand}* (need `files:read`).", thread_ts=thread)
-                return
-            res = amb.run_from_sources(brand, paths, note=text)
+            res = amb.apply_followup(brand, action, note=text, pdf_paths=pdfs)
             for it in res.get("artifacts", []):
                 try:
                     up = app.client.files_upload_v2(channel=channel, thread_ts=thread, file=it["path"], title=it["label"])

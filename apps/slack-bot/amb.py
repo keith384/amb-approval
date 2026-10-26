@@ -100,6 +100,28 @@ def _brand_dir(brand: str) -> Path:
     return d
 
 
+# ── Thread ↔ project memory (so a thread stays persistent: a follow-up mention in
+#    the same thread resolves the brand without re-naming it). Bot-local JSON. ──
+_THREADS = BRANDS / ".threads.json"
+
+def _load_threads() -> dict:
+    try:
+        return json.loads(_THREADS.read_text())
+    except Exception:
+        return {}
+
+def thread_brand(channel: str, thread_ts: str) -> str | None:
+    return _load_threads().get(f"{channel}:{thread_ts}")
+
+def link_thread(channel: str, thread_ts: str, brand: str):
+    m = _load_threads()
+    k = f"{channel}:{thread_ts}"
+    if m.get(k) != brand:
+        m[k] = brand
+        BRANDS.mkdir(parents=True, exist_ok=True)
+        _THREADS.write_text(json.dumps(m, indent=2))
+
+
 def _state(d: Path) -> dict:
     f = d / "state.json"
     return json.loads(f.read_text()) if f.exists() else {"stage": None, "events": []}
@@ -265,6 +287,65 @@ def run_from_sources(brand: str, pdf_paths: list[str], note: str = "") -> dict:
     arts = (r1.get("artifacts") or []) + (r2.get("artifacts") or [])
     return {"text": f"*{brand}* — brand doc + storyboard built from the attachments.\n"
                     f"{r2.get('text','')}", "artifacts": arts}
+
+
+def followup_action(text: str) -> str:
+    """Map an in-thread follow-up to an action. Tolerant of typos (scoreboard→storyboard)."""
+    low = re.sub(r"<@[^>]+>", "", text or "").lower()
+    if re.search(r"story\s*-?\s*board|scoreboard|storyboard|slide|deck|ux\s*flow", low):
+        return "storyboard"
+    if re.search(r"brand[-\s]?doc|nomination|brand\s*approval", low):
+        return "brand-doc"
+    if re.search(r"\breview\b|recording|the\s+video|experience\s*review", low):
+        return "review"
+    if re.search(r"feedback|apple\s+(said|replied|responded|rejected|sent)|rejection", low):
+        return "feedback"
+    if re.search(r"\bstatus\b|where\s+are\s+we|progress|what'?s\s+(left|next)", low):
+        return "status"
+    return "unknown"
+
+
+def _refresh_intake(brand: str, pdf_paths: list[str], note: str) -> bool:
+    """Rebuild the brand's intake.json from new PDFs; returns True if it succeeded."""
+    if not pdf_paths:
+        return False
+    d = _brand_dir(brand)
+    intake = d / "inputs/intake.json"
+    ok, _ = _run([_venv_py("brand-doc"), str(TOOLS / "brand-doc/intake_from_sources.py"),
+                  brand, str(intake), *pdf_paths, "--note", note], TOOLS / "brand-doc")
+    return ok and intake.exists()
+
+
+def apply_followup(brand: str, action: str, note: str = "", pdf_paths: list[str] | None = None) -> dict:
+    """Run an in-thread follow-up for a known brand. New PDFs refresh the brand review
+    first; a bare 're-do the storyboard' just re-runs that tool on the current project."""
+    pdf_paths = pdf_paths or []
+    d = _brand_dir(brand)
+    if action == "review":
+        return cmd_review(brand)
+    if action == "feedback":
+        return cmd_feedback(brand, note)
+    if action == "status":
+        return cmd_status(brand)
+    if action == "brand-doc":
+        _refresh_intake(brand, pdf_paths, note)
+        return cmd_brand_doc(brand)
+    if action == "storyboard":
+        arts = []
+        if _refresh_intake(brand, pdf_paths, note):
+            arts += cmd_brand_doc(brand).get("artifacts", [])   # refresh scope/doc_model
+        rs = cmd_storyboard(brand)
+        return {"text": rs.get("text", ""), "artifacts": arts + rs.get("artifacts", []), "ok": rs.get("ok")}
+    # unknown intent: new PDFs → full rebuild; otherwise log the note as feedback on the project.
+    if pdf_paths:
+        return run_from_sources(brand, pdf_paths, note)
+    _log(d, "note", note[:200])
+    try:
+        _record(brand, (_state(d).get("stage") or "brand_approval"), "note", [])
+    except Exception:
+        pass
+    return {"text": f"Noted on *{brand}*. I can `re-do the storyboard`, `update the brand doc`, or "
+                    f"`run the review` for this project — just say which (right here in the thread)."}
 
 
 DISPATCH = {"brand-doc": cmd_brand_doc, "storyboard": cmd_storyboard, "review": cmd_review, "status": cmd_status}
