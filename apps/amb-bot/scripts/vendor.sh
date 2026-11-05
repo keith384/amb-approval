@@ -7,14 +7,24 @@ set -e
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 REPO="$(cd "$ROOT/../.." && pwd)"
 V="$ROOT/_vendor"
+
+# On a CLI deploy only apps/amb-bot is uploaded, so the repo tools aren't reachable
+# — the pre-vendored _vendor/ (uploaded with the project) is used as-is. On a
+# git-integration build the whole repo is checked out, so re-vendor fresh.
+if [ ! -d "$REPO/tools/storyboard" ]; then
+  echo "repo tools not present (CLI deploy) — using existing _vendor/"
+  [ -d "$V" ] || { echo "ERROR: no _vendor/ to use; run vendor.sh locally first"; exit 1; }
+  exit 0
+fi
+
 rm -rf "$V"; mkdir -p "$V/tools" "$V/slack-bot"
 
 cp "$REPO/apps/slack-bot/amb.py" "$V/slack-bot/amb.py"
 cp -R "$REPO/tools/brand-doc" "$V/tools/brand-doc"
 cp -R "$REPO/tools/storyboard" "$V/tools/storyboard"
 
-# Drop per-tool venvs + the full 116MB figma mirror — keep only the 12 used frames.
-find "$V/tools" -type d -name ".venv" -exec rm -rf {} + 2>/dev/null || true
+# Drop per-tool venvs, scratch dirs, + the full 116MB figma mirror (keep 12 frames).
+find "$V/tools" -type d \( -name ".venv" -o -name "work" -o -name "examples" -o -name "__pycache__" \) -exec rm -rf {} + 2>/dev/null || true
 FIG_SRC="$REPO/tools/storyboard/assets/amb-figma"
 FIG_DST="$V/tools/storyboard/assets/amb-figma"
 rm -rf "$FIG_DST"; mkdir -p "$FIG_DST"
