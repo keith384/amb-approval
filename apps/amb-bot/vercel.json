@@ -1,6 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "bash scripts/vendor.sh",
+  "framework": null,
+  "buildCommand": "bash scripts/vendor.sh && mkdir -p public && echo amb-bot > public/index.txt",
+  "outputDirectory": "public",
   "functions": {
     "api/process.py": { "maxDuration": 300, "memory": 1769, "includeFiles": "{_vendor,lib}/**" },
     "api/slack.py": { "maxDuration": 10, "includeFiles": "{_vendor,lib}/**" }
