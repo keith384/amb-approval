@@ -29,9 +29,16 @@ create table if not exists amb_job (
 -- Worker picks the oldest queued job; index the drain path.
 create index if not exists amb_job_queued_idx on amb_job (created_at) where status = 'queued';
 
--- Dedup: Slack retries events; don't enqueue the same event twice.
+-- Dedup: Slack retries events; don't enqueue the same event twice. Must be a full
+-- UNIQUE CONSTRAINT (not a partial index) so PostgREST on_conflict=slack_event_id
+-- works (a partial index triggers 42P10). Postgres treats NULLs as distinct, so
+-- rows without an event id are still allowed.
 alter table amb_job add column if not exists slack_event_id text;
-create unique index if not exists amb_job_event_uq on amb_job (slack_event_id) where slack_event_id is not null;
+do $$ begin
+  if not exists (select 1 from pg_constraint where conname = 'amb_job_event_uq') then
+    alter table amb_job add constraint amb_job_event_uq unique (slack_event_id);
+  end if;
+end $$;
 
 -- Durable thread → project map (replaces brands/.threads.json).
 create table if not exists amb_thread (
