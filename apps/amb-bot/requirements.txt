@@ -1,0 +1,5 @@
+# AMB bot (Vercel serverless) — front door + worker
+anthropic>=0.40    # brand-doc + storyboard synthesis
+Pillow>=10.0       # compose real AMB element screens
+pypdf>=4.0         # read the brand PDFs
+slack_sdk>=3.27    # post results + upload artifacts to Slack

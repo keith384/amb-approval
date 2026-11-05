@@ -1,0 +1,4 @@
+_vendor/
+.env.local
+.vercel
+__pycache__/

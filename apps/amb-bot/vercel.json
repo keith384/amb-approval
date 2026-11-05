@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "bash scripts/vendor.sh",
+  "functions": {
+    "api/process.py": { "maxDuration": 300, "memory": 1769, "includeFiles": "{_vendor,lib}/**" },
+    "api/slack.py": { "maxDuration": 10, "includeFiles": "{_vendor,lib}/**" }
+  },
+  "crons": [
+    { "path": "/api/process", "schedule": "* * * * *" }
+  ]
+}
