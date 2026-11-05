@@ -59,17 +59,15 @@ class handler(BaseHTTPRequestHandler):
                  if f.get("name", "").lower().endswith((".pdf", ".png", ".jpg", ".jpeg"))]
         channel, thread = ev.get("channel"), ev.get("thread_ts") or ev.get("ts")
         pdf_names = [f["name"] for f in files if f["name"].lower().endswith(".pdf")]
+        # Best-effort brand hint; the worker resolves it for real from the whole thread
+        # (and asks conversationally if it genuinely can't tell). Always enqueue — never
+        # reject up front, so thread context (PDFs posted in earlier messages) is used.
         brand = amb.thread_brand(channel, thread) or amb.parse_request(text, pdf_names)["brand"]
-        if brand == "unknown":
-            say(channel, thread, "Which brand is this? Mention me with the brand "
-                "(e.g. `@AMB build a storyboard for Superpower`) + the PDFs, and I'll remember it for this thread.")
-            return
-        amb.link_thread(channel, thread, brand)
-        rows = enqueue_job(status="queued", action=amb.followup_action(text), brand=brand,
+        rows = enqueue_job(status="queued", action="auto", brand=("" if brand == "unknown" else brand),
                            channel=channel, thread_ts=thread, user_id=ev.get("user"),
                            files=files, note=text, slack_event_id=data.get("event_id"))
         if rows:  # first delivery (not a Slack retry)
-            say(channel, thread, f":hourglass_flowing_sand: *{brand}* — queued, building now…")
+            say(channel, thread, ":hourglass_flowing_sand: on it — reading the thread…")
 
     def _command(self, form):
         parts = (form.get("text") or "").strip().split(maxsplit=2)

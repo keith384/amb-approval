@@ -356,40 +356,51 @@ def followup_action(text: str) -> str:
     return "unknown"
 
 
-def interpret_followup(brand: str, text: str, stage: str = "", has_images: bool = False) -> dict:
-    """Interpret a free-form in-thread request → {action, entry_key, reply}. Uses the LLM
-    for real conversational routing; falls back to keywords with no ANTHROPIC_API_KEY."""
+def interpret_followup(brand: str, text: str, stage: str = "", has_images: bool = False,
+                       has_pdfs: bool = False, thread_text: str = "") -> dict:
+    """Interpret a free-form in-thread request using the WHOLE thread for context →
+    {action, entry_key, reply}. LLM-driven; falls back to keywords with no API key."""
     clean = re.sub(r"<@[^>]+>", "", text or "").strip()
     fallback = {"action": followup_action(clean), "entry_key": entry_key(clean), "reply": ""}
-    if fallback["action"] == "unknown" and (fallback["entry_key"] or has_images):
+    # PDFs in the thread + a build/visual intent (or nothing specific) → full build.
+    if has_pdfs and fallback["action"] in ("storyboard", "brand-doc", "unknown"):
+        fallback["action"] = "build"
+    elif fallback["action"] == "unknown" and (fallback["entry_key"] or has_images):
         fallback["action"] = "storyboard"
     if not os.environ.get("ANTHROPIC_API_KEY"):
         return fallback
     try:
         import anthropic
         sysmsg = (
-            "You route a teammate's in-thread request about an Apple Messages for Business "
-            "storyboard project to ONE action. Actions:\n"
-            "- storyboard: (re)generate or re-render the UX storyboard deck. Use for ANYTHING "
-            "visual: entry points, phone screens, mockups, images, bubbles, colors, a specific "
-            "section/step, 'mock up', 'redo', 'use X in place of the phone'.\n"
-            "- brand-doc: regenerate the brand nomination doc / use cases / readiness.\n"
+            "You are the AMB bot, helping a teammate build an Apple Messages for Business brand "
+            "submission, conversationally, inside a Slack thread. Read the WHOLE thread for context "
+            "— attachments, the brand, and anything already discussed. Choose ONE action:\n"
+            "- build: generate the brand doc AND storyboard from the brand's PDFs. Use whenever PDFs "
+            "are available and there's no existing review (e.g. 'storyboard for X using the attached PDFs').\n"
+            "- storyboard: re-render/adjust the EXISTING storyboard (entry points, images, bubbles, a "
+            "section) — only when a review already exists.\n"
+            "- brand-doc: regenerate the brand nomination doc / use cases.\n"
             "- review: run the experience video review.\n"
             "- status: report pipeline status.\n"
-            "- feedback: the user is relaying Apple's feedback to log against the rules.\n"
-            "- note: just record a comment; no tool run.\n"
-            "If the request names an entry-point type, set entry_key to one of "
-            "[website, app, maps, search, social, email, sms, qr, ivr, invitation], else null. "
-            "reply = one short sentence confirming what you will do, in the first person. "
+            "- feedback: log Apple's feedback against the rules.\n"
+            "- ask: you genuinely can't tell the brand or can't find the PDFs from the thread — put a "
+            "specific, friendly question in reply.\n"
+            "- note: just acknowledge a comment.\n"
+            "entry_key: one of [website,app,maps,search,social,email,sms,qr,ivr,invitation] or null.\n"
+            "reply: ONE friendly, first-person sentence — a confirmation of what you'll do, or (for "
+            "ask) the question. NEVER tell the user to run slash commands or '/amb …'.\n"
             'Return STRICT JSON {"action","entry_key","reply"}.')
-        usr = f"PROJECT: {brand} (stage: {stage or 'unknown'}). has_images={has_images}.\nMESSAGE: {clean}"
+        usr = (f"PROJECT: {brand or 'unknown'} (stage: {stage or 'none'}). "
+               f"PDFs available in thread: {has_pdfs}. Images available: {has_images}.\n"
+               f"THREAD CONTEXT:\n{(thread_text or '(none)')[:4000]}\n\nLATEST REQUEST: {clean}")
         client = anthropic.Anthropic()
         r = client.messages.create(model=os.environ.get("AMB_LLM_MODEL", "claude-opus-4-8"),
                                    max_tokens=400, system=sysmsg,
                                    messages=[{"role": "user", "content": usr}])
         m = re.search(r"\{.*\}", r.content[0].text, re.S)
         out = json.loads(m.group(0)) if m else {}
-        action = out.get("action") if out.get("action") in DISPATCH or out.get("action") in ("feedback", "note") else fallback["action"]
+        valid = set(DISPATCH) | {"build", "feedback", "note", "ask"}
+        action = out.get("action") if out.get("action") in valid else fallback["action"]
         return {"action": action, "entry_key": out.get("entry_key") or fallback["entry_key"],
                 "reply": (out.get("reply") or "").strip()}
     except Exception:
