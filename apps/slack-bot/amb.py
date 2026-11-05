@@ -167,7 +167,11 @@ def _log(d: Path, action: str, detail: str = ""):
 
 
 def _run(cmd: list[str], cwd: Path) -> tuple[bool, str]:
-    r = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True)
+    # Tool scripts run as a subprocess under this same Python. On serverless (Vercel)
+    # the installed deps (pypdf/anthropic/Pillow) are on the handler's sys.path but NOT
+    # a bare child's, so forward sys.path via PYTHONPATH or the child ModuleNotFoundErrors.
+    env = {**os.environ, "PYTHONPATH": os.pathsep.join(p for p in sys.path if p)}
+    r = subprocess.run(cmd, cwd=str(cwd), capture_output=True, text=True, env=env)
     return r.returncode == 0, (r.stdout + r.stderr)[-3000:]
 
 
