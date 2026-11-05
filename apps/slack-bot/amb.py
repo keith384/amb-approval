@@ -20,8 +20,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent.parent
-BRANDS = REPO / "brands"
-TOOLS = REPO / "tools"
+# Data dir is env-overridable so the serverless worker can write to /tmp (Vercel's
+# filesystem is read-only except /tmp). Locally it defaults to the repo's brands/.
+BRANDS = Path(os.environ.get("AMB_DATA_DIR") or (REPO / "brands"))
+TOOLS = Path(os.environ.get("AMB_TOOLS_DIR") or (REPO / "tools"))
 
 STAGES = ["brand_approval", "ux_approval", "experience_review", "launch"]
 
@@ -101,8 +103,23 @@ def _brand_dir(brand: str) -> Path:
 
 
 # ── Thread ↔ project memory (so a thread stays persistent: a follow-up mention in
-#    the same thread resolves the brand without re-naming it). Bot-local JSON. ──
+#    the same thread resolves the brand without re-naming it). Backed by Supabase
+#    (amb_thread) so it's shared across the serverless front-door + worker; falls
+#    back to a local JSON file when Supabase isn't configured (e.g. CLI use). ──
 _THREADS = BRANDS / ".threads.json"
+
+def _sb_get(path: str, params: str):
+    """GET rows from PostgREST; returns a list (empty on any failure)."""
+    url, key = _sb_cfg()
+    if not url:
+        return []
+    req = urllib.request.Request(
+        f"{url}/rest/v1/{path}{params}",
+        headers={"apikey": key, "Authorization": f"Bearer {key}"})
+    try:
+        return json.loads(urllib.request.urlopen(req).read())
+    except Exception:
+        return []
 
 def _load_threads() -> dict:
     try:
@@ -111,9 +128,21 @@ def _load_threads() -> dict:
         return {}
 
 def thread_brand(channel: str, thread_ts: str) -> str | None:
+    url, _ = _sb_cfg()
+    if url:
+        import urllib.parse
+        rows = _sb_get("amb_thread", f"?channel=eq.{urllib.parse.quote(channel)}"
+                       f"&thread_ts=eq.{urllib.parse.quote(thread_ts)}&select=brand&limit=1")
+        return rows[0]["brand"] if rows else None
     return _load_threads().get(f"{channel}:{thread_ts}")
 
 def link_thread(channel: str, thread_ts: str, brand: str):
+    url, _ = _sb_cfg()
+    if url:
+        _sb("amb_thread", [{"channel": channel, "thread_ts": thread_ts, "brand": brand,
+                            "updated_at": datetime.now(timezone.utc).isoformat()}],
+            "?on_conflict=channel,thread_ts")
+        return
     m = _load_threads()
     k = f"{channel}:{thread_ts}"
     if m.get(k) != brand:
